@@ -1,0 +1,110 @@
+.button {
+  border-radius: 5px;
+  display: flex;
+  padding: 10px 8px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.primary {
+  background: var(--purple);
+  border: none;
+  color: var(--white);
+}
+
+.primary:hover {
+  background-color: var(--hoverPrimaryBlue);
+  color: var(--white);
+}
+
+.primary:active {
+  background-color: var(--activePrimaryBlue);
+  color: var(--white);
+}
+
+.secondary {
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  background: transparent;
+}
+
+.secondary:hover {
+  color: var(--purple);
+  border: 2px solid var(--purple);
+}
+
+.secondary:active {
+  border: 1px solid var(--secondaryActive);
+  color: var(--secondaryActive);
+}
+
+.tertiary {
+  color: var(--white-body-text, #fff);
+  background: #2ba792;
+  border: none;
+}
+
+.tertiary:hover {
+  background: var(--tertiatyButtonHover);
+}
+
+.tertiary:active {
+  background: var(--tertiaryButtonActive);
+}
+
+.null {
+  color: var(--purple);
+  border: none;
+  background: transparent;
+}
+
+.invalid {
+  border: 1px solid var(--red);
+  color: var(--red);
+  background: transparent;
+}
+
+.delete {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+}
+
+.button:disabled {
+  background-color: var(--disabled);
+}
+
+.black {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+}
+
+.white {
+  color: var(--black);
+  background: var(--white);
+  border: none;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .button {
+    font-size: 14px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    font-size: 14px;
+    line-height: 23px;
+  }
+}
