@@ -1,8 +1,7 @@
-import { useNavigate, Link } from "react-router-dom";
-import { iseLogo } from "../../Assets/Images";
-import classes from "./LoginEmailTemplate.module.css";
 import { Button } from "../../Components";
-import { facebook, linkedin, twitter, instagram } from "../../Assets/Images";
+import { useNavigate, Link } from "react-router-dom";
+import classes from "./LoginEmailTemplate.module.css";
+import { iseLogo, facebook, linkedin, twitter, instagram } from "../../Assets/Images";
 
 const LoginEmailTemplate = () => {
   const navigate = useNavigate();

@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
 import classes from "./LoginPage.module.css";
 import { login, iseLogo } from "../../Assets/Images";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Input, OnboardingLayout } from "../../Components";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   return (
     <OnboardingLayout image={login}>
       <section className={classes.container}>
@@ -36,7 +38,12 @@ const LoginPage = () => {
           </div>
 
           <div className={classes.buttonSection}>
-            <Button>Log in</Button>
+            <Button
+              onClick={() => {
+                navigate("/tutor-complete-profile");
+              }}>
+                <span>Log in</span>
+              </Button>
           </div>
         </form>
       </section>

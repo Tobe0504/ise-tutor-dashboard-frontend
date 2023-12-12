@@ -1,9 +1,7 @@
 import { useState } from "react";
-import Input from "../../Components/Input/Input";
-import ProfileSectionContainer from "../../Components/ProfileSectionContainer/ProfileSectionContainer";
 import classes from "./ProfileProfileAbout.module.css";
-import noProfileImage from "../../Assets/Images/noProfileImage.svg";
-import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
+import { noProfileImage } from "../../Assets/Images";
+import { Input, DropdownWithSearch } from "../../Components";
 
 const ProfileProfileAbout = () => {
   // States
@@ -33,15 +31,19 @@ const ProfileProfileAbout = () => {
     });
   };
 
+  const removeImage = () => {
+    setUserImage((prevState: any) => {
+      return { ...prevState, frontendFile: null, file: null };
+    });
+  };
+
   return (
     <div className={classes.container}>
-      <ProfileSectionContainer
-        header="About"
-        paragraph="Tell us about yourself so we can know you better"
-      >
-        <div className={classes.userDetails}>
-          <Input isRequired label="Full name" placeholder="Full name" />
-
+      <div className={classes.userDetails}>
+        <div>
+          <div className={classes.profilePhotoHeader}>
+            <h4>Upload your profile picture</h4>
+          </div>
           <div className={classes.profilePhoto}>
             <div>
               <img
@@ -54,36 +56,41 @@ const ProfileProfileAbout = () => {
               />
               <div className={classes.buttonUpper}>
                 <input type="file" id="profilePhoto" onChange={imageHandler} />
-                <label htmlFor="profilePhoto">Upload photo</label>
+                <label htmlFor="profilePhoto">Browse</label>
+                <label onClick={removeImage}>Remove</label>
               </div>
             </div>
           </div>
+        </div>
 
-          <p className={classes.profilePhotoTip}>
-            Maximum size: 1MB. Supported formats: JPG, GIF, or PNG.
-          </p>
+        <div className={classes.inputName}>
+          <Input isRequired label="Name" placeholder="Gloria Davis" />
+          <p className={classes.infoTip}>You can always edit this later</p>
+        </div>
 
-          <DropdownWithSearch
-            label="Gender"
-            options={[]}
-            isRequired
-            title="Select"
-          />
+        <Input
+          isRequired
+          label="Headline"
+          placeholder="e.g Top recruiter at Google"
+        />
 
+        <DropdownWithSearch
+          label="Gender"
+          options={[]}
+          isRequired
+          title="Select"
+        />
+
+        <div>
           <DropdownWithSearch
             label="Country"
             options={[]}
             isRequired
             title="Select"
           />
-
-          <DropdownWithSearch
-            label="Preferred language"
-            options={[]}
-            title="Select"
-          />
+          <p className={classes.infoTip}>Use your current location</p>
         </div>
-      </ProfileSectionContainer>
+      </div>
     </div>
   );
 };

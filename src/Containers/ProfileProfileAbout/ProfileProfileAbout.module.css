@@ -1,46 +1,55 @@
 .profilePhoto {
-  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-.profilePhoto > p {
+.profilePhotoHeader>h4 {
+  font-weight: 400;
+  font-size: 1.125rem;
+  padding-bottom: 16px;
+  font-family: Archivo;
+}
+
+.profilePhoto>p {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 27px;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 
-.profilePhoto > div {
+.profilePhoto>div {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.profilePhoto > div > img {
+.profilePhoto>div>img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.profilePhoto > div > div {
+.profilePhoto>div>div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
 }
 
-.buttonUpper > input {
+.buttonUpper>input {
   display: none;
 }
 
-.buttonUpper > label {
+.buttonUpper>label {
   padding: 5px 20px;
   border-radius: 5px;
   border: 2px solid var(--purple);
   background: var(--white);
   color: var(--purple);
+  text-align: center;
   font-family: Archivo;
   font-size: 13px;
   font-style: normal;
@@ -48,7 +57,12 @@
   line-height: 21px;
 }
 
-.profilePhoto > div > div > button {
+.buttonUpper>label:nth-child(2) {
+  color: var(--white);
+  background: var(--purple);
+}
+
+.profilePhoto>div>div>button {
   width: 85px;
   height: 31px;
   object-fit: cover;
@@ -56,43 +70,47 @@
   line-height: 140px;
 }
 
-.profilePhotoTip {
+.inputName {
+  margin-bottom: 1em;
+}
+
+.infoTip {
   color: var(--grey3);
   font-family: Archivo;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  margin-top: 16px;
+  margin-top: -1.5em;
 }
 
-@media screen and (min-width: 767px) and (max-width: 1023px) {
+@media screen and (min-width: 767px) {
   .profilePhoto {
-    margin-top: 40px;
     display: flex;
-    padding: 24px;
+    padding: 16px 0;
     background: var(--foundation-primary-p-10, #fbfaff);
+  }
+
+  .profilePhoto>div>img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 50%;
   }
 
   .buttonUpper {
     justify-content: center;
   }
 
-  .profilePhoto > div > .buttonUpper {
+  .profilePhoto>div>.buttonUpper {
     flex-basis: 100%;
-  }
-
-  .profilePhotoTip {
-    font-size: 12px;
-    line-height: 23px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .profilePhoto {
-    margin-top: 40px;
     display: flex;
-    padding: 24px;
     background: var(--foundation-primary-p-10, #fbfaff);
   }
 
@@ -100,12 +118,7 @@
     justify-content: center;
   }
 
-  .profilePhoto > div > .buttonUpper {
+  .profilePhoto>div>.buttonUpper {
     flex-basis: 100%;
-  }
-
-  .profilePhotoTip {
-    font-size: 12px;
-    line-height: 23px;
   }
 }

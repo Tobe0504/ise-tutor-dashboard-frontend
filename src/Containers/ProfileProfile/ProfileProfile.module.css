@@ -1,14 +1,4 @@
-.container > div:not(:first-child),
-.container > section:not(:first-child) {
-  padding: 2rem 0;
-}
-
-.container > div:not(:last-child),
-.container > section:not(:last-child) {
-  border-bottom: 1px solid var(--sectionBorder);
-}
-
 .container > div:first-child,
 .container > section:first-child {
-  padding-bottom: 2rem;
+  padding-bottom: 1em;
 }

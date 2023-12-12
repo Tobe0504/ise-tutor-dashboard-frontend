@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ErrorPage, ForgotPassword } from './Containers';
-import { Login, LoginEmailTemplatePage} from "./Pages";
+import { Login, LoginEmailTemplatePage, TutorCompleteProfilePage } from "./Pages";
 
 
 function App() {
@@ -13,6 +13,8 @@ function App() {
 
       <Route path="/sign-in" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      <Route path="/tutor-complete-profile" element={<TutorCompleteProfilePage />} />
 
     </Routes>
   );

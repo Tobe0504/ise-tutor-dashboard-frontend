@@ -1,23 +1,22 @@
-import Input from "../../Components/Input/Input";
-import ProfileSectionContainer from "../../Components/ProfileSectionContainer/ProfileSectionContainer";
-import TextArea from "../../Components/TextArea/TextArea";
+import { TextArea, Input } from "../../Components";
 import classes from "./ProfileProfileAdditionalDetails.module.css";
 
 const ProfileProfileAdditionalDetails = () => {
   return (
-    <ProfileSectionContainer
-      header="Top skills"
-      paragraph=" Let’s be friends. Share more information with us if you’d like."
-    >
-      <div className={classes.container}>
+    <div className={classes.container}>
+      <div>
         <Input
           label="Linkedin profile"
-          placeholder="Enter profile link"
+          placeholder="E.g: https://www.linkedin.com/in/johndoe "
           isRequired
         />
-        <TextArea label="Bio" placeholder="Tell us about you" isRequired />
+        <p className={classes.infoTip}>
+          Copy and paste your Linkedin URL
+        </p>
       </div>
-    </ProfileSectionContainer>
+
+      <TextArea label="Bio" placeholder="Tell us more about yourself, and your achievements " isRequired />
+    </div>
   );
 };
 

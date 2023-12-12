@@ -1,9 +1,9 @@
-// import { TutorCompleteProfile } from "../Containers"
+import { TutorCompleteProfile } from "../Containers"
 
 const TutorCompleteProfilePage = () => {
   return (
     <div>
-        {/* <TutorCompleteProfile /> */}
+        <TutorCompleteProfile />
     </div>
   )
 }

@@ -1,7 +1,5 @@
 .container {
   width: 100%;
-  margin: auto;
-  max-width: 43.75em;
   color: var(--grey5);
   background-color: var(--white);
 }
@@ -15,14 +13,17 @@
 .header>img {
   width: 35px;
   height: 33px;
+  object-fit: cover;
 }
 
 .main,
 .footer {
   gap: 1.5em;
   display: flex;
+  margin: auto;
   padding: 2em 3vw;
   text-align: left;
+  max-width: 43.75em;
   flex-direction: column;
   background-color: var(--bodyBackgroundColor);
 }
@@ -58,7 +59,7 @@
 
 .buttonContainer {
   width: 100%;
-  max-width: 15em;
+  max-width: 15.25em;
 }
 
 .buttonInner {
@@ -68,7 +69,7 @@
 }
 
 .footer {
-  padding: 0 3vw 5vw;
+  padding: 0 0 5vw;
 }
 
 .footer>h4 {
@@ -85,7 +86,12 @@
 
 @media screen and (min-width: 43.75em) {
   .header {
-    display: none;
+    padding: 3vw 5vw;
+  }
+
+  .header>img {
+    height: 53px;
+    width: 53px;
   }
 
   .main,

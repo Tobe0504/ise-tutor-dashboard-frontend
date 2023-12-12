@@ -1,5 +1,4 @@
-import ProfileProfileAbout from "../ProfileProfileAbout/ProfileProfileAbout";
-import ProfileProfileAdditionalDetails from "../ProfileProfileAdditionalDetails/ProfileProfileAdditionalDetails";
+import { ProfileProfileAbout, ProfileProfileAdditionalDetails } from "../../Containers";
 import classes from "./ProfileProfile.module.css";
 
 const ProfileProfile = () => {
