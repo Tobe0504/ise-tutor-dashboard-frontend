@@ -1,0 +1,99 @@
+.container {
+  width: 100%;
+  margin: auto;
+  max-width: 43.75em;
+  color: var(--grey5);
+  background-color: var(--white);
+}
+
+.header {
+  width: 100%;
+  padding: 3vw;
+  background-color: var(--white);
+}
+
+.header>img {
+  width: 35px;
+  height: 33px;
+}
+
+.main,
+.footer {
+  gap: 1.5em;
+  display: flex;
+  padding: 2em 3vw;
+  text-align: left;
+  flex-direction: column;
+  background-color: var(--bodyBackgroundColor);
+}
+
+.mainHeader {
+  gap: 2em;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--veryLightPurple);
+}
+
+.mainHeader>h3 {
+  font-weight: 500;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.mainBody,
+.footer {
+  gap: 2em;
+  display: flex;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  flex-direction: column;
+}
+
+.loginDetailsList {
+  padding: 0 0 0 1.85em;
+}
+
+.buttonContainer {
+  width: 100%;
+  max-width: 15em;
+}
+
+.buttonInner {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  padding: 0 3vw 5vw;
+}
+
+.footer>h4 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer>div {
+  gap: 1.5em;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+@media screen and (min-width: 43.75em) {
+  .header {
+    display: none;
+  }
+
+  .main,
+  .footer {
+    background-color: var(--white);
+  }
+
+  .mainHeader>h3 {
+    font-size: 1.5625rem;
+  }
+}

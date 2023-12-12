@@ -1,13 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Archivo", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: Archivo, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.buttonInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+:root {
+  --purple: #664efe;
+  --white: #fff;
+  --grey: #2e2e2e;
+  --greyWhite: #eeebfe;
+  --green: #1b695c;
+  --grey3: #737373;
+  --grey4: #515151;
+  --grey5: #3a3a3a;
+  --lightGreen: #dff7f3;
+  --border: 1px solid red;
+  --border2: 1px solid green;
+  --purple2: rgba(220, 215, 254, 1);
+  --blue: rgba(102, 78, 254, 1);
+  --transition: all 0.3s ease-in-out;
+  --hoverPrimaryBlue: #4e34fe;
+  --activePrimaryBlue: #3b368d;
+  --disabled: #b9b9b9;
+  --secondaryOutline: #282560;
+  --secondaryHover: #242257;
+  --secondaryActive: #3b368d;
+  --teamCardBorderPurple: #cac2fe;
+  --red: #dc362e;
+  --red2: #cd2a22;
+  --red3: #e04a43;
+  --sideNavBackground: #fbfaff;
+  --sectionBorder: #d8d8d8;
+  --bodyBackgroundColor: #f7f7f7;
+  --veryLightPurple: #dcd7fe;
+  --veryVeryLightPurple: #f7f5ff;
+  --successGreen: #63ad0e;
+  --borderPurple: #a79afe;
+  --borderGrey: #e8e8e8;
+  --threeSecTransition: all 0.3s ease-in-out;
+  --borderGreen: #89e1d2;
+  --lightGreen: #f7fdfc;
+  --progressBarYellow: #ffedad;
+  --progressBarIndicatorYellow: #fdc500;
+  --sectionsNav: #efefef;
+  --greyModulesBorder: #e0e0e0;
+  --black: #011627;
+  --getStartedBorder: #d0d0d0;
+  --scheduleRightCtaGreen: #effbf9;
+  --paidIndicatorGreen: #38ccb3;
+  --tertiatyButtonHover: #38ccb3;
+  --tertiaryButtonActive: #38ccb3;
+  --deleteRed: #e35e58;
+  --black2: #121212;
+  --timerGreen: #2ba792;
+  --modalGreen: #57970c;
+  --isCorrectGreen: #eefcde;
 }

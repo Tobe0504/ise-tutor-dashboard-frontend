@@ -1,0 +1,48 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  overflow-y: hidden;
+}
+.textSection {
+  width: 45%;
+  overflow-y: auto;
+  height: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.textSection::-webkit-scrollbar {
+  display: none;
+}
+
+.imageSection {
+  height: 100%;
+  width: 55%;
+}
+
+.imageSection > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .imageSection {
+    display: none;
+  }
+
+  .textSection {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .imageSection {
+    display: none;
+  }
+
+  .textSection {
+    width: 100%;
+  }
+}
