@@ -1,0 +1,35 @@
+.container{
+    padding: 1rem 2rem;
+    position: relative;
+height: 100%;
+overflow-x: hidden; 
+box-sizing: border-box;
+
+}
+
+.sideNavItems{
+    margin-top: 48px;
+}
+
+.navItem{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 48px;
+}
+
+.navItem > span:nth-child(1){
+    width: 15px;
+    height: 15px;
+    
+}
+
+.navItem > span:nth-child(2){
+  flex: 1
+}
+
+.lastNavItem{
+position: absolute; 
+bottom: 0;
+width: 80%;
+}
