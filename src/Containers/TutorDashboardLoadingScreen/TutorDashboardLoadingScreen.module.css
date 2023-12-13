@@ -1,3 +1,30 @@
+.container {
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.leftSection {
+    width: 300px;
+    border-right: 1px solid var(--sideNavBorder);
+}
+
+.rightSection {
+    flex: 1;
+}
+
+.header {
+    height: 70px;
+
+}
+
+.body {
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    background: #F1F1F1;
+}
+
 @media screen and (max-width: 768px) {
     .container {
         display: none;

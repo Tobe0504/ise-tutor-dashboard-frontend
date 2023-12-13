@@ -35,14 +35,14 @@
 
 
 .title {
-  padding: 1em 3vw;
+  padding: 1rem 3vw;
   text-align: left;
   margin-top: 1.5rem;
 }
 
 .title h3 {
   font-weight: 500;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   font-size: 1.375rem;
   font-family: Archivo;
 }
@@ -67,7 +67,7 @@
 .buttonContainer>button {
   float: right;
   width: 100% !important;
-  max-width: 15.25em !important;
+  max-width: 15.25rem !important;
 }
 
 @media screen and (min-width: 767px) {
@@ -85,7 +85,7 @@
 
   .title h3 {
     font-size: 2.5rem;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
   }
 
   .title p {
