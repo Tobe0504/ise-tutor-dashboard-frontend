@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../../Components";
+import Button from "../../Components/Button/Button";
 import classes from "./404Page.module.css";
-import { errorImage } from "../../Assets/Images";
+import errorImage from "../../Assets/Images/404Image.svg"
+
 
 const ErrorPage = () => {
   const navigate = useNavigate();

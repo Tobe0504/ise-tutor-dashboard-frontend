@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import { iseLogo } from "../../Assets/Images";
+import iseLogo from "../../Assets/Images/iseLogo.svg";
+import facebook from "../../Assets/Images/facebook.svg";
+import linkedin from "../../Assets/Images/linkedin.svg";
+import twitter from "../../Assets/Images/twitter.svg";
+import instagram from "../../Assets/Images/instagram.svg";
 import classes from "../LoginEmailTemplate/LoginEmailTemplate.module.css";
-import { facebook, linkedin, twitter, instagram } from "../../Assets/Images";
 
-const LoginEmailTemplate = () => {
+const ForgotPassword = () => {
 
   return (
     <section className={classes.container}>
@@ -56,4 +59,4 @@ const LoginEmailTemplate = () => {
   );
 };
 
-export default LoginEmailTemplate;
+export default ForgotPassword;

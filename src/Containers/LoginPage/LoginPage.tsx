@@ -1,7 +1,10 @@
 import classes from "./LoginPage.module.css";
-import { login, iseLogo } from "../../Assets/Images";
 import { useNavigate, Link } from "react-router-dom";
-import { Button, Input, OnboardingLayout } from "../../Components";
+import login from "../../Assets/Images/login.svg";
+import iseLogo from "../../Assets/Images/iseLogo.svg"
+import Input from "../../Components/Input/Input";
+import Button from "../../Components/Button/Button";
+import OnboardingLayout from "../../Components/OnboardingLayout/OnboardingLayout";
 
 const LoginPage = () => {
   const navigate = useNavigate();

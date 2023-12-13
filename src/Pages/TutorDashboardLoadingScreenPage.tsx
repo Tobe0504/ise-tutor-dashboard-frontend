@@ -1,11 +1,12 @@
-import { TutorDashboardLoadingScreen, TutorDashboardLoadingScreenMobile } from "../Containers"
+import TutorDashboardLoadingScreen from "../Containers/TutorDashboardLoadingScreen/TutorDashboardLoadingScreen"
+import TutorDashboardLoadingScreenMobile from "../Containers/TutorDashboardLoadingScreenMobile/TutorDashboardLoadingScreenMobile"
 
 const TutorDashboardLoadingScreenPage = () => {
   return (
-    <div>
+    <>
       <TutorDashboardLoadingScreen />
       <TutorDashboardLoadingScreenMobile />
-    </div>
+    </>
   )
 }
 

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import classes from "./ProfileProfileAbout.module.css";
-import { noProfileImage } from "../../Assets/Images";
-import { Input, DropdownWithSearch } from "../../Components";
+import noProfileImage from "../../Assets/Images/noProfileImage.svg";
+import Input from "../../Components/Input/Input";
+import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
 
 const ProfileProfileAbout = () => {
   // States

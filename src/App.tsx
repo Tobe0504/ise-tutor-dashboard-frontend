@@ -1,7 +1,11 @@
 import React from 'react';
 import { Navigate, Route, Routes } from "react-router-dom";
-import { ErrorPage, ForgotPassword } from './Containers';
-import { Login, LoginEmailTemplatePage, TutorCompleteProfilePage, TutorDashboardLoadingScreenPage } from './Pages';
+import ErrorPage from './Containers/404Page/404Page';
+import ForgotPassword from './Containers/ForgotPassword/ForgotPassword';
+import Login from './Pages/Login';
+import LoginEmailTemplatePage from './Pages/LoginEmailTemplatePage';
+import TutorCompleteProfilePage from './Pages/TutorCompleteProfilePage';
+import TutorDashboardLoadingScreenPage from './Pages/TutorDashboardLoadingScreenPage';
 
 
 function App() {

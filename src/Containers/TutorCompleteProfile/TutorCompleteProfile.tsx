@@ -1,11 +1,11 @@
-import { Button } from "../../Components";
-import { iseLogo } from "../../Assets/Images";
 import { useNavigate } from "react-router-dom";
-import { ProfileProfile } from "../../Containers";
+import Button from "../../Components/Button/Button";
+import iseLogo from "../../Assets/Images/iseLogo.svg"
+import ProfileProfile from "../ProfileProfile/ProfileProfile";
 import classes from "./TutorCompleteProfile.module.css";
 
 
-const Profile = () => {
+const TutorCompleteProfile = () => {
   const navigate = useNavigate();
 
   return (
@@ -51,4 +51,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default TutorCompleteProfile;

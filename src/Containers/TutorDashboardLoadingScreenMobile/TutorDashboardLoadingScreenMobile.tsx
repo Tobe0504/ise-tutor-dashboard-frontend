@@ -1,5 +1,5 @@
 import { Skeleton } from '@mui/material';
-import { iseLogo } from '../../Assets/Images';
+import iseLogo from '../../Assets/Images/iseLogo.svg'
 import classes from './TutorDashboardLoadingScreenMobile.module.css'
 
 

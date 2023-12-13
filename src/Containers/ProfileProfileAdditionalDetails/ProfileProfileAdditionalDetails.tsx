@@ -1,4 +1,5 @@
-import { TextArea, Input } from "../../Components";
+import Input from "../../Components/Input/Input";
+import TextArea from "../../Components/TextArea/TextArea";
 import classes from "./ProfileProfileAdditionalDetails.module.css";
 
 const ProfileProfileAdditionalDetails = () => {

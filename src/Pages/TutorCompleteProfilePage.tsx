@@ -1,9 +1,7 @@
-import { TutorCompleteProfile } from "../Containers"
+import TutorCompleteProfile from "../Containers/TutorCompleteProfile/TutorCompleteProfile"
 
 const TutorCompleteProfilePage = () => {
-  return (
-        <TutorCompleteProfile />
-  )
+  return <TutorCompleteProfile />
 }
 
 export default TutorCompleteProfilePage

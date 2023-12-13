@@ -1,7 +1,11 @@
-import { Button } from "../../Components";
+import Button from "../../Components/Button/Button";
 import { useNavigate, Link } from "react-router-dom";
 import classes from "./LoginEmailTemplate.module.css";
-import { iseLogo, facebook, linkedin, twitter, instagram } from "../../Assets/Images";
+import iseLogo from "../../Assets/Images/iseLogo.svg";
+import facebook from "../../Assets/Images/facebook.svg";
+import linkedin from "../../Assets/Images/linkedin.svg";
+import twitter from "../../Assets/Images/twitter.svg";
+import instagram from "../../Assets/Images/instagram.svg";
 
 const LoginEmailTemplate = () => {
   const navigate = useNavigate();
