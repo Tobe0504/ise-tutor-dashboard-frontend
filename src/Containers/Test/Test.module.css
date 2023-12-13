@@ -7,24 +7,21 @@
 
 .leftSection{
     width: 300px; 
-    border: var(--border)
+    border-right: 1px solid var(--sideNavBorder);
 }
 
 .rightSection{
     flex: 1;
-    border: var(--border);
 }
 
 .header{
     height: 88px; 
-    border: var(--border);
 
 }
 
 .body{
     height: calc(100vh - 88px);
     overflow-y: auto;
-    border: var(--border);
     background: #F1F1F1;
 }
 
