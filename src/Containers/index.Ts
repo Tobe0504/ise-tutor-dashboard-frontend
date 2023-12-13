@@ -5,7 +5,9 @@ import ProfileProfile from "./ProfileProfile/ProfileProfile";
 import LoginEmailTemplate from "./LoginEmailTemplate/LoginEmailTemplate";
 import ProfileProfileAbout from "./ProfileProfileAbout/ProfileProfileAbout";
 import TutorCompleteProfile from "./TutorCompleteProfile/TutorCompleteProfile";
+import TutorDashboardLoadingScreen from "./TutorDashboardLoadingScreen/TutorDashboardLoadingScreen";
 import ProfileProfileAdditionalDetails from "./ProfileProfileAdditionalDetails/ProfileProfileAdditionalDetails";
+import TutorDashboardLoadingScreenMobile from "./TutorDashboardLoadingScreenMobile/TutorDashboardLoadingScreenMobile";
 
 export {
     ErrorPage,
@@ -15,5 +17,7 @@ export {
     LoginEmailTemplate,
     ProfileProfileAbout,
     TutorCompleteProfile,
+    TutorDashboardLoadingScreen,
     ProfileProfileAdditionalDetails,
+    TutorDashboardLoadingScreenMobile,
 };

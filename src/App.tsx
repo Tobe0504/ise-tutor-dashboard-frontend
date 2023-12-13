@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ErrorPage, ForgotPassword } from './Containers';
-import { Login, LoginEmailTemplatePage, TutorCompleteProfilePage } from "./Pages";
+import { Login, LoginEmailTemplatePage, TutorCompleteProfilePage, TutorDashboardLoadingScreenPage } from "./Pages";
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
       <Route path="/tutor-complete-profile" element={<TutorCompleteProfilePage />} />
+      <Route path="/tutor-dashboard" element={<TutorDashboardLoadingScreenPage />} />
 
     </Routes>
   );

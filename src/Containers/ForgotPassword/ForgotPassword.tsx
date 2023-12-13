@@ -8,9 +8,6 @@ const LoginEmailTemplate = () => {
   return (
     <section className={classes.container}>
       <div>
-        <header className={classes.header}>
-          <img src={iseLogo} alt="Ise Logo" className={classes.logo} />
-        </header>
         <main className={classes.main}>
           <div className={classes.mainHeader}>
             <img src={iseLogo} alt="Ise Logo" className={classes.logo} />

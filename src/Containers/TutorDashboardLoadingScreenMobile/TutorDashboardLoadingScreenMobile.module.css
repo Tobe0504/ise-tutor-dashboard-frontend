@@ -1,0 +1,17 @@
+.header {
+    width: 100%;
+    padding: 3vw;
+    background-color: var(--white);
+}
+
+.header>img {
+    width: 35px;
+    height: 33px;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+    .container, .header {
+        display: none;
+    }
+}
