@@ -1,11 +1,7 @@
 import LoginEmailTemplate from "../Containers/LoginEmailTemplate/LoginEmailTemplate"
 
 const LoginEmailTemplatePage = () => {
-  return (
-    <div>
-      <LoginEmailTemplate />
-    </div>
-  )
+  return <LoginEmailTemplate />
 }
 
 export default LoginEmailTemplatePage

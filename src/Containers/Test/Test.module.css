@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.leftSection{
+    width: 300px; 
+    border: var(--border)
+}
+
+.rightSection{
+    flex: 1;
+    border: var(--border);
+}
+
+.header{
+    height: 88px; 
+    border: var(--border);
+
+}
+
+.body{
+    height: calc(100vh - 88px);
+    overflow-y: auto;
+    border: var(--border);
+    background: #F1F1F1;
+}
+
