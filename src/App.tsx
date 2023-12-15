@@ -19,7 +19,7 @@ function App() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
       <Route path="/tutor-complete-profile" element={<TutorCompleteProfilePage />} />
-      <Route path="/tutor-dashboard" element={<TutorDashboardLoadingScreenPage />} />
+      <Route path="/tutor-dashboard-loader" element={<TutorDashboardLoadingScreenPage />} />
     </Routes>
   );
 }
