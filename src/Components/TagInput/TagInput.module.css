@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    color: var(--black2);
+    padding: 0.5rem 0.8rem;
+    font-size: small;
+    justify-content: flex-start;
+    border: 1.5px solid var(--black2);
+    background-color: var(--sideNavBackground);
+}
+
+.container:hover {
+    filter: brightness(0.9);
+}
+
+.inner {
+    gap: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner img {
+    height: 0.7rem;
+    object-fit: contain;
+}

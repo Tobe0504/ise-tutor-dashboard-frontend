@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './TutorProfileProfileCertifications.module.css';
 import ProfileSectionContainer from '../../Components/ProfileSectionContainer/ProfileSectionContainer';
 import Input from '../../Components/Input/Input';
+import TagInput from '../../Components/TagInput/TagInput';
 
 const TutorProfileProfileCertifications = () => {
     return (
@@ -15,6 +16,10 @@ const TutorProfileProfileCertifications = () => {
                     placeholder="Enter certification name"
                     isRequired
                 />
+                <div className={classes.tag}>
+                    <TagInput label='Advanced Programming Proficiency Certificate' />
+                    <TagInput label='DevOps Mastery Certificate' />
+                </div>
             </div>
         </ProfileSectionContainer>
     );
