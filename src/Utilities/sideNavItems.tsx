@@ -27,24 +27,31 @@ export const sideNavItems: sideNavItemsType = [
   },
 
   {
-    title: "Collaboration hub",
-    route: "/collaboration-hub",
-    keywords: ["collaboration-hub"],
+    title: "Student",
+    route: "/student",
+    keywords: ["student"],
+    otherOptions: null,
+    isVisible: true,
+  },
+  {
+    title: "Resources",
+    route: "/resources",
+    keywords: ["resources"],
     otherOptions: null,
     isVisible: true,
   },
 
-  // {
-  //   title: "Resources",
-  //   route: "/resources",
-  //   keywords: ["resources"],
-  //   otherOptions: null,
-  //   isVisible: true,
-  // },
+  {
+    title: "Schedule",
+    route: "/schedule",
+    keywords: ["schedule"],
+    otherOptions: null,
+    isVisible: true,
+  },
 
   {
     title: "Profile",
-    route: "/profile",
+    route: "/profile-info",
     keywords: ["profile"],
     otherOptions: null,
     isVisible: true,
@@ -54,14 +61,6 @@ export const sideNavItems: sideNavItemsType = [
     title: "Support",
     route: "/support",
     keywords: ["support"],
-    otherOptions: null,
-    isVisible: true,
-  },
-
-  {
-    title: "Referral",
-    route: "/referral",
-    keywords: ["referral"],
     otherOptions: null,
     isVisible: true,
   },

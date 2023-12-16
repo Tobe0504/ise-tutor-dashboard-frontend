@@ -1,0 +1,94 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.sideNavSection {
+  width: 294px;
+  border-right: 1px solid var(--teamCardBorderPurple);
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.header {
+  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+.bodyMain {
+  flex: 1;
+  background: var(--bodyBackgroundColor);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: auto;
+}
+
+.children {
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.rightCTASection {
+  width: 294px;
+  margin-left: auto;
+  height: 100%;
+  border-left: 1px solid var(--sectionBorder);
+  background: var(--white);
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .sideNavSection {
+    display: none;
+  }
+
+  .rightCTASection {
+    width: 100%;
+    height: auto;
+  }
+
+  .bodyMain {
+    flex-direction: column;
+  }
+
+  .children {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    height: 49px;
+  }
+
+  .sideNavSection {
+    display: none;
+  }
+
+  .rightCTASection {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+
+  .bodyMain {
+    flex-direction: column;
+  }
+
+  .children {
+    width: 100%;
+  }
+}

@@ -1,0 +1,51 @@
+.container {
+  padding: 1.5rem 3rem;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--sideNavBackground);
+}
+
+.logoSection {
+  width: 53px;
+  height: 50px;
+}
+
+.navSection {
+  margin-top: 30px;
+}
+
+.navSection > a,
+.navSection > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  transition: all 0.3s ease-in-out;
+}
+
+.active {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.active > svg {
+  color: var(--white);
+  stroke: var(--white);
+}
+
+.inActive {
+  color: var(--grey);
+  stroke: var(--grey);
+}
+
+.logout {
+  margin-top: 3rem;
+}
