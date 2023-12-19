@@ -1,6 +1,12 @@
+.container {
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .container > div:not(:first-child),
 .container > section:not(:first-child) {
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .container > div:not(:last-child),
@@ -10,5 +16,5 @@
 
 .container > div:first-child,
 .container > section:first-child {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 }

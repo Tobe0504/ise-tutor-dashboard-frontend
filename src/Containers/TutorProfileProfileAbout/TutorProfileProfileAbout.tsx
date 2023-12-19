@@ -56,6 +56,7 @@ const TutorProfileProfileAbout = () => {
               <div className={classes.buttonUpper}>
                 <input type="file" id="profilePhoto" onChange={imageHandler} />
                 <label htmlFor="profilePhoto">Upload photo</label>
+                <label>Remove photo</label>
               </div>
             </div>
           </div>
@@ -95,6 +96,10 @@ const TutorProfileProfileAbout = () => {
             options={[]}
             title="Select"
           />
+        </div>
+        <div className={classes.buttonLower}>
+          <button type="button">Cancel</button>
+          <button type="button">Save changes</button>
         </div>
       </ProfileSectionContainer>
     </div>

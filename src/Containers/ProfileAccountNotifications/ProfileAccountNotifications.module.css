@@ -1,0 +1,57 @@
+.notifications {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.notifications > div:nth-child(1) > h5 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 0.5rem;
+}
+
+.notifications > div:nth-child(1) > p {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .notifications {
+    margin-bottom: 1rem;
+  }
+
+  .notifications > div:nth-child(1) > h5 {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .notifications > div:nth-child(1) > p {
+    font-size: 12px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .notifications {
+    margin-bottom: 1rem;
+  }
+
+  .notifications > div:nth-child(1) > h5 {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .notifications > div:nth-child(1) > p {
+    font-size: 12px;
+    line-height: 23px;
+  }
+}

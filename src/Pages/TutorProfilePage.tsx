@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from "../Components/Layout/Layout";
 import TutorProfile from '../Containers/TutorProfile/TutorProfile';
 
-const TutorDashboard = () => {
+const TutorProfilePage = () => {
   return (
     <Layout>
       <TutorProfile />
@@ -10,4 +10,4 @@ const TutorDashboard = () => {
   )
 }
 
-export default TutorDashboard
+export default TutorProfilePage

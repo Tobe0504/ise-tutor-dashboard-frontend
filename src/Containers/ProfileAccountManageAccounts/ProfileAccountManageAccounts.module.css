@@ -1,0 +1,28 @@
+.buttonSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+}
+
+.buttonSection>button {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  max-width: fit-content;
+}
+
+.infoTip {
+  margin-top: -1rem;
+  padding-bottom: 1rem;
+}
+
+.infoTip a {
+  color: var(--purple);
+  font-size: 13px;
+  line-height: 20px;
+  font-family: Archivo;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}

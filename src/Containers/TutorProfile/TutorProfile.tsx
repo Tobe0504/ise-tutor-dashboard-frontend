@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionsNav4 from "../../Components/SectionsNav4/SectionsNav4";
 import TutorProfileProfile from "../TutorProfileProfile/TutorProfileProfile";
+import ProfileAccountSettings from "../ProfileAccountSettings/ProfileAccountSettings";
 import classes from "./TutorProfile.module.css";
 
 const TutorProfile = () => {
@@ -14,7 +15,7 @@ const TutorProfile = () => {
     {
       title: "Account setting",
       isActive: false,
-      activeComponent: null,
+      activeComponent: <ProfileAccountSettings />,
     },
   ]);
 

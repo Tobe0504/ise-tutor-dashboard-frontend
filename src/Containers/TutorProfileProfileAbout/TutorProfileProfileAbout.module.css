@@ -28,14 +28,13 @@
 .profilePhoto > div > div {
   display: flex;
   align-items: center;
-  gap: 24px;
 }
 
 .buttonUpper > input {
   display: none;
 }
 
-.buttonUpper > label {
+.buttonUpper > label, .buttonLower > button {
   padding: 5px 20px;
   border-radius: 5px;
   border: 2px solid var(--purple);
@@ -46,6 +45,28 @@
   font-style: normal;
   font-weight: 500;
   line-height: 21px;
+}
+
+.buttonUpper>label:last-child{
+  border: none;
+}
+
+ .buttonLower>button {
+  padding: 0.7rem 2.5rem;
+ }
+
+.buttonLower>button:last-child {
+  color: var(--white);
+  background: var(--purple);
+}
+
+.buttonLower {
+  gap: 24px;
+  display: flex;
+  padding-top: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid var(--sectionBorder);
 }
 
 .profilePhoto > div > div > button {
