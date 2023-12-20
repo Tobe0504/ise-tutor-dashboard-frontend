@@ -7,6 +7,7 @@ import LoginEmailTemplatePage from './Pages/LoginEmailTemplatePage';
 import TutorCompleteProfilePage from './Pages/TutorCompleteProfilePage';
 import TutorDashboardLoadingScreenPage from './Pages/TutorDashboardLoadingScreenPage';
 import TutorProfilePage from './Pages/TutorProfilePage';
+import TutorSupport from './Pages/TutorSupport';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/tutor-dashboard-loader" element={<TutorDashboardLoadingScreenPage />} />
 
       <Route path="/profile-info" element={<TutorProfilePage />} />
+      <Route path="/support" element={<TutorSupport />} />
     </Routes>
   );
 }
