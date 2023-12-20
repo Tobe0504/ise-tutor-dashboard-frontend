@@ -1,0 +1,254 @@
+.container {
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.tableHeader,
+.tableBody {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 1.5rem 2rem;
+}
+
+.tableHeader {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--grey3);
+}
+
+.tableBody {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.tableBody > span > button {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.tableHeader > span:nth-child(1),
+.tableBody > span:nth-child(1) {
+  flex: 2;
+}
+
+.tableHeader > span:not(:nth-child(1)),
+.tableBody > span:not(:nth-child(1)) {
+  flex: 1;
+}
+
+.tableBody > span:nth-child(1),
+.tableBody > span:nth-child(4) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tableBody:first-child {
+  border-top: 1px solid var(--sectionBorder);
+}
+
+.tableBody:not(:last-child) {
+  border-bottom: 1px solid var(--sectionBorder);
+}
+
+.tableBody > span:nth-child(4) > span:nth-child(2) {
+  flex: 1;
+}
+
+.tableBody > span:nth-child(1) > span:nth-child(2) {
+  padding: 4px 8px;
+  border-radius: 50px;
+  background: var(--paidIndicatorGreen);
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  flex-basis: 8px;
+  display: block;
+  border-radius: 50%;
+}
+
+.modalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.modalInner {
+  width: 80%;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--grey);
+  margin-bottom: 24px;
+}
+
+.modalHeader > h4 {
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.modalInner > h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 1rem;
+}
+
+.modalInner > h4 > span {
+  font-weight: 500;
+}
+
+.modalInner > p {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.modalInner > button {
+  margin: 1.5rem 0;
+  width: 135px;
+}
+
+.modalInner > p:last-child {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.modalInner > p:last-child > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--purple);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.modalInner2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modalInner2 > h4 {
+  color: var(--grey);
+  text-align: center;
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.modalInner2 > p {
+  color: var(--grey3);
+  text-align: center;
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.modalInner2 > button {
+  margin-top: 24px;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.buttonSection > button {
+  max-width: 112px;
+}
+
+.refundPolicy {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 2rem;
+}
+
+.refundPolicy > a {
+  color: var(--purple);
+}
+
+.modalInner2 > button {
+  width: 108px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .tableHeader {
+    display: none;
+  }
+
+  .tableBody {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .tableBody {
+    font-size: 12px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .tableHeader {
+    display: none;
+  }
+
+  .tableBody {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .tableBody {
+    font-size: 12px;
+    line-height: 23px;
+  }
+}
