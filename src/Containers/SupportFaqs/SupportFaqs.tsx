@@ -6,24 +6,24 @@ import classes from "./SupportFaqs.module.css";
 const SupportFaqs = () => {
   const faqs = [
     {
-      question: "How do I enrol in a course on ise EdTech?",
+      question: "How can I upload course materials to the platform?",
       answer: "",
     },
 
     {
-      question: "What support is available if I need help with course content?",
+      question: "Can I customise the appearance of my course on the platform?",
       answer: "",
     },
     {
-      question: "How can I track my progress in a course?",
+      question: "Where can I find information about a specific student?",
       answer: "",
     },
     {
-      question: "What should I do if I forgot my password?",
+      question: "How can I schedule a tutoring session with a student?",
       answer: "",
     },
     {
-      question: "How can I access my course materials and assignments?",
+      question: "What types of files can I upload as study resources for my students?",
       answer: "",
     },
   ];
