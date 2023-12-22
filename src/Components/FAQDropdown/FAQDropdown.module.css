@@ -49,6 +49,8 @@
 .dropdownInner {
   padding: 16px 0;
   height: 100%;
+  color: var(--grey3);
+  border-top: 1px solid var(--white);
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
