@@ -1,0 +1,45 @@
+.container {
+    width: 280px;
+    flex-shrink: 0;
+    flex-basis: 280px;
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: start;
+    border-radius: 5px;
+    background: var(--white);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.number {
+    font-size: 25px;
+    line-height: 36px;
+    font-weight: medium;
+}
+
+.title {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+@media screen and (max-width: 737px) {
+    .container {
+        width: 240px;
+        height: 87px;
+    }
+
+    .number {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .title {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+@media screen and (min-width: 2080px) {
+    .container {
+        flex-basis: 15%;
+    }
+}

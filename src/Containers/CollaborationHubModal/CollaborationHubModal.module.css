@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  max-width: 900px;
+  min-height: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 24px;
+  margin: auto;
+  justify-content: center;
+}
+
+.container>div:nth-child(1),
+.container>div:nth-child(2) {
+  flex: 33%;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container>div:nth-child(3) {
+  flex: 100%;
+  width: 100%;
+  max-width: 816px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .container>div:nth-child(1),
+  .container>div:nth-child(2) {
+    flex: 100%;
+    max-width: 100%;
+  }
+}

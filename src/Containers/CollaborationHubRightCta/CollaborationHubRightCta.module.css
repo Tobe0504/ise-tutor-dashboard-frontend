@@ -1,0 +1,50 @@
+.container {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--foundation-tertiary-t-400, #ffe380);
+  background: url("../../Assets/Images/keepPushingbg.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header > p {
+  flex: 1;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.header > img {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.container > p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.container>button {
+  width: 154px;
+  margin-top: 24px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}

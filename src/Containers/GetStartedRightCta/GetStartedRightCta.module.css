@@ -1,0 +1,39 @@
+.container {
+  padding: 1rem;
+  border: 1px solid var(--foundation-tertiary-t-400, #ffe380);
+  background: #fff7e0;
+  border-radius: 10px;
+  border: 1px solid var(--foundation-grey-g-100, #d0d0d0);
+  background: var(--black);
+  color: var(--white);
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.header > h4 {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.header > svg {
+  cursor: pointer;
+}
+
+.body > p {
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 1rem;
+}

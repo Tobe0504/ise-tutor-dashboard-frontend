@@ -62,10 +62,6 @@ const ProfileAccountCloseAccount = () => {
           {closeDisclaimers.map((data, i) => {
             return <li key={i}>{data}</li>;
           })}
-          <li>
-            If you have any questions, please contact us before closing your
-            account.
-          </li>
         </ul>
 
         <Button
