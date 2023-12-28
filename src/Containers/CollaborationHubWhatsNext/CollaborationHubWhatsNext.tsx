@@ -40,7 +40,7 @@ const CollaborationHubWhatsNext = () => {
       </div>
       <div className={classes.videoGuide}>
         <p>Having any difficulty navigating Discord?</p>
-        <Button>
+        <button>
           <span className={classes.buttonInner}>
             <span>Watch video guide</span>
             <svg
@@ -59,7 +59,7 @@ const CollaborationHubWhatsNext = () => {
               />
             </svg>
           </span>
-        </Button>
+        </button>
       </div>
     </div>
   );

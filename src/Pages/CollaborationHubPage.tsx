@@ -1,4 +1,4 @@
-import CollaborationHub from "../Containers/CollaborationHubModal/CollaborationHubModal";
+import CollaborationHub from "../Containers/CollaborationHub/CollaborationHub";
 
 const CollaborationHubPage = () => {
   return (
