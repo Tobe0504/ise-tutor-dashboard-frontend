@@ -11,6 +11,7 @@ export type DropdownProps = {
   label?: string;
   isRequired?: boolean;
   errorMessage?: string;
+  image?: string;
 };
 
 const DropdownWithSearch = (props: DropdownProps) => {

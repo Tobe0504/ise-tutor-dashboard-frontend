@@ -1,0 +1,82 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+.label {
+  padding: 24px 16px;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(247, 245, 255, 1);
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+}
+
+.label > svg {
+  animation: appear 0.3s ease-in-out;
+}
+
+.dropdown {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 0 16px;
+  background-color: rgba(247, 245, 255, 1);
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.dropdownInner {
+  padding: 16px 0;
+  height: 100%;
+  color: var(--grey3);
+  border-top: 1px solid var(--white);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .label {
+    height: 74px;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .dropdown {
+    height: 74px;
+    font-size: 14px;
+    line-height: 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .label {
+    height: 74px;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .dropdown {
+    height: 74px;
+    font-size: 14px;
+    line-height: 23px;
+  }
+}

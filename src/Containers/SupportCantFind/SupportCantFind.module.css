@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 40px 2rem;
+  background: var(--purple);
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.container > img {
+  width: 460.937px;
+  height: 280.001px;
+  flex-shrink: 0;
+}
+
+.container > div {
+  flex: 1;
+}
+
+.container > div > h4 {
+  color: var(--white);
+  font-family: Archivo;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 41px;
+}
+
+.container > div > p {
+  color: var(--white);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.container > div > button {
+  margin-top: 40px;
+  width: 191px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container {
+    gap: 24px;
+    margin-top: 32px;
+    flex-direction: column;
+  }
+
+  .container > img {
+    width: 279.853px;
+    height: 170px;
+    flex-shrink: 0;
+  }
+
+  .container > div {
+    order: 0;
+  }
+
+  .container > div > h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .container > div > p {
+    font-size: 12px;
+    line-height: 23px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .container > div > button {
+    margin-top: 24px;
+    margin: 24px auto 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    gap: 24px;
+    margin-top: 32px;
+    flex-direction: column;
+  }
+
+  .container > img {
+    width: 279.853px;
+    height: 170px;
+    flex-shrink: 0;
+  }
+
+  .container > div {
+    order: 0;
+  }
+
+  .container > div > h4 {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .container > div > p {
+    font-size: 12px;
+    line-height: 23px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .container > div > button {
+    margin-top: 24px;
+    margin: 24px auto 0 auto;
+  }
+}
