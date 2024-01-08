@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { sideNavItems } from "../Utilities/sideNavItems";
 
 type AppContextProviderProps = {
   children: React.ReactNode;
@@ -28,6 +29,7 @@ type AppContextProps = {
   setDisplayRateModal: Dispatch<SetStateAction<boolean>>;
   displaySharemodal: boolean;
   setDisplayShareModal: Dispatch<SetStateAction<boolean>>;
+  navItmesState: any[]; setNavItemsState: Dispatch<SetStateAction<any>>;
 };
 
 export const AppContext = createContext({} as AppContextProps);
@@ -49,11 +51,14 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
   });
   const [displayRatemodal, setDisplayRateModal] = useState(false);
   const [displaySharemodal, setDisplayShareModal] = useState(false);
+  const [navItmesState, setNavItemsState] = useState(sideNavItems.map(data => { return { ...data, isActive: false } }))
 
   //   Effects
   useEffect(() => {
     setScreenWidthState(screenWidth);
   }, [screenWidth]);
+
+
 
   return (
     <AppContext.Provider
@@ -64,7 +69,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         displayRatemodal,
         setDisplayRateModal,
         displaySharemodal,
-        setDisplayShareModal,
+        setDisplayShareModal, navItmesState, setNavItemsState
       }}
     >
       {children}

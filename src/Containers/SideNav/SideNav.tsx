@@ -1,7 +1,9 @@
 import classes from "./SideNav.module.css";
 import iseLogo from "../../Assets/Images/iseLogo.svg";
-import { sideNavItems } from "../../Utilities/sideNavItems";
 import { Link, useLocation } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "../../Context/AppContext";
+import { activeToggler } from "../../HelperFunctions/activeTogglers"
 
 export const sideNavIconsHandler = (title: string) => {
   if (title === "Dashboard") {
@@ -149,6 +151,9 @@ const SideNav = () => {
   // Location
   const location = useLocation();
 
+  // COntext
+  const { navItmesState, setNavItemsState } = useContext(AppContext)
+
   // Utils
 
   return (
@@ -157,7 +162,30 @@ const SideNav = () => {
         <img src={iseLogo} alt="Ise " />
       </div>
       <div className={classes.navSection}>
-        {sideNavItems.map((data, i) => {
+
+        {navItmesState.map((data, i) => {
+          if (data.children) {
+            return <div key={i} onClick={() => {
+              activeToggler(i, navItmesState, setNavItemsState)
+            }}
+            >
+              {sideNavIconsHandler(data.title)}
+              <span>{data.title}</span>
+              <svg
+                style={data.isActive ? { transform: "rotate(-90deg)", transition: "all .3s ease-in-out" } : { transform: "rotate(0deg)", transition: "all .3s ease-in-out" }}
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M19 9L12 16L5 9" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div className={classes.otherOptions} style={data.isActive ? { maxHeight: "1000px" } : { maxHeight: "0px" }}>
+                {data.children.map((datum: any, j: number) => {
+                  return <Link to={datum.route} key={j}>{datum.title}</Link>
+                })}
+              </div>
+
+            </div>
+
+
+          }
           return (
             <Link
               to={data.route as string}
