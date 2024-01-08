@@ -1,0 +1,142 @@
+.container {
+  padding: 32px 80px;
+  margin: auto;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.logo {
+  margin-bottom: 64px;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.header>h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 50px;
+}
+
+.header>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 1rem 0;
+}
+
+.container>form {
+  margin: 0.5rem 0;
+}
+
+.rememberAndForgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rememberAndForgot>div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.rememberAndForgot>div:nth-child(1)>input {
+  opacity: 0.38;
+}
+
+.rememberAndForgot>a:nth-child(2) {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.65px;
+  text-decoration: none;
+}
+
+.buttonSection {
+  margin: 40px 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 32px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .header>h4 {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .header>p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    margin: 0.5rem 0;
+  }
+
+  .continueWith {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 32px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .header>h4 {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .header>p {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+    margin: 0.5rem 0;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1023px) {
+  .container>form {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto 0;
+  }
+}

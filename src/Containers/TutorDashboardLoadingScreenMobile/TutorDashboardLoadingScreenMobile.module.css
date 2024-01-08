@@ -1,0 +1,50 @@
+.container {
+  height: 100vh;
+}
+
+.body {
+  padding: 1.5rem 1rem;
+  background-color: #F1F1F1;
+}
+
+.body section {
+  gap: 2rem;
+  height: 100%;
+  overflow: auto;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodyHeaderLoader {
+  width: 85%;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bodyContentContainer {
+  padding: 1rem 0.5rem;
+  border-radius: 5px;
+  background-color: var(--white);
+}
+
+.header {
+  width: 100%;
+  padding: 3vw;
+  background-color: var(--white);
+}
+
+.header>img {
+  width: 35px;
+  height: 33px;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+
+  .container,
+  .header {
+    display: none;
+  }
+}

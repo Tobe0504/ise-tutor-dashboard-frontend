@@ -1,0 +1,124 @@
+.profilePhoto {
+  margin-bottom: 20px;
+}
+
+.profilePhotoHeader>h4 {
+  font-weight: 400;
+  font-size: 1.125rem;
+  padding-bottom: 16px;
+  font-family: Archivo;
+}
+
+.profilePhoto>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 1rem;
+}
+
+.profilePhoto>div {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profilePhoto>div>img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profilePhoto>div>div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.buttonUpper>input {
+  display: none;
+}
+
+.buttonUpper>label {
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: 2px solid var(--purple);
+  background: var(--white);
+  color: var(--purple);
+  text-align: center;
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.buttonUpper>label:nth-child(2) {
+  color: var(--white);
+  background: var(--purple);
+}
+
+.profilePhoto>div>div>button {
+  width: 85px;
+  height: 31px;
+  object-fit: cover;
+  font-size: 13px;
+  line-height: 140px;
+}
+
+.inputName {
+  margin-bottom: 1rem;
+}
+
+.infoTip {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: -1.5rem;
+}
+
+@media screen and (min-width: 767px) {
+  .profilePhoto {
+    display: flex;
+    padding: 16px 0;
+    background: var(--foundation-primary-p-10, #fbfaff);
+  }
+
+  .profilePhoto>div>img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 30px;
+    border-radius: 50%;
+  }
+
+  .buttonUpper {
+    justify-content: center;
+  }
+
+  .profilePhoto>div>.buttonUpper {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profilePhoto {
+    display: flex;
+    background: var(--foundation-primary-p-10, #fbfaff);
+  }
+
+  .buttonUpper {
+    justify-content: center;
+  }
+
+  .profilePhoto>div>.buttonUpper {
+    flex-basis: 100%;
+  }
+}
