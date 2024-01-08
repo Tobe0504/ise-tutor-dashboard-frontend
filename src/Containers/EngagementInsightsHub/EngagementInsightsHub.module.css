@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.container > div {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.container > div::-webkit-scrollbar {
+    display: none;
+}
+
+.container > div {
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+}

@@ -7,7 +7,7 @@
   margin-top: 40px;
 }
 
-.container > h4 {
+.container>h4 {
   color: var(--grey);
   font-family: Archivo;
   font-size: 31px;
@@ -17,6 +17,8 @@
 }
 
 .options {
+  width: 100%;
+  overflow: auto;
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -32,7 +34,7 @@
   flex: 1;
 }
 
-.option > p:nth-child(1) {
+.option>p:nth-child(1) {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
@@ -42,7 +44,7 @@
   margin-bottom: 0.5rem;
 }
 
-.option > p:nth-child(2) {
+.option>p:nth-child(2) {
   color: var(--grey3);
   font-family: Archivo;
   font-size: 13px;
@@ -59,7 +61,7 @@
     margin-top: 32px;
   }
 
-  .container > h4 {
+  .container>h4 {
     font-size: 20px;
     line-height: 30px;
     text-align: center;
@@ -70,12 +72,12 @@
     flex-direction: column;
   }
 
-  .option > p:nth-child(1) {
+  .option>p:nth-child(1) {
     font-size: 16px;
     line-height: 25px;
   }
 
-  .option > p:nth-child(2) {
+  .option>p:nth-child(2) {
     font-size: 12px;
     line-height: 23px;
   }
@@ -87,7 +89,7 @@
     margin-top: 32px;
   }
 
-  .container > h4 {
+  .container>h4 {
     font-size: 20px;
     line-height: 30px;
     text-align: center;
@@ -98,12 +100,12 @@
     flex-direction: column;
   }
 
-  .option > p:nth-child(1) {
+  .option>p:nth-child(1) {
     font-size: 16px;
     line-height: 25px;
   }
 
-  .option > p:nth-child(2) {
+  .option>p:nth-child(2) {
     font-size: 12px;
     line-height: 23px;
   }

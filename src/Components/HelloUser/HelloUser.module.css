@@ -1,0 +1,77 @@
+.helloUser {
+  padding: 42px;
+  background: url("../../Assets/Images/helloUserBg.png");
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.helloUser > h2 {
+  color: var(--white);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.helloUser > p {
+  margin: 1rem 0;
+  color: var(--white);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  width: 50%;
+  min-width: 100%;
+}
+
+.helloUser > button {
+  width: 122px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .helloUser {
+    padding: 24px 16px;
+  }
+
+  .helloUser > h2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .helloUser > p {
+    font-size: 14px;
+    line-height: 23px;
+    width: 100%;
+  }
+
+  .helloUser > button {
+    width: 122px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .helloUser {
+    padding: 24px 16px;
+  }
+
+  .helloUser > h2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .helloUser > p {
+    font-size: 14px;
+    line-height: 23px;
+    width: 100%;
+  }
+
+  .helloUser > button {
+    width: 122px;
+  }
+}

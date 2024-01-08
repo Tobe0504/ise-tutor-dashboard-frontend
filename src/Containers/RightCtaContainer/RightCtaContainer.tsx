@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../../Context/AppContext";
-// import GetStartedRightCta from "../GetStartedRightCta/GetStartedRightCta";
-// import KeepPushingRightCta from "../KeepPushingRightCta/KeepPushingRightCta";
-// import ProfileProgressRightCta from "../ProfileProgressRightCta/ProfileProgressRightCta";
-// import ReferAFriendRightCta from "../ReferAFriendRightCta/ReferAFriendRightCta";
-// import ScheduleRightCta from "../ScheduleRightCta/ScheduleRightCta";
+import GetStartedRightCta from "../GetStartedRightCta/GetStartedRightCta";
+import CollaborationHubRightCta from "../CollaborationHubRightCta/CollaborationHubRightCta";
+import HelpAndSupportRightCta from "../HelpAndSupportRightCta/HelpAndSupportRightCta";
+import GetStartedVideoContainer from "../GetStartedVideoContainer/GetStartedVideoContainer";
 import classes from "./RightCtaContainer.module.css";
 
 const RightCtaContainer = () => {
@@ -12,11 +11,10 @@ const RightCtaContainer = () => {
   const { showGetStarted } = useContext(AppContext);
   return (
     <section className={classes.container}>
-      {/* <ProfileProgressRightCta />
-      <KeepPushingRightCta />
+      <GetStartedVideoContainer title="Getting Started" description="Watch the tour video to learn how to navigate your dashboard." videoHeight="122px" />
+      <CollaborationHubRightCta />
       {showGetStarted.rightCta && <GetStartedRightCta />}
-      <ScheduleRightCta />
-      <ReferAFriendRightCta /> */}
+      <HelpAndSupportRightCta />
     </section>
   );
 };

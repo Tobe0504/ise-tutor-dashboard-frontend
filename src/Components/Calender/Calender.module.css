@@ -1,0 +1,116 @@
+.container {
+  height: fit-content;
+  padding: 20px;
+  flex-basis: 80%;
+  color: var(--white);
+  border-radius: 10px;
+  background: var(--purple);
+}
+
+.month {
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  justify-content: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.month ul li:nth-child(2) {
+  padding: 5px;
+  color: var(--white);
+  background: var(--tertiaryButtonActive);
+}
+
+.month ul li {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--tertiaryButtonActive);
+}
+
+.month .prev {
+  float: left;
+}
+
+.month .next {
+  float: right;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  row-gap: 1.5rem;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.days li .active {
+  padding: 5px;
+  color: var(--black);
+  background: var(--white);
+}
+
+@media screen and (max-width:767px) {
+  .container {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .weekdays li,
+  .days li {
+    width: 13.1%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  .weekdays li,
+  .days li {
+    width: 12.5%;
+  }
+
+  .days li .active {
+    padding: 2px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+
+  .weekdays li,
+  .days li {
+    width: 12.2%;
+  }
+}

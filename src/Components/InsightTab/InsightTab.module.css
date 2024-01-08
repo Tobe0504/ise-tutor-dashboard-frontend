@@ -1,0 +1,54 @@
+.container {
+    width: 280px;
+    padding: 1rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    flex-basis: 280px;
+    text-align: start;
+    border-width: 1px;
+    border-radius: 5px;
+    border-style: solid;
+    box-sizing: border-box;
+    background: var(--white);
+    border-color: transparent;
+    transition: var(--transition);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.container:active {
+  border-color: var(--purple);
+}
+
+.number {
+    font-size: 25px;
+    line-height: 36px;
+    font-weight: medium;
+}
+
+.title {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+@media screen and (max-width: 737px) {
+    .container {
+        width: 240px;
+        height: 87px;
+    }
+
+    .number {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .title {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+@media screen and (min-width: 2080px) {
+    .container {
+        flex-basis: 15%;
+    }
+}
