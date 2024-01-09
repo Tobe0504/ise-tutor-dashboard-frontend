@@ -1,0 +1,60 @@
+.container {
+    padding: 1rem 1.5rem;
+    overflow: auto;
+    max-width: 350px;
+    height: 250px;
+}
+
+.container::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #A79AFE;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.container ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    gap: 3.5rem;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.container ul li div:nth-child(1) {
+    gap: 0.8rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.container ul li h4 {
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 600;
+    padding-block: 10px;
+}
+
+.container ul li div:nth-child(3) {
+    gap: 2rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.container ul li div:nth-child(3) a {
+    text-decoration: none;
+    color: var(--purple);
+    font-size: 13px;
+    font-weight: 600;
+}

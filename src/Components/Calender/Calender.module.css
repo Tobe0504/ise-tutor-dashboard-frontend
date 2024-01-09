@@ -65,7 +65,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
-  row-gap: 1.5rem;
+  row-gap: 1rem;
 }
 
 .days li {
@@ -80,6 +80,7 @@
 .days li .active {
   padding: 5px;
   color: var(--black);
+  border-radius: 3px;
   background: var(--white);
 }
 

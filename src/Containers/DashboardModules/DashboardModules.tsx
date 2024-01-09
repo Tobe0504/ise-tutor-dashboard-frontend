@@ -3,6 +3,8 @@ import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabCompon
 import SectionsNav from "../../Components/SectionsNav/SectionsNav";
 import classes from "./DashboardModules.module.css";
 import noOvervue from "../../Assets/Images/noOvervue.svg";
+import LiveClassSessions from "../LiveClassSessions/LiveClassSessions";
+import OneOnOneCallSessions from "../OneOnOneCallSessions/OneOnOneCallSessions";
 
 
 const DashboardModules = () => {
@@ -11,7 +13,7 @@ const DashboardModules = () => {
     {
       title: "Live class Sessions",
       isActive: true,
-      activeComponent: null,
+      activeComponent: <LiveClassSessions />,
       activeNullStateComponent: (
         <EmptyTabComponent
           image={noOvervue}
@@ -19,13 +21,14 @@ const DashboardModules = () => {
           secondParagraph=""
           route="/courses"
           buttontext="Explore classes"
+          showButton={false}
         />
       ),
     },
     {
       title: "On-on-one call sessions",
       isActive: false,
-      activeComponent: null,
+      activeComponent: <OneOnOneCallSessions />,
       activeNullStateComponent: (
         <EmptyTabComponent
           image={noOvervue}
@@ -33,6 +36,7 @@ const DashboardModules = () => {
           secondParagraph=""
           route="/schedule"
           buttontext="Schedule Appointment"
+          showButton={false}
         />
       ),
     },
