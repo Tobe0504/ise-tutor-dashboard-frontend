@@ -45,7 +45,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     dashboard: boolean;
     showModdal: boolean;
   }>({
-    rightCta: false,
+    rightCta: true,
     dashboard: true,
     showModdal: false,
   });

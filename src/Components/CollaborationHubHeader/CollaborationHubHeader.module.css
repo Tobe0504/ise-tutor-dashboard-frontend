@@ -34,7 +34,7 @@
     padding-right: 2rem;
 }
 
-.container div:nth-child(2) {
+.container a {
     padding-top: 1rem;
 }
 

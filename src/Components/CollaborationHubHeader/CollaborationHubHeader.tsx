@@ -1,5 +1,6 @@
 import React from "react";
 import classes from './CollaborationHubHeader.module.css'
+import { Link } from "react-router-dom";
 
 type CollaborationHubHeaderProps = {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ const CollaborationHubHeader = ({
           <h4>{header}</h4>
           <p>{paragraph}</p>
         </div>
-        <div>
+        <Link to="/dashboard">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -35,7 +36,7 @@ const CollaborationHubHeader = ({
               strokeLinejoin="round"
             />
           </svg>
-        </div>
+        </Link>
       </div>
       <div>{children}</div>
     </section>

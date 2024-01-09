@@ -7,7 +7,7 @@
 }
 
 .mobileGetStartedVideo {
-  display: none;
+  display: block;
 }
 
 /* .container img:nth-child(1) {

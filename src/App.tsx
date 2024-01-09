@@ -11,6 +11,7 @@ import TutorSupport from './Pages/TutorSupport';
 import ContactSupportPage from './Pages/ContactSupportPage';
 import Dashboard from './Pages/Dashboard';
 import CollaborationHubPage from './Pages/CollaborationHubPage';
+import CollaborationHubVideoGuide from './Containers/CollaborationHubVideoGuide/CollaborationHubVideoGuide';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/profile-info" element={<TutorProfilePage />} />
       
       <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
+      <Route path="/collaboration-hub-video-guide" element={<CollaborationHubVideoGuide />} />
       
       <Route path="/support/contact-support" element={<ContactSupportPage />} />
       <Route path="/support" element={<TutorSupport />} />

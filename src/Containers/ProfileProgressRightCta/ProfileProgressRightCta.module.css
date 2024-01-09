@@ -1,0 +1,35 @@
+.container {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--teamCardBorderPurple);
+  background: var(--purple);
+  margin-top: 20px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.container > h4 {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.container > p {
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 1rem;
+}
+
+.container > button {
+  margin-top: 1rem;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  width: 137px;
+}

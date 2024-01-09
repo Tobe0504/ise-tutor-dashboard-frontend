@@ -4,27 +4,21 @@ import { AppContext } from "../../Context/AppContext";
 import classes from "./GetStartedVideoContainer.module.css";
 
 type GetStartedVideoContainerProps = {
-  style?: CSSProperties;
   videoHeight: string;
-  description: string;
-  title: string;
 };
 
 const GetStartedVideoContainer = ({
-  style,
   videoHeight,
-  description,
-  title,
 }: GetStartedVideoContainerProps) => {
   // Context
   const { screenWidthState, setShowGetStarted } = useContext(AppContext);
 
   return (
-    <section className={classes.container} style={style}>
+    <section className={classes.container}>
       <div className={classes.header}>
         <div>
-          <h4>{title}</h4>
-          <p>{description}</p>
+          <h4>Getting Started Guide</h4>
+          <p>Welcome to the ise platform! We're excited to have you on board and help you embark on your learning journey. Watch out tutorial guide to learn how to navigate our platform.</p>
         </div>
         <div>
           <svg

@@ -3,17 +3,17 @@ import { AppContext } from "../../Context/AppContext";
 import GetStartedRightCta from "../GetStartedRightCta/GetStartedRightCta";
 import CollaborationHubRightCta from "../CollaborationHubRightCta/CollaborationHubRightCta";
 import HelpAndSupportRightCta from "../HelpAndSupportRightCta/HelpAndSupportRightCta";
-import GetStartedVideoContainer from "../GetStartedVideoContainer/GetStartedVideoContainer";
 import classes from "./RightCtaContainer.module.css";
+import ProfileProgressRightCta from "../ProfileProgressRightCta/ProfileProgressRightCta";
 
 const RightCtaContainer = () => {
   // Context
   const { showGetStarted } = useContext(AppContext);
   return (
     <section className={classes.container}>
-      <GetStartedVideoContainer title="Getting Started" description="Watch the tour video to learn how to navigate your dashboard." videoHeight="122px" />
-      <CollaborationHubRightCta />
+      <ProfileProgressRightCta />
       {showGetStarted.rightCta && <GetStartedRightCta />}
+      <CollaborationHubRightCta />
       <HelpAndSupportRightCta />
     </section>
   );

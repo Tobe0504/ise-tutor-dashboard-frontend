@@ -1,4 +1,4 @@
-import Button from "../../Components/Button/Button";
+import { Link } from "react-router-dom";
 import classes from "./CollaborationHubWhatsNext.module.css";
 
 const CollaborationHubWhatsNext = () => {
@@ -40,7 +40,7 @@ const CollaborationHubWhatsNext = () => {
       </div>
       <div className={classes.videoGuide}>
         <p>Having any difficulty navigating Discord?</p>
-        <button>
+        <Link to="/collaboration-hub-video-guide">
           <span className={classes.buttonInner}>
             <span>Watch video guide</span>
             <svg
@@ -59,7 +59,7 @@ const CollaborationHubWhatsNext = () => {
               />
             </svg>
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   );
