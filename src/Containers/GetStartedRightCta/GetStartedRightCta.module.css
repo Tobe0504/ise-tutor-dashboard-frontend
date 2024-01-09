@@ -1,5 +1,6 @@
 .container {
   padding: 1rem;
+  margin-bottom: 1.5rem;
   border: 1px solid var(--foundation-tertiary-t-400, #ffe380);
   background: #fff7e0;
   border-radius: 10px;
@@ -17,7 +18,7 @@
   margin-bottom: 0.5rem;
 }
 
-.header > h4 {
+.header>h4 {
   font-family: Archivo;
   font-size: 16px;
   font-style: normal;
@@ -25,11 +26,11 @@
   line-height: 26px;
 }
 
-.header > svg {
+.header>svg {
   cursor: pointer;
 }
 
-.body > p {
+.body>p {
   font-family: Archivo;
   font-size: 13px;
   font-style: normal;

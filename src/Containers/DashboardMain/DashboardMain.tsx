@@ -1,18 +1,15 @@
-import { useContext } from "react";
 import HelloUser from "../../Components/HelloUser/HelloUser";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import { AppContext } from "../../Context/AppContext";
 import Schedules from "../Schedules/Schedules";
-import GetStartedVideoContainer from "../GetStartedVideoContainer/GetStartedVideoContainer";
 import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabComponent";
 import astronaut from "../../Assets/Images/astronaut-cuate.svg";
 import classes from "./DashboardMain.module.css";
 import EngagementInsightsHub from "../EngagementInsightsHub/EngagementInsightsHub";
 import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentAssignmentSubmission";
+import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
+import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
 
 
 const DashboardMain = () => {
-  const { showGetStarted } = useContext(AppContext);
 
   return (
     <section className={classes.container}>
@@ -22,8 +19,6 @@ const DashboardMain = () => {
       <div>
         <EngagementInsightsHub />
       </div>
-
-
 
       <div>
         <EmptyTabComponent
@@ -36,7 +31,9 @@ const DashboardMain = () => {
       </div>
 
       <Schedules />
+      <StudentsPerformance />
       <StudentAssignmentSubmission />
+      <StudentParticipationandSatisfaction />
     </section>
   );
 };
