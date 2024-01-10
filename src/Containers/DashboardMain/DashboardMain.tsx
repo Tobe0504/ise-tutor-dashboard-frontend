@@ -7,14 +7,19 @@ import EngagementInsightsHub from "../EngagementInsightsHub/EngagementInsightsHu
 import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentAssignmentSubmission";
 import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
 import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
+import RightCtaContainer from "../RightCtaContainer/RightCtaContainer";
 
 
 const DashboardMain = () => {
 
   return (
-    <section className={classes.container}>
+    <div className={classes.container}>
 
       <HelloUser notIncludePay notIncludeBg />
+      
+      <div className={classes.rightCTASection}>
+        <RightCtaContainer />
+      </div>
 
       <div>
         <EngagementInsightsHub />
@@ -34,7 +39,7 @@ const DashboardMain = () => {
       <StudentsPerformance />
       <StudentAssignmentSubmission />
       <StudentParticipationandSatisfaction />
-    </section>
+    </div>
   );
 };
 

@@ -66,31 +66,36 @@ const StudentAssignmentSubmission = () => {
         </div>
       </div>
 
-      <div className={classes.tableHeader}>
-        <span>Name</span>
-        <span>Submitted File</span>
-        <span>Date</span>
-        <span>Action</span>
+      <div className={classes.body}>
+        <div>
+          <div className={classes.tableHeader}>
+            <span>Name</span>
+            <span>Submitted File</span>
+            <span>Date</span>
+            <span>Action</span>
+          </div>
+
+          <div className={classes.bodyContent}>
+            {assignments.map((data, i) => {
+              return (
+                <div key={Math.random()} className={classes.tableBody}>
+                  <span>{data.name}</span>
+                  <span>{data.submittedFile}</span>
+                  <span>{data.dateAdded}</span>
+                  <span
+                    onClick={() => {
+                      filterItems(i);
+                    }}
+                  >
+                    <img src={ellipses} alt="more options" />
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      <div className={classes.body}>
-        {assignments.map((data, i) => {
-          return (
-            <div key={Math.random()} className={classes.tableBody}>
-              <span>{data.name}</span>
-              <span>{data.submittedFile}</span>
-              <span>{data.dateAdded}</span>
-              <span
-                onClick={() => {
-                  filterItems(i);
-                }}
-              >
-                <img src={ellipses} alt="more options" />
-              </span>
-            </div>
-          );
-        })}
-      </div>
     </section>
   );
 };

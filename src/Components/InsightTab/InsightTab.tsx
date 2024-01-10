@@ -1,6 +1,6 @@
 import classes from './InsightTab.module.css';
 
-interface InsightTabProps {
+type InsightTabProps = {
     totalNumber: number;
     title: string;
 }

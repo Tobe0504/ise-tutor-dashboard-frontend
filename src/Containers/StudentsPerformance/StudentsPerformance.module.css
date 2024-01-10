@@ -36,6 +36,7 @@
   align-items: center;
   gap: 1rem;
   color: var(--grey);
+  justify-content: space-between;
 
   padding: 30px 0;
 }
@@ -46,11 +47,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 26px;
-}
-
-.tableHeader>span:nth-child(1),
-.tableBody>div:nth-child(1) {
-  flex: 2;
 }
 
 .tableBody>div:nth-child(1) {
@@ -77,16 +73,16 @@
 }
 
 .progressSection {
+  flex: 1;
   gap: 1rem;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .performanceProgressBar {
-  flex: 1;
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 350px;
 }
 
 .progressBar {
@@ -109,9 +105,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-}
-
-.tableBody>span:last-child {
   white-space: nowrap;
 }
 
@@ -168,16 +161,8 @@
     cursor: pointer;
   }
 
-  .user {
-    align-items: flex-start;
-  }
-
   .progressSection {
     flex-direction: column;
-  }
-
-  .performanceProgressBar {
-    width: 250px;
   }
 
   .progressSection span {
@@ -233,46 +218,12 @@
     cursor: pointer;
   }
 
-  .user {
-    align-items: flex-start;
-  }
-
   .progressSection {
     flex-direction: column;
-  }
-
-  .performanceProgressBar {
-    width: 220px;
   }
 
   .progressSection span {
     text-align: end;
     width: 100%;
-  }
-}
-
-@media screen and (min-width: 440px) and (max-width: 515px) {
-  .user {
-    align-items: center;
-  }
-
-  .performanceProgressBar {
-    width: 400px;
-  }
-}
-
-@media screen and (min-width: 360px) and (max-width: 439px) {
-  .user {
-    align-items: center;
-  }
-
-  .performanceProgressBar {
-    width: 300px;
-  }
-}
-
-@media screen and (max-width: 359px) {
-  .user {
-    align-items: center;
   }
 }

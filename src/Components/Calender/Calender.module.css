@@ -1,5 +1,5 @@
 .container {
-  height: fit-content;
+  height: 341px;
   padding: 20px;
   flex-basis: 80%;
   color: var(--white);
@@ -84,34 +84,9 @@
   background: var(--white);
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:1023px) {
   .container {
     width: 100%;
     flex-basis: 100%;
-  }
-
-  .weekdays li,
-  .days li {
-    width: 13.1%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-
-  .weekdays li,
-  .days li {
-    width: 12.5%;
-  }
-
-  .days li .active {
-    padding: 2px;
-  }
-}
-
-@media screen and (max-width: 290px) {
-
-  .weekdays li,
-  .days li {
-    width: 12.2%;
   }
 }

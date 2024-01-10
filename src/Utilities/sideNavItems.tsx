@@ -8,7 +8,7 @@ export type sideNavItemsType = {
   } | null;
   isVisible: boolean;
   children?: {
-    title: string; route: string; 
+    title: string; route: string;
   }[]
 }[];
 
@@ -27,7 +27,7 @@ export const sideNavItems: sideNavItemsType = [
     keywords: ["courses", "courses/"],
     otherOptions: null,
     isVisible: true,
-    children: [{title: "Courses curriculum", route: "/courses/courses-curriculum"}]
+    children: [{ title: "Courses curriculum", route: "/courses/courses-curriculum" }]
   },
 
   {
@@ -36,7 +36,7 @@ export const sideNavItems: sideNavItemsType = [
     keywords: ["student"],
     otherOptions: null,
     isVisible: true,
-    children: [{title: "Quiz", route: "/student/quiz"}, {title: "Assignment", route: "/student/assignment"}]
+    children: [{ title: "Quiz", route: "/student/quiz" }, { title: "Assignment", route: "/student/assignment" }]
 
   },
   {
@@ -45,7 +45,7 @@ export const sideNavItems: sideNavItemsType = [
     keywords: ["resources"],
     otherOptions: null,
     isVisible: true,
-    children: [{title: "Uploads", route: "/resources/uploads"}, {title: "Drafts", route: "/resources/drafts"}]
+    children: [{ title: "Uploads", route: "/resources/uploads" }, { title: "Drafts", route: "/resources/drafts" }]
 
   },
 

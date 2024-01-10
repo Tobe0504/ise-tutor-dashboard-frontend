@@ -46,14 +46,14 @@ const DashboardModules = () => {
     return data.isActive;
   });
   return (
-    <section className={classes.container}>
+    <div className={classes.container}>
       <SectionsNav navItems={navItems} setNavItems={setNavItems} />
       <div>
         {activeCOmponent.activeComponent
           ? activeCOmponent.activeComponent
           : activeCOmponent.activeNullStateComponent}
       </div>
-    </section>
+    </div>
   );
 };
 
