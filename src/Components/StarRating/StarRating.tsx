@@ -16,7 +16,7 @@ const StarRating = ({ totalStars, initialRating = 0, width = 14, height = 13 }: 
     };
 
     return (
-        <div>
+        <div style={{whiteSpace: "nowrap"}}>
             {[...Array(totalStars)].map((_, index) => (
                 <span
                     key={index}

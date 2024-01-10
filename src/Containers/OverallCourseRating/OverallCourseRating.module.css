@@ -1,5 +1,7 @@
 .container {
-    width: 100%;
+    width: 75%;
+    height: 485px;
+    min-width: 370px;
     border-radius: 10px;
     border: 1px solid var(--sectionBorder);
 }
@@ -21,6 +23,39 @@
     line-height: 25px;
 }
 
-.content {
-    padding: 1.5rem;
+.contentHeader {
+    padding: 2rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-bottom: 1px solid var(--sectionBorder);
+}
+
+.contentHeader h4 {
+    font-size: 49px;
+    line-height: 61px;
+}
+
+.contentHeader p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.contentBody {
+    gap: 1rem;
+    display: flex;
+    padding: 0.9rem;
+    align-items: center;
+}
+
+.contentBody p {
+    display: none;
+}
+
+@media screen and (max-width: 1540px) {
+    .container {
+        width: 100%;
+        min-width: 315px;
+    }
 }

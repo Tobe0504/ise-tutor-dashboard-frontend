@@ -100,7 +100,18 @@
   text-align: center;
 }
 
+@media screen and (min-width: 767px) and (max-width: 1540px) {
+  .subContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 767px) and (max-width: 1240px) {
+
   .container {
     padding: 1.5rem 1rem;
   }
@@ -124,14 +135,6 @@
     padding: 1rem;
     width: 145px;
     height: 117px;
-  }
-
-  .subContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
   }
 
   .badge>span:nth-child(1) {

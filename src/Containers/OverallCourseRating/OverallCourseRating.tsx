@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BarChart from '../../Components/BarChart/BarChart'
 import classes from './OverallCourseRating.module.css'
 import StarRating from '../../Components/StarRating/StarRating'
+import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 
 const OverallCourseRating = () => {
+
+  const [ratings, setRatings] = useState([
+    {
+      starRating: 5,
+      progressPercent: 50,
+    },
+    {
+      starRating: 4,
+      progressPercent: 25,
+    },
+    {
+      starRating: 3,
+      progressPercent: 75,
+    },
+    {
+      starRating: 2,
+      progressPercent: 15,
+    },
+    {
+      starRating: 1,
+      progressPercent: 3,
+    },
+  ]);
+
   return (
     <div className={classes.container}>
       <div className={classes.listNav}>
@@ -14,10 +39,20 @@ const OverallCourseRating = () => {
       <div className={classes.content}>
         {/* <BarChart /> */}
         <div className={classes.contentHeader}>
-          <h2>4.6</h2>
-          <StarRating totalStars={5} initialRating={3} width={50} height={50} />
+          <h4>4.6</h4>
+          <StarRating totalStars={5} initialRating={3} width={25} height={25} />
           <p>Overall course ratings</p>
         </div>
+
+        {ratings.map((data, i) => {
+          return (
+            <div key={data.starRating} className={classes.contentBody}>
+              <StarRating totalStars={5} initialRating={data.starRating} width={15} height={15} />
+              <ProgressBar percentage={data.progressPercent} color="#fff" />
+              <span>{data.progressPercent}%</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   )
