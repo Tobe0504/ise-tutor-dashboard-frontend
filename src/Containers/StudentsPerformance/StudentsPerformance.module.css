@@ -73,10 +73,20 @@
   font-style: normal;
   font-weight: 600;
   line-height: 26px;
+  white-space: nowrap;
+}
+
+.progressSection {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .performanceProgressBar {
   flex: 1;
+  width: 400px;
+  max-width: 100%;
 }
 
 .progressBar {
@@ -113,7 +123,7 @@
   color: var(--deleteRed);
 }
 
-@media screen and (min-width: 767px) and (max-width: 1023px) {
+@media screen and (min-width: 767px) and (max-width: 1240px) {
   .container {
     padding: 16px;
   }
@@ -156,6 +166,23 @@
   .tableBody>span:last-child {
     color: var(--deleteRed);
     cursor: pointer;
+  }
+
+  .user {
+    align-items: flex-start;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .performanceProgressBar {
+    width: 250px;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
   }
 }
 
@@ -172,7 +199,8 @@
   .tableHeader,
   .tableBody {
     gap: 1.5rem;
-    padding: 12px 0;
+    padding: 15px 0;
+    flex-wrap: wrap;
   }
 
   .tableHeader {
@@ -192,6 +220,7 @@
   .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
     font-size: 13px;
     line-height: 22px;
+    white-space: nowrap;
   }
 
   .tableHeader>span:not(span:nth-child(1)),
@@ -202,5 +231,48 @@
   .tableBody>span:last-child {
     color: var(--deleteRed);
     cursor: pointer;
+  }
+
+  .user {
+    align-items: flex-start;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .performanceProgressBar {
+    width: 220px;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 440px) and (max-width: 515px) {
+  .user {
+    align-items: center;
+  }
+
+  .performanceProgressBar {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 439px) {
+  .user {
+    align-items: center;
+  }
+
+  .performanceProgressBar {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .user {
+    align-items: center;
   }
 }

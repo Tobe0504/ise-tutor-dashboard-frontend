@@ -60,8 +60,10 @@ const StudentsPerformance = () => {
                   <span>{data.name}</span>
                 </span>
               </div>
-              <span className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></span>
-              <span><span className={classes.aheadPercent}>-{data.percent} </span>{data.text}</span>
+              <div className={classes.progressSection}>
+                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></div>
+                <span><span className={classes.aheadPercent}>+{data.percent} </span>{data.text}</span>
+              </div>
             </div>
           );
         })}
@@ -76,8 +78,10 @@ const StudentsPerformance = () => {
                   <span>{data.name}</span>
                 </span>
               </div>
-              <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></div>
-              <span><span className={classes.behindPercent}>-{data.percent}</span> {data.text}</span>
+              <div className={classes.progressSection}>
+                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></div>
+                <span><span className={classes.behindPercent}>-{data.percent} </span>{data.text}</span>
+              </div>
             </div>
           );
         })}
