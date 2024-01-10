@@ -12,6 +12,7 @@ import ContactSupportPage from './Pages/ContactSupportPage';
 import Dashboard from './Pages/Dashboard';
 import CollaborationHubPage from './Pages/CollaborationHubPage';
 import CollaborationHubVideoGuide from './Containers/CollaborationHubVideoGuide/CollaborationHubVideoGuide';
+import StudentPage from './Pages/StudentPage';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
 
       <Route path="/support/contact-support" element={<ContactSupportPage />} />
       <Route path="/support" element={<TutorSupport />} />
+
+      <Route path="/student" element={<StudentPage />} />
     </Routes>
   );
 }
