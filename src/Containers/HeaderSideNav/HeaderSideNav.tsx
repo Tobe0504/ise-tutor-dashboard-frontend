@@ -66,33 +66,19 @@ const HeaderSideNav = ({ closeSideNav }: HeaderSideNavProps) => {
       </div>
 
       <div className={classes.navSection}>
-        {sideNavItems.map((data, i) => {
-          return (
-            <Link
-              to={data.route as string}
-              key={i}
-              className={
-                data.keywords?.includes(location.pathname.slice(1)) ||
-                data.route === location.pathname
-                  ? classes.active
-                  : classes.inActive
-              }
-            >
-              {sideNavIconsHandler(data.title)}
-              <span>{data.title}</span>
-            </Link>
-          );
-        })}
         {navItmesState.map((data, i) => {
           if (data.children) {
-            return <div key={i} onClick={() => {
-              activeToggler(i, navItmesState, setNavItemsState)
-            }}
-            >
-              {sideNavIconsHandler(data.title)}
-              <span>{data.title}</span>
+            return <div key={i}>
+              <Link to={data.route} className={classes.link}>
+                {sideNavIconsHandler(data.title)}
+                <span>{data.title}</span>
+              </Link>
               <svg
-                style={data.isActive ? { transform: "rotate(-90deg)", transition: "all .3s ease-in-out" } : { transform: "rotate(0deg)", transition: "all .3s ease-in-out" }}
+                onClick={() => {
+                  activeToggler(i, navItmesState, setNavItemsState)
+                }}
+
+                style={data.isActive ? { transform: "rotate(-90deg)", transition: "all .3s ease-in-out", marginLeft: "auto" } : { transform: "rotate(0deg)", transition: "all .3s ease-in-out", marginLeft: "auto" }}
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M19 9L12 16L5 9" stroke="#2E2E2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -101,10 +87,7 @@ const HeaderSideNav = ({ closeSideNav }: HeaderSideNavProps) => {
                   return <Link to={datum.route} key={j}>{datum.title}</Link>
                 })}
               </div>
-
             </div>
-
-
           }
           return (
             <Link
