@@ -96,7 +96,7 @@ const StudentDataTable = () => {
                                 </div>
                                 <span>{data.emailAddress}</span>
                                 <span>{data.enrolledDate}</span>
-                                <span onClick={() => { navigate(`/student/details/${data.studentName}`)}}>View</span>
+                                <span onClick={() => { navigate(`/student/details/${studentId}/${data.studentName}`)}}>View</span>
                             </div>
                         );
                     })}
