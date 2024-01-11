@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  margin-block: 24px;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.divider {
+  height: 2px;
+  margin-block: 2rem;
+  background-color: #F4C3C0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header>div:nth-child(1)>h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.8rem;
+}
+
+.tableHeader,
+.tableBody {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grey);
+  justify-content: space-between;
+
+  padding: 30px 0;
+}
+
+.tableHeader {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.tableBody>div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user {
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+  display: block;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.progressSection {
+  flex: 1;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.performanceProgressBar {
+  width: 100%;
+  max-width: 350px;
+}
+
+.progressBar {
+  background-color: var(--successGreen) !important;
+}
+
+.performanceProgressBar p {
+  display: none;
+}
+
+.tableHeader>span:not(span:nth-child(1)),
+.tableBody>span:not(div:nth-child(1)) {
+  flex: 1;
+}
+
+.tableBody {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.aheadPercent {
+  color: var(--successGreen);
+}
+
+.behindPercent {
+  color: var(--deleteRed);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1240px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 1.5rem;
+    padding: 12px 0;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>span:nth-child(3) {
+    display: none;
+  }
+
+  .tableBody>div:nth-child(1) {
+    gap: 1rem;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+
+  .tableBody>span:last-child {
+    color: var(--deleteRed);
+    cursor: pointer;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 1.5rem;
+    padding: 15px 0;
+    flex-wrap: wrap;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>span:nth-child(3) {
+    display: none;
+  }
+
+  .tableBody>div:nth-child(1) {
+    gap: 1rem;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+
+  .tableBody>span:last-child {
+    color: var(--deleteRed);
+    cursor: pointer;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
+  }
+}

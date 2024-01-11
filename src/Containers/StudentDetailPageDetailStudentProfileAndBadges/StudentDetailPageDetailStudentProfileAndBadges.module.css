@@ -1,0 +1,133 @@
+.divider {
+    border-bottom: 1px solid var(--sectionBorder);
+    ;
+    margin-block: 2em;
+}
+
+.badgeSection {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.badge {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--veryLightPurple);
+    background: var(--sideNavBackground);
+    width: 230px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.badge:nth-child(2) {
+    border: 1px solid #FFE380;
+    background: #FFFAEB;
+}
+
+.badge>span:nth-child(1) {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--purple);
+    border-radius: 50%;
+}
+
+.badge:nth-child(2)>span:nth-child(1) {
+    background: #FDC500;
+}
+
+.badge>p:nth-child(2) {
+    color: var(--grey);
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.badge>p:nth-child(3) {
+    color: var(--grey);
+    font-family: Archivo;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+    .badgeSection {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .badge {
+        padding: 1rem;
+        width: 200px;
+        height: 117px;
+    }
+
+    .badge>span:nth-child(1) {
+        display: flex;
+        width: 30px;
+        height: 30px;
+    }
+
+    .badge>p:nth-child(2) {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .badge>p:nth-child(3) {
+        font-size: 8px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .badgeSection {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        flex-direction: column;
+        margin-top: 1.5rem;
+    }
+
+    .badge {
+        padding: 1rem;
+        width: 200px;
+        height: 117px;
+    }
+
+    .badge>span:nth-child(1) {
+        display: flex;
+        width: 30px;
+        height: 30px;
+    }
+
+    .badge>p:nth-child(2) {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .badge>p:nth-child(3) {
+        font-size: 8px;
+        line-height: 15px;
+    }
+}
