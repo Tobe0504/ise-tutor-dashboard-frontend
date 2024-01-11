@@ -12,7 +12,7 @@
 .header {
     gap: 1.5rem;
     display: flex;
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 2rem;
     justify-content: space-between;
 }
 
@@ -57,16 +57,62 @@
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
 
-    .header,
-    .body {
+    .header {
         padding: 1rem;
     }
 }
 
 @media screen and (max-width: 767px) {
 
-    .header,
-    .body {
+    .header {
         padding: 1rem;
     }
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 1.7rem;
+}
+
+
+.pageButtons button {
+    width: 60px;
+    height: 60px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
 }

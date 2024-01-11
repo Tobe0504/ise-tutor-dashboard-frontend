@@ -14,7 +14,7 @@ const StudentMain = () => {
     <div className={classes.container}>
 
       <HelloUser header="Students" paragraph="Review student details, enrollments, grades, and likes here." notIncludePay notIncludeBg />
-      
+
       <div className={classes.studentSeachInput}>
         <div className={classes.inputSection}>
           <input type="text" placeholder="Search by name or email" />
@@ -34,27 +34,11 @@ const StudentMain = () => {
             />
           </svg>
         </div>
-
       </div>
 
       <div>
         <StudentData />
       </div>
-
-      <div>
-        <EmptyTabComponent
-          image={astronaut}
-          firstParagraph="Currently, your dashboard is empty, and it's time to take the first step"
-          secondParagraph="in creating a valuable learning experience for your students."
-          route="/"
-          buttontext="Create a lesson"
-        />
-      </div>
-
-      <Schedules />
-      <StudentsPerformance />
-      <StudentAssignmentSubmission />
-      <StudentParticipationandSatisfaction />
     </div>
   );
 };

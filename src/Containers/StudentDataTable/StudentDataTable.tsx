@@ -1,33 +1,75 @@
 import React, { useState } from 'react'
 import classes from "./StudentDataTable.module.css"
 import { Link } from 'react-router-dom';
+import Checkbox from '../../Components/Checkbox/Checkbox';
 
 const StudentDataTable = () => {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = (newState: boolean) => {
+        setIsChecked(newState);
+    };
+
     const [assignments, setAssignments] = useState([
         {
-            name: "Amirah Oyegoke",
-            submittedFile: "Assignment1.pdf",
-            dateAdded: "04-Sept-23",
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
         },
         {
-            name: "Amirah Oyegoke",
-            submittedFile: "Assignment1.pdf",
-            dateAdded: "04-Sept-23",
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
         },
         {
-            name: "Amirah Oyegoke",
-            submittedFile: "Assignment1.pdf",
-            dateAdded: "04-Sept-23",
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
         },
         {
-            name: "Amirah Oyegoke",
-            submittedFile: "Assignment1.pdf",
-            dateAdded: "04-Sept-23",
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
         },
         {
-            name: "Amirah Oyegoke",
-            submittedFile: "Assignment1.pdf",
-            dateAdded: "04-Sept-23",
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
+        },
+        {
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
+        },
+        {
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
+        },
+        {
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
+        },
+        {
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
+        },
+        {
+            status: handleCheckboxChange,
+            studentName: "Rico Chukwuuu",
+            emailAddress: "evelynadeyemi@gmail.com",
+            enrolledDate: "02 Aug, 2022",
         },
     ]);
 
@@ -38,35 +80,36 @@ const StudentDataTable = () => {
 
         setAssignments(assignmentsCopy);
     };
+
     return (
         <section className={classes.container}>
             <div className={classes.body}>
                 <div>
                     <div className={classes.tableHeader}>
-                        <span>Name</span>
-                        <span>Submitted File</span>
-                        <span>Date</span>
-                        <span>Action</span>
+                        <span>Student name</span>
+                        <span>Email address</span>
+                        <span>Enrollment date</span>
                     </div>
 
-                    <div className={classes.bodyContent}>
-                        {assignments.map((data, i) => {
-                            return (
-                                <div key={Math.random()} className={classes.tableBody}>
-                                    <span>{data.name}</span>
-                                    <span>{data.submittedFile}</span>
-                                    <span>{data.dateAdded}</span>
-                                    <span
-                                        onClick={() => {
-                                            filterItems(i);
-                                        }}
-                                    >
-                                        <Link to="">view</Link>
-                                    </span>
+                    {assignments.map((data, i) => {
+                        return (
+                            <div key={Math.random()} className={classes.tableBody}>
+                                <div>
+                                    <Checkbox isChecked={isChecked} onChange={data.status} />
+                                    <span>{data.studentName}</span>
                                 </div>
-                            );
-                        })}
-                    </div>
+                                <span>{data.emailAddress}</span>
+                                <span>{data.enrolledDate}</span>
+                                <span
+                                    onClick={() => {
+                                        filterItems(i);
+                                    }}
+                                >
+                                    <Link to="">view</Link>
+                                </span>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 
