@@ -53,20 +53,7 @@
     line-height: 23px;
     font-weight: normal;
     color: var(--grey3);
-}
-
-@media screen and (min-width: 767px) and (max-width: 1023px) {
-
-    .header {
-        padding: 1rem;
-    }
-}
-
-@media screen and (max-width: 767px) {
-
-    .header {
-        padding: 1rem;
-    }
+    font-style: italic;
 }
 
 .pageButtons {
@@ -115,4 +102,23 @@
 .pageButtons>span>svg {
     width: 24px;
     height: 24px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+    .header {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .header {
+        padding: 1rem;
+    }
+
+    .pageButtons button {
+        height: 50px;
+        width: 50px;
+    }
 }

@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import classes from "./StudentDataTable.module.css"
-import { Link } from 'react-router-dom';
 import Checkbox from '../../Components/Checkbox/Checkbox';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const StudentDataTable = () => {
+    const navigate = useNavigate();
+    const { studentId } = useParams();
+
     const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = (newState: boolean) => {
         setIsChecked(newState);
     };
 
-    const [assignments, setAssignments] = useState([
+    const [students, setStudents] = useState([
         {
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
@@ -73,13 +76,6 @@ const StudentDataTable = () => {
         },
     ]);
 
-    const filterItems = (id: number) => {
-        const assignmentsCopy = assignments.filter((data, i) => {
-            return i !== id;
-        });
-
-        setAssignments(assignmentsCopy);
-    };
 
     return (
         <section className={classes.container}>
@@ -91,7 +87,7 @@ const StudentDataTable = () => {
                         <span>Enrollment date</span>
                     </div>
 
-                    {assignments.map((data, i) => {
+                    {students.map((data, i) => {
                         return (
                             <div key={Math.random()} className={classes.tableBody}>
                                 <div>
@@ -100,13 +96,7 @@ const StudentDataTable = () => {
                                 </div>
                                 <span>{data.emailAddress}</span>
                                 <span>{data.enrolledDate}</span>
-                                <span
-                                    onClick={() => {
-                                        filterItems(i);
-                                    }}
-                                >
-                                    <Link to="">view</Link>
-                                </span>
+                                <span onClick={() => { navigate(`/student/details/${data.studentName}`)}}>View</span>
                             </div>
                         );
                     })}

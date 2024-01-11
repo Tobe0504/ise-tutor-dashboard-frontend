@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard';
 import CollaborationHubPage from './Pages/CollaborationHubPage';
 import CollaborationHubVideoGuide from './Containers/CollaborationHubVideoGuide/CollaborationHubVideoGuide';
 import StudentPage from './Pages/StudentPage';
+import StudentDetailsPage from './Pages/StudentDetailsPage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
       <Route path="/support" element={<TutorSupport />} />
 
       <Route path="/student" element={<StudentPage />} />
+      <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
     </Routes>
   );
 }
