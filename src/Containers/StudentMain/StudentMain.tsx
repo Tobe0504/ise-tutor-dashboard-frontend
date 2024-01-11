@@ -7,7 +7,7 @@ import EngagementInsightsHub from "../EngagementInsightsHub/EngagementInsightsHu
 import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentAssignmentSubmission";
 import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
 import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
-import RightCtaContainer from "../RightCtaContainer/RightCtaContainer";
+import StudentData from "../StudentData/StudentData";
 
 
 const StudentMain = () => {
@@ -17,7 +17,7 @@ const StudentMain = () => {
 
       <HelloUser header="Students" paragraph="Review student details, enrollments, grades, and likes here." notIncludePay notIncludeBg />
       
-      <div>
+      <div className={classes.studentSeachInput}>
         <div className={classes.inputSection}>
           <input type="text" placeholder="Search by name or email" />
           <svg
@@ -38,8 +38,9 @@ const StudentMain = () => {
         </div>
 
       </div>
+
       <div>
-        <EngagementInsightsHub />
+        <StudentData />
       </div>
 
       <div>

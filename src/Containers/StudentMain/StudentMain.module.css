@@ -2,16 +2,17 @@
   padding: 40px 2rem;
 }
 
-.container>div {
+.studentSeachInput {
   margin-top: 40px;
   padding: 1.5rem 3rem;
   height: 100%;
   overflow: auto;
-  background-color: var(--sideNavBackground);
+  background-color: var(--white);
 }
 
 .inputSection {
-  width: 426px;
+  width: 100%;
+  max-width: 426px;
   position: relative;
 }
 
@@ -42,6 +43,11 @@
   .container {
     padding: 1rem;
   }
+
+  .studentSeachInput {
+    padding: 0;
+    background: transparent;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -49,8 +55,12 @@
     padding: 1rem;
   }
 
-  .container>img {
-    width: 184px;
-    height: 184px;
+  .studentSeachInput {
+    padding: 0;
+    background: transparent;
+  }
+
+  .inputSection>input {
+    font-size: 16px;
   }
 }
