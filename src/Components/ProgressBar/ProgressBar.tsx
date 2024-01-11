@@ -8,6 +8,8 @@ type ProgressBarBarProps = {
   color?: string;
   notShowPercentage?: boolean;
   progressBarStyle?: CSSProperties;
+  progressBarBackground?: string;
+  progressBarIndicatorBackground?: string;
 };
 
 const ProgressBar = ({

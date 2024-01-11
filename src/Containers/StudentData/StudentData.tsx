@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import classes from "./StudentData.module.css"
 import Checkbox from '../../Components/Checkbox/Checkbox'
 import email from "../../Assets/Images/emailIcon.svg"
+import StudentModules from '../StudentModules/StudentModules'
 
 const StudentData = () => {
     const [isChecked, setIsChecked] = useState(false);
@@ -26,7 +27,9 @@ const StudentData = () => {
                 </div>
             </div>
             <div className={classes.divider}></div>
-            <div className={classes.body}></div>
+            <div className={classes.body}>
+                <StudentModules />
+            </div>
         </section>
     )
 }
