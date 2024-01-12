@@ -1,7 +1,64 @@
+.body {
+    border-radius: 10px;
+    background: var(--white);
+    padding: 40px 2rem;
+    margin: 1.5rem;
+}
+
 .divider {
     border-bottom: 1px solid var(--sectionBorder);
-    ;
     margin-block: 2em;
+}
+
+.userDetails {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.links div,
+.userDetails .userInfo,
+.iconTextContainer,
+.iconTextContainer div {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.iconTextContainer div {
+    gap: 5px;
+}
+
+.userDetails .userInfo img {
+    width: 80px;
+    height: 80px;
+}
+
+.about h4, .links h4 {
+    color: var(--grey3);
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-bottom: 10px; 
+}
+
+.about p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.links div {
+    gap: 1rem;
+}
+
+.userDetails .userInfo h3 {
+    color: var(--grey);
+    font-weight: 600;
+    line-height: 30px;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
 }
 
 .badgeSection {
@@ -69,6 +126,9 @@
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
+    .body {
+        margin: 0;
+    }
 
     .badgeSection {
         display: flex;
@@ -101,6 +161,11 @@
 }
 
 @media screen and (max-width: 767px) {
+    .body {
+        margin: 0;
+        border: none;
+    }
+
     .badgeSection {
         display: flex;
         align-items: flex-start;

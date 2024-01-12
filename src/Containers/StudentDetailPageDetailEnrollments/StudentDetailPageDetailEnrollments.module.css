@@ -3,21 +3,24 @@
   margin-block: 24px;
   border-radius: 10px;
   padding: 1.5rem 2rem;
+  margin-inline: 1.5rem;
   flex-direction: column;
   background: var(--white);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 }
 
-.divider {
-  height: 2px;
-  margin-block: 2rem;
-  background-color: #F4C3C0;
+.body {
+  overflow: auto;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--sectionBorder);
 }
 
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .header>div:nth-child(1)>h4 {
@@ -30,14 +33,22 @@
   margin-bottom: 0.8rem;
 }
 
+.header>div:nth-child(1)>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
 .tableHeader,
 .tableBody {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 5rem;
   color: var(--grey);
   justify-content: space-between;
-
   padding: 30px 0;
 }
 
@@ -47,12 +58,19 @@
   font-style: normal;
   font-weight: 500;
   line-height: 26px;
+  border-bottom: 1px solid var(--sectionBorder);
 }
 
-.tableBody>div:nth-child(1) {
+.tableHeader>span {
+  flex: 1;
+}
+
+.tableBody>div:nth-child(1),
+.tableBody>div:nth-child(3) {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  flex: 1;
 }
 
 .user {
@@ -74,10 +92,9 @@
 
 .progressSection {
   flex: 1;
-  gap: 1rem;
+  gap: 4rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .performanceProgressBar {
@@ -89,41 +106,38 @@
   background-color: var(--successGreen) !important;
 }
 
-.performanceProgressBar p {
-  display: none;
-}
-
-.tableHeader>span:not(span:nth-child(1)),
-.tableBody>span:not(div:nth-child(1)) {
-  flex: 1;
-}
-
 .tableBody {
   color: var(--grey);
   font-family: Archivo;
-  font-size: 13px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 26px;
   white-space: nowrap;
 }
 
-.aheadPercent {
+.success {
   color: var(--successGreen);
 }
 
-.behindPercent {
+.fail {
   color: var(--deleteRed);
 }
 
 @media screen and (min-width: 767px) and (max-width: 1240px) {
   .container {
-    padding: 16px;
+    padding: 24px 1.5rem;
+    margin-inline: 0;
   }
 
   .header>div:nth-child(1)>h4 {
     font-size: 18px;
     line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 10px;
+    line-height: 18px;
   }
 
   .tableHeader,
@@ -137,13 +151,9 @@
     line-height: 140%;
   }
 
-  .tableHeader>span:nth-child(3),
-  .tableBody>span:nth-child(3) {
-    display: none;
-  }
-
   .tableBody>div:nth-child(1) {
     gap: 1rem;
+    flex: unset;
   }
 
   .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
@@ -154,6 +164,11 @@
   .tableHeader>span:not(span:nth-child(1)),
   .tableBody>span:not(div:nth-child(1)) {
     flex: 1;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>div:nth-child(3) {
+    flex: unset !important;
   }
 
   .tableBody>span:last-child {
@@ -173,7 +188,8 @@
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 16px;
+    padding: 24px 1.5rem;
+    margin-inline: 0;
   }
 
   .header>div:nth-child(1)>h4 {
@@ -181,11 +197,17 @@
     line-height: 27px;
   }
 
+  .header>div:nth-child(1)>p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
   .tableHeader,
   .tableBody {
     gap: 1.5rem;
     padding: 15px 0;
     flex-wrap: wrap;
+    min-width: 385px;
   }
 
   .tableHeader {
@@ -195,11 +217,11 @@
 
   .tableHeader>span:nth-child(3),
   .tableBody>span:nth-child(3) {
-    display: none;
+    flex: unset !important;
   }
 
   .tableBody>div:nth-child(1) {
-    gap: 1rem;
+    white-space: pre-wrap;
   }
 
   .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
@@ -213,9 +235,9 @@
     flex: 1;
   }
 
-  .tableBody>span:last-child {
-    color: var(--deleteRed);
-    cursor: pointer;
+  .tableHeader>span:nth-child(3),
+  .tableBody>div:nth-child(3) {
+    flex: unset;
   }
 
   .progressSection {
