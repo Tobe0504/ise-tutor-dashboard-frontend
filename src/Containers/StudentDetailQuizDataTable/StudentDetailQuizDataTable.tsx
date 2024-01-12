@@ -1,7 +1,7 @@
 import { useState } from "react";
-import classes from "./StudentQuizDataTable.module.css";
+import classes from "./StudentDetailQuizDataTable.module.css";
 
-const StudentQuizDataTable = () => {
+const StudentDetailQuizDataTable = () => {
     // Utils
     const [quiz, setQuiz] = useState([
         {
@@ -173,4 +173,4 @@ const StudentQuizDataTable = () => {
     );
 };
 
-export default StudentQuizDataTable;
+export default StudentDetailQuizDataTable;
