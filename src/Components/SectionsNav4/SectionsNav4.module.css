@@ -70,10 +70,6 @@
     border-bottom: 2px solid #f2f3f8;
   }
 
-  50% {
-    border-bottom: 2px solid rgba(28, 37, 78, 0);
-  }
-
   100% {
     border-bottom: 2px solid rgba(28, 37, 78, 0);
   }
@@ -94,11 +90,29 @@
     color: var(--grey);
     font-size: 14px;
     line-height: 23px;
+    max-width: 5rem;
+  }
+
+  .activeDiv {
+    max-width: 5rem;
   }
 }
 
 @media (max-width: 768px) {
   .container {
     position: static;
+  }
+
+  .div {
+    text-align: center;
+    padding: 0.5rem;
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 23px;
+    max-width: 5rem;
+  }
+
+  .activeDiv {
+    max-width: 5rem;
   }
 }

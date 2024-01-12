@@ -2,7 +2,9 @@ import { useState } from "react";
 import SectionsNav4 from "../../Components/SectionsNav4/SectionsNav4";
 import classes from "./StudentDetailsModules.module.css"
 import StudentDetailPageDetail from "../StudentDetailPageDetail/StudentDetailPageDetail";
-import StudentQuizDataTable from "../StudentQuizDataTable/StudentQuizDataTable";
+import StudentDetailQuizDataTable from "../StudentDetailQuizDataTable/StudentDetailQuizDataTable";
+import StudentDetailGradeDataTable from "../StudentDetailGradeDataTable/StudentDetailGradeDataTable";
+import StudentDetailFeedBackDataTable from "../StudentDetailFeedBackDataTable/StudentDetailFeedBackDataTable";
 
 const StudentDetailsModules = () => {
     // States
@@ -15,17 +17,17 @@ const StudentDetailsModules = () => {
         {
             title: "Quizzes",
             isActive: false,
-            activeComponent: <StudentQuizDataTable />,
+            activeComponent: <StudentDetailQuizDataTable />,
         },
         {
             title: "Grade",
             isActive: false,
-            activeComponent: null,
+            activeComponent: <StudentDetailGradeDataTable />,
         },
         {
             title: "Feedback",
             isActive: false,
-            activeComponent: null,
+            activeComponent: <StudentDetailFeedBackDataTable />,
         },
     ]);
 

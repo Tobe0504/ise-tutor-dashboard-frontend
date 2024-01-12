@@ -1,6 +1,6 @@
 .container {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin-top: 40px;
     background-color: var(--white);
 }
