@@ -1,8 +1,8 @@
 import { useState } from "react";
 import SectionsNav4 from "../../Components/SectionsNav4/SectionsNav4";
-import TutorProfileProfile from "../TutorProfileProfile/TutorProfileProfile";
 import classes from "./StudentDetailsModules.module.css"
 import StudentDetailPageDetail from "../StudentDetailPageDetail/StudentDetailPageDetail";
+import StudentQuizDataTable from "../StudentQuizDataTable/StudentQuizDataTable";
 
 const StudentDetailsModules = () => {
     // States
@@ -15,17 +15,17 @@ const StudentDetailsModules = () => {
         {
             title: "Quizzes",
             isActive: false,
-            activeComponent: <TutorProfileProfile />,
+            activeComponent: <StudentQuizDataTable />,
         },
         {
             title: "Grade",
             isActive: false,
-            activeComponent: <TutorProfileProfile />,
+            activeComponent: null,
         },
         {
             title: "Feedback",
             isActive: false,
-            activeComponent: <TutorProfileProfile />,
+            activeComponent: null,
         },
     ]);
 
