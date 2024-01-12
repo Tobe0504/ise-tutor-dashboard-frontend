@@ -4,6 +4,7 @@ import classes from "./StudentDetailsModules.module.css"
 import StudentDetailPageDetail from "../StudentDetailPageDetail/StudentDetailPageDetail";
 import StudentDetailQuizDataTable from "../StudentDetailQuizDataTable/StudentDetailQuizDataTable";
 import StudentDetailGradeDataTable from "../StudentDetailGradeDataTable/StudentDetailGradeDataTable";
+import StudentDetailFeedBackDataTable from "../StudentDetailFeedBackDataTable/StudentDetailFeedBackDataTable";
 
 const StudentDetailsModules = () => {
     // States
@@ -26,7 +27,7 @@ const StudentDetailsModules = () => {
         {
             title: "Feedback",
             isActive: false,
-            activeComponent: null,
+            activeComponent: <StudentDetailFeedBackDataTable />,
         },
     ]);
 

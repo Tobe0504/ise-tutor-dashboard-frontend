@@ -53,12 +53,9 @@
     line-height: 22px;
 }
 
+.tableBody>span:nth-child(4),
 .tableHeader>span:nth-child(4) {
     padding-right: 1rem;
-}
-
-.tableBody>span:nth-child(4) {
-    padding-right: 2rem;
 }
 
 .tableHeader>span:not(span:nth-child(4)),
@@ -198,7 +195,7 @@
     .tableBody {
         gap: 1.5rem;
         padding: 12px 0;
-        text-align: center;
+        text-align: left;
     }
 
     .tableHeader {
@@ -227,6 +224,7 @@
     .tableHeader>span:not(span:nth-child(1)),
     .tableBody>span:not(div:nth-child(1)) {
         flex: 1;
+        text-align: left;
     }
 
     .tableBody>span:last-child {
