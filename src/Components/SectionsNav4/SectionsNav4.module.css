@@ -70,8 +70,12 @@
     border-bottom: 2px solid #f2f3f8;
   }
 
+  50% {
+    border-bottom: 2px solid rgba(28, 37, 78, 0);
+  }
+
   100% {
-    border-bottom: 2px solid rgb(28 37 78 / 1);
+    border-bottom: 2px solid rgba(28, 37, 78, 0);
   }
 }
 

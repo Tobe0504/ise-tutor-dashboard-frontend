@@ -1,0 +1,124 @@
+.container {
+    height: 100%;
+    overflow: auto;
+    margin-top: 40px;
+    background-color: var(--white);
+}
+
+.divider {
+    border-bottom: 1px solid var(--greyWhite);
+}
+
+.header {
+    gap: 1.5rem;
+    display: flex;
+    padding: 1.5rem 2rem;
+    justify-content: space-between;
+}
+
+.header div {
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header div label {
+    margin-top: 0.75rem;
+}
+
+.header div img {
+    width: 50px;
+    object-fit: cover;
+}
+
+.header div span {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--purple);
+}
+
+.header div:nth-child(3) {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.header p {
+    text-align: end;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--grey3);
+    font-style: italic;
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 1.7rem;
+}
+
+
+.pageButtons button {
+    width: 60px;
+    height: 60px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+    .header {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .header {
+        padding: 1rem;
+    }
+
+    .pageButtons button {
+        height: 50px;
+        width: 50px;
+    }
+}

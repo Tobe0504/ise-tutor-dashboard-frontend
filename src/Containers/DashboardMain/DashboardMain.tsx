@@ -15,7 +15,7 @@ const DashboardMain = () => {
   return (
     <div className={classes.container}>
 
-      <HelloUser notIncludePay notIncludeBg />
+      <HelloUser header="Hi Amirah, welcome" paragraph="We are thrilled to have you as part of our esteemed team of educators." notIncludePay notIncludeBg />
       
       <div className={classes.rightCTASection}>
         <RightCtaContainer />
