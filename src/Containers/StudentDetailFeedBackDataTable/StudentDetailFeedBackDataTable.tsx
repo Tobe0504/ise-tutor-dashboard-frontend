@@ -16,6 +16,7 @@ const feedback = [
 const StudentDetailFeedBackDataTable = () => {
   return (
     <div className={classes.container}>
+      <p>1-10 of 10 results</p>
       <div className={classes.tableHeader}>
         <span>Title</span>
         <span>File type</span>
