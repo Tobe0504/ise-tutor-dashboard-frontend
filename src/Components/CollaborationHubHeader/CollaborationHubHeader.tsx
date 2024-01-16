@@ -1,6 +1,6 @@
 import React from "react";
 import classes from './CollaborationHubHeader.module.css'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type CollaborationHubHeaderProps = {
   children: React.ReactNode;
@@ -13,6 +13,8 @@ const CollaborationHubHeader = ({
   header,
   paragraph,
 }: CollaborationHubHeaderProps) => {
+  const navigate = useNavigate();
+
   return (
     <section className={classes.container}>
       <div className={classes.header}>
@@ -20,25 +22,24 @@ const CollaborationHubHeader = ({
           <h4>{header}</h4>
           <p>{paragraph}</p>
         </div>
-        <Link to="/dashboard">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-          >
-            <path
-              d="M5 15L15 5M5 5L15 15"
-              stroke="#2E2E2E"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </Link>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          onClick={() => { navigate("/dashboard") }}
+        >
+          <path
+            d="M5 15L15 5M5 5L15 15"
+            stroke="#2E2E2E"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
-      <div>{children}</div>
+      {children}
     </section>
   );
 };

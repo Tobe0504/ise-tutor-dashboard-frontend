@@ -76,7 +76,7 @@
   justify-content: space-between;
 }
 
-.videoGuide a {
+.videoGuide span {
   text-decoration: none;
   border-radius: 5px;
   display: flex;

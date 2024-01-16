@@ -9,6 +9,8 @@ type EmptyTabComponentProps = {
   route: string;
   buttontext: string;
   showButton?: boolean;
+  header?: string;
+  imageHeight?: number;
 };
 
 const EmptyTabComponent = ({
@@ -17,15 +19,18 @@ const EmptyTabComponent = ({
   secondParagraph,
   route,
   buttontext,
+  header,
   showButton = true,
+  imageHeight = 184,
 }: EmptyTabComponentProps) => {
   // Router
   const navigate = useNavigate();
 
   return (
     <section className={classes.container}>
-      <img src={image} alt={firstParagraph} />
+      <img src={image} alt={firstParagraph} style={{ maxHeight: imageHeight }} />
       <div>
+        <h4>{header}</h4>
         <p>{firstParagraph}</p>
         <p>{secondParagraph}</p>
       </div>

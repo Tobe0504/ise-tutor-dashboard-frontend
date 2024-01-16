@@ -1,112 +1,42 @@
 export type coursesType = {
   title: string;
   description: string;
-  participantsCount: string;
-  ratings: number;
-  price: string;
-  duration: string;
-  school: string;
 }[];
 
 export const courses: coursesType = [
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of IT",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Cloud",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Data",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
   {
-    title: "Machine Learning",
+    title: "Talent Acquisition [Cohort 1]",
     description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
-  },
-  {
-    title: "Machine Learning",
-    description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
-  },
-  {
-    title: "Machine Learning",
-    description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
-  },
-  {
-    title: "Machine Learning",
-    description:
-      "Dive into the world of algorithms and predictive models to create intelligent systems that learn and adapt.",
-    participantsCount: "1,354",
-    ratings: 4,
-    price: "260,000",
-    duration: "26 w",
-    school: "School of Business",
+      "Master the skills needed to effectively plan, execute, and deliver successful projects, leading teams and......",
   },
 ];

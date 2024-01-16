@@ -24,7 +24,7 @@ const GetStartedRightCta = () => {
         >
           <path
             d="M5 15L15 5M5 5L15 15"
-            stroke="#A2A2A2"
+            stroke="#fff"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

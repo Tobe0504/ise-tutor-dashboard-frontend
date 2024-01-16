@@ -1,0 +1,119 @@
+.container {
+  padding: 24px 0;
+  margin: 24px 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header>div:nth-child(1)>h2 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+}
+
+.header>div:nth-child(1)>p {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.header>div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header>div:nth-child(2)>span {
+  width: 40px;
+  height: 40px;
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--purple);
+  cursor: pointer;
+  transition: var(--threeSecTransition);
+}
+
+.header>div:nth-child(2)>span:hover {
+  background: var(--purple);
+}
+
+.header>div:nth-child(2)>span>svg {
+  width: 24px;
+  height: 24px;
+}
+
+.courseSection {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow-x: auto;
+  width: 100%;
+  margin: 24px 0;
+  scroll-behavior: smooth;
+}
+
+.courseSection {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.courseSection::-webkit-scrollbar {
+  display: none;
+}
+
+.courseSection>div {
+  width: 578px;
+  flex-shrink: 0;
+  flex-basis: 578px;
+  box-sizing: border-box;
+}
+
+.footer {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.footer button:nth-child(1) {
+  background: var(--white);
+  color: var(--purple);
+}
+
+.footer button {
+  width: 193px;
+  border: 2px solid var(--purple);
+}
+
+@media screen and (max-width: 768px) {
+  .courseSection>div {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .header>div:nth-child(1)>h2 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 14px;
+      line-height: 23px;
+      padding-right: 15px;
+  }
+}

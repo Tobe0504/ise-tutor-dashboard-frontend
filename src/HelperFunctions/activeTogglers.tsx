@@ -31,3 +31,14 @@ export const activeTogglerRestAll = (
 
   setState(stateCopy);
 };
+
+export const activeToggleSetAll = (
+  initState: any[],
+  setState: Dispatch<SetStateAction<any[]>>
+) => {
+  const stateCopy = initState.map((data, i) => {
+    return { ...data, isActive: true };
+  });
+
+  setState(stateCopy);
+};
