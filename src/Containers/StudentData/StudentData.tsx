@@ -3,6 +3,9 @@ import Checkbox from '../../Components/Checkbox/Checkbox'
 import email from "../../Assets/Images/emailIcon.svg"
 import StudentModules from '../StudentModules/StudentModules'
 import { useState } from "react"
+import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal"
+import ConfirmationModal from "./ConfirmationModal"
+import SendMessageModal from "./SendMessageModal"
 
 const StudentData = () => {
     const [isChecked, setIsChecked] = useState(false);
@@ -11,14 +14,55 @@ const StudentData = () => {
         setIsChecked(newState);
     };
 
+    const [displaySendMessageModal, setDisplaySendMessageModal] = useState(false);
+    const [displayConfirmationModal, setDisplayConfirmationModal] =
+        useState(false);
+
     return (
         <section className={classes.container}>
+            {displaySendMessageModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplaySendMessageModal(false);
+                    }}
+                    body={
+                        <SendMessageModal
+                            onClick={() => {
+                                setDisplaySendMessageModal(false);
+                            }}
+                            onClick2={() => {
+                                setDisplaySendMessageModal(false);
+                                setDisplayConfirmationModal(true);
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayConfirmationModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayConfirmationModal(false);
+                    }}
+                    body={
+                        <ConfirmationModal
+                            onClick={() => {
+                                setDisplayConfirmationModal(false);
+                            }}
+                        />
+                    }
+                />
+            )}
             <div className={classes.header}>
                 <div>
                     <Checkbox isChecked={isChecked} onChange={handleCheckboxChange} />
                     <span>Select</span>
                 </div>
-                <div>
+
+                <div
+                    onClick={() => {
+                        setDisplaySendMessageModal(true);
+                    }}
+                >
                     <img src={email} alt="Send email to student" />
                     <span>Email</span>
                 </div>

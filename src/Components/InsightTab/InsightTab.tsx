@@ -7,8 +7,8 @@ type InsightTabProps = {
 const InsightTab = ({ totalNumber, title }: InsightTabProps) => {
     return (
         <div className={classes.container}>
-            <div className={classes.number}>{totalNumber}</div>
-            <div className={classes.title}>{title}</div>
+            <p className={classes.number}>{totalNumber}</p>
+            <h3 className={classes.title}>{title}</h3>
         </div>
     );
 };

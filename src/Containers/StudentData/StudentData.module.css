@@ -31,6 +31,7 @@
 .header div img {
     width: 50px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .header div span {

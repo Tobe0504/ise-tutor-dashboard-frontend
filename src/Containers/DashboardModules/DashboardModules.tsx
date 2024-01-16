@@ -26,7 +26,7 @@ const DashboardModules = () => {
       ),
     },
     {
-      title: "On-on-one call sessions",
+      title: "One-on-one call sessions",
       isActive: false,
       activeComponent: <OneOnOneCallSessions />,
       activeNullStateComponent: (

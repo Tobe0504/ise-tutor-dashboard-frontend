@@ -40,14 +40,14 @@ const OverallCourseRating = () => {
         {/* <BarChart /> */}
         <div className={classes.contentHeader}>
           <h4>4.6</h4>
-          <StarRating totalStars={5} initialRating={3} width={25} height={25} />
+          <StarRating totalStars={5} initialRating={3} editable={false} width={25} height={25} />
           <p>Overall course ratings</p>
         </div>
 
         {ratings.map((data, i) => {
           return (
             <div key={data.starRating} className={classes.contentBody}>
-              <StarRating totalStars={5} initialRating={data.starRating} width={15} height={15} />
+              <StarRating totalStars={5} initialRating={data.starRating} editable={false} width={15} height={15} />
               <ProgressBar percentage={data.progressPercent} color="#fff" />
               <span>{data.progressPercent}%</span>
             </div>

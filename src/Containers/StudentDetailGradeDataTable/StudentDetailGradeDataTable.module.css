@@ -53,13 +53,8 @@
     line-height: 22px;
 }
 
-.tableBody>span:nth-child(4),
-.tableHeader>span:nth-child(4) {
-    padding-right: 1rem;
-}
-
-.tableHeader>span:not(span:nth-child(4)),
-.tableBody>span:not(span:nth-child(4)) {
+.tableHeader>span,
+.tableBody>span {
     flex: 1;
 }
 
@@ -221,10 +216,14 @@
         line-height: 22px;
     }
 
-    .tableHeader>span:not(span:nth-child(1)),
-    .tableBody>span:not(div:nth-child(1)) {
-        flex: 1;
-        text-align: left;
+    .tableHeader>span:nth-child(1),
+    .tableBody>span:nth-child(1) {
+        flex: 2 !important;
+    }
+
+    .tableHeader>span:nth-child(4),
+    .tableBody>span:nth-child(4) {
+        flex: 1 !important;
     }
 
     .tableBody>span:last-child {

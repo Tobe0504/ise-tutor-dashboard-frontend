@@ -14,18 +14,17 @@
 }
 
 .header > div:nth-child(1) > h4 {
-  color: var(--white);
+  color: var(--grey);
   font-family: Archivo;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 26px;
   margin-bottom: 0.5rem;
 }
 
 .header > div:nth-child(1) > p {
-  color: var(--white);
-  mix-blend-mode: difference;
+  color: var(--grey);
   font-family: Archivo;
   font-size: 13px;
   font-style: normal;

@@ -4,6 +4,16 @@
   margin: 2rem 1.5rem;
 }
 
+.container>p {
+  text-align: start;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: normal;
+  color: var(--grey3);
+  font-style: italic;
+  padding: 1.5rem 2rem 0;
+}
+
 .tableHeader,
 .tableBody:last-child {
   border-bottom: 1px solid var(--sectionBorder);
@@ -123,18 +133,24 @@
 
 @media (max-width: 767px) {
   .container {
-    padding: 2rem 1rem;
+    margin: 0;
+  }
+
+  .container>p {
+    font-style: normal;
+    padding: 1rem;
   }
 
   .tableBodyContainer {
     margin-top: 1rem;
   }
-
+  
   .tableHeader,
   .tableBody {
     font-size: 10px;
     line-height: 18px;
     padding: 0.5rem 0;
+    padding: 1rem;
   }
 
   .tableBody {

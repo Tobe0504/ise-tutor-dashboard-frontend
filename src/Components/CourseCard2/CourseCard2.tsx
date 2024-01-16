@@ -30,7 +30,7 @@ const CourseCard2 = ({
       <div className={classes.textSection}>
         <div className={classes.upperSection}>
           <p>{title}</p>
-          <span>{paid ? "Paid" : "Free"}</span>
+          <span>{paid ? "Paid" : "Draft"}</span>
         </div>
         <p>{description}</p>
       </div>

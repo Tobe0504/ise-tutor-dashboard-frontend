@@ -34,7 +34,10 @@
     padding-right: 2rem;
 }
 
-.container a {
+.container .header svg {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
     padding-top: 1rem;
 }
 

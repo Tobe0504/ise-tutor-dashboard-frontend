@@ -30,6 +30,7 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   flex-wrap: wrap;
+  padding: 10px;
 }
 
 .navSection>div>svg:nth-child(3) {
@@ -92,7 +93,6 @@
 .moreMenuContentInActive {
   color: var(--grey);
   border-radius: 5px;
-  padding: 8px;
   width: 100%;
   gap: 10px;
   display: flex;

@@ -15,60 +15,70 @@ const StudentDataTable = () => {
 
     const [students, setStudents] = useState([
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
             enrolledDate: "02 Aug, 2022",
         },
         {
+            isActive: false,
             status: handleCheckboxChange,
             studentName: "Rico Chukwuuu",
             emailAddress: "evelynadeyemi@gmail.com",
@@ -96,7 +106,7 @@ const StudentDataTable = () => {
                                 </div>
                                 <span>{data.emailAddress}</span>
                                 <span>{data.enrolledDate}</span>
-                                <span onClick={() => { navigate(`/student/details/${data.studentName}`)}}>View</span>
+                                <span onClick={() => { navigate(`/student/details/${data.studentName.replaceAll(' ', '-').toLowerCase()}`)}}>View</span>
                             </div>
                         );
                     })}

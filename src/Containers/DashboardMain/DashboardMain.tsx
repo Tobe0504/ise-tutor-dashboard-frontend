@@ -8,9 +8,14 @@ import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentA
 import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
 import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
 import RightCtaContainer from "../RightCtaContainer/RightCtaContainer";
-
+import CourseCarousel2 from "../../Components/CourseCarousel2/CourseCarousel2";
+import { courses } from "../../Utilities/courses";
+import GetStartedVideoContainer from "../GetStartedVideoContainer/GetStartedVideoContainer";
+import { useContext } from "react";
+import { AppContext } from "../../Context/AppContext";
 
 const DashboardMain = () => {
+  const { showGetStarted } = useContext(AppContext);
 
   return (
     <div className={classes.container}>
@@ -25,13 +30,25 @@ const DashboardMain = () => {
         <EngagementInsightsHub />
       </div>
 
+
+      <div className={classes.getStartedVideo}>
+        {showGetStarted.dashboard && (
+          <GetStartedVideoContainer videoHeight="480px" />
+        )}
+      </div>
+
+      <CourseCarousel2 data={courses} header="Assigned course(s)" paragraph="Here are the courses you have been assigned." />
+
       <div>
         <EmptyTabComponent
           image={astronaut}
-          firstParagraph="Currently, your dashboard is empty, and it's time to take the first step"
-          secondParagraph="in creating a valuable learning experience for your students."
+          imageHeight={300}
+          header="No assigned course "
+          firstParagraph=" We're actively working on matching you with the perfect course based on your expertise."
+          secondParagraph=" You'll receive an email notification once you’re assigned a course."
           route="/"
           buttontext="Create a lesson"
+          showButton={false}
         />
       </div>
 

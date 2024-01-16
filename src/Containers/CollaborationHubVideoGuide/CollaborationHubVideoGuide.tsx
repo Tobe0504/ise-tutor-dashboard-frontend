@@ -11,7 +11,7 @@ const CollaborationHubVideoGuide = () => {
         paragraph="Join the vibrant community with learners to share your insights and engage in meaningful discussions. Connect with the ise Collaboration Hub on Discord for a collaborative and supportive learning experience."
       >
         <div className={classes.videoContainer}>
-          <VideoPlayer height="530px" url="/" thumbnail={discordVideoThumbnail} />
+          <VideoPlayer height="" url="/" thumbnail={discordVideoThumbnail} />
         </div>
       </CollaborationHubHeader>
     </div>

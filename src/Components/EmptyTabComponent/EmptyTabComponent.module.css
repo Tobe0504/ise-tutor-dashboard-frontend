@@ -10,8 +10,15 @@
 }
 
 .container > img {
-  width: 184px;
-  height: 184px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.container>div>h4 {
+  font-size: 20px;
+  line-height: 40px;
+  color: var(--grey);
+  text-align: center;
 }
 
 .container > div > p {

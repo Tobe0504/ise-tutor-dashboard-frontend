@@ -1,11 +1,5 @@
 import HelloUser from "../../Components/HelloUser/HelloUser";
-import Schedules from "../Schedules/Schedules";
-import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabComponent";
-import astronaut from "../../Assets/Images/astronaut-cuate.svg";
 import classes from "./StudentMain.module.css";
-import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentAssignmentSubmission";
-import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
-import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
 import StudentData from "../StudentData/StudentData";
 
 const StudentMain = () => {
