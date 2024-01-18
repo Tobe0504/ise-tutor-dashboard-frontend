@@ -73,6 +73,16 @@
     flex-direction: unset;
 }
 
+.secondContainer .courseSection>div {
+    height: unset;
+    margin: 1rem;
+    align-items: flex-start;
+}
+
+.secondContainer .courseSection>div img {
+    min-width: 350px;
+}
+
 .secondContainer .topContent div,
 .secondContainer .bottomContent div {
     width: 100%;
@@ -284,6 +294,10 @@
     .topContent,
     .bottomContent {
         border-radius: 10px;
+    }
+
+    .secondContainer .courseSection>div img {
+        min-width: 250px;
     }
 
     .secondContainer .topContent div,

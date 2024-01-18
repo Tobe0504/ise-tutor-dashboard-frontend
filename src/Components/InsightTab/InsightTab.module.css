@@ -45,8 +45,8 @@
     line-height: 26px;
 }
 
-span {
-    padding: 3px 10px;
+.container>div span {
+    padding: 5px 10px;
     font-family: Archivo;
     font-size: 13px;
     font-style: normal;
