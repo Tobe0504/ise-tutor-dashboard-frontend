@@ -1,44 +1,52 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react'
 
 export const activeToggler = (
-  index: number,
-  initState: any[],
-  setState: Dispatch<SetStateAction<any[]>>
+   index: number,
+   initState: any[],
+   setState: Dispatch<SetStateAction<any[]>>
 ) => {
-  const stateCopy = initState.map((data, i) => {
-    if (i === index) {
-      return { ...data, isActive: !data.isActive };
-    } else {
-      return { ...data, isActive: false };
-    }
-  });
+   const stateCopy = initState.map((data, i) => {
+      if (i === index) {
+         return { ...data, isActive: !data.isActive }
+      } else {
+         return { ...data, isActive: false }
+      }
+   })
 
-  setState(stateCopy);
-};
+   setState(stateCopy)
+}
 
 export const activeTogglerRestAll = (
-  index: number,
-  initState: any[],
-  setState: Dispatch<SetStateAction<any[]>>
+   index: number,
+   initState: any[],
+   setState: Dispatch<SetStateAction<any[]>>
 ) => {
-  const stateCopy = initState.map((data, i) => {
-    if (i === index) {
-      return { ...data, isActive: !data.isActive };
-    } else {
-      return { ...data };
-    }
-  });
+   const stateCopy = initState.map((data, i) => {
+      if (i === index) {
+         return { ...data, isActive: !data.isActive }
+      } else {
+         return { ...data }
+      }
+   })
 
-  setState(stateCopy);
-};
+   setState(stateCopy)
+}
 
 export const activeToggleSetAll = (
-  initState: any[],
-  setState: Dispatch<SetStateAction<any[]>>
+   initState: any[],
+   setState: Dispatch<SetStateAction<any[]>>
 ) => {
-  const stateCopy = initState.map((data, i) => {
-    return { ...data, isActive: true };
-  });
+   const stateCopy = initState.map((data, i) => {
+      const activeState = initState.filter((data) => {
+         return data.isActive
+      })
 
-  setState(stateCopy);
-};
+      if (activeState.length !== initState.length) {
+         return { ...data, isActive: true }
+      } else {
+         return { ...data, isActive: false }
+      }
+   })
+
+   setState(stateCopy)
+}

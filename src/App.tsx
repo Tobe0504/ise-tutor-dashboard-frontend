@@ -12,21 +12,19 @@ import ContactSupportPage from './Pages/ContactSupportPage'
 import Dashboard from './Pages/Dashboard'
 import CollaborationHubPage from './Pages/CollaborationHubPage'
 import CollaborationHubVideoGuide from './Containers/CollaborationHubVideoGuide/CollaborationHubVideoGuide'
-// import RequireAuth from './Components/RequireAuth/RequireAuth'
-
+import StudentPage from './Pages/StudentPage'
+import StudentDetailsPage from './Pages/StudentDetailsPage'
+import CoursesPage from './Pages/CoursesPage'
 function App() {
    return (
       <Routes>
          <Route path="*" element={<ErrorPage />} />
-         <Route path="/login-email" element={<LoginEmailTemplatePage />} />
-         <Route path="/sign-in" element={<Login />} />
-
-         {/* <Route element={<RequireAuth />}> */}
          <Route path="/" element={<Navigate to="/dashboard"></Navigate>} />
          <Route path="/dashboard" element={<Dashboard />} />
-
+         <Route path="/login-email" element={<LoginEmailTemplatePage />} />
+         <Route path="/sign-in" element={<Login />} />
          <Route path="/forgot-password" element={<ForgotPassword />} />
-
+         <Route path="/profile-info" element={<TutorProfilePage />} />
          <Route
             path="/tutor-complete-profile"
             element={<TutorCompleteProfilePage />}
@@ -35,23 +33,23 @@ function App() {
             path="/tutor-dashboard-loader"
             element={<TutorDashboardLoadingScreenPage />}
          />
-
-         <Route path="/profile-info" element={<TutorProfilePage />} />
-
          <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
          <Route
             path="/collaboration-hub-video-guide"
             element={<CollaborationHubVideoGuide />}
          />
-
          <Route
             path="/support/contact-support"
             element={<ContactSupportPage />}
          />
          <Route path="/support" element={<TutorSupport />} />
-         {/* </Route> */}
+         <Route path="/student" element={<StudentPage />} />
+         <Route
+            path="/student/details/:studentId"
+            element={<StudentDetailsPage />}
+         />
+         <Route path="/courses" element={<CoursesPage />} />
       </Routes>
    )
 }
-
 export default App
