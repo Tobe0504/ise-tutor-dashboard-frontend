@@ -108,7 +108,7 @@ const StudentDetailPageDetailStudentProfileAndBadges = () => {
                                  strokeLinecap="round"
                               />
                            </svg>
-                           <span>Nigeria</span>
+                           <span>{activeStudent?.country}</span>
                         </div>
                         <div>
                            <svg
@@ -126,19 +126,14 @@ const StudentDetailPageDetailStudentProfileAndBadges = () => {
                                  strokeLinecap="round"
                               />
                            </svg>
-                           <span>Undergraduate</span>
+                           <span>{activeStudent?.schoolLevel}</span>
                         </div>
                      </div>
                   </div>
                </div>
                <div className={classes.about}>
                   <h4>About</h4>
-                  <p>
-                     I love helping people navigate the UX world – it can be
-                     tough out there, and we all need some guidance. Everyone
-                     deserves an opportunity to get a step closer to their
-                     dreams.
-                  </p>
+                  <p>{activeStudent?.about}</p>
                </div>
                <div className={classes.links}>
                   <h4>Links</h4>
