@@ -100,20 +100,18 @@
   text-align: center;
 }
 
-@media screen and (min-width: 767px) and (max-width: 1540px) {
+@media screen and (min-width: 767px) and (max-width: 1380px) {
+
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
   .subContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
     margin-top: 1.5rem;
-  }
-}
-
-@media screen and (min-width: 767px) and (max-width: 1240px) {
-
-  .container {
-    padding: 1.5rem 1rem;
   }
 
   .header>div:nth-child(1)>h4 {

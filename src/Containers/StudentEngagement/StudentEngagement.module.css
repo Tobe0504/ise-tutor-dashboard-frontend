@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    height: 485px;
+    height: 530px;
     min-width: 470px;
     border-radius: 10px;
     border: 1px solid var(--sectionBorder);
@@ -32,6 +32,13 @@
     height: 300px;
     max-width: 100%;
     object-fit: cover;
+}
+
+@media screen and (max-width: 1540px) {
+    .container {
+        width: 100%;
+        min-width: 315px;
+    }
 }
 
 @media screen and (max-width: 1540px) {

@@ -113,7 +113,7 @@ const ProfileAccountManageEmail = () => {
                   setDisplayWarningModal(true);
                 }}
               >
-                Continue update
+                Continue updates
               </Button>
             </div>
           </>

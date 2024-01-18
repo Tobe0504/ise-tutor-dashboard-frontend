@@ -6,6 +6,10 @@
   margin-top: 40px;
 }
 
+.getStartedVideo {
+  display: none;
+}
+
 .rightCTASection {
   height: 100%;
   border-radius: 10px;
@@ -49,12 +53,20 @@
     padding: 1rem;
   }
 
+  .container>div {
+    margin-top: 20px;
+  }
+
+  .getStartedVideo {
+    display: block;
+  }
+
   .rightCTASection {
     display: block;
   }
 
   .rightCTASection>section>div {
-    min-width: 250px;
+    min-width: 225px;
   }
 
   .container>img {

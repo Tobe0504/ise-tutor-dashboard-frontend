@@ -1,6 +1,6 @@
 .container {
     width: 75%;
-    height: 485px;
+    height: 530px;
     min-width: 370px;
     border-radius: 10px;
     border: 1px solid var(--sectionBorder);
@@ -23,9 +23,13 @@
     line-height: 25px;
 }
 
+.content {
+    padding: 1rem;
+}
+
 .contentHeader {
-    padding: 2rem;
     display: flex;
+    padding: 2rem 0;
     text-align: center;
     flex-direction: column;
     border-bottom: 1px solid var(--sectionBorder);
@@ -45,7 +49,7 @@
 .contentBody {
     gap: 1rem;
     display: flex;
-    padding: 0.9rem;
+    padding: 1rem 0;
     align-items: center;
 }
 

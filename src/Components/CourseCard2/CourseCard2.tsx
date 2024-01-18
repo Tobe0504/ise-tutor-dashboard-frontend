@@ -5,7 +5,7 @@ type CourseCard2Props = {
   title: string;
   image: string;
   description: string;
-  paid?: boolean | undefined;
+  status: "Published" | "Draft" | "Paid" | "Pending";
   route?: string;
 };
 
@@ -13,11 +13,20 @@ const CourseCard2 = ({
   image,
   title,
   description,
-  paid,
+  status,
   route,
 }: CourseCard2Props) => {
   // Router
   const navigate = useNavigate();
+
+  const statusClassName = {
+    Published: classes.purple,
+    Draft: classes.yellow,
+    Paid: classes.yellow,
+    Pending: classes.cyan,
+  };
+
+  const statusClass = statusClassName[status] || "";
 
   return (
     <div
@@ -30,7 +39,7 @@ const CourseCard2 = ({
       <div className={classes.textSection}>
         <div className={classes.upperSection}>
           <p>{title}</p>
-          <span>{paid ? "Paid" : "Free"}</span>
+          <span className={statusClass}>{status}</span>
         </div>
         <p>{description}</p>
       </div>

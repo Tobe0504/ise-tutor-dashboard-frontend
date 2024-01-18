@@ -1,4 +1,4 @@
-import { CSSProperties, useContext } from "react";
+import { useContext } from "react";
 import VideoPlayer from "../../Components/VideoPlayer/VideoPlayer";
 import { AppContext } from "../../Context/AppContext";
 import classes from "./GetStartedVideoContainer.module.css";

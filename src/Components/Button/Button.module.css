@@ -12,6 +12,7 @@
   line-height: 28px;
   width: 100%;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s ease-in-out;
 }
 
@@ -92,6 +93,12 @@
 .white {
   color: var(--black);
   background: var(--white);
+  border: none;
+}
+
+.yellow {
+  color: var(--black);
+  background: #FFD029;
   border: none;
 }
 

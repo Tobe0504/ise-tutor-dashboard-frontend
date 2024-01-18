@@ -1,14 +1,32 @@
 import classes from './InsightTab.module.css';
 
 type InsightTabProps = {
-    totalNumber: number;
+    totalNumber?: number;
     title: string;
+    image?: string;
+    showtitle?: boolean;
+    status?: "Published" | "Draft" | "Paid" | "Pending";
+    children?: React.ReactNode;
 }
-const InsightTab = ({ totalNumber, title }: InsightTabProps) => {
+
+const InsightTab = ({ totalNumber, title, image, status, children, showtitle = true }: InsightTabProps) => {
+    const statusClassName = {
+        Published: classes.purple,
+        Draft: classes.yellow,
+        Paid: classes.yellow,
+        Pending: classes.cyan,
+    };
+
+    const statusClass = status ? statusClassName[status] || "" : "";
+
     return (
         <div className={classes.container}>
-            <div className={classes.number}>{totalNumber}</div>
-            <div className={classes.title}>{title}</div>
+            <div>
+                <p className={classes.number}>{totalNumber}</p>
+                {showtitle && <h3 className={classes.title}>{title}</h3>}
+                {status && <span className={statusClass}>{status}</span>}
+            </div>
+            {image && <img src={image} alt={title} />}
         </div>
     );
 };

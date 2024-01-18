@@ -2,12 +2,16 @@ import classes from "./HelloUser.module.css";
 import Button from "../Button/Button";
 
 type HelloUserProps = {
+  header: string;
+  paragraph: string;
   notIncludePay?: boolean;
   notIncludeBg?: boolean;
   notIncludeParagraph?: boolean;
 };
 
 const HelloUser = ({
+  header,
+  paragraph,
   notIncludePay,
   notIncludeBg,
   notIncludeParagraph,
@@ -17,10 +21,10 @@ const HelloUser = ({
       className={classes.helloUser}
       style={notIncludeBg ? { background: "#664efe" } : undefined}
     >
-      <h2>Hi Amirah, welcome</h2>
+      <h2>{header}</h2>
       {!notIncludeParagraph && (
         <p>
-          We are thrilled to have you as part of our esteemed team of educators.{" "}
+          {paragraph}
         </p>
       )}
       {!notIncludePay && <Button type="tertiary">Pay now</Button>}

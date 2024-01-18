@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./CollaborationHubWhatsNext.module.css";
 
 const CollaborationHubWhatsNext = () => {
+  const navigate = useNavigate();
+
   // Utils
   const whatsNext = [
     "Visit the Discord website or open the Discord app on your device.",
@@ -40,26 +42,27 @@ const CollaborationHubWhatsNext = () => {
       </div>
       <div className={classes.videoGuide}>
         <p>Having any difficulty navigating Discord?</p>
-        <Link to="/collaboration-hub-video-guide">
-          <span className={classes.buttonInner}>
-            <span>Watch video guide</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="24"
-              viewBox="0 0 25 24"
-              fill="none"
-            >
-              <path
-                d="M17.5 8L21.5 12M21.5 12L17.5 16M21.5 12L3.5 12"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-        </Link>
+        <span
+          className={classes.buttonInner}
+          onClick={() => {navigate("/collaboration-hub-video-guide")}}
+        >
+          <span>Watch video guide</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+          >
+            <path
+              d="M17.5 8L21.5 12M21.5 12L17.5 16M21.5 12L3.5 12"
+              stroke="white"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
       </div>
     </div>
   );

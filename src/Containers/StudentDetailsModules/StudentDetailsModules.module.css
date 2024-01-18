@@ -1,0 +1,16 @@
+.sectionsNavSection {
+    padding: 1.5rem 2rem;
+    background: var(--white);
+}
+
+@media screen and (min-width: 737px) and (max-width: 1023px) {
+    .sectionsNavSection {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 737px) {
+    .sectionsNavSection {
+        padding: 0 1rem;
+    }
+}
