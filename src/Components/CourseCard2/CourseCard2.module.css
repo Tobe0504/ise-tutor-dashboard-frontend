@@ -40,16 +40,29 @@
 }
 
 .upperSection>span {
-  padding: 3px 20px;
-  color: var(--grey);
+  padding: 3px 16px;
   font-family: Archivo;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: 21px;
   border-radius: 50px;
-  background: #FFD029;
   margin-bottom: 12px;
+}
+
+.upperSection .yellow {
+  color: var(--grey);
+  background: #FFD029;
+}
+
+.upperSection .cyan {
+  color: var(--grey);
+  background: #38CCB3;
+}
+
+.upperSection .purple {
+  color: var(--white);
+  background: #8471FE;
 }
 
 .textSection>p {
