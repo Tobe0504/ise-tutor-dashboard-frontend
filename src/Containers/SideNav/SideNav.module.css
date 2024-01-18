@@ -33,6 +33,10 @@
   padding: 10px;
 }
 
+.navSection>div:not(.otherOptions) {
+  padding: 0;
+}
+
 .navSection>div>svg:nth-child(3) {
   margin-left: auto;
 }
@@ -96,6 +100,7 @@
   width: 100%;
   gap: 10px;
   display: flex;
+  padding: 8px;
 }
 
 .moreMenuContentActive {
@@ -122,4 +127,5 @@
 
 .logout {
   margin-top: 3rem;
+  padding: 10px !important;
 }

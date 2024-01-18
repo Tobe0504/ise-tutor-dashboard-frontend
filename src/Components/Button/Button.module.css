@@ -96,6 +96,12 @@
   border: none;
 }
 
+.yellow {
+  color: var(--black);
+  background: #FFD029;
+  border: none;
+}
+
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .button {
     font-size: 14px;
