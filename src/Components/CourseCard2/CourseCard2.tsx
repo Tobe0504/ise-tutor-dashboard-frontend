@@ -1,3 +1,4 @@
+import Button from "../Button/Button";
 import classes from "./CourseCard2.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +8,7 @@ type CourseCard2Props = {
   description: string;
   status: "Published" | "Draft" | "Paid" | "Pending";
   route?: string;
+  showButton?: boolean;
 };
 
 const CourseCard2 = ({
@@ -15,6 +17,7 @@ const CourseCard2 = ({
   description,
   status,
   route,
+  showButton = false,
 }: CourseCard2Props) => {
   // Router
   const navigate = useNavigate();
@@ -42,6 +45,10 @@ const CourseCard2 = ({
           <span className={statusClass}>{status}</span>
         </div>
         <p>{description}</p>
+        {showButton && <div className={classes.footer}>
+          <Button type="primary">See course details</Button>
+          <Button type="secondary">Create curriculum</Button>
+        </div>}
       </div>
     </div>
   );

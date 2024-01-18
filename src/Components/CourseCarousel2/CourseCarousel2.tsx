@@ -87,7 +87,7 @@ const CourseCarousel2 = ({ header, paragraph, data }: CoursesCarousel2Props2) =>
         })}
       </div>
       <div className={classes.footer}>
-        <Button type="primary">See course details</Button>
+        <Button type="secondary">See course details</Button>
         <Button type="primary">Create curriculum</Button>
       </div>
     </section>
