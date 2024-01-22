@@ -1,0 +1,231 @@
+.container {
+    padding: 40px 2rem;
+}
+
+.quizDataTableContainer {
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+}
+
+.quizDataTableContainer>p {
+    text-align: start;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--grey3);
+    font-style: italic;
+    padding: 1rem;
+}
+
+.quizHeaderDropdowns {
+    gap: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.quizHeaderDropdowns>div {
+    width: 100%;
+    max-width: 320px;
+}
+
+.tableHeader,
+.tableBody {
+    gap: 2rem;
+    display: flex;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--grey);
+    font-style: normal;
+    padding: 40px 2rem;
+    align-items: center;
+    font-family: Archivo;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--sectionBorder);
+}
+
+.tableBody {
+    padding-bottom: 1rem;
+}
+
+.tableHeader>p,
+.tableBody>p {
+    display: none;
+}
+
+.tableBody:last-child {
+    padding-bottom: 2rem;
+}
+
+.tableHeader>span:nth-child(2),
+.tableBody>span:nth-child(2) {
+    flex: 2;
+}
+
+.tableHeader>span:nth-child(3),
+.tableHeader>span:nth-child(4),
+.tableHeader>span:nth-child(5),
+.tableHeader>span:nth-child(6),
+
+.tableBody>span:nth-child(3),
+.tableBody>span:nth-child(4),
+.tableBody>span:nth-child(5),
+.tableBody>span:nth-child(6) {
+    flex: 1;
+}
+
+.tableBody>span:nth-child(5) {
+    text-align: center;
+}
+
+.tableBody>span:nth-child(4) {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 1.7rem;
+}
+
+.pageButtons button {
+    width: 60px;
+    height: 60px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (min-width: 1023px) and (max-width: 1100px) {
+    .quizHeaderDropdowns>div {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1240px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .quizDataTableContainer {
+        padding: 2rem 1rem;
+    }
+
+    .tableBodyContainer {
+        margin-top: 1rem;
+    }
+
+    .quizDataTableContainer>p,
+    .tableHeader,
+    .tableBody {
+        font-size: 12px;
+        line-height: 18px;
+        padding: 1rem 0;
+    }
+
+    .tableHeader>span:nth-child(6),
+    .tableBody>span:nth-child(6) {
+        display: none;
+    }
+
+    .tableBody>span:nth-child(5) {
+        text-align: start;
+    }
+
+    .tableHeader>p,
+    .tableBody>p {
+        display: block;
+    }
+}
+
+@media (max-width: 740px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .quizHeaderDropdowns>div {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .quizDataTableContainer {
+        margin: 0;
+    }
+
+    .quizDataTableContainer>p {
+        font-style: normal;
+        padding: 1rem;
+    }
+
+    .tableBodyContainer {
+        margin-top: 1rem;
+    }
+
+    .quizDataTableContainer>p,
+    .tableHeader,
+    .tableBody {
+        font-size: 10px;
+        line-height: 18px;
+        padding: 0.5rem 0;
+        padding: 1rem;
+    }
+
+    .tableHeader>span:nth-child(4),
+    .tableBody>span:nth-child(4),
+    .tableHeader>span:nth-child(6),
+    .tableBody>span:nth-child(6) {
+        display: none;
+    }
+
+    .tableBody>span:nth-child(5) {
+        text-align: start;
+    }
+
+    .tableHeader>p,
+    .tableBody>p {
+        display: block;
+    }
+
+    .pageButtons button {
+        height: 50px;
+        width: 50px;
+    }
+}
