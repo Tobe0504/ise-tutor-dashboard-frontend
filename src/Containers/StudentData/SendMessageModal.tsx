@@ -26,7 +26,7 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
                         d="M12 36L36 12M12 12L36 36"
                         stroke="#2E2E2E"
                         strokeWidth="2"
-                        strokeLinecap="round"
+                        stroke-linecap="round"
                         strokeLinejoin="round"
                     />
                 </svg>
@@ -40,9 +40,9 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
                     <span>Rico Chuwku (ricochuks11@gmail.com)</span>
                 </div>
             </div>
-            
+
             <div className={classes.textareaSection}>
-                <Input 
+                <Input
                     label="Subject"
                     isRequired
                     placeholder="What is the subject of your message" />

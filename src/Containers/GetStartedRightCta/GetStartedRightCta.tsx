@@ -26,7 +26,7 @@ const GetStartedRightCta = () => {
             d="M5 15L15 5M5 5L15 15"
             stroke="#fff"
             strokeWidth="2"
-            strokeLinecap="round"
+            stroke-linecap="round"
             strokeLinejoin="round"
           />
         </svg>

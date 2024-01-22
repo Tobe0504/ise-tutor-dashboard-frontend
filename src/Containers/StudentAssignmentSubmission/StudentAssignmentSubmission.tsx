@@ -59,7 +59,7 @@ const StudentAssignmentSubmission = () => {
               d="M12.75 6.5L15.75 9.5M15.75 9.5L12.75 12.5M15.75 9.5L2.25 9.5"
               stroke="#664EFE"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

@@ -39,7 +39,7 @@ const GetStartedVideoContainer = ({
               d="M6 18L18 6M6 6L18 18"
               stroke="#2E2E2E"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

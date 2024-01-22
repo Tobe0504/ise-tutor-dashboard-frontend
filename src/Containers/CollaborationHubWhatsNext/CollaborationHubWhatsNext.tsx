@@ -44,7 +44,7 @@ const CollaborationHubWhatsNext = () => {
         <p>Having any difficulty navigating Discord?</p>
         <span
           className={classes.buttonInner}
-          onClick={() => {navigate("/collaboration-hub-video-guide")}}
+          onClick={() => { navigate("/collaboration-hub-video-guide") }}
         >
           <span>Watch video guide</span>
           <svg
@@ -58,7 +58,7 @@ const CollaborationHubWhatsNext = () => {
               d="M17.5 8L21.5 12M21.5 12L17.5 16M21.5 12L3.5 12"
               stroke="white"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

@@ -20,11 +20,10 @@ const Breadcrumbs = ({ image, array }: BreadcrumbsProps) => {
         return (
           <Link
             to={data.route}
-            className={`${classes.link} ${
-              location.pathname === data.route
+            className={`${classes.link} ${location.pathname === data.route
                 ? classes.active
                 : classes.inActive
-            }`}
+              }`}
             key={data.title}
           >
             <span>{data.title}</span>
@@ -39,7 +38,7 @@ const Breadcrumbs = ({ image, array }: BreadcrumbsProps) => {
                 d="M13 5L20 12L13 19M5 5L12 12L5 19"
                 stroke="#737373"
                 strokeWidth="2"
-                strokeLinecap="round"
+                stroke-linecap="round"
                 strokeLinejoin="round"
               />
             </svg>

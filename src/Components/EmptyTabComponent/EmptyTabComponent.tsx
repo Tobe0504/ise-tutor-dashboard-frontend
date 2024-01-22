@@ -52,7 +52,7 @@ const EmptyTabComponent = ({
               d="M13.25 6.5L16.25 9.5M16.25 9.5L13.25 12.5M16.25 9.5L2.75 9.5"
               stroke="white"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

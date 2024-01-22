@@ -1,9 +1,15 @@
+import React, { useContext } from "react";
 import Breadcrumbs from "../../Components/Breadcrumbs/Breadcrumbs";
 import breadcrumbsBack from "../../Assets/Images/breadcrumbsBack.svg";
 import classes from "./CourseDetailBreadcrumbs.module.css";
+import { AppContext } from "../../Context/AppContext";
 
 const CourseDetailBreadcrumbs = () => {
-  // Utils
+  const { students } = useContext(AppContext);
+
+  // Assuming there is an 'isActive' property in each student object
+  const activeStudents = students.filter((student) => student.isActive);
+
   const breadCrumbsArrayProps = {
     image: breadcrumbsBack,
     array: [
@@ -11,12 +17,18 @@ const CourseDetailBreadcrumbs = () => {
         title: "Back to students",
         route: "/student",
       },
-      {
-        title: "Amirah Oyegoke",
-        route: "",
-      },
     ],
   };
+
+  const studentBreadcrumbs = activeStudents.map((student) => ({
+    title: student.studentName,
+    route: `/student/details/${student.studentName
+      .replaceAll(' ', '-')
+      .toLowerCase()}`,
+  }));
+
+  breadCrumbsArrayProps.array = [...breadCrumbsArrayProps.array, ...studentBreadcrumbs];
+
   return (
     <div className={classes.container}>
       <Breadcrumbs {...breadCrumbsArrayProps} />

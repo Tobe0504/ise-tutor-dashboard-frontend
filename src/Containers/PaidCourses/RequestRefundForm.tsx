@@ -27,7 +27,7 @@ const RequestRefundForm = ({ onClick, onClick2 }: RequestRefundFormProps) => {
               d="M12 36L36 12M12 12L36 36"
               stroke="#2E2E2E"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

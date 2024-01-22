@@ -94,7 +94,7 @@ const StudentData = () => {
                      d="M15 19L8 12L15 5"
                      stroke="#d8d8d8"
                      strokeWidth="2"
-                     strokeLinecap="round"
+                     stroke-linecap="round"
                      strokeLinejoin="round"
                   />
                </svg>
@@ -110,7 +110,7 @@ const StudentData = () => {
                      d="M9 5L16 12L9 19"
                      stroke="#d8d8d8"
                      strokeWidth="2"
-                     strokeLinecap="round"
+                     stroke-linecap="round"
                      strokeLinejoin="round"
                   />
                </svg>

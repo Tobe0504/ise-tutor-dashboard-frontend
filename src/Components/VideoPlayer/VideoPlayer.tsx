@@ -87,14 +87,14 @@ const VideoPlayer = ({ height, url, thumbnail }: VideoPlayerProps) => {
             d="M98.3462 74.453L77.0313 60.2431C72.601 57.2895 66.6667 60.4655 66.6667 65.7901V94.2099C66.6667 99.5345 72.601 102.71 77.0313 99.7569L98.3462 85.547C102.304 82.9082 102.304 77.0918 98.3462 74.453Z"
             stroke="#F7F7F7"
             strokeWidth="2"
-            strokeLinecap="round"
+            stroke-linecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M140 80C140 113.137 113.137 140 80 140C46.8629 140 20 113.137 20 80C20 46.8629 46.8629 20 80 20C113.137 20 140 46.8629 140 80Z"
             stroke="#F7F7F7"
             strokeWidth="2"
-            strokeLinecap="round"
+            stroke-linecap="round"
             strokeLinejoin="round"
           />
         </svg>

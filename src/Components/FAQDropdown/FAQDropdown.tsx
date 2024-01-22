@@ -32,7 +32,7 @@ const FAQDropdown = ({ question, answer }: FAQDropdownProps) => {
               d="M18 12H6"
               stroke="#737373"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>
@@ -48,7 +48,7 @@ const FAQDropdown = ({ question, answer }: FAQDropdownProps) => {
               d="M9 1.67969V17.6797M17 9.67969L1 9.67969"
               stroke="#737373"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>

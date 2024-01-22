@@ -34,7 +34,7 @@ const CollaborationHubHeader = ({
             d="M5 15L15 5M5 5L15 15"
             stroke="#2E2E2E"
             strokeWidth="2"
-            strokeLinecap="round"
+            stroke-linecap="round"
             strokeLinejoin="round"
           />
         </svg>

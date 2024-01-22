@@ -40,7 +40,7 @@ const TutorCompleteProfile = () => {
                 d="M17.5 8L21.5 12M21.5 12L17.5 16M21.5 12L3.5 12"
                 stroke="white"
                 strokeWidth="2"
-                strokeLinecap="round"
+                stroke-linecap="round"
                 strokeLinejoin="round"
               />
             </svg>

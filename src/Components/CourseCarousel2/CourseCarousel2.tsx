@@ -49,7 +49,7 @@ const CourseCarousel2 = ({ header, paragraph, data }: CoursesCarousel2Props2) =>
                 d="M15 19L8 12L15 5"
                 stroke="#A79AFE"
                 strokeWidth="2"
-                strokeLinecap="round"
+                stroke-linecap="round"
                 strokeLinejoin="round"
               />
             </svg>
@@ -65,7 +65,7 @@ const CourseCarousel2 = ({ header, paragraph, data }: CoursesCarousel2Props2) =>
                 d="M9 5L16 12L9 19"
                 stroke="#A79AFE"
                 strokeWidth="2"
-                strokeLinecap="round"
+                stroke-linecap="round"
                 strokeLinejoin="round"
               />
             </svg>
