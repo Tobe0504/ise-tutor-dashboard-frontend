@@ -46,12 +46,22 @@ const QuizPageContainer = () => {
                     options={[]}
                 />
 
-                <DropdownWithSearch
+                {/* <DropdownWithSearch
                     isRequired
                     label="Completion date"
                     title="1 week ago"
                     options={[]}
-                />
+                /> */}
+                <div className={classes.completedDate}>
+                    <label htmlFor="completedDate">Completion date</label>
+                    <input
+                        required
+                        type="text"
+                        id="completedDate"
+                        placeholder="1 week ago"
+                        onFocus={(e) => (e.target.type = 'date')}
+                    />
+                </div>
             </div>
             <div className={classes.quizDataTableContainer}>
                 <p>Showing 1-4 of 4 quizzes</p>
