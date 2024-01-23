@@ -44,14 +44,6 @@ const LiveClassSessions = () => {
     },
   ]);
 
-  const filterItems = (id: number) => {
-    const liveSessionCopy = liveSession.filter((data, i) => {
-      return i !== id;
-    });
-
-    setLiveSession(liveSessionCopy);
-  };
-
   return (
     <div className={classes.container}>
       <ul>
@@ -63,9 +55,7 @@ const LiveClassSessions = () => {
                   <img src={yellowDot} alt="" />
                   <span>{data.time}</span>
                 </div>
-                <img onClick={() => {
-                  filterItems(i);
-                }} src={ellipses} alt="more options" />
+                <img src={ellipses} alt="more options" />
               </div>
               <h4>{data.title}</h4>
               <div>

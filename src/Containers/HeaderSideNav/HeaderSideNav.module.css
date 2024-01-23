@@ -91,6 +91,10 @@
   flex-wrap: wrap;
 }
 
+.navSection>div:not(.otherOptions) {
+  padding: 0 !important;
+}
+
 .navSection>div>svg:nth-child(3) {
   margin-left: auto;
 }
@@ -167,6 +171,7 @@
   width: 100%;
   gap: 10px;
   display: flex;
+  padding: 10px;
 }
 
 .moreMenuContentActive {
@@ -175,6 +180,7 @@
   border-radius: 5px;
   width: 100%;
   gap: 10px;
+  padding: 10px;
   display: flex;
 }
 

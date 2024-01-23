@@ -32,13 +32,6 @@ const StudentAssignmentSubmission = () => {
     },
   ]);
 
-  const filterItems = (id: number) => {
-    const assignmentsCopy = assignments.filter((data, i) => {
-      return i !== id;
-    });
-
-    setAssignments(assignmentsCopy);
-  };
   return (
     <section className={classes.container}>
       <div className={classes.header}>
@@ -82,11 +75,7 @@ const StudentAssignmentSubmission = () => {
                   <span>{data.name}</span>
                   <span>{data.submittedFile}</span>
                   <span>{data.dateAdded}</span>
-                  <span
-                    onClick={() => {
-                      filterItems(i);
-                    }}
-                  >
+                  <span>
                     <img src={ellipses} alt="more options" />
                   </span>
                 </div>
