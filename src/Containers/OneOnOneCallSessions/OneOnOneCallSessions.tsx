@@ -44,14 +44,6 @@ const OneOnOneCallSessions = () => {
     },
   ]);
 
-  const filterItems = (id: number) => {
-    const oneOnOneSessionCopy = oneOnOneSession.filter((data, i) => {
-      return i !== id;
-    });
-
-    setOneOnOneSession(oneOnOneSessionCopy);
-  };
-
   return (
     <div className={classes.container}>
       <ul>
@@ -63,9 +55,7 @@ const OneOnOneCallSessions = () => {
                   <img src={yellowDot} alt="" />
                   <span>{data.time}</span>
                 </div>
-                <img onClick={() => {
-                  filterItems(i);
-                }} src={ellipses} alt="more options" />
+                <img src={ellipses} alt="more options" />
               </div>
               <h4>{data.title}</h4>
               <div>

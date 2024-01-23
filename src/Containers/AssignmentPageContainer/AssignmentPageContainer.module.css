@@ -1,0 +1,265 @@
+.container {
+  padding: 40px 2rem;
+}
+
+.studentSeachInput {
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  justify-content: space-between;
+  background-color: var(--white);
+}
+
+.studentSeachInput div:nth-child(2) {
+  margin-bottom: 0;
+}
+
+.studentSeachInput div:nth-child(2)>div:first-child {
+  width: 343px;
+  padding: 0 2rem;
+  border-radius: 10px;
+  height: 52px !important;
+  border: 1px solid var(--grey3);
+}
+
+.inputSection {
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+}
+
+.inputSection>input {
+  width: 100%;
+  padding: 11px 40px 11px 84px;
+  border-radius: 10px;
+  border: 1px solid var(--foundation-grey-g-50, #d8d8d8);
+  background: var(--white-body-text, #fff);
+  color: var(--foundation-grey-g-900, #2e2e2e);
+  outline: none;
+  font-family: Archivo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.inputSection>svg {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
+.tableHeader,
+.tableBody {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grey);
+  padding: 30px 0;
+}
+
+.tableHeader {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  border-bottom: 1px solid var(--grey3);
+}
+
+.tableBody>div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.body {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
+}
+
+.body>div {
+  min-width: 650px;
+  margin-top: 40px;
+  padding: 1.5rem 2rem;
+  background-color: var(--white);
+}
+
+.bodyContent::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 10px;
+}
+
+.bodyContent::-webkit-scrollbar-thumb {
+  background: #8B8B8B;
+  border-radius: 10px;
+}
+
+.bodyContent::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tableHeader>span:nth-child(4) {
+  padding-right: 1rem;
+}
+
+.tableBody>span:nth-child(1) {
+  user-select: none;
+  color: var(--purple);
+  text-decoration: underline;
+}
+
+.tableHeader>span,
+.tableBody>span {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.tableBody {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border-bottom: 1px solid var(--disabled);
+}
+
+.tableBody:last-child {
+  border-bottom: 0px solid var(--disabled);
+}
+
+.tableBody>span:last-child img {
+  cursor: pointer;
+  margin-left: 1rem;
+  transform: rotate(90deg);
+}
+
+.submission {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--grey3);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .studentSeachInput {
+    padding: 0;
+    background: transparent;
+  }
+
+  .inputSection,
+  .studentSeachInput div:nth-child(2),
+  .studentSeachInput div:nth-child(2)>div:first-child {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 1.5rem;
+    padding: 12px 0;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>span:nth-child(3) {
+    display: none;
+  }
+
+  .tableBody>div:nth-child(1) {
+    gap: 1rem;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+
+  .tableBody>span:last-child {
+    color: var(--deleteRed);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .studentSeachInput {
+    padding: 0;
+    background: transparent;
+  }
+
+  .inputSection,
+  .studentSeachInput div:nth-child(2),
+  .studentSeachInput div:nth-child(2)>div:first-child {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .inputSection>input {
+    font-size: 16px;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 3.5rem;
+    padding: 12px 0;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>span:nth-child(3) {
+    display: none;
+  }
+
+  .tableBody>div:nth-child(1) {
+    gap: 1rem;
+  }
+
+  .tableBody>span:nth-child(1) {
+    color: var(--disabled);
+    text-decoration: none;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+}

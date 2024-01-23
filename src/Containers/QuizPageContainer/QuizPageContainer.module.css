@@ -19,11 +19,14 @@
 
 .quizHeaderDropdowns {
     gap: 5%;
+    padding: 1rem;
     display: flex;
+    margin: 40px 0;
     flex-wrap: wrap;
-    margin-top: 40px;
-    align-items: center;
+    border-radius: 10px;
+    align-items: baseline;
     justify-content: flex-start;
+    background-color: var(--white);
 }
 
 .quizHeaderDropdowns>div {
@@ -210,6 +213,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         line-height: 23px;
     }
 
+    .completedDate input {
+        height: 50px;
+    }
+
     .tableBodyContainer {
         margin-top: 1rem;
     }
@@ -248,9 +255,17 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         min-width: 100%;
     }
 
+    .completedDate {
+        margin-bottom: 0;
+    }
+
     .completedDate label {
         font-size: 14px;
         line-height: 23px;
+    }
+
+    .completedDate input {
+        height: 50px;
     }
 
     .quizDataTableContainer {
