@@ -1,35 +1,76 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import HelloUser from "../../Components/HelloUser/HelloUser";
 import classes from "./AssignmentPageContainer.module.css";
 import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
 import ellipses from "../../Assets/Images/ellipses.svg"
+import { AppContext } from "../../Context/AppContext";
+import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
+import ActionsModal from "./ActionsModal/ActionsModal";
+import ConfirmationModal from "./ConfirmationModal";
+import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
 
 
 const AssignmentPageContainer = () => {
 
-  const [assignments, setAssignments] = useState([
-    {
-      fileName: "Assignment1.mp4",
-      studentName: "Sarah Oyebade",
-      status: "Pending",
-      grade: "Not graded",
-    },
-    {
-      fileName: "Assignment1.coc",
-      studentName: "Lukman Shaggi",
-      status: "Approved",
-      grade: 22,
-    },
-    {
-      fileName: "Assignment1.mp4",
-      studentName: "Sarah Oyebade",
-      status: "Pending",
-      grade: "Not graded",
-    },
-  ]);
+  const { students, } = useContext(AppContext);
+
+  // State
+  const [displayActionsModal, setDisplayActionsModal] = useState(false)
+  const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] = useState(false)
+  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false)
 
   return (
     <div className={classes.container}>
+      {displayActionsModal && (
+        <PopoverModal
+          onClick={() => {
+            setDisplayActionsModal(false)
+          }}
+          body={
+            <ActionsModal
+              onClick={() => {
+                setDisplayActionsModal(false)
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayConfirmationModal(true)
+              }}
+              onClick3={() => {
+                setDisplayActionsModal(false)
+                setDisplayRejectSubmissionModal(true)
+              }}
+            />
+          }
+        />
+      )}
+      {/* {displayRejectSubmissionModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayRejectSubmissionModal(false)
+          }}
+          body={
+            <ConfirmationModal
+              onClick={() => {
+                setDisplayRejectSubmissionModal(false)
+              }}
+            />
+          }
+        />
+      )} */}
+      {displayConfirmationModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayConfirmationModal(false)
+          }}
+          body={
+            <ConfirmationModal
+              onClick={() => {
+                setDisplayConfirmationModal(false)
+              }}
+            />
+          }
+        />
+      )}
 
       <HelloUser header="Assignments" paragraph="Review student assignment, submission details, assignment status, grades, and give feedback here." notIncludePay notIncludeBg />
 
@@ -72,22 +113,28 @@ const AssignmentPageContainer = () => {
           </div>
 
           <div className={classes.bodyContent}>
-            {assignments.map((data, i) => {
-              return (
-                <div key={Math.random()} className={classes.tableBody}>
-                  <span>{data.fileName}</span>
-                  <span>{data.studentName}</span>
-                  <span>{data.status}</span>
-                  <span>{data.grade}</span>
-                  <span>
-                    <img src={ellipses} alt="more options" />
-                  </span>
-                </div>
-              );
-            })}
+            {students.slice(0, 3).map((data, index) => (
+              <div key={index} className={classes.tableBody}>
+                <span>{data.fileName}</span>
+                <span>{data.studentName}</span>
+                <span className={data.status === 'Pending' ? classes.statusPending : classes.statusApproved}>
+                  {data.status}
+                </span>
+                <span className={data.grade === 'Not graded' ? classes.notGraded : ''}>
+                  {data.grade}
+                </span>
+                <span
+                  onClick={() => {
+                    setDisplayActionsModal(true)
+                  }}
+                >
+                  <img src={ellipses} alt="more options" />
+                </span>
+              </div>
+            ))}
           </div>
           <p className={classes.submission}>
-            <span>{assignments.length}</span> submissions
+            <span>{students.slice(0, 3).length}</span> submissions
           </p>
         </div>
       </div>
