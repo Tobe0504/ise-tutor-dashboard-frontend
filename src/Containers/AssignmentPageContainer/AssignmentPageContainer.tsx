@@ -14,9 +14,11 @@ import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryMo
 import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
 import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
 import Toast from "../../Components/Toast/Toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AssignmentPageContainer = () => {
+  const navigate = useNavigate();
 
   const { students, } = useContext(AppContext);
 
@@ -41,6 +43,7 @@ const AssignmentPageContainer = () => {
             <ActionsModal
               onClick={() => {
                 setDisplayActionsModal(false)
+                navigate("/student/assignment/assignment-submission")
               }}
               onClick2={() => {
                 setDisplayActionsModal(false)
