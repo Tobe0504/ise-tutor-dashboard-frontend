@@ -17,6 +17,7 @@ import StudentDetailsPage from './Pages/StudentDetailsPage'
 import CoursesPage from './Pages/CoursesPage'
 import Quiz from './Pages/Quiz'
 import Assignment from './Pages/Assignment'
+import AssignmentSubmissionPage from './Pages/AssignmentSubmissionPage'
 
 function App() {
    return (
@@ -43,6 +44,7 @@ function App() {
          <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
          <Route path="/student/quiz" element={<Quiz />} />
          <Route path="/student/assignment" element={<Assignment />} />
+         <Route path="/student/assignment/assignment-submission" element={<AssignmentSubmissionPage />} />
 
          <Route path="/courses" element={<CoursesPage />} />
       </Routes>

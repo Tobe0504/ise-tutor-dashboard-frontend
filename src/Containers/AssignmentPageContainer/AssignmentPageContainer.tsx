@@ -10,6 +10,7 @@ import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
 import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
 import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
 import Toast from "../../Components/Toast/Toast";
+<<<<<<< HEAD
 import RejectSubmissionModal from "./RejectSubmissionModal/RejectSubmissionModal";
 import SendMessageModal from "../StudentData/SendMessageModal";
 import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryModal";
@@ -18,6 +19,15 @@ import MessageSentModal from "./MessageSentModal";
 
 const AssignmentPageContainer = () => {
   const { students } = useContext(AppContext)
+=======
+import { useNavigate } from "react-router-dom";
+
+
+const AssignmentPageContainer = () => {
+  const navigate = useNavigate();
+
+  const { students, } = useContext(AppContext);
+>>>>>>> 5338565 (built the Student Assignment Submission Page)
 
   // State
   const [displayActionsModal, setDisplayActionsModal] = useState(false)
@@ -40,6 +50,7 @@ const AssignmentPageContainer = () => {
             <ActionsModal
               onClick={() => {
                 setDisplayActionsModal(false)
+                navigate("/student/assignment/assignment-submission")
               }}
               onClick2={() => {
                 setDisplayActionsModal(false)
