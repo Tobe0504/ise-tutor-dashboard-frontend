@@ -72,6 +72,7 @@ const AssignmentPageContainer = () => {
           }}
           body={
             <ApproveSubmissionModal
+              title="Notice"
               onClick={() => {
                 setDisplayApproveSubmissionModal(false)
               }}

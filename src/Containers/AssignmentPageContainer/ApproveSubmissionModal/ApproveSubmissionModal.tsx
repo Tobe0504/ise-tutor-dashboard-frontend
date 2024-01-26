@@ -2,16 +2,17 @@ import Button from "../../../Components/Button/Button";
 import classes from "./ApproveSubmissionModal.module.css";
 
 type ApproveSubmissionModalProps = {
+    title: string
     onClick: () => void;
     onClick2: () => void;
 };
 
-const ApproveSubmissionModal = ({ onClick, onClick2 }: ApproveSubmissionModalProps) => {
+const ApproveSubmissionModal = ({ title, onClick, onClick2 }: ApproveSubmissionModalProps) => {
 
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <h4>Notice</h4>
+                <h4>{title}</h4>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
