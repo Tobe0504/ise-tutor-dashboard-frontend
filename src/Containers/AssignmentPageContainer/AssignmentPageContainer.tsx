@@ -6,8 +6,14 @@ import ellipses from "../../Assets/Images/ellipses.svg"
 import { AppContext } from "../../Context/AppContext";
 import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
 import ActionsModal from "./ActionsModal/ActionsModal";
-import ConfirmationModal from "./ConfirmationModal";
+import MessageSentModal from "./MessageSentModal";
 import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
+import RejectSubmissionModal from "./RejectSubmissionModal/RejectSubmissionModal";
+import SendMessageModal from "./SendMessageModal/SendMessageModal";
+import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryModal";
+import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
+import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
+import Toast from "../../Components/Toast/Toast";
 
 
 const AssignmentPageContainer = () => {
@@ -16,8 +22,13 @@ const AssignmentPageContainer = () => {
 
   // State
   const [displayActionsModal, setDisplayActionsModal] = useState(false)
+  const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
+  const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] = useState(false)
+  const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] = useState(false)
   const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] = useState(false)
-  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false)
+  const [displaySendMessageModal, setDisplaySendMessageModal] = useState(false)
+  const [displayAssignmentSummaryModal, setDisplayAssignmentSummaryModal] = useState(false)
+  const [displayMessageSentModal, setDisplayMessageSentModal] = useState(false)
 
   return (
     <div className={classes.container}>
@@ -33,39 +44,133 @@ const AssignmentPageContainer = () => {
               }}
               onClick2={() => {
                 setDisplayActionsModal(false)
-                setDisplayConfirmationModal(true)
+                setDisplayApproveSubmissionModal(true)
               }}
               onClick3={() => {
                 setDisplayActionsModal(false)
                 setDisplayRejectSubmissionModal(true)
               }}
+              onClick4={() => {
+                setDisplayActionsModal(false)
+                setDisplaySendMessageModal(true)
+              }}
+              onClick5={() => {
+                setDisplayActionsModal(false)
+                setDisplayAssignmentSummaryModal(true)
+              }}
             />
           }
         />
       )}
-      {/* {displayRejectSubmissionModal && (
+      {displayApproveSubmissionModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayApproveSubmissionModal(false)
+          }}
+          body={
+            <ApproveSubmissionModal
+              onClick={() => {
+                setDisplayApproveSubmissionModal(false)
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayGradeSubmissionModal(true)
+              }}
+            />
+          }
+        />
+      )}
+      {displayGradeSubmissionModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayGradeSubmissionModal(false)
+          }}
+          body={
+            <GradeSubmissionModal
+              onClick={() => {
+                setDisplayApproveSubmissionModal(false)
+                setDisplayGradeSubmissionModal(false)
+              }}
+              onClick2={() => {
+                setDisplayApproveSubmissionModal(false)
+                setDisplayGradeSubmissionModal(false)
+                setDisplayGradeSubmissionToast(true)
+              }}
+            />
+          }
+        />
+      )}
+      {displayGradeSubmissionToast && (
+        <Toast
+          toastTeaxt="Grade successfully recorded!"
+          onClick={() => {
+            setDisplayGradeSubmissionModal(false)
+            setDisplayGradeSubmissionToast(false)
+          }}
+        />
+      )}
+      {displayRejectSubmissionModal && (
         <AcceptedModal
           onClick={() => {
             setDisplayRejectSubmissionModal(false)
           }}
           body={
-            <ConfirmationModal
+            <RejectSubmissionModal
               onClick={() => {
                 setDisplayRejectSubmissionModal(false)
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayMessageSentModal(true)
               }}
             />
           }
         />
-      )} */}
-      {displayConfirmationModal && (
+      )}
+      {displaySendMessageModal && (
         <AcceptedModal
           onClick={() => {
-            setDisplayConfirmationModal(false)
+            setDisplaySendMessageModal(false)
           }}
           body={
-            <ConfirmationModal
+            <SendMessageModal
               onClick={() => {
-                setDisplayConfirmationModal(false)
+                setDisplaySendMessageModal(false)
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayMessageSentModal(true)
+              }}
+            />
+          }
+        />
+      )}
+      {displayAssignmentSummaryModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayAssignmentSummaryModal(false)
+          }}
+          body={
+            <AssignmentSummaryModal
+              onClick={() => {
+                setDisplayAssignmentSummaryModal(false)
+              }}
+            />
+          }
+        />
+      )}
+      {displayMessageSentModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayMessageSentModal(false)
+          }}
+          body={
+            <MessageSentModal
+              onClick={() => {
+                setDisplayActionsModal(false)
+                setDisplayMessageSentModal(false)
+                setDisplayRejectSubmissionModal(false)
+                setDisplaySendMessageModal(false)
               }}
             />
           }
