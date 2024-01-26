@@ -2,9 +2,25 @@ import Breadcrumbs from "../../Components/Breadcrumbs/Breadcrumbs";
 import classes from "./AssignmentSubmissionPageContainer.module.css";
 import breadcrumbsBack from "../../Assets/Images/breadcrumbsBack.svg";
 import Button from "../../Components/Button/Button";
+import { useState } from "react";
+import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
+import MessageSentModal from "../AssignmentPageContainer/MessageSentModal";
+import SendMessageModal from "../AssignmentPageContainer/SendMessageModal/SendMessageModal";
+import RejectSubmissionModal from "../AssignmentPageContainer/RejectSubmissionModal/RejectSubmissionModal";
+import Toast from "../../Components/Toast/Toast";
+import GradeSubmissionModal from "../AssignmentPageContainer/GradeSubmissionModal/GradeSubmissionModal";
+import ApproveSubmissionModal from "../AssignmentPageContainer/ApproveSubmissionModal/ApproveSubmissionModal";
 
 
 const AssignmentSubmissionPageContainer = () => {
+
+    // State
+    const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
+    const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] = useState(false)
+    const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] = useState(false)
+    const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] = useState(false)
+    const [displaySendMessageModal, setDisplaySendMessageModal] = useState(false)
+    const [displayMessageSentModal, setDisplayMessageSentModal] = useState(false)
 
     // Utils
     const breadCrumbs = {
@@ -44,6 +60,102 @@ const AssignmentSubmissionPageContainer = () => {
 
     return (
         <div className={classes.container}>
+            {displayApproveSubmissionModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayApproveSubmissionModal(false)
+                    }}
+                    body={
+                        <ApproveSubmissionModal
+                            onClick={() => {
+                                setDisplayApproveSubmissionModal(false)
+                            }}
+                            onClick2={() => {
+                                setDisplayGradeSubmissionModal(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayGradeSubmissionModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayGradeSubmissionModal(false)
+                    }}
+                    body={
+                        <GradeSubmissionModal
+                            onClick={() => {
+                                setDisplayApproveSubmissionModal(false)
+                                setDisplayGradeSubmissionModal(false)
+                            }}
+                            onClick2={() => {
+                                setDisplayApproveSubmissionModal(false)
+                                setDisplayGradeSubmissionModal(false)
+                                setDisplayGradeSubmissionToast(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayGradeSubmissionToast && (
+                <Toast
+                    toastTeaxt="Grade successfully recorded!"
+                    onClick={() => {
+                        setDisplayGradeSubmissionModal(false)
+                        setDisplayGradeSubmissionToast(false)
+                    }}
+                />
+            )}
+            {displayRejectSubmissionModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayRejectSubmissionModal(false)
+                    }}
+                    body={
+                        <RejectSubmissionModal
+                            onClick={() => {
+                                setDisplayRejectSubmissionModal(false)
+                            }}
+                            onClick2={() => {
+                                setDisplayMessageSentModal(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displaySendMessageModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplaySendMessageModal(false)
+                    }}
+                    body={
+                        <SendMessageModal
+                            onClick={() => {
+                                setDisplaySendMessageModal(false)
+                            }}
+                            onClick2={() => {
+                                setDisplayMessageSentModal(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayMessageSentModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayMessageSentModal(false)
+                    }}
+                    body={
+                        <MessageSentModal
+                            onClick={() => {
+                                setDisplayMessageSentModal(false)
+                                setDisplayRejectSubmissionModal(false)
+                                setDisplaySendMessageModal(false)
+                            }}
+                        />
+                    }
+                />
+            )}
             <div className={classes.breadCrumbs}>
                 <Breadcrumbs {...breadCrumbs} />
             </div>
