@@ -44,29 +44,24 @@
 .footer {
   gap: 2rem;
   display: flex;
+  margin-top: 40px;
   align-items: center;
   justify-content: flex-end;
 }
 
-.footer>button:nth-child(1) {
-  width: 130px;
-}
-
-.footer>button:nth-child(2) {
+.footer>button {
   width: 180px;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .container {
-    padding: 0;
-    margin: 2rem 1rem;
+    padding: 1rem;
   }
 }
 
 @media screen and (max-width: 767px) {
   .container {
-    padding: 0;
-    margin: 2rem 1rem;
+    padding: 1rem;
   }
 
   .header {

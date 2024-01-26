@@ -1,0 +1,130 @@
+.container {
+    height: 100%;
+    padding: 40px 2rem;
+    border-radius: 10px;
+    background: var(--white);
+}
+
+.header {
+    display: flex;
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    font-style: normal;
+    color: var(--grey);
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-family: Archivo;
+    justify-content: space-between;
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.header>svg {
+    height: 35px;
+    cursor: pointer;
+}
+
+.detailContent {
+    gap: 5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.detailHeader,
+.detailBody {
+    gap: 2rem;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.detailHeader>span,
+.detailBody>span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.detailHeader>span {
+    white-space: nowrap;
+    color: var(--disabled);
+}
+
+.detailBody {
+    flex: 1;
+}
+
+.detailContent {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.footer {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+    justify-content: flex-end;
+    margin-top: calc(40px - 1rem);
+}
+
+.footer>button:nth-child(1) {
+    width: 104px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .detailContent {
+        gap: 3rem;
+    }
+
+    .header {
+        font-size: 28px;
+        line-height: 37px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+    }
+
+    .detailHeader>span,
+    .detailBody>span {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        font-size: 18px;
+        line-height: 27px;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+    }
+
+    .header>svg {
+        height: 24px;
+    }
+
+    .detailContent {
+        gap: 1rem;
+    }
+
+    .detailHeader>span,
+    .detailBody>span {
+        font-size: 12px;
+        line-height: 23px;
+    }
+}

@@ -1,19 +1,17 @@
 import Button from "../../../Components/Button/Button";
-import DragAndDropInput from "../../../Components/DragAndDropInput/DragAndDropInput";
-import TextArea from "../../../Components/TextArea/TextArea";
-import classes from "./SendMessageModal.module.css";
+import classes from "./ApproveSubmissionModal.module.css";
 
-type SendMessageModalProps = {
+type ApproveSubmissionModalProps = {
     onClick: () => void;
     onClick2: () => void;
 };
 
-const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
+const ApproveSubmissionModal = ({ onClick, onClick2 }: ApproveSubmissionModalProps) => {
 
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <h4>Send message to student</h4>
+                <h4>Notice</h4>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
@@ -33,28 +31,20 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
             </div>
 
             <div className={classes.note}>
-                <p>Engage with your student on their assignment. Share extra instructions, seek clarification, or discuss the results together.</p>
-            </div>
-
-            <div className={classes.textareaSection}>
-                <TextArea
-                    label="Leave  feedback * "
-                    placeholder="Type your message here..."
-                />
-                <DragAndDropInput />
-                <p className={classes.tip}>Adding screenshots can help us identify and fix bugs faster</p>
+                <p>Before grading the assignment, please confirm that it meets the required criteria. Once the assignment is approved, the student can’t make another submission.</p>
+                <p>An email can be sent to the student if there’s additional feedback or comments about their submission.</p>
             </div>
 
             <div className={classes.footer}>
                 <Button onClick={onClick} type="secondary">
-                    <span>Cancel</span>
+                    <span>Back to assignment</span>
                 </Button>
                 <Button onClick={onClick2} type="primary">
-                    <span>Send Message</span>
+                    <span>Continue to grade</span>
                 </Button>
             </div>
         </div>
     );
 };
 
-export default SendMessageModal;
+export default ApproveSubmissionModal;

@@ -68,21 +68,3 @@
   margin-right: 3rem;
   margin-bottom: 1rem;
 }
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .modal {
-    width: 60%;
-    height: 35vh;
-  }
-}
-
-@media (max-width: 767px) {
-  .modal {
-    height: 100%;
-    width: 100%;
-    max-width: 378px;
-    min-width: 378px;
-    min-height: 375px;
-    max-height: 375px;
-  }
-}
