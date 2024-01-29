@@ -1,27 +1,31 @@
-import HelloUser from "../../Components/HelloUser/HelloUser";
-import Schedules from "../Schedules/Schedules";
-import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabComponent";
-import astronaut from "../../Assets/Images/astronaut-cuate.svg";
-import classes from "./DashboardMain.module.css";
-import EngagementInsightsHub from "../EngagementInsightsHub/EngagementInsightsHub";
-import StudentAssignmentSubmission from "../StudentAssignmentSubmission/StudentAssignmentSubmission";
-import StudentsPerformance from "../StudentsPerformance/StudentsPerformance";
-import StudentParticipationandSatisfaction from "../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction";
-import RightCtaContainer from "../RightCtaContainer/RightCtaContainer";
-import CourseCarousel2 from "../../Components/CourseCarousel2/CourseCarousel2";
-import { courses } from "../../Utilities/courses";
-import GetStartedVideoContainer from "../GetStartedVideoContainer/GetStartedVideoContainer";
-import { useContext } from "react";
-import { AppContext } from "../../Context/AppContext";
+import HelloUser from '../../Components/HelloUser/HelloUser'
+import Schedules from '../Schedules/Schedules'
+import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
+import astronaut from '../../Assets/Images/astronaut-cuate.svg'
+import classes from './DashboardMain.module.css'
+import EngagementInsightsHub from '../EngagementInsightsHub/EngagementInsightsHub'
+import StudentAssignmentSubmission from '../StudentAssignmentSubmission/StudentAssignmentSubmission'
+import StudentsPerformance from '../StudentsPerformance/StudentsPerformance'
+import StudentParticipationandSatisfaction from '../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction'
+import RightCtaContainer from '../RightCtaContainer/RightCtaContainer'
+import CourseCarousel2 from '../../Components/CourseCarousel2/CourseCarousel2'
+import { courses } from '../../Utilities/courses'
+import GetStartedVideoContainer from '../GetStartedVideoContainer/GetStartedVideoContainer'
+import { useContext } from 'react'
+import { AppContext } from '../../Context/AppContext'
 
 const DashboardMain = () => {
-  const { showGetStarted } = useContext(AppContext);
+  const { showGetStarted } = useContext(AppContext)
 
   return (
     <div className={classes.container}>
+      <HelloUser
+        header="Hi Amirah, welcome"
+        paragraph="We are thrilled to have you as part of our esteemed team of educators."
+        notIncludePay
+        notIncludeBg
+      />
 
-      <HelloUser header="Hi Amirah, welcome" paragraph="We are thrilled to have you as part of our esteemed team of educators." notIncludePay notIncludeBg />
-      
       <div className={classes.rightCTASection}>
         <RightCtaContainer />
       </div>
@@ -30,14 +34,17 @@ const DashboardMain = () => {
         <EngagementInsightsHub />
       </div>
 
-
       <div className={classes.getStartedVideo}>
         {showGetStarted.dashboard && (
           <GetStartedVideoContainer videoHeight="480px" />
         )}
       </div>
 
-      <CourseCarousel2 data={courses} header="Assigned course(s)" paragraph="Here are the courses you have been assigned." />
+      <CourseCarousel2
+        data={courses}
+        header="Assigned course(s)"
+        paragraph="Here are the courses you have been assigned."
+      />
 
       <div>
         <EmptyTabComponent
@@ -57,7 +64,7 @@ const DashboardMain = () => {
       <StudentAssignmentSubmission />
       <StudentParticipationandSatisfaction />
     </div>
-  );
-};
+  )
+}
 
-export default DashboardMain;
+export default DashboardMain

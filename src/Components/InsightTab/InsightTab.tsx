@@ -17,14 +17,19 @@ const InsightTab = ({
    children,
    showtitle = true,
 }: InsightTabProps) => {
-   const statusClassName = {
+   const statusClassName: {
+      Published: any
+      Draft: any
+      Paid: any
+      Pending: any
+   } = {
       Published: classes.purple,
       Draft: classes.yellow,
       Paid: classes.yellow,
       Pending: classes.cyan,
    }
 
-   const statusClass = status ? statusClassName[status] || '' : ''
+   const statusClass = status ? statusClassName[status] : ''
 
    return (
       <div className={classes.container}>
