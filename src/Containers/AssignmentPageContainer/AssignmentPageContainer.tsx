@@ -6,6 +6,7 @@ import ellipses from "../../Assets/Images/ellipses.svg"
 import { AppContext } from "../../Context/AppContext";
 import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
 import ActionsModal from "./ActionsModal/ActionsModal";
+import MessageSentModal from "./MessageSentModal";
 import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
 import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
 import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
@@ -21,9 +22,17 @@ const AssignmentPageContainer = () => {
   const { students } = useContext(AppContext)
 =======
 import { useNavigate } from "react-router-dom";
+import RejectSubmissionModal from "./RejectSubmissionModal/RejectSubmissionModal";
+import SendMessageModal from "./SendMessageModal/SendMessageModal";
+import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryModal";
+import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
+import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
+import Toast from "../../Components/Toast/Toast";
+import { useNavigate } from "react-router-dom";
 
 
 const AssignmentPageContainer = () => {
+  const navigate = useNavigate();
   const navigate = useNavigate();
 
   const { students, } = useContext(AppContext);
@@ -31,6 +40,9 @@ const AssignmentPageContainer = () => {
 
   // State
   const [displayActionsModal, setDisplayActionsModal] = useState(false)
+  const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
+  const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] = useState(false)
+  const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] = useState(false)
   const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
   const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] = useState(false)
   const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] = useState(false)
@@ -51,14 +63,63 @@ const AssignmentPageContainer = () => {
               onClick={() => {
                 setDisplayActionsModal(false)
                 navigate("/student/assignment/assignment-submission")
+                navigate("/student/assignment/assignment-submission")
               }}
               onClick2={() => {
                 setDisplayActionsModal(false)
+                setDisplayApproveSubmissionModal(true)
                 setDisplayApproveSubmissionModal(true)
               }}
               onClick3={() => {
                 setDisplayActionsModal(false)
                 setDisplayRejectSubmissionModal(true)
+              }}
+              onClick4={() => {
+                setDisplayActionsModal(false)
+                setDisplaySendMessageModal(true)
+              }}
+              onClick5={() => {
+                setDisplayActionsModal(false)
+                setDisplayAssignmentSummaryModal(true)
+              }}
+            />
+          }
+        />
+      )}
+      {displayApproveSubmissionModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayApproveSubmissionModal(false)
+          }}
+          body={
+            <ApproveSubmissionModal
+              title="Notice"
+              onClick={() => {
+                setDisplayApproveSubmissionModal(false)
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayGradeSubmissionModal(true)
+              }}
+            />
+          }
+        />
+      )}
+      {displayGradeSubmissionModal && (
+        <AcceptedModal
+          onClick={() => {
+            setDisplayGradeSubmissionModal(false)
+          }}
+          body={
+            <GradeSubmissionModal
+              onClick={() => {
+                setDisplayApproveSubmissionModal(false)
+                setDisplayGradeSubmissionModal(false)
+              }}
+              onClick2={() => {
+                setDisplayApproveSubmissionModal(false)
+                setDisplayGradeSubmissionModal(false)
+                setDisplayGradeSubmissionToast(true)
               }}
               onClick4={() => {
                 setDisplayActionsModal(false)
@@ -171,13 +232,21 @@ const AssignmentPageContainer = () => {
         />
       )}
       {displayMessageSentModal && (
+      )}
+      {displayMessageSentModal && (
         <AcceptedModal
           onClick={() => {
+            setDisplayMessageSentModal(false)
             setDisplayMessageSentModal(false)
           }}
           body={
             <MessageSentModal
+              <MessageSentModal
               onClick={() => {
+                setDisplayActionsModal(false)
+                setDisplayMessageSentModal(false)
+                setDisplayRejectSubmissionModal(false)
+                setDisplaySendMessageModal(false)
                 setDisplayActionsModal(false)
                 setDisplayMessageSentModal(false)
                 setDisplayRejectSubmissionModal(false)
