@@ -12,7 +12,7 @@ const RejectSubmissionModal = ({ onClick, onClick2 }: RejectSubmissionModalProps
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <h4>Send a message </h4>
+                <h4>Reject submission</h4>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
@@ -43,10 +43,10 @@ const RejectSubmissionModal = ({ onClick, onClick2 }: RejectSubmissionModalProps
             </div>
 
             <div className={classes.footer}>
-                <Button onClick={onClick}>
+                <Button onClick={onClick} type="secondary">
                     <span>Close</span>
                 </Button>
-                <Button onClick={onClick2}>
+                <Button onClick={onClick2} type="primary">
                     <span>Request revision</span>
                 </Button>
             </div>

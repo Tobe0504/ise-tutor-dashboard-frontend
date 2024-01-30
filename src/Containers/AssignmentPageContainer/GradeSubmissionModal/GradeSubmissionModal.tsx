@@ -1,19 +1,19 @@
 import Button from "../../../Components/Button/Button";
-import DragAndDropInput from "../../../Components/DragAndDropInput/DragAndDropInput";
+import Input from "../../../Components/Input/Input";
 import TextArea from "../../../Components/TextArea/TextArea";
-import classes from "./SendMessageModal.module.css";
+import classes from "./GradeSubmissionModal.module.css";
 
-type SendMessageModalProps = {
+type GradeSubmissionModalProps = {
     onClick: () => void;
     onClick2: () => void;
 };
 
-const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
+const GradeSubmissionModal = ({ onClick, onClick2 }: GradeSubmissionModalProps) => {
 
     return (
         <div className={classes.container}>
             <div className={classes.header}>
-                <h4>Send message to student</h4>
+                <h4>Grade submission</h4>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
@@ -33,16 +33,18 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
             </div>
 
             <div className={classes.note}>
-                <p>Engage with your student on their assignment. Share extra instructions, seek clarification, or discuss the results together.</p>
+                <p>Assign scores and support student improvement with clear feedback.</p>
             </div>
 
             <div className={classes.textareaSection}>
+                <Input
+                    label="Enter assignment grade *"
+                    isRequired
+                    placeholder="E.g 55" />
                 <TextArea
-                    label="Leave  feedback * "
-                    placeholder="Type your message here..."
+                    label="Leave feedback (optional)"
+                    placeholder="Help your student do better with constructive  feedback"
                 />
-                <DragAndDropInput />
-                <p className={classes.tip}>Adding screenshots can help us identify and fix bugs faster</p>
             </div>
 
             <div className={classes.footer}>
@@ -50,11 +52,11 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
                     <span>Cancel</span>
                 </Button>
                 <Button onClick={onClick2} type="primary">
-                    <span>Send Message</span>
+                    <span>Grade submission</span>
                 </Button>
             </div>
         </div>
     );
 };
 
-export default SendMessageModal;
+export default GradeSubmissionModal;

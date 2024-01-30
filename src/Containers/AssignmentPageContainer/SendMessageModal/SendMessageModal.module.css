@@ -6,49 +6,50 @@
 
 .header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: var(--grey);
-  font-family: Archivo;
-  font-size: 39px;
-  font-style: normal;
+  font-size: 31px;
   font-weight: 500;
-  line-height: 50px;
-  margin-bottom: 40px;
+  line-height: 41px;
+  font-style: normal;
+  color: var(--grey);
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  font-family: Archivo;
+  justify-content: space-between;
+  border-bottom: 1px solid #D8D8D8;
 }
 
-.header > svg {
+.header>svg {
   height: 35px;
   cursor: pointer;
 }
 
-.recipient{
-  gap: 2rem;
-  display: flex;
+.note p {
   font-size: 16px;
-  line-height: 26px;
-  font-weight: 400 !important;
-  justify-content: space-between;
-}
-
-.recipient div {
-  gap: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.recipient h4 {
-  color: var(--grey3);
-  white-space: nowrap;
-}
-
-.recipient span {
+  font-weight: 500;
+  line-height: 25px;
   color: var(--grey);
-  white-space: nowrap;
+  font-style: normal;
+  font-family: Archivo;
 }
 
 .textareaSection {
+  gap: 1rem;
+  width: 100%;
+  display: flex;
   margin-top: 40px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.tip {
+  font-size: small;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
+  margin-top: -0.5rem;
+  color: var(--grey3);
+  font-family: Archivo;
 }
 
 .footer {
@@ -59,25 +60,44 @@
   margin-top: calc(40px - 1rem);
 }
 
-.footer > button:nth-child(1) {
-  background: var(--white);
-  color: var(--purple);
+.footer>button:nth-child(1) {
   width: 130px;
 }
 
-.footer > button {
+.footer>button:nth-child(2) {
   width: 180px;
-  border: 2px solid var(--purple);
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .container {
     padding: 1rem;
   }
+
+  .header {
+    font-size: 28px;
+    line-height: 37px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .container {
     padding: 1rem;
+  }
+
+  .header {
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+  }
+
+  .header>svg {
+    height: 24px;
+  }
+
+  .textareaSection {
+    margin: 20px 0 0;
   }
 }
