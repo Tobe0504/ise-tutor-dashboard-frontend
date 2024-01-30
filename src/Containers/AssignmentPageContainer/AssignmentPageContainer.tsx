@@ -1,23 +1,26 @@
 import { useContext, useState } from "react";
-import HelloUser from "../../Components/HelloUser/HelloUser";
-import classes from "./AssignmentPageContainer.module.css";
-import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
-import ellipses from "../../Assets/Images/ellipses.svg"
-import { AppContext } from "../../Context/AppContext";
-import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
-import ActionsModal from "./ActionsModal/ActionsModal";
+import { useNavigate } from "react-router-dom";
 import MessageSentModal from "./MessageSentModal";
+import Toast from "../../Components/Toast/Toast";
+import { AppContext } from "../../Context/AppContext";
+import ActionsModal from "./ActionsModal/ActionsModal";
+import ellipses from "../../Assets/Images/ellipses.svg";
+import classes from "./AssignmentPageContainer.module.css";
+import HelloUser from "../../Components/HelloUser/HelloUser";
+import SendMessageModal from "./SendMessageModal/SendMessageModal";
+import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
+import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
 import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
 import RejectSubmissionModal from "./RejectSubmissionModal/RejectSubmissionModal";
-import SendMessageModal from "./SendMessageModal/SendMessageModal";
 import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryModal";
 import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
-import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
-import Toast from "../../Components/Toast/Toast";
+import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
 
 
 const AssignmentPageContainer = () => {
   const { students } = useContext(AppContext)
+
+  const navigate = useNavigate()
 
   // State
   const [displayActionsModal, setDisplayActionsModal] = useState(false)
@@ -34,12 +37,13 @@ const AssignmentPageContainer = () => {
       {displayActionsModal && (
         <PopoverModal
           onClick={() => {
-            setDisplayActionsModal(false)
+            setDisplayActionsModal(false);
           }}
           body={
             <ActionsModal
               onClick={() => {
                 setDisplayActionsModal(false)
+                navigate("/student/assignment/assignment-submission");
               }}
               onClick2={() => {
                 setDisplayActionsModal(false)
