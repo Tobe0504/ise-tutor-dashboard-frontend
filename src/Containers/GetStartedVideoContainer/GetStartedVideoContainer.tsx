@@ -5,10 +5,14 @@ import classes from "./GetStartedVideoContainer.module.css";
 
 type GetStartedVideoContainerProps = {
   videoHeight: string;
+  title: string;
+  paragraph: string;
 };
 
 const GetStartedVideoContainer = ({
   videoHeight,
+  title,
+  paragraph,
 }: GetStartedVideoContainerProps) => {
   // Context
   const { screenWidthState, setShowGetStarted } = useContext(AppContext);
@@ -17,8 +21,8 @@ const GetStartedVideoContainer = ({
     <section className={classes.container}>
       <div className={classes.header}>
         <div>
-          <h4>Getting Started Guide</h4>
-          <p>Welcome to the ise platform! We're excited to have you on board and help you embark on your learning journey. Watch out tutorial guide to learn how to navigate our platform.</p>
+          <h4>{title}</h4>
+          <p>{paragraph}</p>
         </div>
         <div>
           <svg
