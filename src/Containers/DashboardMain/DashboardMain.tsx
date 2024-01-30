@@ -21,7 +21,7 @@ const DashboardMain = () => {
     <div className={classes.container}>
 
       <HelloUser header="Hi Amirah, welcome" paragraph="We are thrilled to have you as part of our esteemed team of educators." notIncludePay notIncludeBg />
-      
+
       <div className={classes.rightCTASection}>
         <RightCtaContainer />
       </div>
@@ -33,7 +33,10 @@ const DashboardMain = () => {
 
       <div className={classes.getStartedVideo}>
         {showGetStarted.dashboard && (
-          <GetStartedVideoContainer videoHeight="480px" />
+          <GetStartedVideoContainer
+            title="Getting Started Guide"
+            paragraph="Welcome to the ise platform! We're excited to have you on board and help you embark on your learning journey. Watch out tutorial guide to learn how to navigate our platform."
+            videoHeight="480px" />
         )}
       </div>
 

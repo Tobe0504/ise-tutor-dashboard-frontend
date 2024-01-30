@@ -1,0 +1,23 @@
+.container {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.header {
+  gap: 2rem;
+  margin: 2em 0;
+  display: flex;
+  align-items: center;
+}
+
+.header button:nth-child(2) {
+  border: none;
+}
