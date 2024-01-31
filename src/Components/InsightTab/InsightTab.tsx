@@ -1,7 +1,7 @@
 import classes from './InsightTab.module.css'
 
 type InsightTabProps = {
-   totalNumber?: number
+   totalNumber?: number | string
    title: string
    image?: string
    showtitle?: boolean

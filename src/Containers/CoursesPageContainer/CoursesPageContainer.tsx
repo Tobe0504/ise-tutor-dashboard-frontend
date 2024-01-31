@@ -27,7 +27,7 @@ const CoursesPageContainer = () => {
       },
       {
          title: 'All time rating',
-         totalNumber: 4.3 / 5.0, // Leave as a fraction
+         totalNumber: `${4.3} / ${5.0}`,
          image: StarIcon,
       },
    ]
@@ -165,7 +165,7 @@ const CoursesPageContainer = () => {
                      return (
                         <InsightTab
                            key={i}
-                           totalNumber={data.totalNumber}
+                           totalNumber={data.totalNumber.toString()}
                            title={data.title}
                            image={data.image}
                         />
