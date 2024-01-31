@@ -9,37 +9,32 @@ export const modulesArray = [
     isActive: true,
     weeks: [
       {
-        title: "Introduction to Data Analysis",
+        subTitle: " Intro to UI frameworks",
         videos: [
           {
-            title: "Welcome to introduction of Data Analysis ",
-            tyoe: "Video",
+            title: "Working with library",
+            type: "Video",
             duration: "5 min",
           },
           {
-            title: "About the course",
-            tyoe: "Read",
+            title: "Bootstrap documentation",
+            type: "Reading",
             duration: "5 min",
           },
           {
-            title: "Course learning objectives",
-            tyoe: "Video",
+            title: "Getting started with Bootstrap",
+            type: "Video",
             duration: "5 min",
           },
           {
-            title: "Definition and essentials characteristics of Data Analysis",
-            tyoe: "Presentation",
+            title: "Bootstrap components",
+            type: "Video",
             duration: "5 min",
           },
           {
-            title: "Quiz Title",
-            tyoe: "Quiz",
-            duration: "5 min",
-          },
-          {
-            title: "Assignment Title",
-            tyoe: "Assignment",
-            duration: "5 min",
+            title: "Self review: Working with bootstrap grid",
+            type: "Quiz",
+            duration: "5 questions",
           },
         ],
       },
