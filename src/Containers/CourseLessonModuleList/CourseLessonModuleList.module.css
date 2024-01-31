@@ -47,6 +47,10 @@
   font-weight: 400;
   line-height: 27px;
   cursor: pointer;
+
+  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .moduleTitleContainer:nth-child(1)>span {
@@ -56,9 +60,10 @@
 .moduleTitleCourseContent {
   gap: 2rem;
   display: flex;
-  padding: 20px 0;
   flex-wrap: wrap;
+  flex-basis: 100%;
   align-items: center;
+  padding: 10px 0 20px 40px;
 }
 
 .moduleTitleCourseContent>div {
@@ -130,4 +135,15 @@
 .active {
   border: 1px solid var(--veryLightPurple);
   background: var(--veryVeryLightPurple);
+}
+
+@media screen and (max-width: 768px) {
+
+  .container {
+    padding: 0;
+  }
+
+  .innerContainer {
+    padding: 16px;
+  }
 }
