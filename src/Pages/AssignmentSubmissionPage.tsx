@@ -3,7 +3,7 @@ import AssignmentSubmissionPageContainer from '../Containers/AssignmentSubmissio
 
 const AssignmentSubmissionPage = () => {
     return (
-        <Layout>
+        <Layout closeSideNav>
             <AssignmentSubmissionPageContainer />
         </Layout>
     )
