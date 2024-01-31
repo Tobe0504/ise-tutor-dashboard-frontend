@@ -20,6 +20,7 @@ import Assignment from './Pages/Assignment'
 import AssignmentSubmissionPage from './Pages/AssignmentSubmissionPage'
 import CoursesCurriculum from './Pages/CoursesCurriculum'
 import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
+import PeriodicSurvey from './Pages/PeriodicSurvey'
 
 function App() {
    return (
@@ -44,6 +45,7 @@ function App() {
 
          <Route path="/student" element={<StudentPage />} />
          <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
+         <Route path="/student/periodic-survey" element={<PeriodicSurvey />} />
          <Route path="/student/quiz" element={<Quiz />} />
          <Route path="/student/assignment" element={<Assignment />} />
          <Route path="/student/assignment/assignment-submission" element={<AssignmentSubmissionPage />} />

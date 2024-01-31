@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import classes from "./StudentDetailFeedBackDataTable.module.css";
 
 const feedback = [
@@ -14,6 +15,7 @@ const feedback = [
 ];
 
 const StudentDetailFeedBackDataTable = () => {
+  const navigate = useNavigate();
   return (
     <div className={classes.container}>
       <p>1-10 of 10 results</p>
@@ -32,7 +34,9 @@ const StudentDetailFeedBackDataTable = () => {
               </span>
               <span>{data.dateCreated}</span>
               <span>{data.dateCompleted}</span>
-              <span>View</span>
+              <span
+                onClick={() => navigate('/student/periodic-survey')}
+              >View</span>
             </div>
           );
         })}
