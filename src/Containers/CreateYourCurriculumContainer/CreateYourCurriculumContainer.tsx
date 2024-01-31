@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Button from '../../Components/Button/Button'
 import GetStartedVideoContainer from '../GetStartedVideoContainer/GetStartedVideoContainer'
 import classes from './CreateYourCurriculumContainer.module.css'
@@ -7,6 +7,12 @@ import CourseLessonsContainer from '../CourseLessonsContainer/CourseLessonsConta
 
 const CreateYourCurriculumContainer = () => {
     const { showGetStarted } = useContext(AppContext);
+
+    const [showCourseLessons, setShowCourseLessons] = useState(false);
+
+    const handleCreateOutlineClick = () => {
+        setShowCourseLessons(true);
+    };
 
     return (
         <div className={classes.container}>
@@ -22,15 +28,20 @@ const CreateYourCurriculumContainer = () => {
             </div>
             <div className={classes.subContainer}>
                 <h4>Curriculum outline</h4>
-                <p>Create an outline by structuring your content into weeks and lessons. Then, add a wide array of content to your lessons.</p>
-                <Button>
-                    <span>Create outline</span>
-                    <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 1L19 5M19 5L15 9M19 5L1 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </Button>
-                <CourseLessonsContainer />
+                {!showCourseLessons && (
+                    <>
+                        <p>Create an outline by structuring your content into weeks and lessons. Then, add a wide array of content to your lessons.</p>
+                        <Button onClick={handleCreateOutlineClick}>
+                            <span>Create outline</span>
+                            <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 1L19 5M19 5L15 9M19 5L1 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </Button>
+                    </>
+                )}
+                {showCourseLessons && <CourseLessonsContainer />}
             </div>
+
 
             <div className={classes.getStartedVideo}>
                 {showGetStarted.dashboard && (
