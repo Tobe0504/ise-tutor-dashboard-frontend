@@ -1,0 +1,63 @@
+.header,
+.header>div {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    justify-content: space-between;
+}
+
+.header {
+    padding: 24px 48px;
+    border-top: 1px solid var(--veryLightPurple);
+}
+
+.header>div span {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 21px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.header>div svg {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+.header>div button {
+    padding: 10px 30px;
+    border-color: var(--black);
+}
+
+@media screen and (max-width: 768px) {
+
+    .header,
+    .header>div {
+        gap: 10px;
+    }
+
+    .header {
+        padding: 16px;
+        border-top: none;
+        border-bottom: 1px solid var(--veryLightPurple);
+    }
+
+    .header>div span {
+        font-size: 10px;
+        line-height: 18px;
+    }
+
+    .header>div svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .header>div button {
+        border: none;
+        padding: 10px;
+        flex-direction: row-reverse;
+    }
+}
