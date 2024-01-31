@@ -27,7 +27,7 @@ const CoursesPageContainer = () => {
       },
       {
          title: 'All time rating',
-         totalNumber: 4.3 / 5.0,
+         totalNumber: 4.3 / 5.0, // Leave as a fraction
          image: StarIcon,
       },
    ]
@@ -182,10 +182,10 @@ const CoursesPageContainer = () => {
                         image={data.image}
                         status={
                            data.status as
-                              | 'Published'
-                              | 'Draft'
-                              | 'Paid'
-                              | 'Pending'
+                           | 'Published'
+                           | 'Draft'
+                           | 'Paid'
+                           | 'Pending'
                         }
                      />
                   ))}

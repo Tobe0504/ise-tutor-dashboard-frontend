@@ -19,6 +19,7 @@ import Quiz from './Pages/Quiz'
 import Assignment from './Pages/Assignment'
 import AssignmentSubmissionPage from './Pages/AssignmentSubmissionPage'
 import CoursesCurriculum from './Pages/CoursesCurriculum'
+import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
 
 function App() {
    return (
@@ -49,6 +50,7 @@ function App() {
 
          <Route path="/courses" element={<CoursesPage />} />
          <Route path="/courses/courses-curriculum" element={<CoursesCurriculum />} />
+         <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
       </Routes>
    )
 }
