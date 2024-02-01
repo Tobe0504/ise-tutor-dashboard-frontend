@@ -21,6 +21,7 @@ import AssignmentSubmissionPage from './Pages/AssignmentSubmissionPage'
 import CoursesCurriculum from './Pages/CoursesCurriculum'
 import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
 import PeriodicSurvey from './Pages/PeriodicSurvey'
+import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreviewPage'
 
 function App() {
    return (
@@ -53,6 +54,7 @@ function App() {
          <Route path="/courses" element={<CoursesPage />} />
          <Route path="/courses/courses-curriculum" element={<CoursesCurriculum />} />
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
+         <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
       </Routes>
    )
 }

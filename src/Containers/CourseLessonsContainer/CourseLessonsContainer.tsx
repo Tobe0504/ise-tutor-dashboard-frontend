@@ -61,7 +61,10 @@ const CourseLessonsContainer = () => {
           </svg>
           <span>Edit curriculum</span>
         </Button>
-        <Button type="secondary">
+        <Button
+          type="secondary"
+          onClick={() => { navigate('/courses/create-module/preview') }}
+        >
           <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.2501 6.5C11.2501 7.74264 10.2427 8.75 9.00006 8.75C7.75742 8.75 6.75006 7.74264 6.75006 6.5C6.75006 5.25736 7.75742 4.25 9.00006 4.25C10.2427 4.25 11.2501 5.25736 11.2501 6.5Z" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M1.84375 6.49997C2.79946 3.45716 5.64217 1.25 9.00039 1.25C12.3586 1.25 15.2014 3.45719 16.157 6.50003C15.2013 9.54284 12.3586 11.75 9.00041 11.75C5.64217 11.75 2.79944 9.54282 1.84375 6.49997Z" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
