@@ -44,20 +44,33 @@
 }
 
 .moduleTitle {
+    gap: 1rem;
     display: flex;
+    margin: 3rem 1rem 0;
     align-items: center;
     padding-bottom: 1rem;
     justify-content: space-between;
     border-bottom: 1px solid var(--veryLightPurple);
 }
 
+.moduleWeek {
+    border-bottom: none;
+    margin: 0 1rem 0 2rem;
+}
+
 .moduleTitle h4 {
+    flex: 1;
     font-size: 20px;
     font-weight: 500;
     line-height: 30px;
     color: var(--grey);
     font-style: normal;
     font-family: Archivo;
+}
+
+.moduleWeek h4 {
+    font-size: 18px;
+    line-height: 28px;
 }
 
 .moduleButtons {
