@@ -1,14 +1,25 @@
+.container svg {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+
+.container button {
+    width: fit-content;
+    padding: 10px 30px;
+}
+
 .header,
 .header>div {
     gap: 1.5rem;
     display: flex;
     align-items: center;
-    background: var(--white);
     justify-content: space-between;
 }
 
 .header {
     padding: 24px 48px;
+    background: var(--white);
     border-top: 1px solid var(--veryLightPurple);
 }
 
@@ -21,18 +32,126 @@
     font-family: Archivo;
 }
 
-.header>div svg {
-    width: 24px;
-    height: 24px;
-    object-fit: cover;
-}
-
 .header>div button {
-    padding: 10px 30px;
     border-color: var(--black);
 }
 
+.body {
+    gap: 3rem;
+    display: flex;
+    padding: 40px 48px;
+    align-items: flex-start;
+}
+
+.moduleTitle {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--veryLightPurple);
+}
+
+.moduleTitle h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.moduleButtons {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.moduleButtons button:nth-child(1) {
+    border: none;
+}
+
+.course,
+.addModules,
+.addEngagingContent {
+    gap: 1.5rem;
+    width: 100%;
+    display: flex;
+    padding: 40px 24px;
+    border-radius: 10px;
+    flex-direction: column;
+    background: var(--white);
+}
+
+.addEngagingContent {
+    align-items: center;
+}
+
+.course {
+    top: 10px;
+    max-width: 452px;
+    position: sticky;
+    min-height: 100vh;
+    padding: 24px 16px;
+    border: 1px solid var(--sectionBorder);
+}
+
+.course h3 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.course div:last-child {
+    flex: 1;
+    display: flex;
+    padding-top: 1rem;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.addModules h3 {
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.addModulesBottom {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.addModulesBottom>div {
+    flex: 1;
+}
+
+.addModules p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    font-style: normal;
+    color: var(--grey);
+    margin-top: -1.5rem;
+    font-family: Archivo;
+}
+
 @media screen and (max-width: 768px) {
+    .container svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    .container button {
+        padding: 10px;
+    }
 
     .header,
     .header>div {
@@ -50,14 +169,8 @@
         line-height: 18px;
     }
 
-    .header>div svg {
-        width: 12px;
-        height: 12px;
-    }
-
     .header>div button {
         border: none;
-        padding: 10px;
         flex-direction: row-reverse;
     }
 }
