@@ -156,6 +156,15 @@
     font-family: Archivo;
 }
 
+.selectType>div:nth-child(1) {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--veryLightPurple);
+}
+
 @media screen and (max-width: 768px) {
     .container svg {
         width: 12px;

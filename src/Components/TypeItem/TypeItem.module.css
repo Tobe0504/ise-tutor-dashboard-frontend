@@ -1,0 +1,36 @@
+.typeItem {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.typeItem div:nth-child(1) {
+    display: flex;
+    padding: 12px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    background: var(--veryLightPurple);
+}
+
+.typeItem div:nth-child(2) {
+    padding-top: 1.2rem;
+}
+
+.typeItem p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.typeItem span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    font-style: normal;
+    color: var(--grey3);
+    font-family: Archivo;
+}

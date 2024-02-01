@@ -4,6 +4,7 @@ import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
 import TextArea from '../../Components/TextArea/TextArea';
 import { useNavigate } from 'react-router-dom';
+import TypeItem from '../../Components/TypeItem/TypeItem';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
@@ -18,8 +19,16 @@ const CreatingCourseModulePageContainer = () => {
         setCurrentStep(currentStep - 1);
     };
 
-    const handlePrimaryButtonClick = () => {
+    const handleAddLessonModules = () => {
         setCurrentStep(1);
+    };
+
+    const handleAddWeek = () => {
+        setCurrentStep(5);
+    };
+
+    const handleAddWeekModules = () => {
+        setCurrentStep(2);
     };
 
 
@@ -73,6 +82,7 @@ const CreatingCourseModulePageContainer = () => {
                     <div className={classes.moduleButtons}>
                         <Button
                             type='secondary'
+                            onClick={handleAddWeek}
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4V20M20 12L4 12" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -81,7 +91,7 @@ const CreatingCourseModulePageContainer = () => {
                         </Button>
                         <Button
                             type='secondary'
-                            onClick={handlePrimaryButtonClick}
+                            onClick={handleAddLessonModules}
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4V20M20 12L4 12" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -184,12 +194,40 @@ const CreatingCourseModulePageContainer = () => {
                         <div className={classes.addModulesBottom}>
                             <Button
                                 type='primary'
-                                onClick={handlePrimaryButtonClick}
+                                onClick={handleSaveAndContinue}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                                 <span>Add lesson</span>
+                            </Button>
+                        </div>
+                    </div>
+                )}
+                {currentStep === 4 && (
+                    <div className={`${classes.addModules} ${classes.selectType}`}>
+                        <div>
+                            <h3>Select lesson type</h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 18L18 6M6 6L18 18" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <TypeItem />
+                    </div>
+                )}
+                {currentStep === 5 && (
+                    <div className={`${classes.addModules} ${classes.addEngagingContent}`}>
+                        <h3>Add week to your modules</h3>
+                        <p>Give your course structure with weekly content.</p>
+                        <div className={classes.addModulesBottom}>
+                            <Button
+                                type='primary'
+                                onClick={handleAddWeekModules}
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Add week</span>
                             </Button>
                         </div>
                     </div>
