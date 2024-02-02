@@ -24,7 +24,7 @@ const ProgressBar = ({
             className={classes.progressBar}
             style={{
                ...progressBarStyle,
-               background: (percentage as number) <= 40 ? '#F4C3C0' : '#D4F8AC',
+               background: (percentage as number) <= 49 ? '#F4C3C0' : '#D4F8AC',
             }}
          >
             <div
@@ -33,7 +33,7 @@ const ProgressBar = ({
                   ...subStyle,
                   width: `${percentage as number}%`,
                   background:
-                     (percentage as number) <= 40 ? '#E04A43' : '#57970C',
+                     (percentage as number) <= 49 ? '#E04A43' : '#57970C',
                   borderRadius: '50px',
                }}
             ></div>

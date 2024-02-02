@@ -32,25 +32,30 @@ const CourseCard2 = ({
   const statusClass = statusClassName[status] || "";
 
   return (
-    <div
-      className={classes.container}
-      onClick={() => {
-        navigate(route as string);
-      }}
-    >
-      <img src={image} alt={title} />
-      <div className={classes.textSection}>
-        <div className={classes.upperSection}>
-          <p>{title}</p>
-          <span className={statusClass}>{status}</span>
+    <>
+      <div
+        className={classes.container}
+        onClick={() => {
+          navigate(route as string);
+        }}
+      >
+        <img src={image} alt={title} />
+        <div className={classes.textSection}>
+          <div className={classes.upperSection}>
+            <p>{title}</p>
+            <span className={statusClass}>{status}</span>
+          </div>
+          <p>{description}</p>
         </div>
-        <p>{description}</p>
-        {showButton && <div className={classes.footer}>
-          <Button type="primary">See course details</Button>
-          <Button type="secondary">Create curriculum</Button>
-        </div>}
       </div>
-    </div>
+      {showButton && <div className={classes.footer}>
+        <Button type="primary">See course details</Button>
+        <Button
+          type="secondary"
+          onClick={() => { navigate('/courses/create-module') }}
+        >Create curriculum</Button>
+      </div>}
+    </>
   );
 };
 

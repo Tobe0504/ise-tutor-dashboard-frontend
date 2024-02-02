@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MessageSentModal from "./MessageSentModal";
 import Toast from "../../Components/Toast/Toast";
 import { AppContext } from "../../Context/AppContext";
@@ -232,7 +232,7 @@ const AssignmentPageContainer = () => {
           <div className={classes.bodyContent}>
             {students.slice(0, 3).map((data, index) => (
               <div key={index} className={classes.tableBody}>
-                <span>{data.fileName}</span>
+                <span><Link to='#0'>{data.fileName}</Link></span>
                 <span>{data.studentName}</span>
                 <span
                   className={

@@ -80,7 +80,7 @@ const CourseCarousel2 = ({ header, paragraph, data }: CoursesCarousel2Props2) =>
                 title={data.title}
                 image={assignCourseImage}
                 description={data.description}
-                status={data.paid}
+                status={data.status}
               />
             </div>
           );

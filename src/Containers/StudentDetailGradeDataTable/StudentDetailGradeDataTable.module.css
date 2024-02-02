@@ -58,6 +58,11 @@
     flex: 1;
 }
 
+.tableHeader>span:nth-child(1),
+.tableBody>span:nth-child(1) {
+    flex: 2;
+}
+
 .tableBody {
     color: var(--grey);
     font-family: Archivo;
@@ -165,11 +170,6 @@
         line-height: 22px;
     }
 
-    .tableHeader>span:not(span:nth-child(1)),
-    .tableBody>span:not(div:nth-child(1)) {
-        flex: 1;
-    }
-
     .tableBody>span:last-child {
         color: var(--deleteRed);
         cursor: pointer;
@@ -214,16 +214,6 @@
     .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
         font-size: 13px;
         line-height: 22px;
-    }
-
-    .tableHeader>span:nth-child(1),
-    .tableBody>span:nth-child(1) {
-        flex: 2 !important;
-    }
-
-    .tableHeader>span:nth-child(4),
-    .tableBody>span:nth-child(4) {
-        flex: 1 !important;
     }
 
     .tableBody>span:last-child {

@@ -136,15 +136,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex: 1;
 }
 
-.tableBody>span:nth-child(5) {
-    text-align: center;
-}
-
-.tableBody>span:nth-child(4) {
-    cursor: pointer;
-    font-weight: 500;
-}
-
 .pageButtons {
     display: flex;
     align-items: center;

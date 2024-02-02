@@ -1,5 +1,5 @@
 .helloUser {
-  padding: 42px;
+  padding: 24px 32px;
   background: url("../../Assets/Images/helloUserBg.png");
   border-radius: 10px;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.06),
@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
 }
 
-.helloUser > h2 {
+.helloUser>h2 {
   color: var(--white);
   font-family: Archivo;
   font-size: 25px;
@@ -18,7 +18,7 @@
   line-height: 36px;
 }
 
-.helloUser > p {
+.helloUser>p {
   margin: 1rem 0;
   color: var(--white);
   font-family: Archivo;
@@ -30,7 +30,7 @@
   min-width: 100%;
 }
 
-.helloUser > button {
+.helloUser>button {
   width: 122px;
 }
 
@@ -39,18 +39,18 @@
     padding: 24px 16px;
   }
 
-  .helloUser > h2 {
+  .helloUser>h2 {
     font-size: 18px;
     line-height: 27px;
   }
 
-  .helloUser > p {
+  .helloUser>p {
     font-size: 14px;
     line-height: 23px;
     width: 100%;
   }
 
-  .helloUser > button {
+  .helloUser>button {
     width: 122px;
   }
 }
@@ -60,18 +60,18 @@
     padding: 24px 16px;
   }
 
-  .helloUser > h2 {
+  .helloUser>h2 {
     font-size: 18px;
     line-height: 27px;
   }
 
-  .helloUser > p {
+  .helloUser>p {
     font-size: 14px;
     line-height: 23px;
     width: 100%;
   }
 
-  .helloUser > button {
+  .helloUser>button {
     width: 122px;
   }
 }

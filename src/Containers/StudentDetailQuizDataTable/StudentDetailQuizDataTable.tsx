@@ -1,9 +1,8 @@
-import { useState } from "react";
 import classes from "./StudentDetailQuizDataTable.module.css";
 
 const StudentDetailQuizDataTable = () => {
     // Utils
-    const [quiz, setQuiz] = useState([
+    const quiz = [
         {
             title: "Quiz 1- Test knowldge",
             completedDate: "12 Oct, 2023",
@@ -92,7 +91,7 @@ const StudentDetailQuizDataTable = () => {
             studentGradeStatus: "fail",
             noOfRetry: "Nil",
         },
-    ]);
+    ];
 
     const getStatusClass = (studentGradeStatus: string) => {
         switch (studentGradeStatus) {

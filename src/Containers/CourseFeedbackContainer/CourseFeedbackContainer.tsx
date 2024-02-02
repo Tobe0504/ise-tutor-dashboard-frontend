@@ -1,11 +1,13 @@
-import classes from "./PeriodicSurveyContainer.module.css";
+import classes from "./CourseFeedbackContainer.module.css";
 import TextArea from "../../Components/TextArea/TextArea";
 import Button from "../../Components/Button/Button";
 import StarRating from "../../Components/StarRating/StarRating";
 
-const PeriodicSurveyContainer = () => {
+type CourseFeedbackContainerProps = {
+  onClick: () => void;
+};
 
-
+const CourseFeedbackContainer = ({ onClick }: CourseFeedbackContainerProps) => {
   return (
     <section className={classes.container}>
       <div className={classes.innerContainer}>
@@ -65,7 +67,7 @@ a step closer to their dreams."
               window.history.back();
             }}
           >
-            <span>Close</span>
+            <span onClick={onClick}>Close</span>
           </Button>
         </div>
       </div>
@@ -73,4 +75,4 @@ a step closer to their dreams."
   );
 };
 
-export default PeriodicSurveyContainer;
+export default CourseFeedbackContainer;

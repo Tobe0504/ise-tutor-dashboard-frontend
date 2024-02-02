@@ -6,10 +6,10 @@
 }
 
 .innerContainer {
-  width: 40%;
+  width: 70%;
 }
 
-.innerContainer > h4 {
+.innerContainer>h4 {
   color: var(--grey);
   font-family: Archivo;
   font-size: 31px;
@@ -18,13 +18,14 @@
   line-height: 42px;
   text-align: center;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .rateSection {
   margin: 2rem 0;
 }
 
-.rateSection > p {
+.rateSection>p {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
@@ -33,7 +34,7 @@
   line-height: 27px;
 }
 
-.rateSection > div {
+.rateSection>div {
   margin: 1rem 0;
 
   display: flex;
@@ -47,7 +48,7 @@
   line-height: 26px;
 }
 
-.rateSection > div > svg {
+.rateSection>div>svg {
   cursor: pointer;
 }
 
@@ -57,7 +58,7 @@
   justify-content: flex-end;
 }
 
-.buttonContainer > button {
+.buttonContainer>button {
   width: 153px;
 }
 
@@ -69,13 +70,13 @@
   height: 100%;
 }
 
-.modalContainer > img {
+.modalContainer>img {
   width: 280px;
   height: 280px;
   object-fit: cover;
 }
 
-.modalContainer > h4 {
+.modalContainer>h4 {
   color: var(--grey);
   text-align: center;
   font-family: Archivo;
@@ -86,7 +87,7 @@
   margin-bottom: 0.5rem;
 }
 
-.modalContainer > p {
+.modalContainer>p {
   color: var(--grey3);
   text-align: center;
   font-family: Archivo;
@@ -97,7 +98,7 @@
   width: 426px;
 }
 
-.modalContainer > button {
+.modalContainer>button {
   width: 104px;
   margin-top: 1.5rem;
 }
@@ -111,7 +112,7 @@
     width: 100%;
   }
 
-  .innerContainer > h4 {
+  .innerContainer>h4 {
     font-size: 20px;
     line-height: 30px;
   }
@@ -120,39 +121,39 @@
     margin: 1.5rem 0;
   }
 
-  .rateSection > p {
+  .rateSection>p {
     font-size: 14px;
     line-height: 23px;
   }
 
-  .rateSection > div {
+  .rateSection>div {
     margin: 1rem 0;
     gap: 1rem;
     font-size: 12px;
     line-height: 23px;
   }
 
-  .buttonContainer > button {
+  .buttonContainer>button {
     width: 140px;
   }
 
-  .modalContainer > img {
+  .modalContainer>img {
     width: 120px;
     height: 120px;
   }
 
-  .modalContainer > h4 {
+  .modalContainer>h4 {
     font-size: 16px;
     line-height: 25px;
   }
 
-  .modalContainer > p {
+  .modalContainer>p {
     font-size: 12px;
     line-height: 23px;
     width: auto;
   }
 
-  .modalContainer > button {
+  .modalContainer>button {
     width: 95px;
     margin-top: 1rem;
   }
@@ -167,7 +168,7 @@
     width: 100%;
   }
 
-  .innerContainer > h4 {
+  .innerContainer>h4 {
     font-size: 20px;
     line-height: 30px;
   }
@@ -176,39 +177,39 @@
     margin: 1.5rem 0;
   }
 
-  .rateSection > p {
+  .rateSection>p {
     font-size: 14px;
     line-height: 23px;
   }
 
-  .rateSection > div {
+  .rateSection>div {
     margin: 1rem 0;
     gap: 1rem;
     font-size: 12px;
     line-height: 23px;
   }
 
-  .buttonContainer > button {
+  .buttonContainer>button {
     width: 140px;
   }
 
-  .modalContainer > img {
+  .modalContainer>img {
     width: 120px;
     height: 120px;
   }
 
-  .modalContainer > h4 {
+  .modalContainer>h4 {
     font-size: 16px;
     line-height: 25px;
   }
 
-  .modalContainer > p {
+  .modalContainer>p {
     font-size: 12px;
     line-height: 23px;
     width: auto;
   }
 
-  .modalContainer > button {
+  .modalContainer>button {
     width: 95px;
     margin-top: 1rem;
   }

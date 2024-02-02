@@ -156,6 +156,10 @@
   border-bottom: 0px solid var(--disabled);
 }
 
+.tableBody>span:nth-child(1)>a:visited {
+  color: var(--purple);
+}
+
 .tableHeader>span:nth-child(1),
 .tableBody>span:nth-child(1),
 .tableHeader>span:nth-child(2),
