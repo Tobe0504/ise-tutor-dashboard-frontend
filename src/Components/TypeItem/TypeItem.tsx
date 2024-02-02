@@ -3,12 +3,13 @@ import classes from './TypeItem.module.css'
 type TypeItemProps = {
     title: string
     details: string
+    onClick?: () => void;
     svg: React.ReactNode;
 };
 
-const TypeItem = ({ title, details, svg }: TypeItemProps) => {
+const TypeItem = ({ title, details, svg, onClick }: TypeItemProps) => {
     return (
-        <div className={classes.typeItem}>
+        <div className={classes.typeItem} onClick={onClick}>
             <div>
                 {svg}
             </div>

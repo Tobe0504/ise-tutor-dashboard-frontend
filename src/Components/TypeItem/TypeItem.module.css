@@ -1,8 +1,15 @@
 .typeItem {
     gap: 10px;
     width: 47%;
+    padding: 10px;
     display: flex;
+    cursor: pointer;
+    border-radius: 10px;
     align-items: flex-start;
+}
+
+.typeItem:hover {
+    background: var(--veryVeryLightPurple);
 }
 
 .typeItem div:nth-child(1) {

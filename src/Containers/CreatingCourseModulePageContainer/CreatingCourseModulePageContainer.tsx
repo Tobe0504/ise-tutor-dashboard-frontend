@@ -5,6 +5,7 @@ import Input from '../../Components/Input/Input';
 import TextArea from '../../Components/TextArea/TextArea';
 import { useNavigate } from 'react-router-dom';
 import TypeItem from '../../Components/TypeItem/TypeItem';
+import CourseReading from './CourseReading/CourseReading';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
@@ -23,16 +24,22 @@ const CreatingCourseModulePageContainer = () => {
         setCurrentStep(1);
     };
 
-    const handleAddWeek = () => {
-        setCurrentStep(5);
-    };
-
     const handleAddWeekModules = () => {
         setCurrentStep(2);
     };
 
+    const handleAddWeek = () => {
+        setCurrentStep(4);
+    };
+
+    const handleSelectFileType = () => {
+        setCurrentStep(5);
+    };
+
+
     const DeliverLearningContent = [
         {
+            step: handleSaveAndContinue,
             title: "Video",
             detail: 'Engage your students with video content to enhance their learning experience',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,6 +48,7 @@ const CreatingCourseModulePageContainer = () => {
             </svg>
         },
         {
+            step: handleSaveAndContinue,
             title: "Customize",
             detail: 'Tailor your lessons with custom content to suit your unique teaching style and objectives.',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,6 +56,7 @@ const CreatingCourseModulePageContainer = () => {
             </svg>
         },
         {
+            step: handleSaveAndContinue,
             title: "Reading",
             detail: 'Share essential reading materials, articles, and documents.',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,7 +259,7 @@ const CreatingCourseModulePageContainer = () => {
                         <div className={classes.addModulesBottom}>
                             <Button
                                 type='primary'
-                                onClick={handleSaveAndContinue}
+                                onClick={handleSelectFileType}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -261,10 +270,29 @@ const CreatingCourseModulePageContainer = () => {
                     </div>
                 )}
                 {currentStep === 4 && (
+                    <div className={`${classes.addModules} ${classes.addEngagingContent}`}>
+                        <h3>Add week to your modules</h3>
+                        <p>Give your course structure with weekly content.</p>
+                        <div className={classes.addModulesBottom}>
+                            <Button
+                                type='primary'
+                                onClick={handleAddWeekModules}
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Add week</span>
+                            </Button>
+                        </div>
+                    </div>
+                )}
+                {currentStep === 5 && (
                     <div className={`${classes.addModules} ${classes.selectType}`}>
                         <div>
                             <h3>Select lesson type</h3>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg
+                                onClick={handleBack}
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 18L18 6M6 6L18 18" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
@@ -278,6 +306,7 @@ const CreatingCourseModulePageContainer = () => {
                                             title={data.title}
                                             details={data.detail}
                                             svg={data.icon}
+                                            onClick={data.step}
                                         />
                                     )
                                 })}
@@ -299,23 +328,7 @@ const CreatingCourseModulePageContainer = () => {
                         </div>
                     </div>
                 )}
-                {currentStep === 5 && (
-                    <div className={`${classes.addModules} ${classes.addEngagingContent}`}>
-                        <h3>Add week to your modules</h3>
-                        <p>Give your course structure with weekly content.</p>
-                        <div className={classes.addModulesBottom}>
-                            <Button
-                                type='primary'
-                                onClick={handleAddWeekModules}
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span>Add week</span>
-                            </Button>
-                        </div>
-                    </div>
-                )}
+                {currentStep === 6 && <CourseReading />}
             </div>
         </div>
     )
