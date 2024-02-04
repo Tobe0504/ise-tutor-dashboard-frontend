@@ -79,6 +79,7 @@
 .subContainer>div>img {
     width: 100%;
     height: 240px;
+    border-radius: 5px;
     object-fit: cover;
 }
 

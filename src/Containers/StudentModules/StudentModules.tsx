@@ -7,7 +7,7 @@ import StudentDataTable from "../StudentDataTable/StudentDataTable";
 
 const StudentModules = () => {
   // States
-  const [studentGridData, setStudentGridData] = useState<any[]>([
+  const [studentGridData] = useState<any[]>([
     {
       isActive: true,
       activeComponent: <StudentDataTable />,

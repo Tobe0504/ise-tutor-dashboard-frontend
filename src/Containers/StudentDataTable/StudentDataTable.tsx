@@ -7,7 +7,6 @@ import { activeTogglerRestAll } from '../../HelperFunctions/activeTogglers'
 
 const StudentDataTable = () => {
    const navigate = useNavigate()
-   //    const { studentId } = useParams()
    const { students, setStudents } = useContext(AppContext)
 
    return (

@@ -1,0 +1,125 @@
+.container {
+    gap: 2rem;
+    width: 100%;
+    display: flex;
+    padding: 32px 24px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h1 {
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+    margin-bottom: 3rem;
+}
+
+.container .addLesson {
+    gap: 1.5rem;
+    display: flex;
+    padding: 40px 32px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.container .addLesson>h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.addLesson button {
+    padding: 10px 30px;
+}
+
+.addLesson button:nth-child(3) {
+    color: var(--red);
+    background: var(--white);
+}
+
+.buttonContainer {
+    flex-wrap: wrap;
+    flex-direction: row-reverse !important;
+}
+
+.bulkUpload {
+    gap: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bulkUpload ul {
+    margin-top: 20px;
+    list-style-type: disc;
+    padding-inline-start: 12px;
+}
+
+.bulkUpload .info,
+.bulkUpload ul li {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+    margin-bottom: 5px;
+}
+
+.bulkUpload .info {
+    padding: 8px;
+    margin-top: -1rem;
+    background: #FFEDAD;
+}
+
+@media screen and (min-width: 737px) and (max-width: 1023px) {
+    .container {
+        gap: 1.2rem;
+        padding: 16px;
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 16px;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .container {
+        gap: 1.2rem;
+        padding: 16px;
+        background: var(--white);
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .container h1 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 1.5rem;
+    }
+
+    .container .addLesson>h2 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .bulkUpload .info,
+    .bulkUpload ul li {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}

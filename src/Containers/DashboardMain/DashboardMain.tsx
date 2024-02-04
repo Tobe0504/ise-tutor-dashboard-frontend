@@ -43,11 +43,13 @@ const DashboardMain = () => {
         )}
       </div>
 
-      <CourseCarousel2
-        data={courses}
-        header="Assigned course(s)"
-        paragraph="Here are the courses you have been assigned."
-      />
+      <div className={classes.carousel}>
+        <CourseCarousel2
+          data={courses}
+          header="Assigned course(s)"
+          paragraph="Here are the courses you have been assigned."
+        />
+      </div>
 
       <div>
         <EmptyTabComponent
