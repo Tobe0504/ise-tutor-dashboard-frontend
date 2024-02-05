@@ -1,0 +1,77 @@
+.modalContainer {
+    gap: 10px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modalContainer>h4 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.modalContainer>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    font-style: normal;
+    color: var(--grey3);
+    font-family: Archivo;
+}
+
+.buttonContainer {
+    gap: 2rem;
+    display: flex;
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContainer>button:nth-child(1) {
+    padding: 10px 30px;
+    color: var(--black);
+    border-color: var(--black);
+}
+
+.buttonContainer>button:nth-child(2) {
+    padding: 10px 30px;
+    background: var(--red);
+}
+
+@media screen and (max-width: 767px) {
+    .modalContainer>img {
+        display: none;
+    }
+
+    .modalContainer>h4 {
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .modalContainer>p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .buttonContainer {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .buttonContainer>button:nth-child(1) {
+        color: var(--purple);
+        border-color: var(--purple);
+    }
+
+    .buttonContainer>button:nth-child(2) {
+        background: var(--purple);
+    }
+}

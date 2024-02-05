@@ -45,13 +45,6 @@ const QuizPageContainer = () => {
                     title="Frontend development"
                     options={[]}
                 />
-
-                {/* <DropdownWithSearch
-                    isRequired
-                    label="Completion date"
-                    title="1 week ago"
-                    options={[]}
-                /> */}
                 <div className={classes.completedDate}>
                     <label htmlFor="completedDate">Completion date</label>
                     <input
