@@ -1,13 +1,14 @@
 import { useState } from "react";
 import classes from "./CreatingCourseModulePreviewContainer.module.css";
 import EmptyPreviewContainer from "./EmptyPreviewContainer/EmptyPreviewContainer";
+import CoursePreviewContainer from "./CoursePreviewContainer/CoursePreviewContainer";
 
 const CreatingCourseModulePreviewContainer = () => {
     // States
     const [previewItem] = useState<any[]>([
         {
             title: "Live class Sessions",
-            activeComponent: null,
+            activeComponent: <CoursePreviewContainer />,
             activeNullStateComponent: <EmptyPreviewContainer />,
         },
     ]);

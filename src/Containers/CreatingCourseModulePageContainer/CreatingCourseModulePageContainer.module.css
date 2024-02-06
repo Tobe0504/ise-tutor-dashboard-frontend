@@ -205,6 +205,11 @@
         padding: 2rem 1rem;
     }
 
+    .addModules p,
+    .addModules h3 {
+        text-align: center;
+    }
+
     .selectContent {
         gap: 1rem;
     }
@@ -298,6 +303,11 @@
     .addModules {
         gap: 1rem;
         padding: 1rem;
+    }
+
+    .addModules p,
+    .addModules h3 {
+        text-align: center;
     }
 
     .addModules h3 {
