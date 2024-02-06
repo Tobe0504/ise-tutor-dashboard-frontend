@@ -1,0 +1,113 @@
+.course {
+    gap: 1.5rem;
+    width: 100%;
+    display: flex;
+    padding: 40px 24px;
+    border-radius: 10px;
+    flex-direction: column;
+    background: var(--white);
+}
+
+.course {
+    top: 10px;
+    max-width: 452px;
+    position: sticky;
+    min-height: 80vh;
+    overflow-y: auto;
+    padding: 24px 16px;
+    border: 1px solid var(--sectionBorder);
+}
+
+.course h3 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.course div:last-child {
+    flex: 1;
+    display: flex;
+    padding-top: 1rem;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+.moduleTitle {
+    gap: 1rem;
+    display: flex;
+    margin: 3rem 1rem 0;
+    align-items: center;
+    padding-bottom: 1rem;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--veryLightPurple);
+}
+
+.moduleWeek {
+    border-bottom: none;
+    margin: 0 1rem 0 2rem;
+}
+
+.moduleTitle h4 {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.moduleWeek h4 {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.moduleButtons {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.moduleButtons button:nth-child(1) {
+    border: none;
+}
+
+@media screen and (max-width: 778px) {
+    .course {
+        border: none;
+        max-width: 100%;
+        min-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .course h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .moduleTitle {
+        margin: 2rem 0 0;
+    }
+
+    .moduleWeek {
+        margin: 0;
+    }
+
+    .moduleTitle h4 {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .moduleWeek h4 {
+        font-size: 14px;
+        line-height: 23px;
+    }
+}

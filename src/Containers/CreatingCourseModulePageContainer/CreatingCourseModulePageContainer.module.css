@@ -45,47 +45,6 @@
     align-items: flex-start;
 }
 
-.moduleTitle {
-    gap: 1rem;
-    display: flex;
-    margin: 3rem 1rem 0;
-    align-items: center;
-    padding-bottom: 1rem;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--veryLightPurple);
-}
-
-.moduleWeek {
-    border-bottom: none;
-    margin: 0 1rem 0 2rem;
-}
-
-.moduleTitle h4 {
-    flex: 1;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    color: var(--grey);
-    font-style: normal;
-    font-family: Archivo;
-}
-
-.moduleWeek h4 {
-    font-size: 18px;
-    line-height: 28px;
-}
-
-.moduleButtons {
-    gap: 1.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.moduleButtons button:nth-child(1) {
-    border: none;
-}
-
-.course,
 .addModules {
     gap: 1.5rem;
     width: 100%;
@@ -98,33 +57,6 @@
 
 .addEngagingContent {
     align-items: center;
-}
-
-.course {
-    top: 10px;
-    max-width: 452px;
-    position: sticky;
-    min-height: 80vh;
-    overflow-y: auto;
-    padding: 24px 16px;
-    border: 1px solid var(--sectionBorder);
-}
-
-.course h3 {
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 36px;
-    font-style: normal;
-    color: var(--grey);
-    font-family: Archivo;
-}
-
-.course div:last-child {
-    flex: 1;
-    display: flex;
-    padding-top: 1rem;
-    align-items: flex-end;
-    justify-content: center;
 }
 
 .addModules h3 {
@@ -158,43 +90,6 @@
     font-family: Archivo;
 }
 
-.selectType>div:nth-child(1) {
-    gap: 2rem;
-    display: flex;
-    align-items: center;
-    padding-bottom: 1rem;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--veryLightPurple);
-}
-
-.selectContent {
-    gap: 1.8rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.selectContent>h4 {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    color: var(--grey);
-    font-style: normal;
-    font-family: Archivo;
-    margin-bottom: -1.8rem;
-}
-
-.selectContent>div {
-    width: 100%;
-    gap: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.divider {
-    border-bottom: 1px solid var(--greyWhite);
-}
-
 @media screen and (min-width: 778px) and (max-width: 1024px) {
     .container button {
         padding: 10px;
@@ -208,19 +103,6 @@
     .addModules p,
     .addModules h3 {
         text-align: center;
-    }
-
-    .selectContent {
-        gap: 1rem;
-    }
-
-    .selectContent>h4 {
-        display: none;
-    }
-
-    .selectContent>div {
-        gap: 1rem;
-        margin-top: 0;
     }
 
     .divider {
@@ -267,39 +149,6 @@
         flex-direction: row-reverse;
     }
 
-    .course {
-        border: none;
-        max-width: 100%;
-        min-height: 80vh;
-        overflow-y: auto;
-        padding: 24px 16px;
-        position: relative;
-    }
-
-    .course h3 {
-        font-size: 18px;
-        line-height: 27px;
-    }
-
-    .moduleTitle {
-        margin: 2rem 0 0;
-    }
-
-    .moduleWeek {
-        margin: 0;
-    }
-
-    .moduleTitle h4 {
-        font-size: 16px;
-        line-height: 25px;
-    }
-
-    .moduleWeek h4 {
-        font-size: 14px;
-        line-height: 23px;
-    }
-
-    .course,
     .addModules {
         gap: 1rem;
         padding: 1rem;
@@ -319,24 +168,5 @@
         font-size: 14px;
         line-height: 23px;
         margin-top: -0.8rem;
-    }
-
-    .selectContent {
-        gap: 1rem;
-    }
-
-    .selectContent>h4 {
-        display: none;
-    }
-
-    .selectContent>div {
-        gap: 1rem;
-        margin-top: 0;
-        justify-content: center;
-    }
-
-    .divider {
-        display: none;
-        border: none;
     }
 }
