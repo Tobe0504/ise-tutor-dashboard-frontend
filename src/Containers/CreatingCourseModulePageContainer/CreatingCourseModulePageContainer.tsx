@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import classes from './CreatingCourseModulePageContainer.module.css';
 import Button from '../../Components/Button/Button';
 import Input from '../../Components/Input/Input';
@@ -6,41 +6,17 @@ import TextArea from '../../Components/TextArea/TextArea';
 import { useNavigate } from 'react-router-dom';
 import TypeItem from '../../Components/TypeItem/TypeItem';
 import CourseReading from './CourseReading/CourseReading';
+import { AppContext } from '../../Context/AppContext';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
 
-    const [currentStep, setCurrentStep] = useState(1);
-
-    const handleSaveAndContinue = () => {
-        setCurrentStep(currentStep + 1);
-    };
-
-    const handleBack = () => {
-        setCurrentStep(currentStep - 1);
-    };
-
-    const handleAddLessonModules = () => {
-        setCurrentStep(1);
-    };
-
-    const handleAddWeekModules = () => {
-        setCurrentStep(2);
-    };
-
-    const handleAddWeek = () => {
-        setCurrentStep(4);
-    };
-
-    const handleSelectFileType = () => {
-        setCurrentStep(5);
-    };
-
+    const { setCurrentStep, setCurrentStepAndSave, currentStep } = useContext(AppContext);
 
     const DeliverLearningContent = [
         {
-            step: handleSaveAndContinue,
             title: "Video",
+            step: () => setCurrentStepAndSave(currentStep + 1),
             detail: 'Engage your students with video content to enhance their learning experience',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.6692 14.8906L15.4063 12.0486C14.5202 11.4579 13.3333 12.0931 13.3333 13.158V18.842C13.3333 19.9069 14.5202 20.5421 15.4063 19.9514L19.6692 17.1094C20.4609 16.5816 20.4609 15.4184 19.6692 14.8906Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -48,16 +24,16 @@ const CreatingCourseModulePageContainer = () => {
             </svg>
         },
         {
-            step: handleSaveAndContinue,
             title: "Customize",
+            step: () => setCurrentStepAndSave(currentStep + 1),
             detail: 'Tailor your lessons with custom content to suit your unique teaching style and objectives.',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.6663 14.668H10.6663M13.333 20.0013H10.6663M21.333 9.33464H10.6663M26.6663 9.06797V22.9346C26.6663 25.1748 26.6663 26.295 26.2304 27.1506C25.8469 27.9032 25.235 28.5152 24.4823 28.8987C23.6267 29.3346 22.5066 29.3346 20.2663 29.3346H11.733C9.4928 29.3346 8.37269 29.3346 7.51705 28.8987C6.7644 28.5152 6.15248 27.9032 5.76898 27.1506C5.33301 26.295 5.33301 25.1748 5.33301 22.9346V9.06797C5.33301 6.82776 5.33301 5.70765 5.76898 4.85201C6.15248 4.09936 6.7644 3.48744 7.51705 3.10394C8.37269 2.66797 9.4928 2.66797 11.733 2.66797H20.2663C22.5066 2.66797 23.6267 2.66797 24.4823 3.10394C25.235 3.48744 25.8469 4.09936 26.2304 4.85201C26.6663 5.70765 26.6663 6.82776 26.6663 9.06797Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         },
         {
-            step: handleSaveAndContinue,
             title: "Reading",
+            step: () => setCurrentStepAndSave(currentStep + 1),
             detail: 'Share essential reading materials, articles, and documents.',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18.6663 14.668H10.6663M13.333 20.0013H10.6663M21.333 9.33464H10.6663M26.6663 9.06797V22.9346C26.6663 25.1748 26.6663 26.295 26.2304 27.1506C25.8469 27.9032 25.235 28.5152 24.4823 28.8987C23.6267 29.3346 22.5066 29.3346 20.2663 29.3346H11.733C9.4928 29.3346 8.37269 29.3346 7.51705 28.8987C6.7644 28.5152 6.15248 27.9032 5.76898 27.1506C5.33301 26.295 5.33301 25.1748 5.33301 22.9346V9.06797C5.33301 6.82776 5.33301 5.70765 5.76898 4.85201C6.15248 4.09936 6.7644 3.48744 7.51705 3.10394C8.37269 2.66797 9.4928 2.66797 11.733 2.66797H20.2663C22.5066 2.66797 23.6267 2.66797 24.4823 3.10394C25.235 3.48744 25.8469 4.09936 26.2304 4.85201C26.6663 5.70765 26.6663 6.82776 26.6663 9.06797Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -65,6 +41,7 @@ const CreatingCourseModulePageContainer = () => {
         },
         {
             title: "Presentation",
+            step: () => setCurrentStepAndSave(currentStep + 1),
             detail: 'Deliver engaging presentations to convey information effectively.',
             icon: <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.0961 28C11.8758 27.1464 13.8803 26.6667 16.0003 26.6667C18.1204 26.6667 20.1248 27.1464 21.9046 28M9.06699 22.6667H22.9337C25.1739 22.6667 26.294 22.6667 27.1496 22.2307C27.9023 21.8472 28.5142 21.2353 28.8977 20.4826C29.3337 19.627 29.3337 18.5069 29.3337 16.2667V10.4C29.3337 8.15979 29.3337 7.03969 28.8977 6.18404C28.5142 5.43139 27.9023 4.81947 27.1496 4.43597C26.294 4 25.1739 4 22.9337 4H9.06699C6.82678 4 5.70668 4 4.85103 4.43597C4.09838 4.81947 3.48646 5.43139 3.10297 6.18404C2.66699 7.03969 2.66699 8.15979 2.66699 10.4V16.2667C2.66699 18.5069 2.66699 19.627 3.10297 20.4826C3.48646 21.2353 4.09838 21.8472 4.85103 22.2307C5.70668 22.6667 6.82678 22.6667 9.06699 22.6667Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -147,7 +124,7 @@ const CreatingCourseModulePageContainer = () => {
                     <div className={classes.moduleButtons}>
                         <Button
                             type='secondary'
-                            onClick={handleAddWeek}
+                            onClick={() => setCurrentStep(4)}
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4V20M20 12L4 12" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -156,7 +133,7 @@ const CreatingCourseModulePageContainer = () => {
                         </Button>
                         <Button
                             type='secondary'
-                            onClick={handleAddLessonModules}
+                            onClick={() => setCurrentStep(1)}
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 4V20M20 12L4 12" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -197,7 +174,7 @@ const CreatingCourseModulePageContainer = () => {
                             </div>
                             <Button
                                 type='secondary'
-                                onClick={handleBack}
+                                onClick={() => setCurrentStepAndSave(currentStep - 1)}
                             >
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 18.5L18 6.5M6 6.5L18 18.5" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -206,7 +183,7 @@ const CreatingCourseModulePageContainer = () => {
                             </Button>
                             <Button
                                 type='primary'
-                                onClick={handleSaveAndContinue}
+                                onClick={() => setCurrentStepAndSave(currentStep + 1)}
                             >
                                 <span>Save and continue</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +210,7 @@ const CreatingCourseModulePageContainer = () => {
                             </div>
                             <Button
                                 type='secondary'
-                                onClick={handleBack}
+                                onClick={() => setCurrentStepAndSave(currentStep - 1)}
                             >
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7 16.5L3 12.5M3 12.5L7 8.5M3 12.5L21 12.5" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -242,7 +219,7 @@ const CreatingCourseModulePageContainer = () => {
                             </Button>
                             <Button
                                 type='primary'
-                                onClick={handleSaveAndContinue}
+                                onClick={() => setCurrentStepAndSave(currentStep + 1)}
                             >
                                 <span>Save and continue</span>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +236,7 @@ const CreatingCourseModulePageContainer = () => {
                         <div className={classes.addModulesBottom}>
                             <Button
                                 type='primary'
-                                onClick={handleSelectFileType}
+                                onClick={() => setCurrentStep(5)}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -276,7 +253,7 @@ const CreatingCourseModulePageContainer = () => {
                         <div className={classes.addModulesBottom}>
                             <Button
                                 type='primary'
-                                onClick={handleAddWeekModules}
+                                onClick={() => setCurrentStep(2)}
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 4V20M20 12L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -291,7 +268,7 @@ const CreatingCourseModulePageContainer = () => {
                         <div>
                             <h3>Select lesson type</h3>
                             <svg
-                                onClick={handleBack}
+                                onClick={() => setCurrentStepAndSave(currentStep - 1)}
                                 width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6 18L18 6M6 6L18 18" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>

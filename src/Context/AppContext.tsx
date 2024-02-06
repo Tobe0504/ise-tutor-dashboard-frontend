@@ -1,12 +1,6 @@
-import {
-   createContext,
-   Dispatch,
-   SetStateAction,
-   useEffect,
-   useState,
-} from 'react'
-import { sideNavItems } from '../Utilities/sideNavItems'
-import { studentsData, studentsDatType } from '../Utilities/students'
+import React, { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { sideNavItems } from '../Utilities/sideNavItems';
+import { studentsData, studentsDatType } from '../Utilities/students';
 
 type AppContextProviderProps = {
    children: React.ReactNode
@@ -34,16 +28,19 @@ type AppContextProps = {
    setNavItemsState: Dispatch<SetStateAction<any>>
    students: studentsDatType
    setStudents: Dispatch<SetStateAction<studentsDatType>>
+   currentStep: number;
+   setCurrentStep: Dispatch<SetStateAction<number>>;
+   setCurrentStepAndSave: (step: number) => void;
 }
 
-export const AppContext = createContext({} as AppContextProps)
+export const AppContext = createContext({} as AppContextProps);
 
 const AppContextProvider = ({ children }: AppContextProviderProps) => {
    // Utils
-   const screenWidth = window.innerWidth
+   const screenWidth = window.innerWidth;
 
    // States
-   const [screenWidthState, setScreenWidthState] = useState<number>(screenWidth)
+   const [screenWidthState, setScreenWidthState] = useState<number>(screenWidth);
    const [showGetStarted, setShowGetStarted] = useState<{
       rightCta: boolean
       dashboard: boolean
@@ -52,21 +49,26 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
       rightCta: true,
       dashboard: true,
       showModdal: false,
-   })
-   const [displayRatemodal, setDisplayRateModal] = useState(false)
-   const [displaySharemodal, setDisplayShareModal] = useState(false)
+   });
+   const [displayRatemodal, setDisplayRateModal] = useState(false);
+   const [displaySharemodal, setDisplayShareModal] = useState(false);
    const [navItmesState, setNavItemsState] = useState(
       sideNavItems.map((data) => {
-         return { ...data, isActive: false }
+         return { ...data, isActive: false };
       })
-   )
+   );
 
-   const [students, setStudents] = useState<studentsDatType>(studentsData)
+   const [currentStep, setCurrentStep] = useState<number>(1);
+   const [students, setStudents] = useState<studentsDatType>(studentsData);
 
    //   Effects
    useEffect(() => {
-      setScreenWidthState(screenWidth)
-   }, [screenWidth])
+      setScreenWidthState(screenWidth);
+   }, [screenWidth]);
+
+   const setCurrentStepAndSave = (step: number) => {
+      setCurrentStep(step);
+   };
 
    return (
       <AppContext.Provider
@@ -82,11 +84,14 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
             setNavItemsState,
             students,
             setStudents,
+            currentStep,
+            setCurrentStep,
+            setCurrentStepAndSave,
          }}
       >
          {children}
       </AppContext.Provider>
-   )
-}
+   );
+};
 
-export default AppContextProvider
+export default AppContextProvider;

@@ -39,7 +39,7 @@
 }
 
 .body {
-    gap: 3rem;
+    gap: 2rem;
     display: flex;
     padding: 40px 48px;
     align-items: flex-start;
