@@ -5,7 +5,7 @@ import Input from '../../Components/Input/Input';
 import TextArea from '../../Components/TextArea/TextArea';
 import { useNavigate } from 'react-router-dom';
 import TypeItem from '../../Components/TypeItem/TypeItem';
-import CourseReading from './CourseReading/CourseReading';
+import CourseReading from '../CourseReading/CourseReading';
 import { AppContext } from '../../Context/AppContext';
 
 const CreatingCourseModulePageContainer = () => {

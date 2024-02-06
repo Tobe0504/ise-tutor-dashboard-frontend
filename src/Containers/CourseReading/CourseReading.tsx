@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import Input from '../../../Components/Input/Input'
+import Input from '../../Components/Input/Input'
 import classes from './CourseReading.module.css'
-import SectionsNav4 from '../../../Components/SectionsNav4/SectionsNav4';
-import DragAndDropInput from '../../../Components/DragAndDropInput/DragAndDropInput';
-import Button from '../../../Components/Button/Button';
-import ProgressBar from '../../../Components/ProgressBar/ProgressBar';
-import DropdownWithSearch from '../../../Components/DropdownWithSearch/DropdownWithSearch';
-import AcceptedModal from '../../../Components/Modals/AcceptedModal/AcceptedModal';
-import DiscardModalBody from '../DiscardModalBody';
-import DeleteModalBody from '../DeleteModalBody';
+import SectionsNav4 from '../../Components/SectionsNav4/SectionsNav4';
+import DragAndDropInput from '../../Components/DragAndDropInput/DragAndDropInput';
+import Button from '../../Components/Button/Button';
+import ProgressBar from '../../Components/ProgressBar/ProgressBar';
+import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch';
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal';
+import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody';
+import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody';
 
 const CourseReading = () => {
 
