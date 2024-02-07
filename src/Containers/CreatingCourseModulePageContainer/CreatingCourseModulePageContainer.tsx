@@ -10,6 +10,7 @@ import AddEngagingModule from './AddEngagingModule/AddEngagingModule';
 import AddNewWeekModule from './AddNewWeekModule/AddNewWeekModule';
 import AddWeekModule from './AddWeekModule/AddWeekModule';
 import SelectLessonType from './SelectLessonType/SelectLessonType';
+import CoursePresentation from '../CoursePresentation/CoursePresentation';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
@@ -52,7 +53,13 @@ const CreatingCourseModulePageContainer = () => {
                 {currentStep === 3 && <AddEngagingModule />}
                 {currentStep === 4 && <AddWeekModule />}
                 {currentStep === 5 && <SelectLessonType />}
-                {currentStep === 6 && <CourseReading />}
+                {currentStep === 6 && <h1>Video</h1>}
+                {currentStep === 7 && <h1>Customize</h1>}
+                {currentStep === 8 && <CourseReading />}
+                {currentStep === 9 && <CoursePresentation />}
+                {currentStep === 10 && <h1>Quiz</h1>}
+                {currentStep === 11 && <h1>Module Assessment</h1>}
+                {currentStep === 12 && <h1>Final Exam</h1>}
             </div>
         </div>
     )
