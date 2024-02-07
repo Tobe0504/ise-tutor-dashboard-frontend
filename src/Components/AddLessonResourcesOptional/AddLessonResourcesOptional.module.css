@@ -1,0 +1,40 @@
+.addResources {
+    gap: 1.5rem;
+    display: flex;
+    margin-top: 2rem;
+    padding: 40px 32px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.addResources>h3 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.addResources>p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+@media screen and (max-width: 1023px) {
+    .addResources {
+        gap: 1rem;
+        padding: 20px 10px 0 !important;
+    }
+
+    .addResources>h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}

@@ -16,12 +16,6 @@ const BulkUploadComponent = () => {
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
     const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
 
-    const fileUpload = [
-        {
-            fileName: "First reading.doc",
-            progressPercentage: 85,
-        }
-    ]
     return (
         <>
             {displayDiscardModal && (
@@ -66,26 +60,19 @@ const BulkUploadComponent = () => {
                         <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
                     </>)}
                 {saveLessonAndContinue === 2 && (
-
                     <div className={classes.fileUpload}>
                         <h3>File Upload</h3>
                         <div className={classes.file}>
-                            {fileUpload.map((data, i) => {
-                                return (
-                                    <>
-                                        <div key={i}>
-                                            <p>{data.fileName}</p>
-                                            <ProgressBar percentage={data.progressPercentage} color="#fff" />
-                                            <span>Uploading({data.progressPercentage}%)</span>
-                                        </div>
-                                        <Button key={i} type='secondary'>Cancel</Button>
-                                    </>
-                                )
-                            })}
+                            <div>
+                                <p>First reading.doc</p>
+                                <ProgressBar percentage={85} color="#fff" />
+                                <span>Uploading({85}%)</span>
+                            </div>
+                            <Button type='secondary'>Cancel</Button>
                         </div>
-                    </div>)}
+                    </div>
+                )}
             </div>
-
             {saveLessonAndContinue === 3 && <AddLessonResourcesOptional />}
 
 

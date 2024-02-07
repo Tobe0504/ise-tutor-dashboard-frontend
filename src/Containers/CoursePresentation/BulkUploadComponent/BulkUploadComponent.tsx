@@ -16,12 +16,6 @@ const BulkUploadComponent = () => {
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
     const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
 
-    const fileUpload = [
-        {
-            fileName: "First reading.doc",
-            progressPercentage: 85,
-        }
-    ]
     return (
         <>
             {displayDiscardModal && (
@@ -57,36 +51,55 @@ const BulkUploadComponent = () => {
             )}
             <div className={classes.bulkUpload}>
                 <ul>
-                    <li>The contents of the file will automatically be used to create the reading content.</li>
-                    <li>Keep the file size below 10 MB to ensure quick loading and smooth access for your students.</li>
+                    <li>There is a file size limit of 25MB</li>
+                    <li>Keep slides under 20 for increased student engagement.</li>
                 </ul>
                 {saveLessonAndContinue === 1 && (
                     <>
                         <DragAndDropInput />
-                        <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
+                        <p className={classes.info}>You can upload files with the extensions: pdf</p>
                     </>)}
                 {saveLessonAndContinue === 2 && (
-
                     <div className={classes.fileUpload}>
                         <h3>File Upload</h3>
                         <div className={classes.file}>
-                            {fileUpload.map((data, i) => {
-                                return (
-                                    <>
-                                        <div key={i}>
-                                            <p>{data.fileName}</p>
-                                            <ProgressBar percentage={data.progressPercentage} color="#fff" />
-                                            <span>Uploading({data.progressPercentage}%)</span>
-                                        </div>
-                                        <Button key={i} type='secondary'>Cancel</Button>
-                                    </>
-                                )
-                            })}
+                            <div>
+                                <p>First presentation.pdf</p>
+                                <ProgressBar percentage={65} color="#fff" />
+                                <span>Uploading({65}%)</span>
+                            </div>
+                            <Button type='secondary'>Cancel</Button>
                         </div>
-                    </div>)}
+                    </div>
+                )}
+                {saveLessonAndContinue === 3 && (
+                    <div className={classes.fileUpload}>
+                        <h3>Uploaded File</h3>
+                        <div className={classes.file}>
+                            <div>
+                                <p>First presentation.pdf</p>
+                            </div>
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                )}
+                {saveLessonAndContinue === 4 && (
+                    <div className={classes.fileUpload}>
+                        <h3>Uploaded File</h3>
+                        <div className={classes.file}>
+                            <div>
+                                <p>First presentation.pdf</p>
+                            </div>
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                )}
             </div>
-
-            {saveLessonAndContinue === 3 && <AddLessonResourcesOptional />}
+            {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
 
 
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
