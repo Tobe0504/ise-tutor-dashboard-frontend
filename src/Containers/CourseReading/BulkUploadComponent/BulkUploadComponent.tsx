@@ -2,20 +2,19 @@ import Button from '../../../Components/Button/Button'
 import DragAndDropInput from '../../../Components/DragAndDropInput/DragAndDropInput'
 import AcceptedModal from '../../../Components/Modals/AcceptedModal/AcceptedModal'
 import ProgressBar from '../../../Components/ProgressBar/ProgressBar'
-import { AppContext } from '../../../Context/AppContext'
 import DeleteModalBody from '../../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../../CreatingCourseModulePageContainer/DiscardModalBody'
 import AddLessonResourcesOptional from '../AddLessonResourcesOptional/AddLessonResourcesOptional'
 import classes from '../CourseReading.module.css'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 const BulkUploadComponent = () => {
-    const { currentStep, setCurrentStep, setCurrentStepAndSave } = useContext(AppContext);
 
     // States
     const [displayDiscardModal, setDisplayDiscardModal] =
         useState(false);
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
+    const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
 
     const fileUpload = [
         {
@@ -61,35 +60,37 @@ const BulkUploadComponent = () => {
                     <li>The contents of the file will automatically be used to create the reading content.</li>
                     <li>Keep the file size below 10 MB to ensure quick loading and smooth access for your students.</li>
                 </ul>
-                <>
-                    <DragAndDropInput />
-                    <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
-                </>
-                <div className={classes.fileUpload}>
-                    <h3>File Upload</h3>
-                    <div className={classes.file}>
-                        {fileUpload.map((data, i) => {
-                            return (
-                                <>
-                                    <div key={i}>
-                                        <p>{data.fileName}</p>
-                                        <ProgressBar percentage={data.progressPercentage} color="#fff" />
-                                        <span>Uploading({data.progressPercentage}%)</span>
-                                    </div>
-                                    <Button key={i} type='secondary'>Cancel</Button>
-                                </>
-                            )
-                        })}
-                    </div>
-                </div>
+                {saveLessonAndContinue === 1 && (
+                    <>
+                        <DragAndDropInput />
+                        <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
+                    </>)}
+                {saveLessonAndContinue === 2 && (
+
+                    <div className={classes.fileUpload}>
+                        <h3>File Upload</h3>
+                        <div className={classes.file}>
+                            {fileUpload.map((data, i) => {
+                                return (
+                                    <>
+                                        <div key={i}>
+                                            <p>{data.fileName}</p>
+                                            <ProgressBar percentage={data.progressPercentage} color="#fff" />
+                                            <span>Uploading({data.progressPercentage}%)</span>
+                                        </div>
+                                        <Button key={i} type='secondary'>Cancel</Button>
+                                    </>
+                                )
+                            })}
+                        </div>
+                    </div>)}
             </div>
 
-            <AddLessonResourcesOptional />
+            {saveLessonAndContinue === 3 && <AddLessonResourcesOptional />}
+
 
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
-                <Button
-                    onClick={() => console.log(setCurrentStep(currentStep + 1))}
-                >
+                <Button onClick={() => setSaveLessonAndContinue(saveLessonAndContinue + 1)}>
                     <span>Save lesson</span>
                 </Button>
                 <Button
