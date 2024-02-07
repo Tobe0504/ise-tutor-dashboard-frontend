@@ -4,7 +4,7 @@ import AcceptedModal from '../../../Components/Modals/AcceptedModal/AcceptedModa
 import ProgressBar from '../../../Components/ProgressBar/ProgressBar'
 import DeleteModalBody from '../../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../../CreatingCourseModulePageContainer/DiscardModalBody'
-import AddLessonResourcesOptional from '../AddLessonResourcesOptional/AddLessonResourcesOptional'
+import AddLessonResourcesOptional from '../../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
 import classes from '../CourseReading.module.css'
 import { useState } from 'react'
 

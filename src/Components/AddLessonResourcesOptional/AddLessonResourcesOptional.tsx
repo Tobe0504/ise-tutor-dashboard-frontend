@@ -1,6 +1,6 @@
-import classes from '../CourseReading.module.css'
-import DropdownWithSearch from '../../../Components/DropdownWithSearch/DropdownWithSearch'
-import Input from '../../../Components/Input/Input'
+import classes from '../../Containers/CourseReading/CourseReading.module.css'
+import DropdownWithSearch from '../DropdownWithSearch/DropdownWithSearch'
+import Input from '../Input/Input'
 
 const AddLessonResourcesOptional = () => {
     return (
