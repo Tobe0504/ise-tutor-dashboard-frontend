@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Input from '../../Components/Input/Input'
 import classes from './CourseVideo.module.css'
 import SectionsNav4 from '../../Components/SectionsNav4/SectionsNav4';
-import BulkUploadComponent from './BulkUploadComponent/BulkUploadComponent';
+import BulkUploadComponent from './BulkUploadComponent';
 
 const CourseVideo = () => {
 

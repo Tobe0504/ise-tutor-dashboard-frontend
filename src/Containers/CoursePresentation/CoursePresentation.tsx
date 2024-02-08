@@ -1,6 +1,6 @@
 import Input from '../../Components/Input/Input'
 import classes from './CoursePresentation.module.css'
-import BulkUploadComponent from './BulkUploadComponent/BulkUploadComponent';
+import BulkUploadComponent from './BulkUploadComponent';
 
 const CoursePresentation = () => {
 
