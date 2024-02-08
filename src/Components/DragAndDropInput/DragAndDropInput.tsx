@@ -42,7 +42,7 @@ const DragAndDropInput = ({
       </div>
       {invalid && (
         <span className={classes.errorMessage}>
-          {errorMessage || "*invalid"}
+          {errorMessage || "Please upload a file"}
         </span>
       )}
     </div>

@@ -12,6 +12,7 @@ const CoursePresentation = () => {
                     isRequired
                     label='Add lesson title'
                     placeholder='Untitled lesson'
+                    errorMessage='Please enter a valid lesson name  '
                 />
             </div>
             <div className={`${classes.addLesson} ${classes.body}`}>
