@@ -68,7 +68,10 @@ const BulkUploadComponent = () => {
                                 <ProgressBar percentage={65} color="#fff" />
                                 <span>Uploading({65}%)</span>
                             </div>
-                            <Button type='secondary'>Cancel</Button>
+                            <Button
+                                type='secondary'
+                                onClick={() => setSaveLessonAndContinue(saveLessonAndContinue - 1)}
+                            >Cancel</Button>
                         </div>
                     </div>
                 )}

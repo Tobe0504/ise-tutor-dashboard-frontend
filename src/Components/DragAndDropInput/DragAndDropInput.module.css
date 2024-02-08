@@ -38,12 +38,40 @@
   visibility: hidden;
 }
 
+
+.valid {
+  border: 1px solid var(--grey);
+  color: var(--grey);
+}
+
+.invalid {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.errorMessage {
+  color: var(--red);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  animation: appear 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .dropContainer {
     gap: 0.5rem;
     font-size: 12px;
     line-height: 23px;
     border: 2px dashed var(--borderPurple);
+  }
+
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
   }
 }
 
@@ -53,5 +81,10 @@
     font-size: 12px;
     line-height: 23px;
     border: 1px dashed var(--borderPurple);
+  }
+
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
   }
 }

@@ -57,7 +57,7 @@ const BulkUploadComponent = () => {
                 </ul>
                 {saveLessonAndContinue === 1 && (
                     <>
-                        <DragAndDropInput />
+                        <DragAndDropInput errorMessage='Please upload a file' />
                         <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
                     </>)}
                 {saveLessonAndContinue === 2 && (
@@ -69,7 +69,10 @@ const BulkUploadComponent = () => {
                                 <ProgressBar percentage={85} color="#fff" />
                                 <span>Uploading({85}%)</span>
                             </div>
-                            <Button type='secondary'>Cancel</Button>
+                            <Button
+                                type='secondary'
+                                onClick={() => setSaveLessonAndContinue(saveLessonAndContinue - 1)}
+                            >Cancel</Button>
                         </div>
                     </div>
                 )}

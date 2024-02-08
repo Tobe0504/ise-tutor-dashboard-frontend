@@ -9,11 +9,13 @@ const AddLessonResourcesOptional = () => {
             <p>Share relevant documents that provide additional context or support for the lesson.</p>
             <DropdownWithSearch
                 label="Resource type"
+                errorMessage='Please choose a file type'
                 title="Select the type of resources you want to add"
                 options={[]}
             />
             <Input
                 label='Resource URL'
+                errorMessage='Incorrect link. Check and try again'
                 placeholder='Enter the URL of the external resource'
             />
         </div>

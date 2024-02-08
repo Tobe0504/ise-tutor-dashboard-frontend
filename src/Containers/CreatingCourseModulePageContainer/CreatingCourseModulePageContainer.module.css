@@ -154,11 +154,6 @@
         padding: 1rem;
     }
 
-    .addModules p,
-    .addModules h3 {
-        text-align: center;
-    }
-
     .addModules h3 {
         font-size: 20px;
         line-height: 30px;
