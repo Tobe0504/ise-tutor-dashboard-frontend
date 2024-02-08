@@ -7,6 +7,7 @@ import DiscardModalBody from '../../CreatingCourseModulePageContainer/DiscardMod
 import AddLessonResourcesOptional from '../../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
 import classes from '../CourseReading.module.css'
 import { useState } from 'react'
+import Toast from '../../../Components/Toast/Toast'
 
 const BulkUploadComponent = () => {
 
@@ -74,6 +75,8 @@ const BulkUploadComponent = () => {
                 )}
             </div>
             {saveLessonAndContinue === 3 && <AddLessonResourcesOptional />}
+            {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
+            {saveLessonAndContinue === 4 && <Toast toastTeaxt="Lesson successfully saved!" onClick={() => { }} />}
 
 
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
