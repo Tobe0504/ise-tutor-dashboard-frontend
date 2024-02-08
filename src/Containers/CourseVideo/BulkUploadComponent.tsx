@@ -6,7 +6,7 @@ import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import AddLessonResourcesOptional from '../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
-import classes from '../CourseVideo.module.css'
+import classes from './CourseVideo.module.css'
 import Toast from '../../Components/Toast/Toast'
 
 const BulkUploadComponent = () => {

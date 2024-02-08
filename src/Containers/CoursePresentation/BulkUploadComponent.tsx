@@ -5,7 +5,7 @@ import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import AddLessonResourcesOptional from '../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
-import classes from '../CoursePresentation.module.css'
+import classes from './CoursePresentation.module.css'
 import { useState } from 'react'
 
 const BulkUploadComponent = () => {
