@@ -77,13 +77,15 @@ const BulkUploadComponent = () => {
                     </div>
                 )}
             </div>
-            {saveLessonAndContinue === 3 && <AddLessonResourcesOptional />}
-            {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
+            {(saveLessonAndContinue === 3 || saveLessonAndContinue === 4) && <AddLessonResourcesOptional />}
             {saveLessonAndContinue === 4 && <Toast toastTeaxt="Lesson successfully saved!" onClick={() => { }} />}
 
 
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
-                <Button onClick={() => setSaveLessonAndContinue(saveLessonAndContinue + 1)}>
+                <Button
+                    onClick={() => setSaveLessonAndContinue(prevValue => (prevValue < 4) ? prevValue + 1 : prevValue)}
+                    className={saveLessonAndContinue === 4 ? classes.inactivePrimary : ''}
+                >
                     <span>Save lesson</span>
                 </Button>
                 <Button
@@ -91,6 +93,7 @@ const BulkUploadComponent = () => {
                     onClick={() => {
                         setDisplayDiscardModal(true);
                     }}
+                    className={saveLessonAndContinue === 4 ? classes.inactiveSecondary : ''}
                 >
                     <span>Discard changes</span>
                 </Button>

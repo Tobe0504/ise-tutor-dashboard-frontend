@@ -108,6 +108,26 @@
     padding: 8px;
     margin-top: -1rem;
     background: #FFEDAD;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.videoInfo {
+    padding: 8px;
+    margin-top: -5px;
+    background: #DCD7FE;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
 }
 
 .fileUpload {

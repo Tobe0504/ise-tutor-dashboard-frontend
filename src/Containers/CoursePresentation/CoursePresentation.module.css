@@ -57,6 +57,18 @@
     justify-content: flex-start;
 }
 
+.addLesson .inactivePrimary {
+    pointer-events: none;
+    color: var(--white);
+    background: var(--disabled);
+}
+
+.addLesson .inactiveSecondary {
+    pointer-events: none;
+    color: var(--disabled);
+    border-color: var(--disabled);
+}
+
 .buttonContainer {
     flex-wrap: wrap;
     flex-direction: row-reverse !important;

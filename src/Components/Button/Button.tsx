@@ -4,14 +4,15 @@ import { CircularProgress } from '@mui/material'
 type ButtonPropTypes = {
    children: React.ReactNode
    type?:
-      | 'primary'
-      | 'secondary'
-      | 'tertiary'
-      | 'null'
-      | 'invalid'
-      | 'delete'
-      | 'black'
-      | 'white'
+   | 'primary'
+   | 'secondary'
+   | 'tertiary'
+   | 'null'
+   | 'invalid'
+   | 'delete'
+   | 'black'
+   | 'white'
+   className?: string
    disabled?: boolean
    onClick?: React.MouseEventHandler<HTMLButtonElement>
    loading?: boolean
@@ -23,26 +24,26 @@ const Button = ({
    disabled,
    onClick,
    loading,
+   className,
 }: ButtonPropTypes) => {
    return (
       <button
-         className={`${classes.button} ${
-            type === 'secondary'
+         className={`${classes.button} ${type === 'secondary'
                ? classes.secondary
                : type === 'tertiary'
-               ? classes.tertiary
-               : type === 'null'
-               ? classes.null
-               : type === 'invalid'
-               ? classes.invalidx
-               : type === 'delete'
-               ? classes.delete
-               : type === 'black'
-               ? classes.black
-               : type === 'white'
-               ? classes.white
-               : classes.primary
-         }`}
+                  ? classes.tertiary
+                  : type === 'null'
+                     ? classes.null
+                     : type === 'invalid'
+                        ? classes.invalidx
+                        : type === 'delete'
+                           ? classes.delete
+                           : type === 'black'
+                              ? classes.black
+                              : type === 'white'
+                                 ? classes.white
+                                 : classes.primary
+            } ${className}`}
          onClick={onClick}
          disabled={disabled}
       >
