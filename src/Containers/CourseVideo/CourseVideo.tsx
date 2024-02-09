@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Input from '../../Components/Input/Input'
 import classes from './CourseVideo.module.css'
 import SectionsNav4 from '../../Components/SectionsNav4/SectionsNav4';
-import BulkUploadComponent from './BulkUploadComponent';
+import VideoUploadComponent from './VideoUploadComponent';
+import EmbedVideoComponent from './EmbedVideoComponent';
 
 const CourseVideo = () => {
 
@@ -11,12 +12,12 @@ const CourseVideo = () => {
         {
             title: "Upload video",
             isActive: true,
-            activeComponent: <BulkUploadComponent />,
+            activeComponent: <VideoUploadComponent />,
         },
         {
             title: "Embed video",
             isActive: false,
-            activeComponent: null,
+            activeComponent: <EmbedVideoComponent />,
         },
     ]);
 

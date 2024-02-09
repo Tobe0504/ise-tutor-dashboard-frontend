@@ -75,6 +75,7 @@
     justify-content: space-between !important;
 }
 
+.addVideoResources,
 .bulkUpload {
     gap: 1.5rem;
     width: 100%;
@@ -254,6 +255,31 @@
     display: none;
 }
 
+.addVideoResources>div:nth-child(1) {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1rem;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.addVideoResources>.continueButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.addVideoResources>.continueButton button {
+    color: var(--white);
+    background: var(--purple);
+}
+
 @media screen and (min-width: 779px) and (max-width: 1023px) {
     .container {
         gap: 1.2rem;
@@ -265,6 +291,7 @@
         padding: 16px;
     }
 
+    .addVideoResources,
     .sectionsNavSection,
     .bulkUpload {
         padding: 10px;
@@ -278,6 +305,36 @@
     .addLesson button:nth-child(3) {
         flex: unset;
         justify-content: unset;
+    }
+
+    .transcriptHeader,
+    .fileHeader {
+        padding-block: 8px;
+    }
+
+    .fileHeader h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .thumbnail,
+    .fileUpload .videoUploaded {
+        padding: 16px 0 0;
+    }
+
+    .addVideoResources>div:nth-child(1),
+    .fileUpload .file>div>p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .addVideoResources {
+        gap: 0;
+    }
+
+    .addVideoResources>div:nth-child(1) {
+        margin: 0 0 1.5rem;
     }
 }
 
@@ -299,6 +356,7 @@
         margin-bottom: 1.5rem;
     }
 
+    .addVideoResources,
     .sectionsNavSection,
     .bulkUpload {
         padding: 0;
@@ -325,10 +383,41 @@
         padding: 10px;
     }
 
+    .addVideoResources>div:nth-child(1),
     .fileUpload .file>div>p {
         font-size: 14px;
         line-height: 22px;
         margin-bottom: 10px;
+    }
+
+    .transcriptHeader,
+    .fileHeader {
+        padding-block: 8px;
+    }
+
+    .fileHeader h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .thumbnail,
+    .fileUpload .videoUploaded {
+        padding: 16px 0 0;
+    }
+
+    .addVideoResources>div:nth-child(1),
+    .fileUpload .file>div>p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .addVideoResources {
+        gap: 0;
+    }
+
+    .addVideoResources>div:nth-child(1) {
+        margin: 0 0 1.5rem;
     }
 }
 

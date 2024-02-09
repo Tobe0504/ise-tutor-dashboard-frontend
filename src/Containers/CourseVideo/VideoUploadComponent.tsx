@@ -10,7 +10,7 @@ import Toast from '../../Components/Toast/Toast'
 import VideoPlayer from '../../Components/VideoPlayer/VideoPlayer'
 import VideoUpload from "../../Assets/Images/CourseVideo-video-upload.png";
 
-const BulkUploadComponent = () => {
+const VideoUploadComponent = () => {
 
     // States
     const [displayDiscardModal, setDisplayDiscardModal] =
@@ -62,7 +62,8 @@ const BulkUploadComponent = () => {
                     <>
                         <DragAndDropInput />
                         <p className={classes.info}>You can upload files with the extensions: mov, movie, mp4, mpeg, vivo, webm, m4v</p>
-                    </>)}
+                    </>
+                )}
                 {saveLessonAndContinue === 2 && (
                     <div className={classes.fileUpload}>
                         <div className={classes.fileHeader}>
@@ -189,4 +190,4 @@ const BulkUploadComponent = () => {
     )
 }
 
-export default BulkUploadComponent
+export default VideoUploadComponent
