@@ -137,16 +137,23 @@
     border: 1px solid var(--veryLightPurple);
 }
 
-.fileUpload>h3 {
+.transcriptHeader,
+.fileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-block: 16px;
+    border-bottom: 1px solid var(--veryLightPurple);
+}
+
+.fileHeader h3 {
     font-size: 25px;
     font-weight: 400;
     line-height: 36px;
     color: var(--grey);
     font-style: normal;
     font-family: Archivo;
-
-    padding-block: 12px;
-    border-bottom: 1px solid var(--veryLightPurple);
 }
 
 .fileUpload .file {
@@ -156,6 +163,16 @@
     padding: 20px 10px 0;
     align-items: center;
     justify-content: space-between;
+}
+
+.thumbnail,
+.fileUpload .videoUploaded {
+    gap: 24px;
+    display: flex;
+    padding: 24px 16px;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .fileUpload .file>button {
@@ -171,6 +188,7 @@
     min-width: 230px;
 }
 
+.thumbnail span,
 .fileUpload .file>div>p {
     font-size: 16px;
     font-weight: 400;
@@ -188,6 +206,52 @@
     color: var(--grey);
     font-style: normal;
     font-family: Archivo;
+}
+
+.transcript {
+    padding: 40px 16px;
+    border-radius: 10px;
+    background: var(--bodyBackgroundColor);
+}
+
+.transcriptHeader {
+    border: none;
+    padding: 0;
+}
+
+.thumbnail {
+    gap: 10px;
+    padding-inline: 0;
+    align-items: flex-start;
+}
+
+.transcriptHeader>h3,
+.thumbnail>h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.thumbnail span {
+    margin-bottom: 0;
+    color: var(--grey3);
+}
+
+.thumbnail>label {
+    width: 100%;
+    display: flex;
+    padding: 10px 10px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--disabled);
+}
+
+.thumbnail>label input[type="file"] {
+    display: none;
 }
 
 @media screen and (min-width: 779px) and (max-width: 1023px) {

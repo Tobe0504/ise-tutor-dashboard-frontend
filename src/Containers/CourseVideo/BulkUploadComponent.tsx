@@ -5,9 +5,10 @@ import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
-import AddLessonResourcesOptional from '../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
 import classes from './CourseVideo.module.css'
 import Toast from '../../Components/Toast/Toast'
+import VideoPlayer from '../../Components/VideoPlayer/VideoPlayer'
+import VideoUpload from "../../Assets/Images/CourseVideo-video-upload.png";
 
 const BulkUploadComponent = () => {
 
@@ -64,7 +65,9 @@ const BulkUploadComponent = () => {
                     </>)}
                 {saveLessonAndContinue === 2 && (
                     <div className={classes.fileUpload}>
-                        <h3>Video Upload</h3>
+                        <div className={classes.fileHeader}>
+                            <h3>Video Upload</h3>
+                        </div>
                         <div className={classes.file}>
                             <div>
                                 <p>First video.mp4</p>
@@ -81,12 +84,18 @@ const BulkUploadComponent = () => {
                 {saveLessonAndContinue === 3 && (
                     <>
                         <div className={classes.fileUpload}>
-                            <h3>Video Uploaded</h3>
+                            <div className={classes.fileHeader}>
+                                <h3>Video Uploaded</h3>
+                            </div>
                             <div className={classes.file}>
                                 <div>
                                     <p>First video.mp4 (processing)</p>
                                 </div>
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg
+                                    onClick={() => {
+                                        setDisplayDeleteModal(true);
+                                    }}
+                                    width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
@@ -95,24 +104,64 @@ const BulkUploadComponent = () => {
                     </>
 
                 )}
+                {(saveLessonAndContinue === 4 || saveLessonAndContinue === 5 || saveLessonAndContinue === 6) && (
+                    <>
+                        <div className={classes.fileUpload}>
+                            <div className={classes.fileHeader}>
+                                <h3>Video Uploaded</h3>
+                                <svg
+                                    onClick={() => {
+                                        setDisplayDeleteModal(true);
+                                    }}
+                                    width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div className={classes.videoUploaded}>
+                                <VideoPlayer height="200px" url="/" thumbnail={VideoUpload} />
+                                {(saveLessonAndContinue === 4 && saveLessonAndContinue === 4) && <Button onClick={() => setSaveLessonAndContinue(5)}>Generate transcript</Button>}
+                            </div>
+                        </div>
+                        {(saveLessonAndContinue === 5 || saveLessonAndContinue === 6) && (
+                            <div className={classes.transcript}>
+                                <div className={classes.transcriptHeader}>
+                                    <h3>Video transcript</h3>
+                                    <svg
+                                        onClick={() => {
+                                            setDisplayDeleteModal(true);
+                                        }}
+                                        width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <h1>Text Editor</h1>
+                            </div>
+                        )}
+                        <div className={classes.thumbnail}>
+                            <h4>Thumbnail (optional)</h4>
+                            <label htmlFor="thumbnail">
+                                <input type="file" name="thumbnail-img" id="thumbnail" />
+                                <span>+ Add video thumbnail</span>
+                            </label>
+                            <span>Thumbnail should be  1280x720 pixels, under 2MB (JPG or PNG)</span>
+                        </div>
+                    </>
+                )}
             </div>
-            {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
-            {saveLessonAndContinue === 5 && <AddLessonResourcesOptional />}
-            {(saveLessonAndContinue === 5 && showToast) && (
+            {(saveLessonAndContinue === 6 && showToast) && (
                 <Toast
                     onClick={() => setShowToast(false)}
                     toastTeaxt="Lesson successfully saved!"
                 />
             )}
 
-
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
                 <Button
                     onClick={() => {
-                        setSaveLessonAndContinue(prevValue => (prevValue < 5) ? prevValue + 1 : prevValue);
+                        setSaveLessonAndContinue(prevValue => (prevValue < 7) ? prevValue + 1 : prevValue);
                         setShowToast(true);
                     }}
-                    className={saveLessonAndContinue === 4 ? classes.inactivePrimary : ''}
+                    className={saveLessonAndContinue === 6 ? classes.inactivePrimary : ''}
                 >
                     <span>Save lesson</span>
                 </Button>
@@ -121,7 +170,7 @@ const BulkUploadComponent = () => {
                     onClick={() => {
                         setDisplayDiscardModal(true);
                     }}
-                    className={saveLessonAndContinue === 5 ? classes.inactiveSecondary : ''}
+                    className={saveLessonAndContinue === 6 ? classes.inactiveSecondary : ''}
                 >
                     <span>Discard changes</span>
                 </Button>
