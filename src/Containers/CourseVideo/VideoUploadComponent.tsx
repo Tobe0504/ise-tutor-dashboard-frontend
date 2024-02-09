@@ -60,7 +60,9 @@ const VideoUploadComponent = () => {
                 </ul>
                 {saveLessonAndContinue === 1 && (
                     <>
-                        <DragAndDropInput />
+                        <DragAndDropInput
+                            acceptedFileTypes=".mov, .movie, .mp4, .mpeg, .vivo, .webm, .m4v"
+                        />
                         <p className={classes.info}>You can upload files with the extensions: mov, movie, mp4, mpeg, vivo, webm, m4v</p>
                     </>
                 )}

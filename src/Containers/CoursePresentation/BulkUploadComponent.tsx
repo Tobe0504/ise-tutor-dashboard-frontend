@@ -56,7 +56,9 @@ const BulkUploadComponent = () => {
                 </ul>
                 {saveLessonAndContinue === 1 && (
                     <>
-                        <DragAndDropInput />
+                        <DragAndDropInput
+                            acceptedFileTypes=".pdf"
+                        />
                         <p className={classes.info}>You can upload files with the extensions: pdf</p>
                     </>)}
                 {saveLessonAndContinue === 2 && (

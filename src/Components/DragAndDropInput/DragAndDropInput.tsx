@@ -3,10 +3,12 @@ import classes from "./DragAndDropInput.module.css";
 
 type DragAndDropInputProps = {
   errorMessage?: string;
+  acceptedFileTypes?: string;
 };
 
 const DragAndDropInput = ({
   errorMessage,
+  acceptedFileTypes,
 }: DragAndDropInputProps) => {
   const [invalid, setInvalid] = useState(false);
 
@@ -28,21 +30,24 @@ const DragAndDropInput = ({
     <div className={classes.container}>
       <label>Attach file </label>
       <div
-        className={`${classes.dropContainer} ${invalid ? classes.invalid : ""
-          }`}
+        className={`${classes.dropContainer} ${invalid ? classes.invalid : ""}`}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
         <span>Drag and drop file to attach it</span>
         <span>or</span>
         <label htmlFor="browseFile">
-          <span>browse for a file...</span>
-          <input type="file" name="browse-file" id="browseFile" />
+          <span>Browse for a file...</span>
+          <input
+            type="file"
+            name="browse-file"
+            id="browseFile"
+            accept={acceptedFileTypes}
+          />
         </label>
       </div>
       {invalid && (
         <span className={classes.errorMessage}>
-          {errorMessage || "Please upload a file"}
         </span>
       )}
     </div>

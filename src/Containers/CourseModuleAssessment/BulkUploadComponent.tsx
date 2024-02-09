@@ -1,0 +1,168 @@
+import Button from '../../Components/Button/Button'
+import DragAndDropInput from '../../Components/DragAndDropInput/DragAndDropInput'
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
+import ProgressBar from '../../Components/ProgressBar/ProgressBar'
+import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
+import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
+import AddLessonResourcesOptional from '../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
+import classes from './CourseModuleAssessment.module.css'
+import { useState } from 'react'
+import Input from '../../Components/Input/Input'
+import TextArea from '../../Components/TextArea/TextArea'
+
+const BulkUploadComponent = () => {
+
+    // States
+    const [displayDiscardModal, setDisplayDiscardModal] =
+        useState(false);
+    const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
+    const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
+
+    return (
+        <>
+            {displayDiscardModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayDiscardModal(false);
+                    }}
+                    body={
+                        <DiscardModalBody
+                            onClick={() => {
+                                setDisplayDiscardModal(false);
+                            }}
+                            onClick2={() => {
+                                setDisplayDiscardModal(false);
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayDeleteModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayDeleteModal(false);
+                    }}
+                    body={
+                        <DeleteModalBody
+                            onClick={() => {
+                                setDisplayDeleteModal(false);
+                            }}
+                        />
+                    }
+                />
+            )}
+            {saveLessonAndContinue === 1 && (
+                <div className={classes.addAssignmentDetails}>
+                    <h1>Enter assignment details</h1>
+                    <div>
+                        <Input
+                            isRequired
+                            label='Add assignment title'
+                            placeholder='Untitled lesson'
+                            errorMessage='Please enter a valid lesson name  '
+                        />
+                        <TextArea
+                            label='Assignment instruction'
+                            placeholder='Add instructions for this assignment here '
+                        />
+                    </div>
+                    <div className={classes.addModulesBottom}>
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 16H12V12H11M12 8H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <Button
+                            type='secondary'
+                        >
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 18.5L18 6.5M6 6.5L18 18.5" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>Close</span>
+                        </Button>
+                        <Button
+                            type='primary'
+                            onClick={() => { setSaveLessonAndContinue(2) }}
+                        >
+                            <span>Save and continue</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 8L21 12M21 12L17 16M21 12L3 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </Button>
+                    </div>
+                </div>
+            )}
+            <div className={classes.bulkUpload}>
+                {saveLessonAndContinue === 2 && (
+                    <>
+                        <DragAndDropInput
+                            acceptedFileTypes=".pdf, .doc, .docx"
+                        />
+                        <p className={classes.info}>You can upload files with the extensions: doc, pdf</p>
+                    </>)}
+                {saveLessonAndContinue === 2 && (
+                    <div className={classes.fileUpload}>
+                        <h3>File Upload</h3>
+                        <div className={classes.file}>
+                            <div>
+                                <p>First presentation.pdf</p>
+                                <ProgressBar percentage={65} color="#fff" />
+                                <span>Uploading({65}%)</span>
+                            </div>
+                            <Button
+                                type='secondary'
+                                onClick={() => setSaveLessonAndContinue(saveLessonAndContinue - 1)}
+                            >Cancel</Button>
+                        </div>
+                    </div>
+                )}
+                {(saveLessonAndContinue === 3 || saveLessonAndContinue === 4) && (
+                    <div className={classes.fileUpload}>
+                        <h3>Uploaded File</h3>
+                        <div className={classes.file}>
+                            <div>
+                                <p>First presentation.pdf</p>
+                            </div>
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                )}
+            </div>
+            {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
+
+            {(saveLessonAndContinue === 2 || saveLessonAndContinue === 3 || saveLessonAndContinue === 4) && (
+                <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
+                    <Button
+                        onClick={() => setSaveLessonAndContinue(prevValue => (prevValue < 4) ? prevValue + 1 : prevValue)}
+                        className={saveLessonAndContinue === 4 ? classes.inactivePrimary : ''}
+                    >
+                        <span>Save lesson</span>
+                    </Button>
+                    <Button
+                        type='secondary'
+                        onClick={() => {
+                            setDisplayDiscardModal(true);
+                        }}
+                        className={saveLessonAndContinue === 4 ? classes.inactiveSecondary : ''}
+                    >
+                        <span>Discard changes</span>
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            setDisplayDeleteModal(true);
+                        }}
+                    >
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5 7L18.6327 19.1425C18.5579 20.1891 17.687 21 16.6378 21H8.36224C7.31296 21 6.44208 20.1891 6.36732 19.1425L5.5 7M10.5 11V17M14.5 11V17M15.5 7V4C15.5 3.44772 15.0523 3 14.5 3H10.5C9.94772 3 9.5 3.44772 9.5 4V7M4.5 7H20.5" stroke="#DC362E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>Delete lesson</span>
+                    </Button>
+                </div>
+            )}
+        </>
+    )
+}
+
+export default BulkUploadComponent
