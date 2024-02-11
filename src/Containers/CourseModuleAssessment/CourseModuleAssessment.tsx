@@ -6,7 +6,7 @@ const CourseModuleAssessment = () => {
 
     return (
         <div className={classes.container}>
-            <div className={`${classes.addLesson} ${classes.body}`}>
+            <div className={classes.body}>
                 <div className={classes.sectionsNavSection}>
                     <BulkUploadComponent />
                 </div>
