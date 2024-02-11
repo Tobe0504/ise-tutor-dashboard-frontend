@@ -102,7 +102,6 @@ const BulkUploadComponent = () => {
                 />
             )}
 
-
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
                 <Button
                     onClick={() => {

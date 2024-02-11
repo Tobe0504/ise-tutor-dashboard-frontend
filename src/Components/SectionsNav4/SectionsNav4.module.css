@@ -110,10 +110,10 @@
     color: var(--grey);
     font-size: 14px;
     line-height: 23px;
-    max-width: 5rem;
+    min-width: 5rem;
   }
 
   .activeDiv {
-    max-width: 5rem;
+    min-width: 5rem;
   }
 }

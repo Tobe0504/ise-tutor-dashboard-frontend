@@ -3,6 +3,7 @@ import Input from '../../Components/Input/Input'
 import classes from './CourseReading.module.css'
 import SectionsNav4 from '../../Components/SectionsNav4/SectionsNav4';
 import BulkUploadComponent from './BulkUploadComponent';
+import BuildFromScratch from './BuildFromScratch';
 
 const CourseReading = () => {
 
@@ -16,7 +17,7 @@ const CourseReading = () => {
         {
             title: "Build from scratch",
             isActive: false,
-            activeComponent: null,
+            activeComponent: <BuildFromScratch />,
         },
     ]);
 

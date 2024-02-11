@@ -48,7 +48,6 @@
 
 .textEditor {
     padding: 1rem;
-    margin-top: 40px;
     border-radius: 7px;
     background: var(--bodyBackgroundColor);
 }
@@ -103,7 +102,7 @@
     gap: 1.5rem;
     width: 100%;
     display: flex;
-    padding: 0 32px 40px;
+    padding: 40px 32px;
     align-items: stretch;
     flex-direction: column;
     justify-content: center;
@@ -112,7 +111,6 @@
 }
 
 .bulkUpload ul {
-    margin-top: 20px;
     list-style-type: disc;
     padding-inline-start: 12px;
 }
@@ -208,10 +206,6 @@
     .sectionsNavSection,
     .bulkUpload {
         padding: 16px;
-    }
-
-    .textEditor {
-        margin-top: 0;
     }
 
     .buttonContainer {
