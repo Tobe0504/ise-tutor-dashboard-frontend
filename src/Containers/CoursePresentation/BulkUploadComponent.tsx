@@ -7,6 +7,7 @@ import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalB
 import AddLessonResourcesOptional from '../../Components/AddLessonResourcesOptional/AddLessonResourcesOptional'
 import classes from './CoursePresentation.module.css'
 import { useState } from 'react'
+import Toast from '../../Components/Toast/Toast'
 
 const BulkUploadComponent = () => {
 
@@ -15,6 +16,7 @@ const BulkUploadComponent = () => {
         useState(false);
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
     const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
+    const [showToast, setShowToast] = useState(false);
 
     return (
         <>
@@ -92,11 +94,19 @@ const BulkUploadComponent = () => {
                 )}
             </div>
             {saveLessonAndContinue === 4 && <AddLessonResourcesOptional />}
-
+            {(saveLessonAndContinue === 4 && showToast) && (
+                <Toast
+                    onClick={() => setShowToast(false)}
+                    toastTeaxt="Lesson successfully saved!"
+                />
+            )}
 
             <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
                 <Button
-                    onClick={() => setSaveLessonAndContinue(prevValue => (prevValue < 4) ? prevValue + 1 : prevValue)}
+                    onClick={() => {
+                        setSaveLessonAndContinue(prevValue => (prevValue < 4) ? prevValue + 1 : prevValue);
+                        setShowToast(true);
+                    }}
                     className={saveLessonAndContinue === 4 ? classes.inactivePrimary : ''}
                 >
                     <span>Save lesson</span>
