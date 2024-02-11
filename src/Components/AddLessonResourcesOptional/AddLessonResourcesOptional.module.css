@@ -27,10 +27,22 @@
     font-family: Archivo;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (min-width: 779px) and (max-width: 1023px) {
     .addResources {
         gap: 1rem;
-        padding: 20px 10px 0 !important;
+        padding: 20px 16px 0;
+    }
+
+    .addResources>h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .addResources {
+        gap: 1rem;
+        padding: 20px 0 0;
     }
 
     .addResources>h3 {

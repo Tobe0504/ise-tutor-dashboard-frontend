@@ -52,10 +52,12 @@ const BulkUploadComponent = () => {
                 />
             )}
             <div className={classes.bulkUpload}>
-                <ul>
-                    <li>The contents of the file will automatically be used to create the reading content.</li>
-                    <li>Keep the file size below 10 MB to ensure quick loading and smooth access for your students.</li>
-                </ul>
+                {(saveLessonAndContinue === 1 || saveLessonAndContinue === 2) && (
+                    <ul>
+                        <li>The contents of the file will automatically be used to create the reading content.</li>
+                        <li>Keep the file size below 10 MB to ensure quick loading and smooth access for your students.</li>
+                    </ul>
+                )}
                 {saveLessonAndContinue === 1 && (
                     <>
                         <DragAndDropInput
@@ -78,6 +80,17 @@ const BulkUploadComponent = () => {
                                 onClick={() => setSaveLessonAndContinue(saveLessonAndContinue - 1)}
                             >Cancel</Button>
                         </div>
+                    </div>
+                )}
+                {(saveLessonAndContinue === 3 || saveLessonAndContinue === 4) && (
+                    <div className={classes.textEditor}>
+                        <div className={classes.textEditorHeader}>
+                            <h4>Edit Reading</h4>
+                            <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.66665 11L11 1.66667L20.3333 11" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h1>Text Editor</h1>
                     </div>
                 )}
             </div>

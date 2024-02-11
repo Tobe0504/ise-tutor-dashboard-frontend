@@ -46,6 +46,30 @@
     font-family: Archivo;
 }
 
+.textEditor {
+    padding: 1rem;
+    margin-top: 40px;
+    border-radius: 7px;
+    background: var(--bodyBackgroundColor);
+}
+
+.textEditorHeader {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.textEditorHeader>h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
 .addLesson button {
     padding: 10px 30px;
 }
@@ -183,7 +207,11 @@
 
     .sectionsNavSection,
     .bulkUpload {
-        padding: 10px;
+        padding: 16px;
+    }
+
+    .textEditor {
+        margin-top: 0;
     }
 
     .buttonContainer {
@@ -213,6 +241,13 @@
         font-size: 20px;
         line-height: 30px;
         margin-bottom: 1.5rem;
+    }
+
+    .textEditor {
+        padding: 0;
+        margin-top: 20px;
+        border-radius: 0;
+        background: var(--white);
     }
 
     .sectionsNavSection,
