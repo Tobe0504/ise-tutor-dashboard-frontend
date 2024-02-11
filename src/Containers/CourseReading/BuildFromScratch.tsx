@@ -30,6 +30,7 @@ const BuildFromScratch = () => {
                             }}
                             onClick2={() => {
                                 setDisplayDiscardModal(false);
+                                setSaveLessonAndContinue(prevValue => (prevValue > 1) ? prevValue - 1 : prevValue);
                             }}
                         />
                     }

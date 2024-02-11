@@ -4,12 +4,15 @@ import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import classes from './CourseModuleAssessment.module.css'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Input from '../../Components/Input/Input'
 import TextArea from '../../Components/TextArea/TextArea'
 import Toast from '../../Components/Toast/Toast'
+import { AppContext } from '../../Context/AppContext'
 
 const BulkUploadComponent = () => {
+    const { setCurrentStep } = useContext(AppContext);
+
 
     // States
     const [displayDiscardModal, setDisplayDiscardModal] =
@@ -32,6 +35,7 @@ const BulkUploadComponent = () => {
                             }}
                             onClick2={() => {
                                 setDisplayDiscardModal(false);
+                                setSaveLessonAndContinue(prevValue => (prevValue > 1) ? prevValue - 1 : prevValue);
                             }}
                         />
                     }
@@ -76,6 +80,7 @@ const BulkUploadComponent = () => {
                             </div>
                             <Button
                                 type='secondary'
+                                onClick={() => setCurrentStep(5)}
                             >
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M6 18.5L18 6.5M6 6.5L18 18.5" stroke="#664EFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
