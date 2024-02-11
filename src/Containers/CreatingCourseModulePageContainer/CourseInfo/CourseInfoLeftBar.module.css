@@ -36,6 +36,56 @@
 }
 
 
+.week {
+    gap: 1rem;
+    display: flex;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 20px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 0 1rem 0 1.5rem;
+    border: 1px solid var(--veryLightPurple);
+}
+
+.courseFile {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.courseFile>:nth-child(1) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.courseFile>:nth-child(2) {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    font-style: normal;
+    color: var(--grey3);
+    font-family: Archivo;
+
+    gap: 4px;
+    display: flex;
+    align-items: center;
+}
+
+
 .moduleTitle {
     gap: 1rem;
     display: flex;
@@ -99,6 +149,11 @@
 
     .moduleWeek {
         margin: 0;
+    }
+
+    .week {
+        margin: 0;
+        padding: 10px;
     }
 
     .moduleTitle h4 {
