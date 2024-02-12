@@ -13,6 +13,7 @@ import SelectLessonType from './SelectLessonType/SelectLessonType';
 import CoursePresentation from '../CoursePresentation/CoursePresentation';
 import CourseVideo from '../CourseVideo/CourseVideo';
 import CourseModuleAssessment from '../CourseModuleAssessment/CourseModuleAssessment';
+import CourseQuiz from '../CourseQuiz/CourseQuiz';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
@@ -59,7 +60,7 @@ const CreatingCourseModulePageContainer = () => {
                 {currentStep === 7 && <h1>Customize</h1>}
                 {currentStep === 8 && <CourseReading />}
                 {currentStep === 9 && <CoursePresentation />}
-                {currentStep === 10 && <h1>Quiz</h1>}
+                {currentStep === 10 && <CourseQuiz />}
                 {currentStep === 11 && <CourseModuleAssessment />}
                 {currentStep === 12 && <h1>Final Exam</h1>}
             </div>
