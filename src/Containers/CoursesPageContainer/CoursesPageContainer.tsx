@@ -1,6 +1,6 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import classes from './CoursesPageContainer.module.css'
-import InsightTab from '../../Components/InsightTab/InsightTab'
 
 import StarIcon from '../../Assets/Images/starIcon.svg'
 import educationBook from '../../Assets/Images/educationBook.svg'
@@ -10,10 +10,15 @@ import assignCourseImage from '../../Assets/Images/assignCourseImage.svg'
 import developmentCourse1 from '../../Assets/Images/developmentCourse1.png'
 import developmentCourse2 from '../../Assets/Images/developmentCourse2.png'
 import developmentCourse3 from '../../Assets/Images/developmentCourse3.png'
+
 import StarRating from '../../Components/StarRating/StarRating'
 import CourseCard2 from '../../Components/CourseCard2/CourseCard2'
+import InsightTab from '../../Components/InsightTab/InsightTab'
 
 const CoursesPageContainer = () => {
+
+   const navigate = useNavigate();
+
    const engagement = [
       {
          title: 'Enrolled students',
@@ -84,14 +89,17 @@ const CoursesPageContainer = () => {
       {
          title: 'Edit curriculum',
          totalNumber: null,
+         route: '/courses/create-module',
       },
       {
          title: 'View course details',
          totalNumber: null,
+         route: '/',
       },
       {
          title: 'Assignment submissions',
          totalNumber: 12,
+         route: '/student/assignment',
       },
    ]
 
@@ -210,7 +218,7 @@ const CoursesPageContainer = () => {
             <div className={classes.topContent}>
                {educationalAdministration.map((data, i) => {
                   return (
-                     <div key={i}>
+                     <div key={i} onClick={() => navigate(data.route)}>
                         <h3>{data.title}</h3>
                         <span>{data.totalNumber}</span>
                      </div>

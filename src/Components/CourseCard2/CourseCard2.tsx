@@ -49,7 +49,12 @@ const CourseCard2 = ({
         </div>
       </div>
       {showButton && <div className={classes.footer}>
-        <Button type="primary">See course details</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            navigate(route as string);
+          }}
+        >See course details</Button>
         <Button
           type="secondary"
           onClick={() => { navigate('/courses/create-module') }}
