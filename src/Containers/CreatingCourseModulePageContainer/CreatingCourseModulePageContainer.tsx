@@ -14,6 +14,7 @@ import CoursePresentation from '../CoursePresentation/CoursePresentation';
 import CourseVideo from '../CourseVideo/CourseVideo';
 import CourseModuleAssessment from '../CourseModuleAssessment/CourseModuleAssessment';
 import CourseQuiz from '../CourseQuiz/CourseQuiz';
+import CourseCustomize from '../CourseCustomize/CourseCustomize';
 
 const CreatingCourseModulePageContainer = () => {
     const navigate = useNavigate();
@@ -57,7 +58,7 @@ const CreatingCourseModulePageContainer = () => {
                 {currentStep === 4 && <AddWeekModule />}
                 {currentStep === 5 && <SelectLessonType />}
                 {currentStep === 6 && <CourseVideo />}
-                {currentStep === 7 && <h1>Customize</h1>}
+                {currentStep === 7 && <CourseCustomize />}
                 {currentStep === 8 && <CourseReading />}
                 {currentStep === 9 && <CoursePresentation />}
                 {currentStep === 10 && <CourseQuiz />}

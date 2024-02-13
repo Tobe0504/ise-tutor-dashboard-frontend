@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import classes from './SelectLessonType.module.css'
-import TypeItem from '../../../Components/TypeItem/TypeItem';
 import { AppContext } from '../../../Context/AppContext';
+import CourseTypeItem from '../../../Components/CourseTypeItem/CourseTypeItem';
 
 const SelectLessonType = () => {
     const { setCurrentStepAndSave, currentStep } = useContext(AppContext);
@@ -83,7 +83,7 @@ const SelectLessonType = () => {
                 <div>
                     {DeliverLearningContent.map((data, i) => {
                         return (
-                            <TypeItem
+                            <CourseTypeItem
                                 key={i}
                                 title={data.title}
                                 details={data.detail}
@@ -98,7 +98,7 @@ const SelectLessonType = () => {
                 <div>
                     {AssessmentTools.map((data, i) => {
                         return (
-                            <TypeItem
+                            <CourseTypeItem
                                 key={i}
                                 title={data.title}
                                 details={data.detail}

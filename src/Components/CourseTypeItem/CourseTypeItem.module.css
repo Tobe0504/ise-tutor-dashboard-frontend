@@ -1,4 +1,4 @@
-.typeItem {
+.CourseTypeItem {
     gap: 10px;
     width: 47%;
     padding: 10px;
@@ -8,11 +8,11 @@
     align-items: flex-start;
 }
 
-.typeItem:hover {
+.CourseTypeItem:hover {
     background: var(--veryVeryLightPurple);
 }
 
-.typeItem div:nth-child(1) {
+.CourseTypeItem div:nth-child(1) {
     display: flex;
     padding: 12px;
     border-radius: 5px;
@@ -21,7 +21,7 @@
     background: var(--veryLightPurple);
 }
 
-.typeItem p {
+.CourseTypeItem p {
     font-size: 16px;
     font-weight: 500;
     line-height: 27px;
@@ -30,7 +30,7 @@
     font-family: Archivo;
 }
 
-.typeItem span {
+.CourseTypeItem span {
     font-size: 13px;
     font-weight: 400;
     line-height: 21px;
@@ -40,7 +40,7 @@
 }
 
 @media screen and (max-width: 960px) {
-    .typeItem {
+    .CourseTypeItem {
         gap: 20px;
         width: 130px;
         height: 142px;
@@ -52,11 +52,11 @@
         border: 1px solid var(--veryLightPurple);
     }
 
-    .typeItem p {
+    .CourseTypeItem p {
         text-align: center;
     }
 
-    .typeItem span {
+    .CourseTypeItem span {
         display: none;
     }
 }
