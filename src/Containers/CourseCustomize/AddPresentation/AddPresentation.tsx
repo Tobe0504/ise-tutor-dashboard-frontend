@@ -1,11 +1,11 @@
 import classes from './AddPresentation.module.css'
 
 type AddPresentationProps = {
-    onclick?: () => void;
-    onclick2?: () => void;
+    onClick?: () => void;
+    onClick2?: () => void;
 }
 
-const AddPresentation = ({ onclick, onclick2 }: AddPresentationProps) => {
+const AddPresentation = ({ onClick, onClick2 }: AddPresentationProps) => {
     return (
         <div className={classes.container}>AddPresentation</div>
     )

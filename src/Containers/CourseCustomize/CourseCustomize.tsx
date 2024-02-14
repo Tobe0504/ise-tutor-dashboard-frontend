@@ -31,9 +31,27 @@ const CourseCustomize = () => {
     const renderModalBody = () => {
         switch (selectedItem) {
             case "Text and image":
-                return <AddTextAndImage />;
+                return <AddTextAndImage
+                    onClick={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(true)
+                    }}
+                    onClick2={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(false)
+                    }}
+                />
             case "Embed Video":
-                return <AddEmbedVideo />;
+                return <AddEmbedVideo
+                    onClick={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(true)
+                    }}
+                    onClick2={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(false)
+                    }}
+                />
             case "Video":
                 return <AddVideoBlock
                     onClick={() => {
@@ -46,9 +64,27 @@ const CourseCustomize = () => {
                     }}
                 />
             case "Presentation":
-                return <AddPresentation />
+                return <AddPresentation
+                    onClick={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(true)
+                    }}
+                    onClick2={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(false)
+                    }}
+                />
             case "Code Example":
-                return <AddCodeExample />
+                return <AddCodeExample
+                    onClick={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(true)
+                    }}
+                    onClick2={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(false)
+                    }}
+                />
             default:
                 return null;
         }

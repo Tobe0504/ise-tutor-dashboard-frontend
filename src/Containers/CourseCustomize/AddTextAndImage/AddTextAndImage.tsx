@@ -1,11 +1,11 @@
 import classes from './AddTextAndImage.module.css'
 
 type AddTextAndImageProps = {
-    onclick?: () => void;
-    onclick2?: () => void;
+    onClick?: () => void;
+    onClick2?: () => void;
 }
 
-const AddTextAndImage = ({ onclick, onclick2 }: AddTextAndImageProps) => {
+const AddTextAndImage = ({ onClick, onClick2 }: AddTextAndImageProps) => {
     return (
         <div className={classes.container}>AddTextAndImage</div>
     )

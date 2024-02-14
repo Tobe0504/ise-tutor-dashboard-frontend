@@ -1,11 +1,11 @@
 import classes from './AddCodeExample.module.css'
 
 type AddCodeExampleProps = {
-    onclick?: () => void;
-    onclick2?: () => void;
+    onClick?: () => void;
+    onClick2?: () => void;
 }
 
-const AddCodeExample = ({ onclick, onclick2 }: AddCodeExampleProps) => {
+const AddCodeExample = ({ onClick, onClick2 }: AddCodeExampleProps) => {
     return (
         <div className={classes.container}>AddCodeExample</div>
     )
