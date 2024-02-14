@@ -67,6 +67,13 @@
     font-family: Archivo;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .selectContent {
+        gap: 16px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .selectType {
         gap: 1.5rem;
