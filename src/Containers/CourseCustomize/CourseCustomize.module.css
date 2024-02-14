@@ -35,13 +35,6 @@
     padding: 10px 30px;
 }
 
-.addLesson button:nth-child(3) {
-    flex: 1;
-    color: var(--red);
-    background: var(--white);
-    justify-content: flex-start;
-}
-
 .addLesson .inactivePrimary {
     pointer-events: none;
     color: var(--white);
@@ -52,6 +45,46 @@
     pointer-events: none;
     color: var(--disabled);
     border-color: var(--disabled);
+}
+
+.addedBlock {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--veryLightPurple);
+}
+
+.addedBlockHeader {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.addedBlockHeader>h4 {
+    flex: 1;
+    white-space: nowrap;
+
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.addedBlockHeader svg:nth-child(4) {
+    display: none;
+}
+
+.addedBlockBody {
+    height: 20vh;
+    padding: 10px;
+    margin-left: calc(24px + 24px);
+    border: 1px solid var(--veryLightPurple);
+
 }
 
 .addBlock {
@@ -82,6 +115,13 @@
     justify-content: space-between !important;
 }
 
+.buttonContainer button:nth-child(3) {
+    flex: 1;
+    color: var(--red);
+    background: var(--white);
+    justify-content: flex-start;
+}
+
 @media screen and (min-width: 779px) and (max-width: 1023px) {
     .container {
         gap: 1.2rem;
@@ -102,6 +142,32 @@
         flex: unset;
         justify-content: unset;
     }
+
+    .addedBlock {
+        gap: 1.5rem;
+        padding: 10px;
+    }
+
+    .addedBlockHeader {
+        gap: 2rem;
+    }
+
+    .addedBlockHeader>h4 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .addedBlockHeader button {
+        display: none;
+    }
+
+    .addedBlockHeader svg:nth-child(4) {
+        display: block;
+    }
+
+    .addedBlockBody {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 778px) {
@@ -109,6 +175,11 @@
         padding: 0;
         gap: 1.2rem;
         background: var(--white);
+    }
+
+    .container svg {
+        width: 16px;
+        height: 16px;
     }
 
     .container .addLesson {
@@ -131,6 +202,32 @@
         font-size: 16px;
         line-height: 24px;
     }
+
+    .addedBlock {
+        gap: 1.5rem;
+        padding: 10px;
+    }
+
+    .addedBlockHeader {
+        gap: 2rem;
+    }
+
+    .addedBlockHeader>h4 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .addedBlockHeader button {
+        display: none;
+    }
+
+    .addedBlockHeader svg:nth-child(4) {
+        display: block;
+    }
+
+    .addedBlockBody {
+        margin-left: 0;
+    }
 }
 
 @media screen and (max-width: 535px) {
@@ -143,5 +240,9 @@
     .addLesson button:nth-child(3) {
         flex: unset;
         justify-content: unset;
+    }
+
+    .addedBlockHeader {
+        gap: 1rem;
     }
 }
