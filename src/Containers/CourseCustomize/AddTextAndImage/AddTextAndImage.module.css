@@ -56,6 +56,10 @@
         line-height: 25px;
     }
 
+    .container .buttonContainer {
+        justify-content: flex-end;
+    }
+
     .container>div:nth-child(1)>p,
     .container .buttonContainer>div {
         display: none;
