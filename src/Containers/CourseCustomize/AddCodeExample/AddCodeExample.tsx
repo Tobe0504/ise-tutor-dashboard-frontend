@@ -1,14 +1,14 @@
-import classes from './AddVideoBlock.module.css'
+import classes from './AddCodeExample.module.css'
 
-type AddVideoBlockProps = {
-    onclick: () => void;
-    onclick2: () => void;
+type AddCodeExampleProps = {
+    onclick?: () => void;
+    onclick2?: () => void;
 }
 
-const AddVideoBlock = ({ onclick, onclick2 }: AddVideoBlockProps) => {
+const AddCodeExample = ({ onclick, onclick2 }: AddCodeExampleProps) => {
     return (
-        <div className={classes.container}>AddVideoBlock</div>
+        <div className={classes.container}>AddCodeExample</div>
     )
 }
 
-export default AddVideoBlock
+export default AddCodeExample

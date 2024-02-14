@@ -3,10 +3,10 @@ import classes from './SelectTypeModal.module.css'
 
 type SelectTypeModalProps = {
     onClick: () => void;
-    onClick2: () => void;
+    onItemClick: (itemTitle: string) => void;
 };
 
-const SelectTypeModal = ({ onClick, onClick2 }: SelectTypeModalProps) => {
+const SelectTypeModal = ({ onClick, onItemClick }: SelectTypeModalProps) => {
     const items = [
         {
             title: "Text and image",
@@ -53,7 +53,7 @@ const SelectTypeModal = ({ onClick, onClick2 }: SelectTypeModalProps) => {
             <div className={classes.selectContent}>
                 {items.map((item, i) => {
                     return (
-                        <div key={i} onClick={onClick2}>
+                        <div key={i} onClick={() => onItemClick(item.title)}>
                             {item.icon}
                             <p>{item.title}</p>
                         </div>

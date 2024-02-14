@@ -1,14 +1,14 @@
-import classes from './AddCodeExample.module.css'
+import classes from './AddPresentation.module.css'
 
-type AddCodeExampleProps = {
-    onclick: () => void;
-    onclick2: () => void;
+type AddPresentationProps = {
+    onclick?: () => void;
+    onclick2?: () => void;
 }
 
-const AddCodeExample = ({ onclick, onclick2 }: AddCodeExampleProps) => {
+const AddPresentation = ({ onclick, onclick2 }: AddPresentationProps) => {
     return (
-        <div className={classes.container}>AddCodeExample</div>
+        <div className={classes.container}>AddPresentation</div>
     )
 }
 
-export default AddCodeExample
+export default AddPresentation

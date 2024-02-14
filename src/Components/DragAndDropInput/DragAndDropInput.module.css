@@ -80,7 +80,13 @@
     gap: 0.5rem;
     font-size: 12px;
     line-height: 23px;
+    min-height: 100px;
     border: 1px dashed var(--borderPurple);
+  }
+
+  .container>label:first-child {
+    font-size: 16px;
+    line-height: 25px;
   }
 
   .errorMessage {

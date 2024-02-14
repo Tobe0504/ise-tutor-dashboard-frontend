@@ -8,12 +8,51 @@ import { useState } from 'react'
 import Toast from '../../Components/Toast/Toast'
 import SelectTypeModal from './SelectTypeModal/SelectTypeModal'
 
+import AddVideoBlock from './AddVideoBlock/AddVideoBlock'
+import AddEmbedVideo from './AddEmbedVideo/AddEmbedVideo'
+import AddCodeExample from './AddCodeExample/AddCodeExample'
+import AddPresentation from './AddPresentation/AddPresentation'
+import AddTextAndImage from './AddTextAndImage/AddTextAndImage'
+
+
 const CourseCustomize = () => {
     const [displayDiscardModal, setDisplayDiscardModal] = useState(false);
     const [displayDeleteModal, setDisplayDeleteModal] = useState(false);
     const [displaySelectTypeModal, setDisplaySelectTypeModal] = useState(false);
     const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1);
     const [showToast, setShowToast] = useState(false);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    const handleItemClick = (itemTitle: string) => {
+        setSelectedItem(itemTitle);
+        setDisplaySelectTypeModal(false);
+    };
+
+    const renderModalBody = () => {
+        switch (selectedItem) {
+            case "Text and image":
+                return <AddTextAndImage />;
+            case "Embed Video":
+                return <AddEmbedVideo />;
+            case "Video":
+                return <AddVideoBlock
+                    onClick={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(true)
+                    }}
+                    onClick2={() => {
+                        setSelectedItem(null)
+                        setDisplaySelectTypeModal(false)
+                    }}
+                />
+            case "Presentation":
+                return <AddPresentation />
+            case "Code Example":
+                return <AddCodeExample />
+            default:
+                return null;
+        }
+    };
 
     return (
         <>
@@ -49,21 +88,26 @@ const CourseCustomize = () => {
                     }
                 />
             )}
+
             {displaySelectTypeModal && (
+                <>
+                    <AcceptedModal
+                        onClick={() => {
+                            setDisplaySelectTypeModal(false);
+                        }}
+                        body={
+                            <SelectTypeModal onClick={() => setDisplaySelectTypeModal(false)} onItemClick={handleItemClick} />
+                        }
+                    />
+                </>
+            )}
+            {selectedItem && (
                 <AcceptedModal
                     onClick={() => {
+                        setSelectedItem(null);
                         setDisplaySelectTypeModal(false);
                     }}
-                    body={
-                        <SelectTypeModal
-                            onClick={() => {
-                                setDisplaySelectTypeModal(false);
-                            }}
-                            onClick2={() => {
-                                setDisplaySelectTypeModal(false);
-                            }}
-                        />
-                    }
+                    body={renderModalBody()}
                 />
             )}
             <div className={classes.container}>

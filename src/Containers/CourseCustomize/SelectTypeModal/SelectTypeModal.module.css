@@ -28,6 +28,10 @@
     font-family: Archivo;
 }
 
+.selectType>div:nth-child(1)>svg {
+    cursor: pointer;
+}
+
 .selectContent {
     gap: 24px;
     display: flex;
@@ -45,8 +49,13 @@
     justify-content: center;
 
     padding: 1rem;
+    cursor: pointer;
     border-radius: 10px;
     border: 1px solid var(--greyWhite);
+}
+
+.selectContent>div:hover {
+    background: var(--veryVeryLightPurple);
 }
 
 .selectContent>div>p {
