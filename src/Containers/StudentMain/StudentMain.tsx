@@ -1,17 +1,32 @@
-import HelloUser from "../../Components/HelloUser/HelloUser";
-import classes from "./StudentMain.module.css";
-import StudentData from "../StudentData/StudentData";
+import HelloUser from '../../Components/HelloUser/HelloUser'
+import classes from './StudentMain.module.css'
+import StudentData from '../StudentData/StudentData'
+import { useContext } from 'react'
+import { AppContext } from '../../Context/AppContext'
 
 const StudentMain = () => {
+  // Context
+  const { searchValue, setSearchValue } = useContext(AppContext)
 
   return (
     <div className={classes.container}>
-
-      <HelloUser header="Students" paragraph="Review student details, enrollments, grades, and likes here." notIncludePay notIncludeBg />
+      <HelloUser
+        header="Students"
+        paragraph="Review student details, enrollments, grades, and likes here."
+        notIncludePay
+        notIncludeBg
+      />
 
       <div className={classes.studentSeachInput}>
         <div className={classes.inputSection}>
-          <input type="text" placeholder="Search by name or email" />
+          <input
+            type="text"
+            placeholder="Search by name or email"
+            value={searchValue as string}
+            onChange={(e) => {
+              setSearchValue(e.target.value)
+            }}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -34,7 +49,7 @@ const StudentMain = () => {
         <StudentData />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentMain;
+export default StudentMain
