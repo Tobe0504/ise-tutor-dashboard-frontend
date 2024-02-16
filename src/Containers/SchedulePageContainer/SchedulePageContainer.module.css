@@ -4,16 +4,17 @@
     display: flex;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1247px) {
     .container {
-        padding: 1rem;
+        gap: 5rem;
+        padding: 2rem 1rem;
         flex-direction: column-reverse;
     }
 }
 
 @media screen and (max-width: 768px) {
     .container {
-        padding: 1rem;
+        padding: 2rem 1rem;
         flex-direction: column-reverse;
     }
 }

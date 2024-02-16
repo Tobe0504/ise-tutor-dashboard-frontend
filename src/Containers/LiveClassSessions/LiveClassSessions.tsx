@@ -3,8 +3,8 @@ import classes from "./LiveClassSessions.module.css"
 import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
 
 type LiveClassSessionsProps = {
-  height: string;
-  padding: string;
+  height?: string;
+  padding?: string;
 };
 
 

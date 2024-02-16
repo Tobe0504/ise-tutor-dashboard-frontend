@@ -1,0 +1,36 @@
+.container {
+    flex: 1;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    gap: 1.2rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    border-bottom: 1.5px solid var(--grey);
+}
+
+.header>h4 {
+    flex: 1;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.header>button {
+    padding: 10px 30px;
+    width: fit-content;
+}
+
+.body>img {
+    width: 100%;
+    object-fit: cover;
+}

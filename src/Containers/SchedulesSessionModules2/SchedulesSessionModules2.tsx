@@ -12,8 +12,11 @@ const SchedulesSessionModules2 = () => {
     const [navItems, setNavItems] = useState<any[]>([
         {
             title: "All",
-            isActive: false,
-            activeComponent: null,
+            isActive: true,
+            activeComponent: (<>
+                <LiveClassSessions />
+                <OneOnOneCallSessions />
+            </>),
             activeNullStateComponent: (
                 <EmptyTabComponent
                     image={noOvervue}
@@ -27,7 +30,7 @@ const SchedulesSessionModules2 = () => {
         },
         {
             title: "Live Sessions",
-            isActive: true,
+            isActive: false,
             activeComponent: <LiveClassSessions height="" padding="" />,
             activeNullStateComponent: (
                 <EmptyTabComponent

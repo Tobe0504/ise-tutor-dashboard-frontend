@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    max-width: 526px;
+    max-width: 500px;
 }
 
 .container>h2 {
@@ -10,4 +10,11 @@
     font-style: normal;
     color: var(--grey);
     font-family: Archivo;
+}
+
+@media screen and (max-width: 1247px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
 }

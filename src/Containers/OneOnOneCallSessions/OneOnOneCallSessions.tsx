@@ -3,8 +3,8 @@ import classes from "./OneOnOneCallSessions.module.css"
 import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
 
 type OneOnOneCallSessionsProps = {
-  height: string;
-  padding: string;
+  height?: string;
+  padding?: string;
 };
 
 const OneOnOneCallSessions = ({ height, padding }: OneOnOneCallSessionsProps) => {
