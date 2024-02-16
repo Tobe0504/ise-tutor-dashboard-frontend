@@ -1,7 +1,9 @@
 li {
     padding: 1rem;
     border-radius: 10px;
-    border: 1px solid var(--sectionBorder);
+    border-radius: 10px;
+    background: var(--white);
+    border: 0.5px solid var(--sectionBorder);
 }
 
 li div:nth-child(1) {
@@ -48,8 +50,6 @@ li div:nth-child(3) a {
     li {
         border: none;
         padding: 0.8rem;
-        border-radius: 10px;
-        background: var(--white);
     }
 
     li h4 {

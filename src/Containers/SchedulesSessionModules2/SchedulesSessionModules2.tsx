@@ -28,7 +28,7 @@ const SchedulesSessionModules2 = () => {
         {
             title: "Live Sessions",
             isActive: true,
-            activeComponent: <LiveClassSessions />,
+            activeComponent: <LiveClassSessions height="" padding="" />,
             activeNullStateComponent: (
                 <EmptyTabComponent
                     image={noOvervue}
@@ -43,7 +43,7 @@ const SchedulesSessionModules2 = () => {
         {
             title: "1-on-1 sessions",
             isActive: false,
-            activeComponent: <OneOnOneCallSessions />,
+            activeComponent: <OneOnOneCallSessions height="" padding="" />,
             activeNullStateComponent: (
                 <EmptyTabComponent
                     image={noOvervue}
@@ -62,6 +62,7 @@ const SchedulesSessionModules2 = () => {
     });
     return (
         <div className={classes.container}>
+            <h2>Schedule</h2>
             <SectionsNav2 navItems={navItems} setNavItems={setNavItems} />
             <div>
                 {activeCOmponent.activeComponent

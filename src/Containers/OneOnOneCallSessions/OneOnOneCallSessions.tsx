@@ -1,68 +1,72 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classes from "./OneOnOneCallSessions.module.css"
-import googleMeet from "../../Assets/Images/google-meet.png"
-import ellipses from "../../Assets/Images/ellipses.svg"
-import yellowDot from "../../Assets/Images/yellowDot.svg"
-import { Link } from 'react-router-dom'
+import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
 
-const OneOnOneCallSessions = () => {
-  const [oneOnOneSession, setOneOnOneSession] = useState([
+type OneOnOneCallSessionsProps = {
+  height: string;
+  padding: string;
+};
+
+const OneOnOneCallSessions = ({ height, padding }: OneOnOneCallSessionsProps) => {
+  const oneOnOneSession = [
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
     {
       time: "10:00am - 11:00am",
       title: "1-on-1 session with Kenneth",
-      meetingType: googleMeet,
+      link: "",
     },
-  ]);
+    {
+      time: "10:00am - 11:00am",
+      title: "1-on-1 session with Kenneth",
+      link: "",
+    },
+    {
+      time: "10:00am - 11:00am",
+      title: "1-on-1 session with Kenneth",
+      link: "",
+    },
+  ];
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} style={{ height, padding }}>
       <ul>
         {oneOnOneSession.map((data, i) => {
           return (
-            <li key={Math.random()} className={classes.list}>
-              <div>
-                <div>
-                  <img src={yellowDot} alt="" />
-                  <span>{data.time}</span>
-                </div>
-                <img src={ellipses} alt="more options" />
-              </div>
-              <h4>{data.title}</h4>
-              <div>
-                <img src={data.meetingType} alt="Meeting Type" />
-                <Link to="/">Join Now</Link>
-              </div>
-            </li>
+            <ScheduleCard
+              key={i}
+              time={data.time}
+              title={data.title}
+              link={data.link}
+            />
           );
         })}
       </ul>

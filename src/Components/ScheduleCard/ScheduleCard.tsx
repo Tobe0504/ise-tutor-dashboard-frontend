@@ -2,16 +2,16 @@ import React from 'react';
 import classes from "./ScheduleCard.module.css"
 import ellipses from "../../Assets/Images/ellipses.svg"
 import yellowDot from "../../Assets/Images/yellowDot.svg"
+import googleMeet from "../../Assets/Images/google-meet.png"
 
 
 interface ScheduleCardProps {
     time: string;
     title: string;
-    meetingType: string;
     link: string;
 }
 
-const ScheduleCard = ({ time, title, meetingType, link }: ScheduleCardProps) => {
+const ScheduleCard = ({ time, title, link }: ScheduleCardProps) => {
     return (
         <li className={classes.list}>
             <div>
@@ -23,7 +23,7 @@ const ScheduleCard = ({ time, title, meetingType, link }: ScheduleCardProps) => 
             </div>
             <h4>{title}</h4>
             <div>
-                <img src={meetingType} alt="Meeting Type" />
+                <img src={googleMeet} alt="Meeting Type" />
                 <a href={link} target="_blank" rel="noopener noreferrer">Join Now</a>
             </div>
         </li>

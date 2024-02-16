@@ -13,7 +13,7 @@ const SchedulesSessionModules = () => {
     {
       title: "Live class Sessions",
       isActive: true,
-      activeComponent: <LiveClassSessions />,
+      activeComponent: <LiveClassSessions height="250px" padding="1rem 1.5rem" />,
       activeNullStateComponent: (
         <EmptyTabComponent
           image={noOvervue}
@@ -28,7 +28,7 @@ const SchedulesSessionModules = () => {
     {
       title: "One-on-one call sessions",
       isActive: false,
-      activeComponent: <OneOnOneCallSessions />,
+      activeComponent: <OneOnOneCallSessions height="250px" padding="1rem 1.5rem" />,
       activeNullStateComponent: (
         <EmptyTabComponent
           image={noOvervue}

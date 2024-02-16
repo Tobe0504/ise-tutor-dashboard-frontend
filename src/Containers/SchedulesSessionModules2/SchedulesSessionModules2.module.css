@@ -1,4 +1,13 @@
 .container {
     width: 100%;
-    height: 384px;
+    max-width: 526px;
+}
+
+.container>h2 {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
 }

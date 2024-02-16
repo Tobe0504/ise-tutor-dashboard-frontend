@@ -1,7 +1,5 @@
 .container {
-    padding: 1rem 1.5rem;
     overflow: auto;
-    height: 250px;
 }
 
 .container::-webkit-scrollbar {
@@ -30,40 +28,6 @@
     flex-direction: column;
 }
 
-.container ul li {
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--sectionBorder);
-}
-
-.container ul li div:nth-child(1) {
-    gap: 0.8rem;
-    display: flex;
-    width: 100%;
-    align-items: center;
-}
-
-.container ul li h4 {
-    font-size: 18px;
-    line-height: 29px;
-    font-weight: 600;
-    padding-block: 10px;
-}
-
-.container ul li div:nth-child(3) {
-    gap: 2rem;
-    display: flex;
-    width: 100%;
-    align-items: center;
-}
-
-.container ul li div:nth-child(3) a {
-    text-decoration: none;
-    color: var(--purple);
-    font-size: 13px;
-    font-weight: 600;
-}
-
 @media screen and (max-width: 400px) {
     .container {
         padding: 0;
@@ -71,10 +35,5 @@
 
     .container ul {
         gap: 1rem;
-    }
-
-    .container ul li {
-        padding: 0.8rem;
-        border: none;
     }
 }
