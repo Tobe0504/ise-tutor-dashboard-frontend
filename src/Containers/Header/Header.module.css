@@ -11,7 +11,7 @@
   position: relative;
 }
 
-.inputSection > input {
+.inputSection>input {
   width: 100%;
   padding: 11px 40px 11px 84px;
   border-radius: 10px;
@@ -26,7 +26,7 @@
   outline: none;
 }
 
-.inputSection > svg {
+.inputSection>svg {
   position: absolute;
   left: 40px;
   top: 0;
@@ -52,7 +52,7 @@
   cursor: pointer;
 }
 
-.notitication > div {
+.notitication>div {
   width: 8px;
   height: 8px;
   flex-shrink: 0;
@@ -63,7 +63,7 @@
   border-radius: 50%;
 }
 
-.userSection > p {
+.userSection>p {
   color: var(--grey);
   font-family: Archivo;
   font-size: 20px;
@@ -71,9 +71,10 @@
   font-weight: 500;
   line-height: 30px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-.userSection > img {
+.userSection>img {
   width: 55px;
   height: 55px;
   cursor: pointer;

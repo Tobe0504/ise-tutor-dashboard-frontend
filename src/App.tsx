@@ -22,6 +22,7 @@ import CoursesCurriculum from './Pages/CoursesCurriculum'
 import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
 import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreviewPage'
 import SchedulePage from './Pages/SchedulePage'
+import CoursesFeedback from './Pages/CoursesFeedback'
 
 function App() {
    return (
@@ -53,6 +54,7 @@ function App() {
          <Route path="/courses" element={<CoursesPage />} />
          <Route path="/courses/courses-curriculum" element={<CoursesCurriculum />} />
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
+         <Route path="/courses/feedback" element={<CoursesFeedback />} />
          <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
 
          <Route path="/schedule" element={<SchedulePage />} />

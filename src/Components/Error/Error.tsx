@@ -4,17 +4,18 @@ type ErrorProps = {
   children: React.ReactNode;
   type: "success" | "error";
   notShowIndicator?: boolean;
+  borderRadius?: string;
 };
 
-const Error = ({ children, type, notShowIndicator }: ErrorProps) => {
+const Error = ({ children, type, notShowIndicator, borderRadius }: ErrorProps) => {
   return (
     <div
       className={classes.container}
-      style={
-        type === "success"
-          ? { border: "none", background: "#DFF7F3" }
-          : { border: "1px solid #dc362e", background: "#f8d7d5" }
-      }
+      style={{
+        border: type === "success" ? "none" : "1px solid #dc362e",
+        background: type === "success" ? "#DFF7F3" : "#f8d7d5",
+        borderRadius: borderRadius ? borderRadius : "5px"
+      }}
     >
       {!notShowIndicator && (
         <svg
