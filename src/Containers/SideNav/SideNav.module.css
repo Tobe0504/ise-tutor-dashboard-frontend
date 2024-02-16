@@ -74,10 +74,23 @@
   stroke: var(--white);
 }
 
+.active:nth-child(4) svg {
+  stroke: none;
+  fill: var(--white);
+}
+
+.active:nth-child(4) svg path {
+  fill: var(--white);
+}
+
 .inActive {
   color: var(--grey);
   stroke: var(--grey);
   padding: 10px;
+}
+
+.inActive:nth-child(4) {
+  stroke: none;
 }
 
 .link {
@@ -121,8 +134,13 @@
   color: var(--white);
 }
 
-.moreMenuContentActive svg {
-  filter: invert(1);
+.moreMenuContentActive svg path {
+  stroke: var(--white);
+}
+
+.moreMenuContentActive svg:first-child path {
+  fill: var(--white);
+  stroke: none;
 }
 
 .logout {
