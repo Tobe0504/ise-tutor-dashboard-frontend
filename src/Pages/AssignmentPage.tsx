@@ -1,8 +1,7 @@
-import React from 'react'
 import Layout from '../Components/Layout/Layout'
 import AssignmentPageContainer from '../Containers/AssignmentPageContainer/AssignmentPageContainer'
 
-const Assignment = () => {
+const AssignmentPage = () => {
     return (
         <Layout>
             <AssignmentPageContainer />
@@ -10,4 +9,4 @@ const Assignment = () => {
     )
 }
 
-export default Assignment
+export default AssignmentPage

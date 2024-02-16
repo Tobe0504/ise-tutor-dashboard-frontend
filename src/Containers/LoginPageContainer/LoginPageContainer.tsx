@@ -1,4 +1,4 @@
-import classes from './LoginPage.module.css'
+import classes from './LoginPageContainer.module.css'
 import { Link } from 'react-router-dom'
 import login from '../../Assets/Images/login.svg'
 import iseLogo from '../../Assets/Images/iseLogo.svg'
@@ -10,7 +10,7 @@ import { AuthUserContext } from '../../Context/AuthUserContext'
 import Error from '../../Components/Error/Error'
 import { capitalize } from '../../HelperFunctions/capitalize'
 
-const LoginPage = () => {
+const LoginPageContainer = () => {
    // Context
    const { signIn, setUserLoginInfo, userLoginInfo, signInRequest } =
       useContext(AuthUserContext)
@@ -98,4 +98,4 @@ const LoginPage = () => {
    )
 }
 
-export default LoginPage
+export default LoginPageContainer

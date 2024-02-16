@@ -1,7 +1,7 @@
 import Layout from "../Components/Layout/Layout";
 import SupportContainer from "../Containers/SupportContainer/SupportContainer";
 
-const TutorSupport = () => {
+const TutorSupportPage = () => {
   return (
     <Layout>
       <SupportContainer />
@@ -9,4 +9,4 @@ const TutorSupport = () => {
   );
 };
 
-export default TutorSupport;
+export default TutorSupportPage;

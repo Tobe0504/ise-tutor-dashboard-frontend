@@ -1,7 +1,7 @@
 import Layout from "../Components/Layout/Layout"
 import QuizPageContainer from "../Containers/QuizPageContainer/QuizPageContainer"
 
-const Quiz = () => {
+const QuizPage = () => {
     return (
         <Layout>
             <QuizPageContainer />
@@ -9,4 +9,4 @@ const Quiz = () => {
     )
 }
 
-export default Quiz
+export default QuizPage

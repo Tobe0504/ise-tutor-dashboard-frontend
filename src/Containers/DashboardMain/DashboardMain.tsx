@@ -1,5 +1,5 @@
 import HelloUser from '../../Components/HelloUser/HelloUser'
-import Schedules from '../Schedules/Schedules'
+import SchedulesModules from '../SchedulesModules/SchedulesModules'
 import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
 import astronaut from '../../Assets/Images/astronaut-cuate.svg'
 import classes from './DashboardMain.module.css'
@@ -64,7 +64,7 @@ const DashboardMain = () => {
         />
       </div>
 
-      <Schedules />
+      <SchedulesModules />
       <StudentsPerformance />
       <StudentAssignmentSubmission />
       <StudentParticipationandSatisfaction />

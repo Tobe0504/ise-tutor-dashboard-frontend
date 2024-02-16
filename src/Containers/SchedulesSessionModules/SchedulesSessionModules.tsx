@@ -1,13 +1,13 @@
 import { useState } from "react";
 import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabComponent";
 import SectionsNav from "../../Components/SectionsNav/SectionsNav";
-import classes from "./DashboardModules.module.css";
+import classes from "./SchedulesSessionModules.module.css";
 import noOvervue from "../../Assets/Images/noOvervue.svg";
 import LiveClassSessions from "../LiveClassSessions/LiveClassSessions";
 import OneOnOneCallSessions from "../OneOnOneCallSessions/OneOnOneCallSessions";
 
 
-const DashboardModules = () => {
+const SchedulesSessionModules = () => {
   // States
   const [navItems, setNavItems] = useState<any[]>([
     {
@@ -57,4 +57,4 @@ const DashboardModules = () => {
   );
 };
 
-export default DashboardModules;
+export default SchedulesSessionModules;

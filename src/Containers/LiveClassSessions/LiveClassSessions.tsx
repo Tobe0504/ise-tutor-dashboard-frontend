@@ -1,68 +1,71 @@
-import React, { useState } from 'react'
+import React from 'react'
 import classes from "./LiveClassSessions.module.css"
 import googleMeet from "../../Assets/Images/google-meet.png"
-import ellipses from "../../Assets/Images/ellipses.svg"
-import yellowDot from "../../Assets/Images/yellowDot.svg"
-import { Link } from 'react-router-dom'
+import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
 
 const LiveClassSessions = () => {
-  const [liveSession, setLiveSession] = useState([
+  const liveSession = [
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
     {
       time: "10:00am - 11:00am",
       title: "LIVE sessions with students",
       meetingType: googleMeet,
+      link: ""
     },
-  ]);
+    {
+      time: "10:00am - 11:00am",
+      title: "LIVE sessions with students",
+      meetingType: googleMeet,
+      link: ""
+    },
+  ];
 
   return (
     <div className={classes.container}>
       <ul>
         {liveSession.map((data, i) => {
           return (
-            <li key={Math.random()} className={classes.list}>
-              <div>
-                <div>
-                  <img src={yellowDot} alt="" />
-                  <span>{data.time}</span>
-                </div>
-                <img src={ellipses} alt="more options" />
-              </div>
-              <h4>{data.title}</h4>
-              <div>
-                <img src={data.meetingType} alt="Meeting Type" />
-                <Link to="/">Join Now</Link>
-              </div>
-            </li>
+            <ScheduleCard
+              time={data.time}
+              title={data.title}
+              meetingType={data.meetingType}
+              link={data.link}
+            />
           );
         })}
       </ul>

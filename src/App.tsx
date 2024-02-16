@@ -2,12 +2,12 @@ import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import ErrorPage from './Containers/404Page/404Page'
 import ForgotPassword from './Containers/ForgotPassword/ForgotPassword'
-import Login from './Pages/Login'
+import LoginPage from './Pages/LoginPage'
 import LoginEmailTemplatePage from './Pages/LoginEmailTemplatePage'
 import TutorCompleteProfilePage from './Pages/TutorCompleteProfilePage'
 import TutorDashboardLoadingScreenPage from './Pages/TutorDashboardLoadingScreenPage'
 import TutorProfilePage from './Pages/TutorProfilePage'
-import TutorSupport from './Pages/TutorSupport'
+import TutorSupportPage from './Pages/TutorSupportPage'
 import ContactSupportPage from './Pages/ContactSupportPage'
 import Dashboard from './Pages/Dashboard'
 import CollaborationHubPage from './Pages/CollaborationHubPage'
@@ -15,12 +15,13 @@ import CollaborationHubVideoGuide from './Containers/CollaborationHubVideoGuide/
 import StudentPage from './Pages/StudentPage'
 import StudentDetailsPage from './Pages/StudentDetailsPage'
 import CoursesPage from './Pages/CoursesPage'
-import Quiz from './Pages/Quiz'
-import Assignment from './Pages/Assignment'
+import QuizPage from './Pages/QuizPage'
+import AssignmentPage from './Pages/AssignmentPage'
 import AssignmentSubmissionPage from './Pages/AssignmentSubmissionPage'
 import CoursesCurriculum from './Pages/CoursesCurriculum'
 import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
 import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreviewPage'
+import SchedulePage from './Pages/SchedulePage'
 
 function App() {
    return (
@@ -30,7 +31,7 @@ function App() {
          <Route path="/dashboard" element={<Dashboard />} />
 
          <Route path="/login-email" element={<LoginEmailTemplatePage />} />
-         <Route path="/sign-in" element={<Login />} />
+         <Route path="/sign-in" element={<LoginPage />} />
          <Route path="/forgot-password" element={<ForgotPassword />} />
 
          <Route path="/profile-info" element={<TutorProfilePage />} />
@@ -41,18 +42,20 @@ function App() {
          <Route path="/collaboration-hub-video-guide" element={<CollaborationHubVideoGuide />} />
 
          <Route path="/support/contact-support" element={<ContactSupportPage />} />
-         <Route path="/support" element={<TutorSupport />} />
+         <Route path="/support" element={<TutorSupportPage />} />
 
          <Route path="/student" element={<StudentPage />} />
          <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
-         <Route path="/student/quiz" element={<Quiz />} />
-         <Route path="/student/assignment" element={<Assignment />} />
+         <Route path="/student/quiz" element={<QuizPage />} />
+         <Route path="/student/assignment" element={<AssignmentPage />} />
          <Route path="/student/assignment/assignment-submission" element={<AssignmentSubmissionPage />} />
 
          <Route path="/courses" element={<CoursesPage />} />
          <Route path="/courses/courses-curriculum" element={<CoursesCurriculum />} />
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
          <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
+
+         <Route path="/schedule" element={<SchedulePage />} />
       </Routes>
    )
 }

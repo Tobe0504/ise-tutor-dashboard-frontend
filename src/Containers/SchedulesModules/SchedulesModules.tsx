@@ -1,8 +1,8 @@
 import Calender from "../../Components/Calender/Calender";
-import DashboardModules from "../DashboardModules/DashboardModules";
-import classes from "./Schedules.module.css";
+import SchedulesSessionModules from "../SchedulesSessionModules/SchedulesSessionModules";
+import classes from "./SchedulesModules.module.css";
 
-const Schedules = () => {
+const SchedulesModules = () => {
   return (
     <section className={classes.container}>
       <div className={classes.header}>
@@ -14,10 +14,10 @@ const Schedules = () => {
 
       <div className={classes.schedules}>
         <Calender />
-        <DashboardModules />
+        <SchedulesSessionModules />
       </div>
     </section>
   );
 };
 
-export default Schedules;
+export default SchedulesModules;

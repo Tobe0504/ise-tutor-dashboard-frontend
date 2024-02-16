@@ -1,6 +1,5 @@
 import classes from "./HeaderSideNav.module.css";
 import amirahTemi from "../../Assets/Images/amirahTemi.svg";
-import { sideNavItems } from "../../Utilities/sideNavItems";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { sideNavIconsHandler } from "../SideNav/SideNav";
