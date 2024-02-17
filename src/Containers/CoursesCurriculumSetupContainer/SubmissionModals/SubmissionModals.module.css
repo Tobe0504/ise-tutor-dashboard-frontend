@@ -1,0 +1,86 @@
+.modalContainer {
+  width: 90%;
+  gap: 1.5rem;
+  height: 100%;
+  display: flex;
+  margin: 3rem auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modalInnerContainer {
+  text-align: center;
+}
+
+.modalContainer h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.5rem;
+}
+
+.modalContainer p,
+.modalContainer span {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.modalContainer span {
+  color: var(--grey);
+}
+
+.modalButtonSection {
+  gap: 1.5rem;
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.modalButtonSection>button,
+.modalInnerContainer button {
+  width: fit-content;
+  padding: 10px 30px;
+  margin: 1.5rem auto 0;
+}
+
+.modalButtonSection>button:nth-child(1) {
+  flex: 1;
+  border: none;
+  padding: 10px 0;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .modalContainer h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .modalContainer p,
+  .modalContainer span {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .modalButtonSection {
+    gap: 0;
+    margin-top: 20px;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+  }
+
+  .modalButtonSection>button:nth-child(1) {
+    flex: unset;
+    padding: 10px 30px;
+    justify-content: center;
+    border: 2px solid var(--purple);
+  }
+}
