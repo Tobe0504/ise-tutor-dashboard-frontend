@@ -46,7 +46,7 @@
 .errorContainer>.buttonContainer {
     gap: 2rem;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-start;
 }
 

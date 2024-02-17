@@ -6,7 +6,8 @@
 }
 
 .innerContainer {
-  width: 70%;
+  width: 100%;
+  max-width: 500px;
 }
 
 .innerContainer>h4 {

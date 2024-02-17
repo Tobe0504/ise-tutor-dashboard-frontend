@@ -1,13 +1,9 @@
-import classes from "./CourseFeedbackContainer.module.css";
+import classes from "./StudentPeroidicFeedbackContainer.module.css";
 import TextArea from "../../Components/TextArea/TextArea";
 import Button from "../../Components/Button/Button";
 import StarRating from "../../Components/StarRating/StarRating";
 
-type CourseFeedbackContainerProps = {
-  onClick: () => void;
-};
-
-const CourseFeedbackContainer = ({ onClick }: CourseFeedbackContainerProps) => {
+const StudentPeroidicFeedbackContainer = () => {
   return (
     <section className={classes.container}>
       <div className={classes.innerContainer}>
@@ -67,7 +63,7 @@ a step closer to their dreams."
               window.history.back();
             }}
           >
-            <span onClick={onClick}>Close</span>
+            <span>Close</span>
           </Button>
         </div>
       </div>
@@ -75,4 +71,4 @@ a step closer to their dreams."
   );
 };
 
-export default CourseFeedbackContainer;
+export default StudentPeroidicFeedbackContainer;

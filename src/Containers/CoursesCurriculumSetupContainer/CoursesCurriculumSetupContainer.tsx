@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
 import Error from '../../Components/Error/Error'
 import CourseDetailsContainer from '../CourseDetailsContainer/CourseDetailsContainer'
@@ -5,6 +6,8 @@ import CreateYourCurriculumContainer from '../CreateYourCurriculumContainer/Crea
 import classes from './CoursesCurriculumSetupContainer.module.css'
 
 const CoursesCurriculumSetupContainer = () => {
+
+    const navigate = useNavigate();
     return (
         <div className={classes.container}>
             <div className={classes.header}>
@@ -16,8 +19,10 @@ const CoursesCurriculumSetupContainer = () => {
                     <h4>Deadline Approaching! ⏰</h4>
                     <p>Submission deadline is <strong>12th December, 2024</strong>. Please ensure you <strong>upload all module</strong>s and <strong>read the submission guide</strong> before submitting your course.</p>
                     <div className={classes.buttonContainer}>
-                        <Button type='black'>Submit for review</Button>
-                        <Button type='invalid'>Read submission guide</Button>
+                        <Button onClick={() => { }} type='black'>Submit for review</Button>
+                        <Button onClick={() => {
+                            navigate('/courses/courses-curriculum/submission-guide')
+                        }} type='invalid'>Read submission guide</Button>
                     </div>
                 </div>
             </Error>
