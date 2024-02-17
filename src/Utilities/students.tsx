@@ -1,5 +1,8 @@
+import amirahTemi from '../Assets/Images/amirahTemi.svg'
+
 export type studentsDatType = {
    isActive: boolean
+   studentImage: string
    studentName: string
    emailAddress: string
    fileName: string
@@ -16,6 +19,7 @@ export type studentsDatType = {
 export const studentsData = [
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Olivia Davis',
       emailAddress: 'olivia.davis@example.com',
       fileName: "Assignment3.txt",
@@ -30,6 +34,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Daniel Wilson',
       emailAddress: 'daniel.wilson@example.com',
       fileName: "Assignment3.json",
@@ -44,6 +49,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Sophia Moore',
       emailAddress: 'sophia.moore@example.com',
       fileName: "Assignment3.csv",
@@ -58,6 +64,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Liam Taylor',
       emailAddress: 'liam.taylor@example.com',
       fileName: "Assignment3.sql",
@@ -72,6 +79,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Ava Jackson',
       emailAddress: 'ava.jackson@example.com',
       fileName: "Assignment3.xml",
@@ -86,6 +94,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Sophie Adams',
       emailAddress: 'sophie.adams@example.com',
       fileName: "Assignment4.docx",
@@ -100,6 +109,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Ryan Carter',
       emailAddress: 'ryan.carter@example.com',
       fileName: "Assignment4.pdf",
@@ -114,6 +124,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Zara Patel',
       emailAddress: 'zara.patel@example.com',
       fileName: "Assignment4.pptx",
@@ -128,6 +139,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Lucas Rodriguez',
       emailAddress: 'lucas.rodriguez@example.com',
       fileName: "Assignment4.csv",
@@ -142,6 +154,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Mia Kim',
       emailAddress: 'mia.kim@example.com',
       fileName: "Assignment4.xlsx",
@@ -156,6 +169,7 @@ export const studentsData = [
    },
    {
       isActive: false,
+      studentImage: amirahTemi,
       studentName: 'Elijah Wright',
       emailAddress: 'elijah.wright@example.com',
       fileName: "Assignment4.doc",

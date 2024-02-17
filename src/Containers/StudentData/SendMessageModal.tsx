@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import TextArea from "../../Components/TextArea/TextArea";
 import classes from "./SendMessageModal.module.css";
+import { AppContext } from "../../Context/AppContext";
 
 type SendMessageModalProps = {
     onClick: () => void;
@@ -9,6 +11,8 @@ type SendMessageModalProps = {
 };
 
 const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
+    const { students } = useContext(AppContext);
+    const activeStudents = students.filter((student) => student.isActive);
 
     return (
         <div className={classes.container}>
@@ -35,9 +39,13 @@ const SendMessageModal = ({ onClick, onClick2 }: SendMessageModalProps) => {
             <div className={classes.recipient}>
                 <h4>Recipient(s)</h4>
                 <div>
-                    <span>Rico Chuwku (ricochuks11@gmail.com)</span>
-                    <span>Rico Chuwku (ricochuks11@gmail.com)</span>
-                    <span>Rico Chuwku (ricochuks11@gmail.com)</span>
+                    {activeStudents.length === 0 ? (
+                        <p>Please select a student</p>
+                    ) : (
+                        activeStudents.map((student, i) => (
+                            <span key={i}>{student.studentName}</span>
+                        ))
+                    )}
                 </div>
             </div>
 
