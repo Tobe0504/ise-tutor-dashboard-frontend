@@ -1,0 +1,65 @@
+.errorContainer {
+    padding: 24px;
+
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.errorContainer>h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.errorContainer>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.errorContainer>.buttonContainer {
+    gap: 2rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.errorContainer>.buttonContainer button {
+    width: fit-content;
+    padding: 10px 30px;
+}
+
+.errorContainer>.buttonContainer button:nth-child(2) {
+    background: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .errorContainer {
+        gap: 10px;
+        padding: 24px 8px;
+    }
+
+    .errorContainer>h4 {
+        font-size: 16px;
+    }
+
+    .errorContainer>p {
+        font-size: 14px;
+    }
+
+    .errorContainer>.buttonContainer {
+        gap: 10px;
+    }
+
+    .errorContainer>.buttonContainer button {
+        padding: 5px 20px;
+        font-size: 12px;
+    }
+
+}
