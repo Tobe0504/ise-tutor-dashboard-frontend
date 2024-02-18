@@ -55,6 +55,7 @@
 
     .errorContainer>.buttonContainer {
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     .errorContainer>.buttonContainer button {
