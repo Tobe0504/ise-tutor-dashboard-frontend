@@ -1,3 +1,5 @@
+import amirahTemi from '../Assets/Images/amirahTemi.svg'
+
 export type studentsDatType = {
   isActive: boolean
   studentName: string

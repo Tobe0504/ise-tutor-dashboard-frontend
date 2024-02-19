@@ -22,6 +22,9 @@ import CoursesCurriculum from './Pages/CoursesCurriculum'
 import CreatingCourseModulePage from './Pages/CreatingCourseModulePage'
 import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreviewPage'
 import SchedulePage from './Pages/SchedulePage'
+import CoursesFeedback from './Pages/CoursesFeedback'
+import SubmissionGuide from './Containers/CoursesCurriculumSetupContainer/SubmissionGuide/SubmissionGuide'
+import StudentPeroidicFeedbackContainer from './Containers/StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer'
 
 function App() {
    return (
@@ -41,18 +44,21 @@ function App() {
          <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
          <Route path="/collaboration-hub-video-guide" element={<CollaborationHubVideoGuide />} />
 
-         <Route path="/support/contact-support" element={<ContactSupportPage />} />
          <Route path="/support" element={<TutorSupportPage />} />
+         <Route path="/support/contact-support" element={<ContactSupportPage />} />
 
          <Route path="/student" element={<StudentPage />} />
          <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
+         <Route path="/student/details/:studentId/survey" element={<StudentPeroidicFeedbackContainer />} />
          <Route path="/student/quiz" element={<QuizPage />} />
          <Route path="/student/assignment" element={<AssignmentPage />} />
          <Route path="/student/assignment/assignment-submission" element={<AssignmentSubmissionPage />} />
 
          <Route path="/courses" element={<CoursesPage />} />
          <Route path="/courses/courses-curriculum" element={<CoursesCurriculum />} />
+         <Route path="/courses/courses-curriculum/submission-guide" element={<SubmissionGuide />} />
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
+         <Route path="/courses/feedback" element={<CoursesFeedback />} />
          <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
 
          <Route path="/schedule" element={<SchedulePage />} />

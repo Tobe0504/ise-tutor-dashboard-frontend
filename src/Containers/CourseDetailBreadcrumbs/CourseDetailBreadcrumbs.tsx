@@ -7,7 +7,6 @@ import { AppContext } from "../../Context/AppContext";
 const CourseDetailBreadcrumbs = () => {
   const { students } = useContext(AppContext);
 
-  // Assuming there is an 'isActive' property in each student object
   const activeStudents = students.filter((student) => student.isActive);
 
   const breadCrumbsArrayProps = {

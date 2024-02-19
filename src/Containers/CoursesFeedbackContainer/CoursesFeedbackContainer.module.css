@@ -1,0 +1,20 @@
+.Container {
+    gap: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1023px) {
+    .Container {
+        gap: 1.5rem;
+        padding: 1rem;
+    }   
+}
+
+/* @media screen and (max-width: 768px) {
+    .Container {
+        gap: 1.5rem;
+        padding: 1rem;
+    }   
+} */

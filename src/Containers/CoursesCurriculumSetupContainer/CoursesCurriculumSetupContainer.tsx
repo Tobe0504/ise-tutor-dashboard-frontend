@@ -1,6 +1,7 @@
-import CourseDetailsContainer from '../CourseDetailsContainer/CourseDetailsContainer'
-import CreateYourCurriculumContainer from '../CreateYourCurriculumContainer/CreateYourCurriculumContainer'
 import classes from './CoursesCurriculumSetupContainer.module.css'
+import CreateYourCurriculumContainer from '../CreateYourCurriculumContainer/CreateYourCurriculumContainer'
+import CourseDetailsContainer from '../CourseDetailsContainer/CourseDetailsContainer'
+import CourseCurriculumFeedbackInformationBanner from '../CourseCurriculumFeedbackInformationBanner/CourseCurriculumFeedbackInformationBanner'
 
 const CoursesCurriculumSetupContainer = () => {
     return (
@@ -8,6 +9,9 @@ const CoursesCurriculumSetupContainer = () => {
             <div className={classes.header}>
                 <h2>Course setup</h2>
             </div>
+
+            <CourseCurriculumFeedbackInformationBanner />
+
             <div className={classes.subContainer}>
                 <CreateYourCurriculumContainer />
                 <CourseDetailsContainer />

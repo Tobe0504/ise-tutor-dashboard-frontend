@@ -1,7 +1,5 @@
 import classes from "./StudentDetailFeedBackDataTable.module.css";
-import { useState } from "react";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import CourseFeedbackContainer from "../CourseFeedbackContainer/CourseFeedbackContainer";
+import { useNavigate, useParams } from "react-router-dom";
 
 const feedback = [
   {
@@ -19,25 +17,11 @@ const feedback = [
 
 
 const StudentDetailFeedBackDataTable = () => {
-
-  const [displayModal, setDisplayModal] = useState(false);
+  const navigate = useNavigate();
+  const { studentId } = useParams();
 
   return (
     <div className={classes.container}>
-      {displayModal && (
-        <AcceptedModal
-          onClick={() => {
-            setDisplayModal(false);
-          }}
-          body={
-            <CourseFeedbackContainer
-              onClick={() => {
-                setDisplayModal(false);
-              }}
-            />
-          }
-        />
-      )}
       <p>1-10 of 10 results</p>
       <div className={classes.tableHeader}>
         <span>Title</span>
@@ -56,7 +40,7 @@ const StudentDetailFeedBackDataTable = () => {
               <span>{data.dateCompleted}</span>
               <span
                 onClick={() => {
-                  setDisplayModal(true);
+                  navigate(`/student/details/${studentId}/survey`);
                 }}
               >View</span>
             </div>

@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import classes from './StudentDetailPageDetailStudentProfileAndBadges.module.css'
 import ProfileSectionContainer from '../../Components/ProfileSectionContainer/ProfileSectionContainer'
 import emailIcon from '../../Assets/Images/emailIconImage.png'
 import linkedInIcon from '../../Assets/Images/linkedInIconImage.png'
-import amirahTemi from '../../Assets/Images/amirahTemi.svg'
 import { AppContext } from '../../Context/AppContext'
 
 const StudentDetailPageDetailStudentProfileAndBadges = () => {
@@ -81,7 +80,7 @@ const StudentDetailPageDetailStudentProfileAndBadges = () => {
          >
             <div className={classes.userDetails}>
                <div className={classes.userInfo}>
-                  <img src={amirahTemi} alt="User" />
+                  <img src={activeStudent?.studentImage} alt="User" />
                   <div>
                      <h3>{activeStudent?.studentName}</h3>
                      <div className={classes.iconTextContainer}>
@@ -135,12 +134,12 @@ const StudentDetailPageDetailStudentProfileAndBadges = () => {
                <div className={classes.links}>
                   <h4>Links</h4>
                   <div>
-                     <Link to="">
+                     <a href={`mailto:${activeStudent?.emailAddress}`} target="_blank" rel="noopener noreferrer">
                         <img src={emailIcon} alt="Send Student An Email" />
-                     </Link>
-                     <Link to="">
+                     </a>
+                     <a href={activeStudent?.linkedinProfile} target="_blank" rel="noopener noreferrer">
                         <img src={linkedInIcon} alt="Open Student LinkedIn" />
-                     </Link>
+                     </a>
                   </div>
                </div>
             </div>
