@@ -23,7 +23,6 @@ const Calender = () => {
         <ThemeProvider theme={theme}>
           <StyledDateCalendar
             defaultValue={dayjs('2023-01-29')}
-            className={classes.calender}
             fixedWeekNumber={6}
             showDaysOutsideCurrentMonth
             views={['year', 'month', 'day']}
