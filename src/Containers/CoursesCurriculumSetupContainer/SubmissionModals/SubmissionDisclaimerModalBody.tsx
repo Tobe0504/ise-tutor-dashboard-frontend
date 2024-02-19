@@ -28,7 +28,7 @@ const SubmissionDisclaimerModalBody = ({
 
       <div className={classes.modalContent}>
         <p>Module submitted</p>
-        <p>10 modules</p>
+        <span>10 modules</span>
       </div>
 
       <div className={classes.modalButtonSection}>
