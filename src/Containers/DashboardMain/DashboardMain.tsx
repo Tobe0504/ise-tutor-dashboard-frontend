@@ -9,7 +9,7 @@ import StudentsPerformance from '../StudentsPerformance/StudentsPerformance'
 import StudentParticipationandSatisfaction from '../StudentParticipationandSatisfaction/StudentParticipationandSatisfaction'
 import RightCtaContainer from '../RightCtaContainer/RightCtaContainer'
 import CourseCarousel2 from '../../Components/CourseCarousel2/CourseCarousel2'
-import { courses } from '../../Utilities/courses'
+import { coursesData } from '../../Utilities/courses'
 import GetStartedVideoContainer from '../GetStartedVideoContainer/GetStartedVideoContainer'
 import { useContext } from 'react'
 import { AppContext } from '../../Context/AppContext'
@@ -45,7 +45,7 @@ const DashboardMain = () => {
 
       <div className={classes.carousel}>
         <CourseCarousel2
-          data={courses}
+          data={coursesData}
           header="Assigned course(s)"
           paragraph="Here are the courses you have been assigned."
         />

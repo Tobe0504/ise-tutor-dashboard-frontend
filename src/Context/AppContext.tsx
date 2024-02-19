@@ -1,6 +1,7 @@
 import React, { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { sideNavItems } from '../Utilities/sideNavItems';
-import { studentsData, studentsDatType } from '../Utilities/students';
+import { studentsData, studentsDataType } from '../Utilities/students';
+import { coursesData, coursesDataType } from '../Utilities/courses';
 
 type AppContextProviderProps = {
    children: React.ReactNode
@@ -26,11 +27,13 @@ type AppContextProps = {
    setDisplayShareModal: Dispatch<SetStateAction<boolean>>
    navItmesState: any[]
    setNavItemsState: Dispatch<SetStateAction<any>>
-   students: studentsDatType
-   setStudents: Dispatch<SetStateAction<studentsDatType>>
-   currentStep: number;
-   setCurrentStep: Dispatch<SetStateAction<number>>;
-   setCurrentStepAndSave: (step: number) => void;
+   students: studentsDataType
+   setStudents: Dispatch<SetStateAction<studentsDataType>>
+   courses: coursesDataType
+   setCourses: Dispatch<SetStateAction<coursesDataType>>
+   currentStep: number
+   setCurrentStep: Dispatch<SetStateAction<number>>
+   setCurrentStepAndSave: (step: number) => void
 }
 
 export const AppContext = createContext({} as AppContextProps);
@@ -59,7 +62,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
    );
 
    const [currentStep, setCurrentStep] = useState<number>(1);
-   const [students, setStudents] = useState<studentsDatType>(studentsData);
+   const [students, setStudents] = useState<studentsDataType>(studentsData);
+   const [courses, setCourses] = useState<coursesDataType>(coursesData);
 
    //   Effects
    useEffect(() => {
@@ -84,6 +88,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
             setNavItemsState,
             students,
             setStudents,
+            courses,
+            setCourses,
             currentStep,
             setCurrentStep,
             setCurrentStepAndSave,

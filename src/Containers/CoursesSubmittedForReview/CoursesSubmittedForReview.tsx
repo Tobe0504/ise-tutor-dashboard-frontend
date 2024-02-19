@@ -1,82 +1,18 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { AppContext } from '../../Context/AppContext'
 import classes from './CoursesSubmittedForReview.module.css'
-import courseImg1 from '../../Assets/Images/CoursesSubmittedForReviewImage1.png'
-import courseImg2 from '../../Assets/Images/CoursesSubmittedForReviewImage2.png'
 
 const CoursesSubmittedForReview = () => {
 
-    const ReviewCourse = [
-        {
-            courseImage: courseImg1,
-            courseTitle: 'Frontend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 2,
-            courseModules: 10,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg2,
-            courseTitle: 'Backend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 3,
-            courseModules: 15,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg1,
-            courseTitle: 'Frontend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 2,
-            courseModules: 10,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg2,
-            courseTitle: 'Backend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 3,
-            courseModules: 15,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg1,
-            courseTitle: 'Frontend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 2,
-            courseModules: 10,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg2,
-            courseTitle: 'Backend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 3,
-            courseModules: 15,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg1,
-            courseTitle: 'Frontend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 2,
-            courseModules: 10,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        },
-        {
-            courseImage: courseImg2,
-            courseTitle: 'Backend Development',
-            courseTopic: 'Cohort 1.0',
-            courseReminder: 3,
-            courseModules: 15,
-            courseDescription: 'Ignite your business potential with our resources at ise School of Business. Gain the knowledge and skills to thrive in the dynamic world of commerce. Lead and achieve greatness with essential business skills.',
-        }
-    ]
+    const { courses } = useContext(AppContext)
 
+    const reviewCourses = courses.filter(course => course.isUnderReview);
 
     return (
         <div className={classes.container}>
-            {ReviewCourse.map((data, i) => (
-                <div key={i}  className={`${classes.course} ${ReviewCourse.length === 1 ? classes.singleCourse : 'course'}`}>
+            {reviewCourses.map((data, i) => (
+                <Link to={`/courses/feedback/${data.id}`} key={i} className={`${classes.course} ${reviewCourses.length === 1 ? classes.singleCourse : 'course'}`}>
                     <img src={data.courseImage} alt={data.courseTitle} />
                     <div key={i} className={classes.content}>
                         <div>
@@ -96,7 +32,7 @@ const CoursesSubmittedForReview = () => {
                         </div>
                         <p>{data.courseDescription}</p>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )

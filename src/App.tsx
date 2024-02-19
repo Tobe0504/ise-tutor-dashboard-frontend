@@ -25,6 +25,7 @@ import SchedulePage from './Pages/SchedulePage'
 import CoursesFeedback from './Pages/CoursesFeedback'
 import SubmissionGuide from './Containers/CoursesCurriculumSetupContainer/SubmissionGuide/SubmissionGuide'
 import StudentPeroidicFeedbackContainer from './Containers/StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer'
+import CourseUnderReview from './Pages/CourseUnderReview'
 
 function App() {
    return (
@@ -59,6 +60,7 @@ function App() {
          <Route path="/courses/courses-curriculum/submission-guide" element={<SubmissionGuide />} />
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
          <Route path="/courses/feedback" element={<CoursesFeedback />} />
+         <Route path="/courses/feedback/:id" element={<CourseUnderReview />} />
          <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
 
          <Route path="/schedule" element={<SchedulePage />} />
