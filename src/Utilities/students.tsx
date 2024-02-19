@@ -2,6 +2,7 @@ import amirahTemi from '../Assets/Images/amirahTemi.svg'
 
 export type studentsDatType = {
   isActive: boolean
+  studentImage: string
   studentName: string
   emailAddress: string
   fileName: string
@@ -20,6 +21,7 @@ export type studentsDatType = {
 export const studentsData = [
   {
     isActive: false,
+    studentImage: amirahTemi,
     studentName: 'Olivia Davis',
     emailAddress: 'olivia.davis@example.com',
     fileName: 'Assignment3.txt',
