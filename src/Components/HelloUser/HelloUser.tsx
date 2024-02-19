@@ -2,7 +2,7 @@ import classes from "./HelloUser.module.css";
 import Button from "../Button/Button";
 
 type HelloUserProps = {
-  header: string;
+  header: string | undefined;
   paragraph: string;
   notIncludePay?: boolean;
   notIncludeBg?: boolean;

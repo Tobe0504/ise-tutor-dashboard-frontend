@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ellipses from "../../Assets/Images/ellipses.svg"
 import classes from "./StudentAssignmentSubmission.module.css";
 
 const StudentAssignmentSubmission = () => {
+  const navigate = useNavigate();
   // Utils
-  const [assignments, setAssignments] = useState([
+  const assignments = [
     {
       name: "Amirah Oyegoke",
       submittedFile: "Assignment1.pdf",
@@ -30,7 +31,7 @@ const StudentAssignmentSubmission = () => {
       submittedFile: "Assignment1.pdf",
       dateAdded: "04-Sept-23",
     },
-  ]);
+  ];
 
   return (
     <section className={classes.container}>
@@ -40,7 +41,7 @@ const StudentAssignmentSubmission = () => {
           <p>Access assignments submitted by your students, helping you stay organized and provide timely feedback.</p>
         </div>
         <div>
-          <span>View all</span>
+          <span onClick={()=> {navigate('/student/assignment')}}>View all</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

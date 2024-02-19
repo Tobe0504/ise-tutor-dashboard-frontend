@@ -10,11 +10,11 @@ const SchedulesModules = () => {
           <h4>Schedules</h4>
         </div>
       </div>
-
-
-      <div className={classes.schedules}>
-        <Calender />
-        <SchedulesSessionModules />
+      <div className={classes.scrollContainer}>
+        <div className={classes.schedules}>
+          <Calender />
+          <SchedulesSessionModules />
+        </div>
       </div>
     </section>
   );

@@ -55,7 +55,7 @@ const FAQDropdown = ({ question, answer }: FAQDropdownProps) => {
         )}
       </div>
       <div
-        style={displayDropdown ? { maxHeight: "300px" } : { maxHeight: "0px" }}
+        style={displayDropdown ? { maxHeight: "300px", overflowY: "auto", } : { maxHeight: "0px" }}
         className={classes.dropdown}
       >
         <div className={classes.dropdownInner}>{answer}</div>

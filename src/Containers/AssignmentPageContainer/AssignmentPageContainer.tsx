@@ -306,7 +306,7 @@ const AssignmentPageContainer = () => {
       </div>
 
       <div className={classes.body}>
-        <div>
+        <div className={classes.subBody}>
           <div className={classes.tableHeader}>
             <span>File name</span>
             <span>Student Name</span>

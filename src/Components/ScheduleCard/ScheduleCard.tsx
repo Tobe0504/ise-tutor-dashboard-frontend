@@ -2,7 +2,7 @@ import React from 'react';
 import classes from "./ScheduleCard.module.css"
 import ellipses from "../../Assets/Images/ellipses.svg"
 import yellowDot from "../../Assets/Images/yellowDot.svg"
-import googleMeet from "../../Assets/Images/google-meet.png"
+import googleMeet from "../../Assets/Images/googleMeet.svg"
 
 
 interface ScheduleCardProps {

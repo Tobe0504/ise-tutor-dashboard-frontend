@@ -2,6 +2,8 @@ import React, { createContext, Dispatch, SetStateAction, useEffect, useState } f
 import { sideNavItems } from '../Utilities/sideNavItems';
 import { studentsData, studentsDataType } from '../Utilities/students';
 import { coursesData, coursesDataType } from '../Utilities/courses';
+import EmptyTabComponent from '../Components/EmptyTabComponent/EmptyTabComponent';
+import noModules from "../Assets/Images/noModules.svg";
 
 type AppContextProviderProps = {
   children: React.ReactNode
@@ -27,8 +29,10 @@ type AppContextProps = {
   setDisplayShareModal: Dispatch<SetStateAction<boolean>>
   navItmesState: any[]
   setNavItemsState: Dispatch<SetStateAction<any>>
-  students: studentsDatType
-  setStudents: Dispatch<SetStateAction<studentsDatType>>
+  students: studentsDataType
+  setStudents: Dispatch<SetStateAction<studentsDataType>>
+  courses: coursesDataType
+  setCourses: Dispatch<SetStateAction<coursesDataType>>
   currentStep: number
   setCurrentStep: Dispatch<SetStateAction<number>>
   setCurrentStepAndSave: (step: number) => void
@@ -63,7 +67,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const [currentStep, setCurrentStep] = useState<number>(1)
   const [students, setStudents] = useState<studentsDataType>(
-    studentsData as studentsDatType
+    studentsData as studentsDataType
   )
   const [searchValue, setSearchValue] = useState<string>('')
 
@@ -76,10 +80,19 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         )
       })
 
-      setStudents(studentCopy as studentsDatType)
+      setStudents(studentCopy as studentsDataType)
+    } else {
+      <EmptyTabComponent
+        image={noModules}
+        firstParagraph="You have no schedule at the moment."
+        secondParagraph=""
+        route="/courses"
+        buttontext="Explore classes"
+        showButton={true}
+      />
     }
   }
-   const [courses, setCourses] = useState<coursesDataType>(coursesData);
+  const [courses, setCourses] = useState<coursesDataType>(coursesData);
 
   //   Effects
   useEffect(() => {
@@ -108,8 +121,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setNavItemsState,
         students,
         setStudents,
-            courses,
-            setCourses,
+        courses,
+        setCourses,
         currentStep,
         setCurrentStep,
         setCurrentStepAndSave,
