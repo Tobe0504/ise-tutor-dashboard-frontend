@@ -67,7 +67,9 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
   )
 
   const [currentStep, setCurrentStep] = useState<number>(1)
-  const [students, setStudents] = useState<studentsDatType>(studentsData)
+  const [students, setStudents] = useState<studentsDatType>(
+    studentsData as studentsDatType
+  )
   const [searchValue, setSearchValue] = useState<string>('')
 
   const searchHandler = () => {
@@ -79,7 +81,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         )
       })
 
-      setStudents(studentCopy)
+      setStudents(studentCopy as studentsDatType)
     }
   }
 

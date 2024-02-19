@@ -1,19 +1,26 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .container {
   padding: 40px 2rem;
 }
 
-/* Your CSS module (AssignmentPageContainer.module.css) */
-
 .statusPending {
-  color: #C7920B;
+  color: #c7920b;
 }
 
 .statusApproved {
-  color: #4A820B;
+  color: #4a820b;
 }
 
 .notGraded {
-  color: #B6261F;
+  color: #b6261f;
 }
 
 .studentSeachInput {
@@ -33,7 +40,7 @@
   margin-bottom: 0;
 }
 
-.studentSeachInput div:nth-child(2)>div:first-child {
+.studentSeachInput div:nth-child(2) > div:first-child {
   width: 343px;
   padding: 0 2rem;
   border-radius: 10px;
@@ -47,7 +54,7 @@
   position: relative;
 }
 
-.inputSection>input {
+.inputSection > input {
   width: 100%;
   padding: 11px 40px 11px 84px;
   border-radius: 10px;
@@ -62,14 +69,13 @@
   line-height: 29px;
 }
 
-.inputSection>svg {
+.inputSection > svg {
   position: absolute;
   left: 40px;
   top: 0;
   bottom: 0;
   margin: auto;
 }
-
 
 .tableHeader,
 .tableBody {
@@ -89,7 +95,7 @@
   border-bottom: 1px solid var(--grey3);
 }
 
-.tableBody>div:nth-child(1) {
+.tableBody > div:nth-child(1) {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -105,7 +111,7 @@
   display: none;
 }
 
-.body>div {
+.body > div {
   min-width: 650px;
   margin-top: 40px;
   padding: 1.5rem 2rem;
@@ -118,7 +124,7 @@
 }
 
 .bodyContent::-webkit-scrollbar-thumb {
-  background: #8B8B8B;
+  background: #8b8b8b;
   border-radius: 10px;
 }
 
@@ -126,18 +132,18 @@
   background: #555;
 }
 
-.tableHeader>span:nth-child(4) {
+.tableHeader > span:nth-child(4) {
   padding-right: 1rem;
 }
 
-.tableBody>span:nth-child(1) {
+.tableBody > span:nth-child(1) {
   user-select: none;
   color: var(--purple);
   text-decoration: underline;
 }
 
-.tableHeader>span,
-.tableBody>span {
+.tableHeader > span,
+.tableBody > span {
   flex: 1;
   white-space: nowrap;
 }
@@ -156,26 +162,44 @@
   border-bottom: 0px solid var(--disabled);
 }
 
-.tableBody>span:nth-child(1)>a:visited {
+.tableBody > span:nth-child(1) > a:visited {
   color: var(--purple);
 }
 
-.tableHeader>span:nth-child(1),
-.tableBody>span:nth-child(1),
-.tableHeader>span:nth-child(2),
-.tableBody>span:nth-child(2) {
+.tableHeader > span:nth-child(1),
+.tableBody > span:nth-child(1),
+.tableHeader > span:nth-child(2),
+.tableBody > span:nth-child(2) {
   flex: 2 1;
 }
 
-.tableHeader>span:last-child,
-.tableBody>span:last-child {
+.tableHeader > span:last-child,
+.tableBody > span:last-child {
   flex: 1 1;
   display: flex;
   white-space: nowrap;
   justify-content: center;
 }
 
-.tableBody>span:last-child img {
+.tableBody > span:last-child {
+  position: relative;
+  /* height: 10px; */
+}
+
+.tableBody > span:last-child > div {
+  position: absolute;
+  top: 20px;
+  height: 242px;
+  width: 197px;
+  border-radius: 10px;
+  left: -40px;
+  background: white;
+  z-index: 20;
+  border: 1px solid var(--grey);
+  animation: appear 0.3s ease-in-out;
+}
+
+.tableBody > span:last-child img {
   cursor: pointer;
   transform: rotate(90deg);
 }
@@ -198,7 +222,7 @@
 
   .inputSection,
   .studentSeachInput div:nth-child(2),
-  .studentSeachInput div:nth-child(2)>div:first-child {
+  .studentSeachInput div:nth-child(2) > div:first-child {
     width: 100%;
     max-width: 100%;
   }
@@ -214,26 +238,26 @@
     line-height: 140%;
   }
 
-  .tableHeader>span:nth-child(3),
-  .tableBody>span:nth-child(3) {
+  .tableHeader > span:nth-child(3),
+  .tableBody > span:nth-child(3) {
     display: none;
   }
 
-  .tableBody>div:nth-child(1) {
+  .tableBody > div:nth-child(1) {
     gap: 1rem;
   }
 
-  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+  .tableBody > div:nth-child(1) > span:nth-child(2) > span:nth-child(2) {
     font-size: 13px;
     line-height: 22px;
   }
 
-  .tableHeader>span,
-  .tableBody>span {
+  .tableHeader > span,
+  .tableBody > span {
     flex: 1;
   }
 
-  .tableBody>span:last-child {
+  .tableBody > span:last-child {
     color: var(--deleteRed);
     cursor: pointer;
   }
@@ -251,12 +275,12 @@
 
   .inputSection,
   .studentSeachInput div:nth-child(2),
-  .studentSeachInput div:nth-child(2)>div:first-child {
+  .studentSeachInput div:nth-child(2) > div:first-child {
     width: 100%;
     max-width: 100%;
   }
 
-  .inputSection>input {
+  .inputSection > input {
     font-size: 16px;
   }
 
@@ -271,29 +295,29 @@
     line-height: 140%;
   }
 
-  .tableHeader>span:nth-child(3),
-  .tableBody>span:nth-child(3) {
+  .tableHeader > span:nth-child(3),
+  .tableBody > span:nth-child(3) {
     display: none;
   }
 
-  .tableBody>div:nth-child(1) {
+  .tableBody > div:nth-child(1) {
     gap: 1rem;
   }
 
-  .tableBody>span:nth-child(1) {
+  .tableBody > span:nth-child(1) {
     color: var(--disabled);
     text-decoration: none;
   }
 
-  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+  .tableBody > div:nth-child(1) > span:nth-child(2) > span:nth-child(2) {
     font-size: 13px;
     line-height: 22px;
   }
 
-  .tableHeader>span:nth-child(1),
-  .tableBody>span:nth-child(1),
-  .tableHeader>span:nth-child(2),
-  .tableBody>span:nth-child(2) {
+  .tableHeader > span:nth-child(1),
+  .tableBody > span:nth-child(1),
+  .tableHeader > span:nth-child(2),
+  .tableBody > span:nth-child(2) {
     flex: 2 1;
   }
 }

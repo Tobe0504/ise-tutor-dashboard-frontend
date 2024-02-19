@@ -1,70 +1,119 @@
-import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import MessageSentModal from "./MessageSentModal";
-import Toast from "../../Components/Toast/Toast";
-import { AppContext } from "../../Context/AppContext";
-import ActionsModal from "./ActionsModal/ActionsModal";
-import ellipses from "../../Assets/Images/ellipses.svg";
-import classes from "./AssignmentPageContainer.module.css";
-import HelloUser from "../../Components/HelloUser/HelloUser";
-import SendMessageModal from "./SendMessageModal/SendMessageModal";
-import PopoverModal from "../../Components/Modals/PopoverModal/PopoverModal";
-import GradeSubmissionModal from "./GradeSubmissionModal/GradeSubmissionModal";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import RejectSubmissionModal from "./RejectSubmissionModal/RejectSubmissionModal";
-import AssignmentSummaryModal from "./AssignmentSummaryModal/AssignmentSummaryModal";
-import ApproveSubmissionModal from "./ApproveSubmissionModal/ApproveSubmissionModal";
-import DropdownWithSearch from "../../Components/DropdownWithSearch/DropdownWithSearch";
-
+import { useContext, useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import MessageSentModal from './MessageSentModal'
+import Toast from '../../Components/Toast/Toast'
+import { AppContext } from '../../Context/AppContext'
+import ActionsModal from './ActionsModal/ActionsModal'
+import ellipses from '../../Assets/Images/ellipses.svg'
+import classes from './AssignmentPageContainer.module.css'
+import HelloUser from '../../Components/HelloUser/HelloUser'
+import SendMessageModal from './SendMessageModal/SendMessageModal'
+import PopoverModal from '../../Components/Modals/PopoverModal/PopoverModal'
+import GradeSubmissionModal from './GradeSubmissionModal/GradeSubmissionModal'
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
+import RejectSubmissionModal from './RejectSubmissionModal/RejectSubmissionModal'
+import AssignmentSummaryModal from './AssignmentSummaryModal/AssignmentSummaryModal'
+import ApproveSubmissionModal from './ApproveSubmissionModal/ApproveSubmissionModal'
+import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch'
 
 const AssignmentPageContainer = () => {
+  // Context
   const { students } = useContext(AppContext)
 
-  const navigate = useNavigate()
+  // States
+  const [courseSelected, setCourseSelected] = useState('')
+  const [studentsData, setStudentData] = useState(students)
+  const [filterValue, setFilterValue] = useState('')
 
-  // State
   const [displayActionsModal, setDisplayActionsModal] = useState(false)
-  const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
-  const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] = useState(false)
-  const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] = useState(false)
-  const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] = useState(false)
+  const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] =
+    useState(false)
+  const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] =
+    useState(false)
+  const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] =
+    useState(false)
+  const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] =
+    useState(false)
   const [displaySendMessageModal, setDisplaySendMessageModal] = useState(false)
-  const [displayAssignmentSummaryModal, setDisplayAssignmentSummaryModal] = useState(false)
+  const [displayAssignmentSummaryModal, setDisplayAssignmentSummaryModal] =
+    useState(false)
   const [displayMessageSentModal, setDisplayMessageSentModal] = useState(false)
 
+  // Router
+  const navigate = useNavigate()
+
+  // Refs
+  const optionsRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const courses = ['All']
+
+  for (let i = 0; i < students.length; i++) {
+    if (!(courses as string[]).includes(students[i].course)) {
+      courses.push(students[i].course)
+    }
+  }
+
+  const filterHandler = () => {
+    const studentsCopy = students.filter((data) => {
+      if (courseSelected === 'All') {
+        return (
+          data?.studentName.toLowerCase().includes(filterValue.toLowerCase()) ||
+          data?.fileName.toLowerCase().includes(filterValue.toLowerCase())
+        )
+      }
+      return (
+        data?.course.toLowerCase().includes(courseSelected.toLowerCase()) &&
+        (data?.studentName.toLowerCase().includes(filterValue.toLowerCase()) ||
+          data?.fileName.toLowerCase().includes(filterValue.toLowerCase()))
+      )
+    })
+
+    setStudentData(studentsCopy)
+  }
+
+  const optionsChangeHandler = (index: number) => {
+    const studentsCopy = studentsData.map((data, i) => {
+      if (i === index) {
+        return { ...data, displayOptions: true }
+      }
+
+      return { ...data, displayOptions: false }
+    })
+
+    setStudentData(studentsCopy)
+  }
+
+  useEffect(() => {
+    filterHandler()
+
+    // eslint-disable-next-line
+  }, [courseSelected, filterValue])
+
+  useEffect(() => {
+    const removeOptions = (e: any) => {
+      if (optionsRef && !optionsRef.current?.contains(e.target)) {
+        const studentsCopy = studentsData.map((data) => {
+          return { ...data, displayOptions: false }
+        })
+        setStudentData(studentsCopy)
+      } else {
+        const studentsCopy = studentsData.map((data) => {
+          return { ...data }
+        })
+        setStudentData(studentsCopy)
+      }
+    }
+
+    document.addEventListener('mousedown', removeOptions)
+
+    return () => {
+      document.removeEventListener('mousedown', removeOptions)
+    }
+  }, [studentsData])
+
   return (
-    <div className={classes.container}>
-      {displayActionsModal && (
-        <PopoverModal
-          onClick={() => {
-            setDisplayActionsModal(false);
-          }}
-          body={
-            <ActionsModal
-              onClick={() => {
-                setDisplayActionsModal(false)
-                navigate("/student/assignment/assignment-submission");
-              }}
-              onClick2={() => {
-                setDisplayActionsModal(false)
-                setDisplayApproveSubmissionModal(true)
-              }}
-              onClick3={() => {
-                setDisplayActionsModal(false)
-                setDisplayRejectSubmissionModal(true)
-              }}
-              onClick4={() => {
-                setDisplayActionsModal(false)
-                setDisplaySendMessageModal(true)
-              }}
-              onClick5={() => {
-                setDisplayActionsModal(false)
-                setDisplayAssignmentSummaryModal(true)
-              }}
-            />
-          }
-        />
-      )}
+    <div className={classes.container} ref={containerRef}>
       {displayApproveSubmissionModal && (
         <AcceptedModal
           onClick={() => {
@@ -181,6 +230,38 @@ const AssignmentPageContainer = () => {
         />
       )}
 
+      {displayActionsModal && (
+        <PopoverModal
+          onClick={() => {
+            setDisplayActionsModal(false)
+          }}
+          body={
+            <ActionsModal
+              onClick={() => {
+                setDisplayActionsModal(false)
+                navigate('/student/assignment/assignment-submission')
+              }}
+              onClick2={() => {
+                setDisplayActionsModal(false)
+                setDisplayApproveSubmissionModal(true)
+              }}
+              onClick3={() => {
+                setDisplayActionsModal(false)
+                setDisplayRejectSubmissionModal(true)
+              }}
+              onClick4={() => {
+                setDisplayActionsModal(false)
+                setDisplaySendMessageModal(true)
+              }}
+              onClick5={() => {
+                setDisplayActionsModal(false)
+                setDisplayAssignmentSummaryModal(true)
+              }}
+            />
+          }
+        />
+      )}
+
       <HelloUser
         header="Assignments"
         paragraph="Review student assignment, submission details, assignment status, grades, and give feedback here."
@@ -193,6 +274,10 @@ const AssignmentPageContainer = () => {
           <input
             type="text"
             placeholder="Search by file name, student name"
+            value={filterValue}
+            onChange={(e) => {
+              setFilterValue(e.target.value)
+            }}
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -212,10 +297,11 @@ const AssignmentPageContainer = () => {
         </div>
 
         <DropdownWithSearch
-          isRequired
           label=""
-          title="Frontend development course"
-          options={[]}
+          title="Selet a course"
+          options={courses}
+          selected={courseSelected}
+          setSelected={setCourseSelected}
         />
       </div>
 
@@ -230,9 +316,11 @@ const AssignmentPageContainer = () => {
           </div>
 
           <div className={classes.bodyContent}>
-            {students.slice(0, 3).map((data, index) => (
+            {studentsData.map((data, index) => (
               <div key={index} className={classes.tableBody}>
-                <span><Link to='#0'>{data.fileName}</Link></span>
+                <span>
+                  <Link to="#0">{data.fileName}</Link>
+                </span>
                 <span>{data.studentName}</span>
                 <span
                   className={
@@ -245,25 +333,49 @@ const AssignmentPageContainer = () => {
                 </span>
                 <span
                   className={
-                    data.grade === 'Not graded'
-                      ? classes.notGraded
-                      : ''
+                    data.grade === 'Not graded' ? classes.notGraded : ''
                   }
                 >
                   {data.grade}
                 </span>
                 <span
                   onClick={() => {
-                    setDisplayActionsModal(true)
+                    optionsChangeHandler(index)
                   }}
                 >
                   <img src={ellipses} alt="more options" />
+                  {data.displayOptions && (
+                    <div ref={optionsRef}>
+                      <ActionsModal
+                        onClick={() => {
+                          setDisplayActionsModal(false)
+                          navigate('/student/assignment/assignment-submission')
+                        }}
+                        onClick2={() => {
+                          setDisplayActionsModal(false)
+                          setDisplayApproveSubmissionModal(true)
+                        }}
+                        onClick3={() => {
+                          setDisplayActionsModal(false)
+                          setDisplayRejectSubmissionModal(true)
+                        }}
+                        onClick4={() => {
+                          setDisplayActionsModal(false)
+                          setDisplaySendMessageModal(true)
+                        }}
+                        onClick5={() => {
+                          setDisplayActionsModal(false)
+                          setDisplayAssignmentSummaryModal(true)
+                        }}
+                      />
+                    </div>
+                  )}
                 </span>
               </div>
             ))}
           </div>
           <p className={classes.submission}>
-            <span>{students.slice(0, 3).length}</span> submissions
+            <span>{studentsData.length}</span> submissions
           </p>
         </div>
       </div>
