@@ -73,7 +73,7 @@ const BulkUploadComponent = () => {
                         <div className={classes.file}>
                             <div>
                                 <p>First reading.doc</p>
-                                <ProgressBar percentage={85} color="#fff" />
+                                <ProgressBar primaryColor='#fffaeb' secondaryColor='#ffd029' percentage={85} color="#fff" />
                                 <span>Uploading({85}%)</span>
                             </div>
                             <Button

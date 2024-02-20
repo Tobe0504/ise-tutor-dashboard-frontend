@@ -30,27 +30,25 @@ const AllModules = () => {
                     {couseReviewData.map((data, i) => {
                         const statusClassName = getStatusClass(data.status);
                         return (
-                            <>
-                                <div key={i} className={classes.tableBody}>
-                                    <span>{data.module}:{data.title}</span>
+                            <div key={i} className={classes.tableBody}>
+                                <span>{data.module}:{data.title}</span>
+                                <span className={statusClassName}>{data.status}</span>
+                                <span>{data.deadline}</span>
+                                <span><Link to='/courses/create-module/preview'>View feedback</Link></span>
+                                <p>
+                                    <span>{data.module}</span>
+                                    <span>{data.title}</span>
+                                </p>
+                                <p>
                                     <span className={statusClassName}>{data.status}</span>
                                     <span>{data.deadline}</span>
-                                    <span><Link to='/courses/create-module/preview'>View feedback</Link></span>
-                                    <p>
-                                        <span>{data.module}</span>
-                                        <span>{data.title}</span>
-                                    </p>
-                                    <p>
-                                        <span className={statusClassName}>{data.status}</span>
-                                        <span>{data.deadline}</span>
-                                    </p>
-                                    <p>
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1.4 15L0 13.6L11.6 2H5V0H15V10H13V3.4L1.4 15Z" fill="black" />
-                                        </svg>
-                                    </p>
-                                </div>
-                            </>
+                                </p>
+                                <p>
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.4 15L0 13.6L11.6 2H5V0H15V10H13V3.4L1.4 15Z" fill="black" />
+                                    </svg>
+                                </p>
+                            </div>
                         );
                     })}
                 </div>
@@ -82,7 +80,7 @@ const AllModules = () => {
                             d="M9 5L16 12L9 19"
                             stroke="#d8d8d8"
                             strokeWidth="2"
-                            stroke-linecap="round"
+                            strokeLinecap="round"
                             strokeLinejoin="round"
                         />
                     </svg>

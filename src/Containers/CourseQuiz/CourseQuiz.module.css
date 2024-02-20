@@ -159,6 +159,7 @@
     align-items: center;
     justify-content: flex-start;
 
+    cursor: pointer;
     padding: 40px 32px;
     margin-block: 2rem;
     border-radius: 10px;

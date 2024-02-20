@@ -75,7 +75,7 @@ const VideoUploadComponent = () => {
                         <div className={classes.file}>
                             <div>
                                 <p>First video.mp4</p>
-                                <ProgressBar percentage={15} color="#fff" />
+                                <ProgressBar primaryColor='#fffaeb' secondaryColor='#ffd029' percentage={15} color="#fff" />
                                 <span>Uploading({15}%)</span>
                             </div>
                             <Button
