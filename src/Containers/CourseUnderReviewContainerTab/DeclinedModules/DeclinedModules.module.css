@@ -1,0 +1,195 @@
+.container {
+    display: flex;
+    margin: 40px 0 24px;
+    flex-direction: column;
+    background: var(--white);
+}
+
+.tableHeader,
+.tableBody {
+    gap: 1rem;
+    display: flex;
+    color: var(--grey);
+    padding: 48px 0 8px;
+    align-items: center;
+}
+
+.tableHeader {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 29px;
+    font-style: normal;
+    font-family: Archivo;
+    border-bottom: 1px solid var(--grey3);
+}
+
+.tableHeader>span,
+.tableBody>span,
+.tableBody>p {
+    flex: 1;
+}
+
+.tableBody>span>a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.tableHeader>span:nth-child(1),
+.tableBody>span:nth-child(1),
+.tableBody>p:nth-child(5),
+.tableBody>p:nth-child(6) {
+    flex: 2;
+}
+
+.tableHeader>span:nth-child(2) {
+    display: none;
+}
+
+.tableBody>span:nth-child(4),
+.tableBody>svg {
+    cursor: pointer;
+}
+
+.tableBody {
+    color: var(--grey);
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    border-bottom: 1px solid var(--disabled);
+}
+
+.tableBody:last-child {
+    border-bottom: 0px solid var(--disabled);
+}
+
+.tableBody>span:nth-child(5) {
+    flex: unset;
+    padding-right: 2.2rem;
+}
+
+.tableHeader>span:nth-child(6) {
+    flex: unset;
+}
+
+.tableBody>p {
+    gap: 1rem;
+    display: none;
+    flex-direction: column;
+}
+
+.approved {
+    text-transform: capitalize;
+    color: var(--successGreen);
+}
+
+.revise {
+    text-transform: capitalize;
+    color: var(--deleteRed);
+}
+
+.pending {
+    text-transform: capitalize;
+    color: #C7920B;
+}
+
+.pageButtons {
+    gap: 24px;
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    padding-top: 1.7rem;
+    justify-content: center;
+    border-top: 1px solid var(--sectionBorder)
+}
+
+.pageButtons button {
+    width: 50px;
+    height: 50px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .container {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 0;
+    }
+
+    .tableHeader {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .tableHeader>span:nth-child(2) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tableHeader>span:nth-child(5) {
+        flex: unset;
+    }
+
+    .tableHeader>span:nth-child(3),
+    .tableHeader>span:nth-child(4),
+    .tableHeader>span:nth-child(5) {
+        display: none;
+    }
+
+    .tableBody>span {
+        display: none;
+    }
+
+    .tableBody {
+        display: flex;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .tableBody>p {
+        display: flex;
+    }
+
+    .tableBody>p:last-child {
+        flex: unset;
+        padding-right: 1.2rem;
+    }
+}

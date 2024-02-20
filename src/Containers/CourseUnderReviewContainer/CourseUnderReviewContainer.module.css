@@ -40,7 +40,7 @@
     padding: 1rem;
     border-radius: 10px;
     background: var(--white);
-    box-shadow: 0 0 3px var(--sectionBorder);
+    box-shadow: 0 0 5px var(--sectionBorder);
 }
 
 .insight p {

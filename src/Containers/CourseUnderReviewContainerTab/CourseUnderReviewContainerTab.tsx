@@ -1,9 +1,10 @@
 import { useState } from "react";
 import SectionsNav4 from "../../Components/SectionsNav4/SectionsNav4";
 import classes from "./CourseUnderReviewContainerTab.module.css"
-import StudentDetailQuizDataTable from "../StudentDetailQuizDataTable/StudentDetailQuizDataTable";
-import StudentDetailGradeDataTable from "../StudentDetailGradeDataTable/StudentDetailGradeDataTable";
-import StudentDetailFeedBackDataTable from "../StudentDetailFeedBackDataTable/StudentDetailFeedBackDataTable";
+import AllModules from "./AllModules/AllModules";
+import PublishedModules from "./PublishedModules/PublishedModules";
+import DeclinedModules from "./DeclinedModules/DeclinedModules";
+
 
 const CourseUnderReviewContainerTab = () => {
     // States
@@ -11,17 +12,17 @@ const CourseUnderReviewContainerTab = () => {
         {
             title: "All module",
             isActive: true,
-            activeComponent: <StudentDetailQuizDataTable />,
+            activeComponent: <AllModules />,
         },
         {
             title: "Published module",
             isActive: false,
-            activeComponent: <StudentDetailGradeDataTable />,
+            activeComponent: <PublishedModules />,
         },
         {
             title: "Declined module",
             isActive: false,
-            activeComponent: <StudentDetailFeedBackDataTable />,
+            activeComponent: <DeclinedModules />,
         },
     ]);
 
