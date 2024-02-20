@@ -8,7 +8,6 @@ import ellipses from '../../Assets/Images/ellipses.svg'
 import classes from './AssignmentPageContainer.module.css'
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import SendMessageModal from './SendMessageModal/SendMessageModal'
-import PopoverModal from '../../Components/Modals/PopoverModal/PopoverModal'
 import GradeSubmissionModal from './GradeSubmissionModal/GradeSubmissionModal'
 import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import RejectSubmissionModal from './RejectSubmissionModal/RejectSubmissionModal'
@@ -25,7 +24,6 @@ const AssignmentPageContainer = () => {
   const [studentsData, setStudentData] = useState(students)
   const [filterValue, setFilterValue] = useState('')
 
-  const [displayActionsModal, setDisplayActionsModal] = useState(false)
   const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] =
     useState(false)
   const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] =
@@ -75,14 +73,13 @@ const AssignmentPageContainer = () => {
   const optionsChangeHandler = (index: number) => {
     const studentsCopy = studentsData.map((data, i) => {
       if (i === index) {
-        return { ...data, displayOptions: true }
+        return { ...data, displayOptions: !data.displayOptions };
       }
+      return { ...data, displayOptions: false };
+    });
 
-      return { ...data, displayOptions: false }
-    })
-
-    setStudentData(studentsCopy)
-  }
+    setStudentData(studentsCopy);
+  };
 
   useEffect(() => {
     filterHandler()
@@ -126,7 +123,6 @@ const AssignmentPageContainer = () => {
                 setDisplayApproveSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayGradeSubmissionModal(true)
               }}
             />
@@ -173,7 +169,6 @@ const AssignmentPageContainer = () => {
                 setDisplayRejectSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(true)
               }}
             />
@@ -191,7 +186,6 @@ const AssignmentPageContainer = () => {
                 setDisplaySendMessageModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(true)
               }}
             />
@@ -220,42 +214,9 @@ const AssignmentPageContainer = () => {
           body={
             <MessageSentModal
               onClick={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(false)
                 setDisplayRejectSubmissionModal(false)
                 setDisplaySendMessageModal(false)
-              }}
-            />
-          }
-        />
-      )}
-
-      {displayActionsModal && (
-        <PopoverModal
-          onClick={() => {
-            setDisplayActionsModal(false)
-          }}
-          body={
-            <ActionsModal
-              onClick={() => {
-                setDisplayActionsModal(false)
-                navigate('/student/assignment/assignment-submission')
-              }}
-              onClick2={() => {
-                setDisplayActionsModal(false)
-                setDisplayApproveSubmissionModal(true)
-              }}
-              onClick3={() => {
-                setDisplayActionsModal(false)
-                setDisplayRejectSubmissionModal(true)
-              }}
-              onClick4={() => {
-                setDisplayActionsModal(false)
-                setDisplaySendMessageModal(true)
-              }}
-              onClick5={() => {
-                setDisplayActionsModal(false)
-                setDisplayAssignmentSummaryModal(true)
               }}
             />
           }
@@ -348,24 +309,24 @@ const AssignmentPageContainer = () => {
                     <div ref={optionsRef}>
                       <ActionsModal
                         onClick={() => {
-                          setDisplayActionsModal(false)
-                          navigate('/student/assignment/assignment-submission')
+                          optionsChangeHandler(index);
+                          navigate('/student/assignment/assignment-submission');
                         }}
                         onClick2={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayApproveSubmissionModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayApproveSubmissionModal(true);
                         }}
                         onClick3={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayRejectSubmissionModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayRejectSubmissionModal(true);
                         }}
                         onClick4={() => {
-                          setDisplayActionsModal(false)
-                          setDisplaySendMessageModal(true)
+                          optionsChangeHandler(index);
+                          setDisplaySendMessageModal(true);
                         }}
                         onClick5={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayAssignmentSummaryModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayAssignmentSummaryModal(true);
                         }}
                       />
                     </div>
