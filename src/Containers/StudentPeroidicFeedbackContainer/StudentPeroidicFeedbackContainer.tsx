@@ -3,7 +3,11 @@ import TextArea from "../../Components/TextArea/TextArea";
 import Button from "../../Components/Button/Button";
 import StarRating from "../../Components/StarRating/StarRating";
 
-const StudentPeroidicFeedbackContainer = () => {
+type StudentPeroidicFeedbackContainerProps = {
+  onClick: () => void;
+};
+
+const StudentPeroidicFeedbackContainer = ({ onClick }: StudentPeroidicFeedbackContainerProps) => {
   return (
     <section className={classes.container}>
       <div className={classes.innerContainer}>
@@ -58,11 +62,7 @@ Everyone deserves an opportunity to get
 a step closer to their dreams."
         />
         <div className={classes.buttonContainer}>
-          <Button
-            onClick={() => {
-              window.history.back();
-            }}
-          >
+          <Button onClick={onClick}>
             <span>Close</span>
           </Button>
         </div>

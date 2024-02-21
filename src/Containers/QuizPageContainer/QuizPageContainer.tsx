@@ -1,6 +1,7 @@
 import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch'
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import classes from './QuizPageContainer.module.css'
+import calendarIcon from '../../Assets/Images/calendar.svg'
 
 const QuizPageContainer = () => {
     const quiz = [
@@ -47,13 +48,16 @@ const QuizPageContainer = () => {
                 />
                 <div className={classes.completedDate}>
                     <label htmlFor="completedDate">Completion date</label>
-                    <input
-                        required
-                        type="text"
-                        id="completedDate"
-                        placeholder="1 week ago"
-                        onFocus={(e) => (e.target.type = 'date')}
-                    />
+                    <div className={classes.selectDate}>
+                        <input
+                            required
+                            type="text"
+                            id="completedDate"
+                            placeholder="1 week ago"
+                            onFocus={(e) => (e.target.type = 'date')}
+                        />
+                        <img src={calendarIcon} alt="select a date" />
+                    </div>
                 </div>
             </div>
             <div className={classes.quizDataTableContainer}>

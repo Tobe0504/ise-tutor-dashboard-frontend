@@ -24,8 +24,8 @@ import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreview
 import SchedulePage from './Pages/SchedulePage'
 import CoursesFeedback from './Pages/CoursesFeedback'
 import SubmissionGuide from './Containers/CoursesCurriculumSetupContainer/SubmissionGuide/SubmissionGuide'
-import StudentPeroidicFeedbackContainer from './Containers/StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer'
 import CourseUnderReview from './Pages/CourseUnderReview'
+import CourseModuleFeedbackPreviewPage from './Pages/CourseModuleFeedbackPreviewPage'
 
 function App() {
    return (
@@ -50,7 +50,6 @@ function App() {
 
          <Route path="/student" element={<StudentPage />} />
          <Route path="/student/details/:studentId" element={<StudentDetailsPage />} />
-         <Route path="/student/details/:studentId/survey" element={<StudentPeroidicFeedbackContainer />} />
          <Route path="/student/quiz" element={<QuizPage />} />
          <Route path="/student/assignment" element={<AssignmentPage />} />
          <Route path="/student/assignment/assignment-submission" element={<AssignmentSubmissionPage />} />
@@ -61,6 +60,7 @@ function App() {
          <Route path="/courses/create-module" element={<CreatingCourseModulePage />} />
          <Route path="/courses/feedback" element={<CoursesFeedback />} />
          <Route path="/courses/feedback/:courseReviewId" element={<CourseUnderReview />} />
+         <Route path="/courses/feedback/:courseReviewId/feedback-preview" element={<CourseModuleFeedbackPreviewPage />} />
          <Route path="/courses/create-module/preview" element={<CreatingCourseModulePreviewPage />} />
 
          <Route path="/schedule" element={<SchedulePage />} />

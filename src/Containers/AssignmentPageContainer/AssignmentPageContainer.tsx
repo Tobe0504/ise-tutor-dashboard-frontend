@@ -118,7 +118,6 @@ const AssignmentPageContainer = () => {
           }}
           body={
             <ApproveSubmissionModal
-              title="Notice"
               onClick={() => {
                 setDisplayApproveSubmissionModal(false)
               }}
@@ -151,7 +150,7 @@ const AssignmentPageContainer = () => {
       )}
       {displayGradeSubmissionToast && (
         <Toast
-          toastTeaxt="Grade successfully recorded!"
+          toastMessage="Grade successfully recorded!"
           onClick={() => {
             setDisplayGradeSubmissionModal(false)
             setDisplayGradeSubmissionToast(false)

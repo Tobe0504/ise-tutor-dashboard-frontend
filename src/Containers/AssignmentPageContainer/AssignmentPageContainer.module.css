@@ -30,11 +30,9 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 30px;
   align-items: center;
-  padding: 1.5rem 2rem;
   justify-content: space-between;
-  background-color: var(--white);
 }
 
 .studentSeachInput div:nth-child(2) {
@@ -58,22 +56,22 @@
 
 .inputSection>input {
   width: 100%;
-  padding: 11px 40px 11px 84px;
+  padding: 11px 60px;
   border-radius: 10px;
   border: 1px solid var(--foundation-grey-g-50, #d8d8d8);
   background: var(--white-body-text, #fff);
   color: var(--foundation-grey-g-900, #2e2e2e);
   outline: none;
   font-family: Archivo;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 29px;
+  line-height: 25px;
 }
 
 .inputSection>svg {
   position: absolute;
-  left: 40px;
+  left: 24px;
   top: 0;
   bottom: 0;
   margin: auto;
@@ -85,7 +83,7 @@
   align-items: center;
   gap: 1rem;
   color: var(--grey);
-  padding: 30px 0;
+  padding: 30px 0 8px;
 }
 
 .tableHeader {
@@ -138,10 +136,14 @@
   padding-right: 1rem;
 }
 
-.tableBody>span:nth-child(1) {
+.tableBody>span:nth-child(1)>a {
   user-select: none;
   color: var(--purple);
   text-decoration: underline;
+}
+
+.tableBody>span:nth-child(1)>a:visited {
+  color: var(--purple);
 }
 
 .tableHeader>span,
@@ -162,10 +164,6 @@
 
 .tableBody:last-child {
   border-bottom: 0px solid var(--disabled);
-}
-
-.tableBody>span:nth-child(1)>a:visited {
-  color: var(--purple);
 }
 
 .tableHeader>span:nth-child(1),
@@ -214,6 +212,7 @@
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .container {
     padding: 1rem;
+    background: var(--white);
   }
 
   .studentSeachInput {
@@ -228,15 +227,12 @@
     max-width: 100%;
   }
 
-  .tableHeader,
-  .tableBody {
-    gap: 1.5rem;
-    padding: 12px 0;
+  .body>div {
+    padding: 1.5rem 0;
   }
 
   .tableHeader {
-    font-size: 13px;
-    line-height: 140%;
+    font-size: 16px;
   }
 
   .tableHeader>span:nth-child(3),
@@ -246,11 +242,6 @@
 
   .tableBody>div:nth-child(1) {
     gap: 1rem;
-  }
-
-  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
-    font-size: 13px;
-    line-height: 22px;
   }
 
   .tableHeader>span,
@@ -267,6 +258,7 @@
 @media screen and (max-width: 767px) {
   .container {
     padding: 1rem;
+    background: var(--white);
   }
 
   .studentSeachInput {
@@ -285,13 +277,19 @@
     font-size: 16px;
   }
 
+  .body>div {
+    min-width: 100%;
+    padding: 1.5rem 0;
+  }
+
   .tableHeader,
   .tableBody {
     gap: 3.5rem;
-    padding: 12px 0;
+    padding: 40px 0 8px;
   }
 
-  .tableHeader {
+  .tableHeader,
+  .tableBody {
     font-size: 13px;
     line-height: 140%;
   }
@@ -305,14 +303,14 @@
     gap: 1rem;
   }
 
-  .tableBody>span:nth-child(1) {
-    color: var(--disabled);
+  .tableBody>span:nth-child(1)>a {
+    color: var(--grey3);
     text-decoration: none;
   }
 
-  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
-    font-size: 13px;
-    line-height: 22px;
+  .tableBody>span:nth-child(1)>a:visited {
+    color: var(--grey3);
+    text-decoration: none;
   }
 
   .tableHeader>span:nth-child(1),

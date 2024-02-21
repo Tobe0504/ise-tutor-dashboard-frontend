@@ -81,7 +81,7 @@ const DeclinedModules = () => {
                                 <span>{data.module}:{data.title}</span>
                                 <span className={statusClassName}>{data.status}</span>
                                 <span>{data.deadline}</span>
-                                <span><Link to='/courses/create-module/preview'>View feedback</Link></span>
+                                <span><Link to='/courses/feedback/:courseReviewId/feedback-preview'>View feedback</Link></span>
                                 <span>
                                     <img
                                         onClick={() => {

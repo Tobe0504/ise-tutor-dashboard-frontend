@@ -296,6 +296,11 @@
         border-radius: 10px;
     }
 
+
+    .secondContainer .courseSection>div {
+        margin: 0;
+    }
+
     .secondContainer .courseSection>div img {
         min-width: 250px;
     }

@@ -23,10 +23,11 @@
     display: flex;
     margin: 40px 0;
     flex-wrap: wrap;
+    padding: 40px 32px;
     border-radius: 10px;
     align-items: baseline;
+    background: var(--white);
     justify-content: flex-start;
-    background-color: var(--white);
 }
 
 .quizHeaderDropdowns>div {
@@ -64,6 +65,7 @@
     user-select: none;
     position: relative;
     border-radius: 5px;
+    font-family: Archivo;
     box-sizing: border-box;
     -webkit-user-select: none;
     border: 1px solid var(--grey3);
@@ -71,24 +73,37 @@
 
 .completedDate input[type=date]:before {
     color: #414141;
+    font-family: Archivo;
     content: attr(placeholder);
 }
 
 .completedDate input[type=date]:focus,
 .completedDate input[type=date]:valid {
     color: #414141;
+    font-family: Archivo;
 }
 
 .completedDate input[type=date]:focus:before,
 .completedDate input[type=date]:valid:before {
     content: "" !important;
+    font-family: Archivo;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url('../../Assets/Images/calendar.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
+.completedDate input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+
+.selectDate {
+    position: relative;
+}
+
+.completedDate img {
+    top: 20px;
+    right: 5%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    pointer-events: none;
 }
 
 .tableHeader,
@@ -193,10 +208,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (min-width: 767px) and (max-width: 1240px) {
     .container {
         padding: 1rem;
+        background: var(--white);
     }
 
-    .quizDataTableContainer {
-        padding: 2rem 1rem;
+    .quizHeaderDropdowns {
+        padding: 24px 16px;
     }
 
     .completedDate label {
@@ -206,6 +222,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     .completedDate input {
         height: 50px;
+    }
+
+    .completedDate img {
+        top: 15px;
+        right: 4%;
     }
 
     .tableBodyContainer {
@@ -238,6 +259,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width: 740px) {
     .container {
         padding: 1rem;
+        background: var(--white);
+    }
+
+    .quizHeaderDropdowns {
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .quizDataTableContainer {
+        padding: 2rem 0;
     }
 
     .quizHeaderDropdowns>div {
@@ -257,6 +288,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     .completedDate input {
         height: 50px;
+    }
+
+    .completedDate img {
+        top: 15px;
+        right: 3%;
     }
 
     .quizDataTableContainer {

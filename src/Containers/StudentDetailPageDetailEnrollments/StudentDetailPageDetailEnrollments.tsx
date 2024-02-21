@@ -1,10 +1,9 @@
-import { useState } from "react";
 import classes from "./StudentDetailPageDetailEnrollments.module.css";
 import ProgressBar from "../../Components/ProgressBar/ProgressBar";
 
 const StudentDetailPageDetailEnrollments = () => {
   // Utils
-  const [enrollments, setEnrollments] = useState([
+  const enrollments = [
     {
       name: "Customer Success Management",
       percent: 75,
@@ -17,7 +16,7 @@ const StudentDetailPageDetailEnrollments = () => {
       status: "Withdrawn",
       statusColor: "fail",
     },
-  ]);
+  ];
 
   const getStatusClass = (statusColor: string) => {
     switch (statusColor) {
@@ -48,6 +47,8 @@ const StudentDetailPageDetailEnrollments = () => {
         </div>
         {enrollments.map((data, i) => {
           const statusClassName = getStatusClass(data.statusColor);
+          const progressBarProps = data.percent < 50 ? { primaryColor: '#fffaeb', secondaryColor: '#ffd029' } : {};
+
           return (
             <div key={Math.random()} className={classes.tableBody}>
               <div>
@@ -56,7 +57,7 @@ const StudentDetailPageDetailEnrollments = () => {
                 </span>
               </div>
               <div className={classes.progressSection}>
-                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#000" /></div>
+                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#000" {...progressBarProps} /></div>
               </div>
               <div className={statusClassName}>{data.status}</div>
             </div>

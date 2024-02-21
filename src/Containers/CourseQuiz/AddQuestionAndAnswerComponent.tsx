@@ -165,7 +165,7 @@ const AddQuestionAndAnswerComponent = () => {
             {(saveLessonAndContinue === 2 || saveLessonAndContinue === 3) && (
                 <>
                     {questions.map((question, index) => (
-                        <div className={classes.addLesson} key={question.id}>
+                        <div className={`${classes.addLesson} ${classes.questionSectionContainer}`} key={question.id}>
                             <div className={classes.questionSection}>
                                 <div className={classes.questionSectionHeader}>
                                     <div>
@@ -246,7 +246,7 @@ const AddQuestionAndAnswerComponent = () => {
             {(saveLessonAndContinue === 3 && showToast) && (
                 <Toast
                     onClick={() => setShowToast(false)}
-                    toastTeaxt="Lesson saved!"
+                    toastMessage="Lesson saved!"
                 />
             )}
 

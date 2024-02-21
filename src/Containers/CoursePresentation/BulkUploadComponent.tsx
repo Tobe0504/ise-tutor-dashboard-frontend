@@ -98,7 +98,7 @@ const BulkUploadComponent = () => {
             {(saveLessonAndContinue === 4 && showToast) && (
                 <Toast
                     onClick={() => setShowToast(false)}
-                    toastTeaxt="Lesson successfully saved!"
+                    toastMessage="Lesson successfully saved!"
                 />
             )}
 

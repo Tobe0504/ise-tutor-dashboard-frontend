@@ -78,9 +78,11 @@
 @media screen and (max-width: 767px) {
   .dropContainer {
     gap: 0.5rem;
+    margin: auto;
     font-size: 12px;
     line-height: 23px;
     min-height: 100px;
+    text-align: center;
     border: 1px dashed var(--borderPurple);
   }
 

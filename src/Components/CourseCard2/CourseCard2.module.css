@@ -85,7 +85,6 @@
   flex-wrap: wrap;
   margin-top: 10px;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .footer button {
@@ -99,6 +98,7 @@
 @media screen and (max-width: 768px) {
   .container {
     height: 100%;
+    padding: 10px;
     flex-direction: column;
   }
 

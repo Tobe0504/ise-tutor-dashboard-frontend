@@ -6,17 +6,20 @@
 
 .header {
   display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+.header>h4 {
   font-size: 31px;
   font-weight: 500;
   line-height: 41px;
   font-style: normal;
   color: var(--grey);
-  align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
   font-family: Archivo;
-  justify-content: space-between;
-  border-bottom: 1px solid #D8D8D8;
 }
 
 .header>svg {
@@ -50,12 +53,9 @@
   margin-top: calc(40px - 1rem);
 }
 
-.footer>button:nth-child(1) {
-  width: 130px;
-}
-
-.footer>button:nth-child(2) {
-  width: 180px;
+.footer>button {
+  width: fit-content;
+  padding: 10px 30px;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -77,10 +77,13 @@
   }
 
   .header {
-    font-size: 18px;
-    line-height: 27px;
     margin-bottom: 15px;
     padding-bottom: 5px;
+  }
+
+  .header>h4 {
+    font-size: 18px;
+    line-height: 27px;
   }
 
   .header>svg {
