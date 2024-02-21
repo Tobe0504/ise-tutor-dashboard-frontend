@@ -11,8 +11,6 @@ import SubmissionSuccessfulModal from "./Modals/SubmissionSuccessfulModal";
 
 const DeclinedModules = () => {
 
-    const { courseReviewId } = useParams();
-
     const reviseCourse = couseReviewData.filter(data => data.status === "revise");
 
     // States
@@ -23,6 +21,7 @@ const DeclinedModules = () => {
 
     // Router
     const navigate = useNavigate()
+    const { courseReviewId } = useParams();
 
     // Refs
     const optionsRef = useRef<HTMLDivElement | null>(null)

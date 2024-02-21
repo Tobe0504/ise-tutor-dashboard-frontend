@@ -1,8 +1,12 @@
 import classes from "./AllModules.module.css";
 import { couseReviewData } from "../couseReviewData";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const AllModules = () => {
+
+    // Router
+    const navigate = useNavigate()
+    const { courseReviewId } = useParams();
 
     const getStatusClass = (status: string) => {
         switch (status) {
@@ -34,7 +38,7 @@ const AllModules = () => {
                                 <span>{data.module}:{data.title}</span>
                                 <span className={statusClassName}>{data.status}</span>
                                 <span>{data.deadline}</span>
-                                <span><Link to='/courses/feedback/:courseReviewId/feedback-preview'>View feedback</Link></span>
+                                <span><Link to={`/courses/feedback/${courseReviewId}/feedback-preview`}>View feedback</Link></span>
                                 <p>
                                     <span>{data.module}</span>
                                     <span>{data.title}</span>
@@ -44,7 +48,9 @@ const AllModules = () => {
                                     <span>{data.deadline}</span>
                                 </p>
                                 <p>
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg
+                                        onClick={() => { navigate(`/courses/feedback/${courseReviewId}/feedback-preview`) }}
+                                        width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.4 15L0 13.6L11.6 2H5V0H15V10H13V3.4L1.4 15Z" fill="black" />
                                     </svg>
                                 </p>
