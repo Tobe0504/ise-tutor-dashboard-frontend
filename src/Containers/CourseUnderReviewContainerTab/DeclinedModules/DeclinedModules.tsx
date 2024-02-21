@@ -1,19 +1,65 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import classes from "./DeclinedModules.module.css";
 import { couseReviewData } from "../couseReviewData";
 import ellipses from '../../../Assets/Images/ellipses.svg'
 import ActionsModal from "../ActionsModal/ActionsModal";
+import AcceptedModal from "../../../Components/Modals/AcceptedModal/AcceptedModal";
+import ReviewUpdatedModal from "./Modals/ReviewUpdatedModal";
+import ReadyToSubmitModal from "./Modals/ReadyToSubmitModal";
+import SubmissionSuccessfulModal from "./Modals/SubmissionSuccessfulModal";
 
 const DeclinedModules = () => {
+
+    const { courseReviewId } = useParams();
+
+    const reviseCourse = couseReviewData.filter(data => data.status === "revise");
+
+    // States
+    const [reviewCourseData, setReviewCourseData] = useState(reviseCourse)
+    const [displayReviewUpdatedModal, setDisplReviewUpdatedModal] = useState(false)
+    const [displayReadyToSubmitModal, setDisplayReadyToSubmitModal] = useState(false)
+    const [displaySubmissionSuccessfulModal, setDisplaySubmissionSuccessfulModal] = useState(false)
+
+    // Router
+    const navigate = useNavigate()
 
     // Refs
     const optionsRef = useRef<HTMLDivElement | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
 
-    // States
-    const [studentsData, setStudentData] = useState(couseReviewData)
+    const optionsChangeHandler = (index: number) => {
+        const reviewCoursesCopy = reviewCourseData.map((data, i) => {
+            if (i === index) {
+                return { ...data, displayOptions: !data.displayOptions };
+            }
+            return { ...data, displayOptions: false };
+        });
 
+        setReviewCourseData(reviewCoursesCopy);
+    };
+
+    useEffect(() => {
+        const removeOptions = (e: any) => {
+            if (optionsRef && !optionsRef.current?.contains(e.target)) {
+                const reviewCoursesCopy = reviewCourseData.map((data) => {
+                    return { ...data, displayOptions: false }
+                })
+                setReviewCourseData(reviewCoursesCopy)
+            } else {
+                const reviewCoursesCopy = reviewCourseData.map((data) => {
+                    return { ...data }
+                })
+                setReviewCourseData(reviewCoursesCopy)
+            }
+        }
+
+        document.addEventListener('mousedown', removeOptions)
+
+        return () => {
+            document.removeEventListener('mousedown', removeOptions)
+        }
+    }, [reviewCourseData])
 
     const getStatusClass = (status: string) => {
         switch (status) {
@@ -26,43 +72,56 @@ const DeclinedModules = () => {
         }
     }
 
-    const reviseCourse = couseReviewData.filter(data => data.status === "revise");
-
-    const optionsChangeHandler = (index: number) => {
-        const studentsCopy = studentsData.map((data, i) => {
-            if (i === index) {
-                return { ...data, displayOptions: !data.displayOptions };
-            }
-            return { ...data, displayOptions: false };
-        });
-
-        setStudentData(studentsCopy);
-    };
-
-    useEffect(() => {
-        const removeOptions = (e: any) => {
-            if (optionsRef && !optionsRef.current?.contains(e.target)) {
-                const studentsCopy = studentsData.map((data) => {
-                    return { ...data, displayOptions: false }
-                })
-                setStudentData(studentsCopy)
-            } else {
-                const studentsCopy = studentsData.map((data) => {
-                    return { ...data }
-                })
-                setStudentData(studentsCopy)
-            }
-        }
-
-        document.addEventListener('mousedown', removeOptions)
-
-        return () => {
-            document.removeEventListener('mousedown', removeOptions)
-        }
-    }, [studentsData])
-
     return (
         <section className={classes.container} ref={containerRef}>
+            {displayReviewUpdatedModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplReviewUpdatedModal(false)
+                    }}
+                    body={
+                        <ReviewUpdatedModal
+                            onClick={() => {
+                                setDisplReviewUpdatedModal(false)
+                                setDisplayReadyToSubmitModal(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displayReadyToSubmitModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplayReadyToSubmitModal(false)
+                    }}
+                    body={
+                        <ReadyToSubmitModal
+                            onClick={() => {
+                                setDisplayReadyToSubmitModal(false)
+                            }}
+                            onClick2={() => {
+                                setDisplayReadyToSubmitModal(false)
+                                setDisplaySubmissionSuccessfulModal(true)
+                            }}
+                        />
+                    }
+                />
+            )}
+            {displaySubmissionSuccessfulModal && (
+                <AcceptedModal
+                    onClick={() => {
+                        setDisplaySubmissionSuccessfulModal(false)
+                    }}
+                    body={
+                        <SubmissionSuccessfulModal
+                            onClick={() => {
+                                setDisplayReadyToSubmitModal(false)
+                                setDisplaySubmissionSuccessfulModal(false)
+                            }}
+                        />
+                    }
+                />
+            )}
             <div>
                 <div className={classes.tableHeader}>
                     <span>Module/Title</span>
@@ -74,28 +133,30 @@ const DeclinedModules = () => {
                 </div>
 
                 <div className={classes.bodyContent}>
-                    {reviseCourse.map((data, index) => {
+                    {reviewCourseData.map((data, index) => {
                         const statusClassName = getStatusClass(data.status);
                         return (
                             <div key={index} className={classes.tableBody}>
                                 <span>{data.module}:{data.title}</span>
                                 <span className={statusClassName}>{data.status}</span>
                                 <span>{data.deadline}</span>
-                                <span><Link to='/courses/feedback/:courseReviewId/feedback-preview'>View feedback</Link></span>
-                                <span>
-                                    <img
-                                        onClick={() => {
-                                            optionsChangeHandler(index)
-                                        }}
-                                        src={ellipses} alt="more options" />
+                                <span><Link to={`/courses/feedback/${courseReviewId}/feedback-preview`}>View feedback</Link></span>
+                                <span
+                                    onClick={() => {
+                                        optionsChangeHandler(index)
+                                    }}
+                                >
+                                    <img src={ellipses} alt="more options" />
                                     {data.displayOptions && (
                                         <div ref={optionsRef}>
                                             <ActionsModal
                                                 onClick={() => {
                                                     optionsChangeHandler(index);
+                                                    setDisplReviewUpdatedModal(true);
                                                 }}
                                                 onClick2={() => {
                                                     optionsChangeHandler(index);
+                                                    navigate(`/courses/feedback/${courseReviewId}/feedback-preview`);
                                                 }}
                                             />
                                         </div>
@@ -110,9 +171,27 @@ const DeclinedModules = () => {
                                     <span>{data.deadline}</span>
                                 </p>
                                 <p>
-                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg
+                                        onClick={() => {
+                                            optionsChangeHandler(index)
+                                        }}
+                                        width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M1.4 15L0 13.6L11.6 2H5V0H15V10H13V3.4L1.4 15Z" fill="black" />
                                     </svg>
+                                    {data.displayOptions && (
+                                        <div ref={optionsRef}>
+                                            <ActionsModal
+                                                onClick={() => {
+                                                    optionsChangeHandler(index);
+                                                    setDisplReviewUpdatedModal(true);
+                                                }}
+                                                onClick2={() => {
+                                                    optionsChangeHandler(index);
+                                                    navigate(`/courses/feedback/${courseReviewId}/feedback-preview`);
+                                                }}
+                                            />
+                                        </div>
+                                    )}
                                 </p>
                             </div>
                         );

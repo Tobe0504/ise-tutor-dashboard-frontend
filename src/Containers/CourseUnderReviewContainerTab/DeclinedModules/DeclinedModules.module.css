@@ -70,6 +70,24 @@
     padding-right: 1.5rem;
 }
 
+.tableBody>p:last-child,
+.tableBody>span:nth-child(5) {
+    position: relative;
+}
+
+.tableBody>p:last-child>div,
+.tableBody>span:nth-child(5)>div {
+    position: absolute;
+    top: 20px;
+    width: 158px;
+    border-radius: 10px;
+    left: -40px;
+    background: white;
+    z-index: 20;
+    border: 1px solid var(--sectionBorder);
+    animation: appear 0.3s ease-in-out;
+}
+
 .tableHeader>span:nth-child(6) {
     flex: unset;
 }
@@ -192,5 +210,10 @@
     .tableBody>p:last-child {
         flex: unset;
         padding-right: 1.2rem;
+    }
+
+    .tableBody>p:last-child>div,
+    .tableBody>span:nth-child(5)>div {
+        left: -100px;
     }
 }

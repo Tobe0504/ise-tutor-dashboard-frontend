@@ -131,7 +131,8 @@
 
 .modalInner>button {
   margin: 1.5rem 0;
-  width: 135px;
+  width: fit-content;
+  padding: 10px 30px;
 }
 
 .modalInner>p:last-child {
@@ -194,7 +195,8 @@
 }
 
 .buttonSection>button {
-  max-width: 112px;
+  width: fit-content;
+  padding: 10px 30px;
 }
 
 .refundPolicy {
@@ -212,7 +214,8 @@
 }
 
 .modalInner2>button {
-  width: 108px;
+  width: fit-content;
+  padding: 10px 30px;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
