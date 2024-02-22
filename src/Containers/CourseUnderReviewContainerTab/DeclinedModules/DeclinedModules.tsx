@@ -141,12 +141,23 @@ const DeclinedModules = () => {
                                 <span className={statusClassName}>{data.status}</span>
                                 <span>{data.deadline}</span>
                                 <span><Link to={`/courses/feedback/${courseReviewId}/feedback-preview`}>View feedback</Link></span>
+                                <p>
+                                    <span>{data.module}</span>
+                                    <span>{data.title}</span>
+                                </p>
+                                <p>
+                                    <span className={statusClassName}>{data.status}</span>
+                                    <span>{data.deadline}</span>
+                                </p>
                                 <span
                                     onClick={() => {
                                         optionsChangeHandler(index)
                                     }}
                                 >
                                     <img src={ellipses} alt="more options" />
+                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.4 15L0 13.6L11.6 2H5V0H15V10H13V3.4L1.4 15Z" fill="black" />
+                                    </svg>
                                     {data.displayOptions && (
                                         <div ref={optionsRef}>
                                             <ActionsModal
@@ -162,15 +173,7 @@ const DeclinedModules = () => {
                                         </div>
                                     )}
                                 </span>
-                                <p>
-                                    <span>{data.module}</span>
-                                    <span>{data.title}</span>
-                                </p>
-                                <p>
-                                    <span className={statusClassName}>{data.status}</span>
-                                    <span>{data.deadline}</span>
-                                </p>
-                                <p>
+                                {/* <p>
                                     <svg
                                         onClick={() => {
                                             optionsChangeHandler(index)
@@ -192,7 +195,7 @@ const DeclinedModules = () => {
                                             />
                                         </div>
                                     )}
-                                </p>
+                                </p> */}
                             </div>
                         );
                     })}
