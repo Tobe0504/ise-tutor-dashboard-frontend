@@ -96,6 +96,7 @@ const DeclinedModules = () => {
                     body={
                         <ReadyToSubmitModal
                             onClick={() => {
+                                navigate('/courses/create-module')
                                 setDisplayReadyToSubmitModal(false)
                             }}
                             onClick2={() => {
