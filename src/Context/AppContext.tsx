@@ -39,7 +39,19 @@ type AppContextProps = {
   setCurrentStepAndSave: (step: number) => void
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>>
+  notifications: notificationsType
+  setNotifications: Dispatch<SetStateAction<notificationsType>>
 }
+
+export type notificationsType =
+  | {
+      title: string
+      severity: 'success' | 'error' | 'mid'
+      description?: string
+      id: string | number
+    }[]
+  | null
+  | undefined
 
 export const AppContext = createContext({} as AppContextProps)
 
@@ -71,6 +83,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     studentsData as studentsDatType
   )
   const [searchValue, setSearchValue] = useState<string>('')
+  const [notifications, setNotifications] = useState<notificationsType>(null)
 
   const searchHandler = () => {
     if (searchValue?.length > 0) {
@@ -92,6 +105,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   useEffect(() => {
     searchHandler()
+
+    // eslint-disable-next-line
   }, [searchValue])
 
   const setCurrentStepAndSave = (step: number) => {
@@ -117,6 +132,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setCurrentStepAndSave,
         searchValue,
         setSearchValue,
+        notifications,
+        setNotifications,
       }}
     >
       {children}
