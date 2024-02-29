@@ -70,6 +70,22 @@ type AuthCOntextValuesProps = {
   fetchCountries: () => void
   countriesRequestObject: requestType
   contactInfoUpdateFormData: FormData
+  updateSkillsHandler: () => void
+  updateSkillsHandlerObject: requestType
+  skillInfoUpdate: {
+    specialization: string
+    years_of_experience: string
+    experience_level: string
+    tech_proficiency: string[]
+  }
+  setSkillInfoUpdate: Dispatch<
+    SetStateAction<{
+      specialization: string
+      years_of_experience: string
+      experience_level: string
+      tech_proficiency: string[]
+    }>
+  >
 }
 
 type AuthCOntextProviderProps = {
@@ -155,6 +171,13 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     website_link: '',
   })
 
+  const [skillInfoUpdate, setSkillInfoUpdate] = useState({
+    specialization: '',
+    years_of_experience: '',
+    experience_level: '',
+    tech_proficiency: [] as string[],
+  })
+
   const contactInfoUpdateFormData = new FormData()
 
   const [updateAboutHandlerObject, setUpdateAboutHandlerObject] =
@@ -166,6 +189,12 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     useState<requestType>({
       isLoading: false,
     })
+
+  const [updateSkillsHandlerObject, setUpdateSkillsHandlerObject] =
+    useState<requestType>({
+      isLoading: false,
+    })
+
   const [countriesRequestObject, setCountriesRequestObject] =
     useState<requestType>({
       isLoading: false,
@@ -243,7 +272,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       })
   }
 
-  const updateAboutInfoHandler = () => {
+  const updateSkillsHandler = () => {
     setUpdateAboutHandlerObject({
       isLoading: true,
     })
@@ -284,6 +313,47 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       })
   }
 
+  const updateAboutInfoHandler = () => {
+    setUpdateSkillsHandlerObject({
+      isLoading: true,
+    })
+
+    requestHandler({
+      method: 'PATCH',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/about-info`,
+      data: skillInfoUpdate,
+    })
+      .then((res) => {
+        setUpdateSkillsHandlerObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          capitalize((res as AxiosResponse).data as string) || '',
+          'success'
+        )
+      })
+      .catch((err) => {
+        setUpdateSkillsHandlerObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
+
+        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
+          navigate('/sign-in', { state: location.pathname })
+        }
+      })
+  }
+
   return (
     <AuthUserContext.Provider
       value={{
@@ -303,6 +373,10 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
         fetchCountries,
         countriesRequestObject,
         contactInfoUpdateFormData,
+        updateSkillsHandler,
+        updateSkillsHandlerObject,
+        skillInfoUpdate,
+        setSkillInfoUpdate,
       }}
     >
       {children}
