@@ -4,7 +4,6 @@ WORKDIR /apps/staging/ise-tutor-dashboard-frontend
 COPY . .
 RUN npm install
 RUN npm run build
-
 RUN npm install -g serve
 
 EXPOSE 3001
