@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import React, {
   createContext,
   Dispatch,
@@ -5,8 +6,11 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import { capitalize } from '../HelperFunctions/capitalize'
+import requestHandler from '../HelperFunctions/requestHandler'
 import { sideNavItems } from '../Utilities/sideNavItems'
 import { studentsData, studentsDatType } from '../Utilities/students'
+import { requestType } from './AuthUserContext'
 
 type AppContextProviderProps = {
   children: React.ReactNode
@@ -41,6 +45,20 @@ type AppContextProps = {
   setSearchValue: Dispatch<SetStateAction<string>>
   notifications: notificationsType
   setNotifications: Dispatch<SetStateAction<notificationsType>>
+  contactSupportHandler: () => void
+  contactSupportHandlerObject: requestType
+  contactSupport: {
+    subject: string
+    description: string
+    image: string
+  }
+  setContactSupport: Dispatch<
+    SetStateAction<{
+      subject: string
+      description: string
+      image: string
+    }>
+  >
 }
 
 export type notificationsType =
@@ -98,6 +116,61 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     }
   }
 
+  const [contactSupport, setContactSupport] = useState({
+    subject: '',
+    description: '',
+    image: '',
+  })
+  const contactSupportFormData = new FormData()
+
+  useEffect(() => {
+    contactSupportFormData.append('subject', contactSupport?.subject)
+    contactSupportFormData.append('description', contactSupport?.description)
+    contactSupportFormData.append('image', contactSupport?.image)
+
+    // eslint-disable-next-line
+  }, [contactSupport])
+
+  const [contactSupportHandlerObject, setContactSupportHandlerObject] =
+    useState<requestType>({
+      isLoading: false,
+      data: null,
+      error: null,
+    })
+
+  const contactSupportHandler = () => {
+    setContactSupportHandlerObject({
+      isLoading: true,
+      data: null,
+      error: null,
+    })
+    requestHandler({
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/issue/tutors`,
+      method: 'POST',
+      data: contactSupportFormData,
+    })
+      .then((res) => {
+        console.log(res)
+        setContactSupportHandlerObject({
+          isLoading: false,
+          data: capitalize((res as AxiosResponse).data as string) || '',
+          error: null,
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+        setContactSupportHandlerObject({
+          isLoading: false,
+          data: null,
+          error: err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message,
+        })
+      })
+  }
+
   //   Effects
   useEffect(() => {
     setScreenWidthState(screenWidth)
@@ -134,6 +207,10 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setSearchValue,
         notifications,
         setNotifications,
+        contactSupportHandler,
+        contactSupport,
+        setContactSupport,
+        contactSupportHandlerObject,
       }}
     >
       {children}

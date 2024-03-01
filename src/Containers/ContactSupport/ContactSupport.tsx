@@ -1,6 +1,6 @@
-import Breadcrumbs from "../../Components/Breadcrumbs/Breadcrumbs";
-import ContactSupportForm from "../ContactSupportForm/ContactSupportForm";
-import classes from "./ContactSupport.module.css";
+import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs'
+import ContactSupportForm from '../ContactSupportForm/ContactSupportForm'
+import classes from './ContactSupport.module.css'
 
 const ContactSupport = () => {
   // Utils
@@ -8,15 +8,15 @@ const ContactSupport = () => {
     image: undefined,
     array: [
       {
-        title: "Support",
-        route: "/support",
+        title: 'Support',
+        route: '/support',
       },
       {
-        title: "Contact support",
-        route: "/support/contact-support",
+        title: 'Contact support',
+        route: '/support/contact-support',
       },
     ],
-  };
+  }
   return (
     <div className={classes.container}>
       <div className={classes.breadCrumbs}>
@@ -31,7 +31,7 @@ const ContactSupport = () => {
         <ContactSupportForm />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContactSupport;
+export default ContactSupport

@@ -1,57 +1,69 @@
-import React, { useState } from "react";
-import classes from "./DragAndDropInput.module.css";
+import { Dispatch, SetStateAction } from 'react'
+import classes from './DragAndDropInput.module.css'
 
-type DragAndDropInputProps = {
-  errorMessage?: string;
-  acceptedFileTypes?: string;
-};
+type DragAndDropInputPropTypes = {
+  state?: any
+  setState?: Dispatch<SetStateAction<any>>
+  acceptedFileTypes?: any
+}
 
 const DragAndDropInput = ({
-  errorMessage,
+  state,
+  setState,
   acceptedFileTypes,
-}: DragAndDropInputProps) => {
-  const [invalid, setInvalid] = useState(false);
+}: DragAndDropInputPropTypes) => {
+  const changeHandler = (e: any) => {
+    const reader = new FileReader()
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-  };
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const files = e.dataTransfer.files;
-    if (files.length === 0) {
-      setInvalid(true);
-    } else {
-      setInvalid(false);
+    reader.onload = () => {
+      if (reader?.readyState === 2) {
+        ;(setState as any)((prevState: any) => {
+          return { ...prevState, frontendFile: reader?.result }
+        })
+      }
     }
-  };
+    reader?.readAsDataURL(e.target.files[0])
+    ;(setState as any)((prevState: any) => {
+      return { ...prevState, file: e?.target?.files[0] }
+    })
+  }
 
   return (
-    <div className={classes.container}>
+    <div>
       <label>Attach file </label>
-      <div
-        className={`${classes.dropContainer} ${invalid ? classes.invalid : ""}`}
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-      >
-        <span>Drag and drop file to attach it</span>
-        <span>or</span>
-        <label htmlFor="browseFile">
-          <span>Browse for a file...</span>
-          <input
-            type="file"
-            name="browse-file"
-            id="browseFile"
-            accept={acceptedFileTypes}
-          />
-        </label>
+      <div className={classes.dropContainer}>
+        {state?.file?.name ? (
+          <>
+            <span>{state?.file?.name}</span>
+            <span>or</span>
+            <span>
+              <label htmlFor="file">change file...</label>
+              <input
+                type="file"
+                onChange={changeHandler}
+                id="file"
+                accept={acceptedFileTypes}
+              />
+            </span>
+          </>
+        ) : (
+          <>
+            <span>Drag and drop file to attach it </span>
+            <span>or</span>
+            <span>
+              <label htmlFor="file">browse for a file...</label>
+              <input
+                type="file"
+                onChange={changeHandler}
+                id="file"
+                accept={acceptedFileTypes}
+              />
+            </span>{' '}
+          </>
+        )}
       </div>
-      {invalid && (
-        <span className={classes.errorMessage}>
-        </span>
-      )}
     </div>
-  );
-};
+  )
+}
 
-export default DragAndDropInput;
+export default DragAndDropInput
