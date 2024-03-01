@@ -86,6 +86,30 @@ type AuthCOntextValuesProps = {
       tech_proficiency: string[]
     }>
   >
+  updateCertificationHandler: () => void
+  updateCertificationsHandlerObject: requestType
+  certificationsUpdate: { certifications: string[] }
+  setCertificationsUpdate: Dispatch<
+    SetStateAction<{ certifications: string[] }>
+  >
+  passwordUpdate: {
+    oldPassword: string
+    newPassword: string
+    confirmPassword: string
+  }
+  setPasswordUpdate: Dispatch<
+    SetStateAction<{
+      oldPassword: string
+      newPassword: string
+      confirmPassword: string
+    }>
+  >
+  passwordUpdateRequestObject: requestType
+  updatePasswordHandler: () => void
+  updateEmailHandler: () => void
+  emailUpdateRequestObject: requestType
+  emailUpdate: { email: string }
+  setEmailUpdate: Dispatch<SetStateAction<{ email: string }>>
 }
 
 type AuthCOntextProviderProps = {
@@ -178,6 +202,20 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     tech_proficiency: [] as string[],
   })
 
+  const [passwordUpdate, setPasswordUpdate] = useState({
+    oldPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  })
+
+  const [emailUpdate, setEmailUpdate] = useState({
+    email: '',
+  })
+
+  const [certificationsUpdate, setCertificationsUpdate] = useState({
+    certifications: [] as string[],
+  })
+
   const contactInfoUpdateFormData = new FormData()
 
   const [updateAboutHandlerObject, setUpdateAboutHandlerObject] =
@@ -195,11 +233,29 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       isLoading: false,
     })
 
+  const [
+    updateCertificationsHandlerObject,
+    setUpdateCertificationsHandlerObject,
+  ] = useState<requestType>({
+    isLoading: false,
+  })
+
   const [countriesRequestObject, setCountriesRequestObject] =
     useState<requestType>({
       isLoading: false,
       data: null,
       error: null,
+    })
+
+  const [passwordUpdateRequestObject, setPasswordUpdateRequestObject] =
+    useState<requestType>({
+      isLoading: false,
+    })
+
+  const [emailUpdateRequestObject, setEmailUpdateRequestObject] =
+    useState<requestType>({
+      isLoading: false,
+      data: null,
     })
 
   const fetchCountries = () => {
@@ -257,14 +313,14 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
           isLoading: false,
         })
 
-        // setNotiticationFunction(
-        //   setNotifications,
-        //   err.response?.data?.error
-        //     ? err.response?.data?.error?.responseMessage
-        //     : !err.response?.data?.error
-        //     ? err.response?.data?.responseMessage.toString()
-        //     : err.message
-        // )
+        setNotiticationFunction(
+          setNotifications,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
 
         if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
           navigate('/sign-in', { state: location.pathname })
@@ -279,7 +335,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
 
     requestHandler({
       method: 'PATCH',
-      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/about-info`,
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/skills`,
       data: aboutInfoUpdate,
     })
       .then((res) => {
@@ -354,6 +410,132 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       })
   }
 
+  const updateCertificationHandler = () => {
+    setUpdateCertificationsHandlerObject({
+      isLoading: true,
+    })
+
+    requestHandler({
+      method: 'PATCH',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/certifications`,
+      data: certificationsUpdate,
+    })
+      .then((res) => {
+        setUpdateCertificationsHandlerObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          capitalize((res as AxiosResponse).data as string) || '',
+          'success'
+        )
+      })
+      .catch((err) => {
+        setUpdateCertificationsHandlerObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
+
+        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
+          navigate('/sign-in', { state: location.pathname })
+        }
+      })
+  }
+
+  const updatePasswordHandler = () => {
+    setPasswordUpdateRequestObject({
+      isLoading: true,
+    })
+
+    requestHandler({
+      method: 'POST',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/password/change`,
+      data: passwordUpdate,
+    })
+      .then((res) => {
+        setPasswordUpdateRequestObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          capitalize((res as AxiosResponse).data as string) || '',
+          'success'
+        )
+      })
+      .catch((err) => {
+        setPasswordUpdateRequestObject({
+          isLoading: false,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
+
+        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
+          navigate('/sign-in', { state: location.pathname })
+        }
+      })
+  }
+
+  const updateEmailHandler = () => {
+    setEmailUpdateRequestObject({
+      isLoading: true,
+      data: null,
+    })
+
+    requestHandler({
+      method: 'POST',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/update-email`,
+      data: { email: emailUpdate.email },
+    })
+      .then((res) => {
+        setEmailUpdateRequestObject({
+          isLoading: false,
+          data: capitalize((res as AxiosResponse).data as string),
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          capitalize((res as AxiosResponse).data as string) || '',
+          'success'
+        )
+      })
+      .catch((err) => {
+        setEmailUpdateRequestObject({
+          isLoading: false,
+          data: null,
+        })
+
+        setNotiticationFunction(
+          setNotifications,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
+
+        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
+          navigate('/sign-in', { state: location.pathname })
+        }
+      })
+  }
+
   return (
     <AuthUserContext.Provider
       value={{
@@ -377,6 +559,18 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
         updateSkillsHandlerObject,
         skillInfoUpdate,
         setSkillInfoUpdate,
+        updateCertificationHandler,
+        updateCertificationsHandlerObject,
+        certificationsUpdate,
+        setCertificationsUpdate,
+        passwordUpdate,
+        setPasswordUpdate,
+        passwordUpdateRequestObject,
+        updatePasswordHandler,
+        updateEmailHandler,
+        emailUpdateRequestObject,
+        emailUpdate,
+        setEmailUpdate,
       }}
     >
       {children}

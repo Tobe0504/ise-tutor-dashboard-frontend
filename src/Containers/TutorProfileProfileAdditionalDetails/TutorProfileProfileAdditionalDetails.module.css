@@ -34,4 +34,5 @@
 
 .buttonSection > button {
   width: 200px;
+  float: right;
 }

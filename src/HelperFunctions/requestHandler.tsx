@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios'
 
 type RequestType = {
-  method: string;
-  url: string;
-  headers?: any;
-  data?: any;
-  isMultipart?: boolean;
-};
+  method: string
+  url: string
+  headers?: any
+  data?: any
+  isMultipart?: boolean
+}
 
 export default async function requestHandler({
   method,
@@ -17,23 +17,23 @@ export default async function requestHandler({
 }: RequestType) {
   return new Promise((resolve, reject) => {
     // Context
-    const userToken = localStorage.getItem("iseAccessToken");
+    const userToken = localStorage.getItem('iseTutorAccessToken')
 
     axios({
       method,
       url,
       headers: {
         Authorization: `Bearer ${userToken}`,
-        "Content-Type": !isMultipart
-          ? "application/json"
-          : "multipart/form-data",
+        'Content-Type': !isMultipart
+          ? 'application/json'
+          : 'multipart/form-data',
         ...headers,
       },
       data,
     })
       .then((res) => resolve(res))
-      .catch((err) => reject(err));
-  });
+      .catch((err) => reject(err))
+  })
 }
 
 // import axios from "axios";

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import EmptyTabComponent from "../../Components/EmptyTabComponent/EmptyTabComponent";
-import classes from "./CoursesModules.module.css";
-import noModules from "../../Assets/Images/noModules.svg";
-import CoursesPageContainer from "../CoursesPageContainer/CoursesPageContainer";
+import { useState } from 'react'
+import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
+import classes from './CoursesModules.module.css'
+import noModules from '../../Assets/Images/noModules.svg'
+import CoursesPageContainer from '../CoursesPageContainer/CoursesPageContainer'
 
 const CoursesModules = () => {
   // States
-  const [courseItem, setCourseItem] = useState<any[]>([
+  const [courseItem] = useState<any[]>([
     {
-      title: "Live class Sessions",
+      title: 'Live class Sessions',
       activeComponent: <CoursesPageContainer />,
       activeNullStateComponent: (
         <EmptyTabComponent
@@ -23,18 +23,16 @@ const CoursesModules = () => {
         />
       ),
     },
-  ]);
+  ])
 
-  const activeComponent = courseItem[0].activeComponent;
-  const activeNullStateComponent = courseItem[0].activeNullStateComponent;
+  const activeComponent = courseItem[0].activeComponent
+  const activeNullStateComponent = courseItem[0].activeNullStateComponent
 
   return (
     <div className={classes.container}>
-      <div>
-        {activeComponent ? activeComponent : activeNullStateComponent}
-      </div>
+      <div>{activeComponent ? activeComponent : activeNullStateComponent}</div>
     </div>
-  );
-};
+  )
+}
 
-export default CoursesModules;
+export default CoursesModules

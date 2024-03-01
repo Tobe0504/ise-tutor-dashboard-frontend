@@ -1,43 +1,46 @@
-import { useState } from "react";
-import ellipses from "../../Assets/Images/ellipses.svg"
-import classes from "./StudentAssignmentSubmission.module.css";
+import { useState } from 'react'
+import ellipses from '../../Assets/Images/ellipses.svg'
+import classes from './StudentAssignmentSubmission.module.css'
 
 const StudentAssignmentSubmission = () => {
   // Utils
-  const [assignments, setAssignments] = useState([
+  const [assignments] = useState([
     {
-      name: "Amirah Oyegoke",
-      submittedFile: "Assignment1.pdf",
-      dateAdded: "04-Sept-23",
+      name: 'Amirah Oyegoke',
+      submittedFile: 'Assignment1.pdf',
+      dateAdded: '04-Sept-23',
     },
     {
-      name: "Amirah Oyegoke",
-      submittedFile: "Assignment1.pdf",
-      dateAdded: "04-Sept-23",
+      name: 'Amirah Oyegoke',
+      submittedFile: 'Assignment1.pdf',
+      dateAdded: '04-Sept-23',
     },
     {
-      name: "Amirah Oyegoke",
-      submittedFile: "Assignment1.pdf",
-      dateAdded: "04-Sept-23",
+      name: 'Amirah Oyegoke',
+      submittedFile: 'Assignment1.pdf',
+      dateAdded: '04-Sept-23',
     },
     {
-      name: "Amirah Oyegoke",
-      submittedFile: "Assignment1.pdf",
-      dateAdded: "04-Sept-23",
+      name: 'Amirah Oyegoke',
+      submittedFile: 'Assignment1.pdf',
+      dateAdded: '04-Sept-23',
     },
     {
-      name: "Amirah Oyegoke",
-      submittedFile: "Assignment1.pdf",
-      dateAdded: "04-Sept-23",
+      name: 'Amirah Oyegoke',
+      submittedFile: 'Assignment1.pdf',
+      dateAdded: '04-Sept-23',
     },
-  ]);
+  ])
 
   return (
     <section className={classes.container}>
       <div className={classes.header}>
         <div>
           <h4>Student Assignment Submission</h4>
-          <p>Access assignments submitted by your students, helping you stay organized and provide timely feedback.</p>
+          <p>
+            Access assignments submitted by your students, helping you stay
+            organized and provide timely feedback.
+          </p>
         </div>
         <div>
           <span>View all</span>
@@ -79,14 +82,13 @@ const StudentAssignmentSubmission = () => {
                     <img src={ellipses} alt="more options" />
                   </span>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </div>
-
     </section>
-  );
-};
+  )
+}
 
-export default StudentAssignmentSubmission;
+export default StudentAssignmentSubmission

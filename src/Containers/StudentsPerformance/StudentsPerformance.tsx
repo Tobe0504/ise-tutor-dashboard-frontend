@@ -1,45 +1,45 @@
-import { useState } from "react";
-import amirahTemi from "../../Assets/Images/amirahTemi.svg";
-import classes from "./StudentsPerformance.module.css";
-import ProgressBar from "../../Components/ProgressBar/ProgressBar";
+import { useState } from 'react'
+import amirahTemi from '../../Assets/Images/amirahTemi.svg'
+import classes from './StudentsPerformance.module.css'
+import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 
 const StudentsPerformance = () => {
   // Utils
-  const [aheadStudent, setAheadStudent] = useState([
+  const [aheadStudent] = useState([
     {
-      name: "Amirah Oyegoke",
+      name: 'Amirah Oyegoke',
       image: amirahTemi,
       percent: 80.7,
-      text: "ahead other learners.",
+      text: 'ahead other learners.',
     },
     {
-      name: "Amirah Oyegoke",
+      name: 'Amirah Oyegoke',
       image: amirahTemi,
       percent: 75.7,
-      text: "ahead other learners.",
+      text: 'ahead other learners.',
     },
     {
-      name: "Amirah Oyegoke",
+      name: 'Amirah Oyegoke',
       image: amirahTemi,
       percent: 50.7,
-      text: "ahead other learners.",
+      text: 'ahead other learners.',
     },
-  ]);
+  ])
 
-  const [behindStudent, setBehindStudent] = useState([
+  const [behindStudent] = useState([
     {
-      name: "Amirah Oyegoke",
+      name: 'Amirah Oyegoke',
       image: amirahTemi,
       percent: 40.7,
-      text: "behind other learners.",
+      text: 'behind other learners.',
     },
     {
-      name: "Amirah Oyegoke",
+      name: 'Amirah Oyegoke',
       image: amirahTemi,
       percent: 23.7,
-      text: "behind other learners.",
+      text: 'behind other learners.',
     },
-  ]);
+  ])
 
   return (
     <section className={classes.container}>
@@ -61,11 +61,16 @@ const StudentsPerformance = () => {
                 </span>
               </div>
               <div className={classes.progressSection}>
-                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></div>
-                <span><span className={classes.aheadPercent}>+{data.percent} </span>{data.text}</span>
+                <div className={classes.performanceProgressBar}>
+                  <ProgressBar percentage={data.percent} color="#fff" />
+                </div>
+                <span>
+                  <span className={classes.aheadPercent}>+{data.percent} </span>
+                  {data.text}
+                </span>
               </div>
             </div>
-          );
+          )
         })}
         <div className={classes.divider} />
         {behindStudent.map((data, i) => {
@@ -79,15 +84,22 @@ const StudentsPerformance = () => {
                 </span>
               </div>
               <div className={classes.progressSection}>
-                <div className={classes.performanceProgressBar}><ProgressBar percentage={data.percent} color="#fff" /></div>
-                <span><span className={classes.behindPercent}>-{data.percent} </span>{data.text}</span>
+                <div className={classes.performanceProgressBar}>
+                  <ProgressBar percentage={data.percent} color="#fff" />
+                </div>
+                <span>
+                  <span className={classes.behindPercent}>
+                    -{data.percent}{' '}
+                  </span>
+                  {data.text}
+                </span>
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default StudentsPerformance;
+export default StudentsPerformance

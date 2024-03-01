@@ -1,6 +1,15 @@
 .tag {
-    gap: 1rem;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttonSection {
+  margin-top: 1rem;
+}
+
+.buttonSection > button {
+  float: right;
+  width: 200px;
 }

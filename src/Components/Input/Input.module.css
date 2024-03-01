@@ -28,7 +28,24 @@
   line-height: 27px;
 }
 
-.container > input {
+.input {
+  position: relative;
+  display: block;
+}
+
+.input > span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.input > input {
   display: block;
   width: 100%;
   padding: 18px 15px;
@@ -43,11 +60,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-.container > input:focus {
+.input input:focus {
   outline: 1px solid rgba(102, 78, 254, 1);
 }
 
-/*  */
 .valid {
   border: 1px solid var(--grey);
   color: var(--grey);
@@ -58,7 +74,7 @@
   color: var(--red);
 }
 
-.container > input::placeholder {
+.input > input::placeholder {
   color: var(--grey3);
   font-family: Archivo;
   font-size: 16px;
@@ -88,7 +104,7 @@
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
-  .container > input {
+  .input > input {
     padding: 12px;
     font-family: Archivo;
     font-size: 14px;
@@ -104,11 +120,15 @@
   .errorMessage {
     font-size: 10px;
     line-height: 18px;
+  }
+
+  .input > span {
+    right: 10px;
   }
 }
 
 @media screen and (max-width: 767px) and (max-width: 1023px) {
-  .container > input {
+  .input > input {
     padding: 12px;
     font-family: Archivo;
     font-size: 14px;
@@ -124,5 +144,9 @@
   .errorMessage {
     font-size: 10px;
     line-height: 18px;
+  }
+
+  .input > span {
+    right: 10px;
   }
 }

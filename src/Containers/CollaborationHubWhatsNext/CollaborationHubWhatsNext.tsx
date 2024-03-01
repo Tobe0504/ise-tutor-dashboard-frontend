@@ -1,24 +1,24 @@
-import { Link, useNavigate } from "react-router-dom";
-import classes from "./CollaborationHubWhatsNext.module.css";
+import { useNavigate } from 'react-router-dom'
+import classes from './CollaborationHubWhatsNext.module.css'
 
 const CollaborationHubWhatsNext = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // Utils
   const whatsNext = [
-    "Visit the Discord website or open the Discord app on your device.",
+    'Visit the Discord website or open the Discord app on your device.',
     'Click on the "+" icon or the "Add a Server" button on the left side of the screen.',
     'Select the "Join a Server" option.',
-    "Copy the invitation code provided below",
+    'Copy the invitation code provided below',
     'Click "Join" to connect to the ise Discord channel and start collaborating with your peers.',
-  ];
+  ]
 
   return (
     <div className={classes.container}>
       <h4>You have created a Discord account, what next?</h4>
       <ol>
         {whatsNext.map((data, i) => {
-          return <li key={i}>{data}</li>;
+          return <li key={i}>{data}</li>
         })}
       </ol>
 
@@ -44,7 +44,9 @@ const CollaborationHubWhatsNext = () => {
         <p>Having any difficulty navigating Discord?</p>
         <span
           className={classes.buttonInner}
-          onClick={() => { navigate("/collaboration-hub-video-guide") }}
+          onClick={() => {
+            navigate('/collaboration-hub-video-guide')
+          }}
         >
           <span>Watch video guide</span>
           <svg
@@ -65,7 +67,7 @@ const CollaborationHubWhatsNext = () => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CollaborationHubWhatsNext;
+export default CollaborationHubWhatsNext

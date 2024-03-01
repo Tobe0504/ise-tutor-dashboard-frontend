@@ -1,15 +1,19 @@
-import Button from "../../Components/Button/Button";
-import Error from "../../Components/Error/Error";
-import classes from "./ProfileAccountManageEmail.module.css";
+import Button from '../../Components/Button/Button'
+import Error from '../../Components/Error/Error'
+import classes from './ProfileAccountManageEmail.module.css'
 
 type ChangeEmailModalWarningprops = {
-  onClick: () => void;
-  onClick2: () => void;
-};
+  onClick: () => void
+  onClick2: () => void
+  oldEmail: string
+  newEmail: string
+}
 
 const ChangeEmailModalWarning = ({
   onClick,
   onClick2,
+  oldEmail,
+  newEmail,
 }: ChangeEmailModalWarningprops) => {
   return (
     <div className={classes.modalContainer}>
@@ -24,8 +28,8 @@ const ChangeEmailModalWarning = ({
         every 6 months. Ensure that you have access to the new email address
       </Error>
 
-      <p>Current Email Address: [Old Email Address]</p>
-      <p>New Email Address: [New Email Address]</p>
+      <p>Current Email Address: {oldEmail || ''}</p>
+      <p>New Email Address: {newEmail || ''}</p>
 
       <p>By confirming, the following actions will take place:</p>
       <ol>
@@ -44,7 +48,7 @@ const ChangeEmailModalWarning = ({
         <Button onClick={onClick2}>Confirm email change</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChangeEmailModalWarning;
+export default ChangeEmailModalWarning
