@@ -24,7 +24,7 @@ const TutorCompleteProfile = () => {
       <div className={classes.buttonContainer}>
         <Button
           onClick={() => {
-            navigate("/tutor-dashboard");
+            navigate("/dashboard");
           }}
         >
           <span className={classes.buttonInner}>
