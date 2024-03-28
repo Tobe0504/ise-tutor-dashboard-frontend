@@ -1,10 +1,11 @@
 import classes from "./SideNav.module.css";
 import iseLogo from "../../Assets/Images/iseLogo.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../../Context/AppContext";
 import { activeToggler } from "../../HelperFunctions/activeTogglers"
 
+// Utils
 export const sideNavIconsHandler = (title: string) => {
   if (title === "Dashboard") {
     return (
@@ -132,16 +133,15 @@ export const sideNavIconsHandler = (title: string) => {
 const SideNav = () => {
   // Location
   const location = useLocation();
+  const navigate = useNavigate();
 
   // COntext
   const { navItmesState, setNavItemsState } = useContext(AppContext)
 
-  // Utils
-
   return (
     <section className={classes.container}>
       <div className={classes.logoSection}>
-        <img src={iseLogo} alt="Ise " />
+        <img src={iseLogo} onClick={() => { navigate('/dashboard') }} alt="Ise " />
       </div>
       <div className={classes.navSection}>
         {navItmesState.map((data, i) => {
@@ -173,7 +173,13 @@ const SideNav = () => {
               </div>
               <div className={classes.otherOptions} style={data.isActive ? { maxHeight: "1000px" } : { maxHeight: "0px" }}>
                 {data.children.map((datum: any, j: number) => {
-                  return <Link to={datum.route} key={j}>{datum.title}</Link>
+                  return <Link
+                    to={datum.route}
+                    key={j}
+                    className={location.pathname === datum.route ? `${classes.otherOptionsLinkActive}` : classes.link}
+                  >
+                    {datum.title}
+                  </Link>
                 })}
               </div>
             </div>
