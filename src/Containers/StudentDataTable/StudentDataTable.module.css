@@ -1,83 +1,93 @@
 .container {
     display: flex;
-    margin-block: 24px;
-    border-radius: 10px;
     padding: 0 2rem;
+    border-radius: 10px;
     flex-direction: column;
     background: var(--white);
 }
 
 .tableHeader,
 .tableBody {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: var(--grey);
+    gap: 1.5rem;
+    display: grid;
     padding: 30px 0;
+    color: var(--grey);
+    align-items: center;
+    grid-template-columns: 20px 2fr 1fr 130px 20px;
 }
 
 .tableHeader {
-    font-family: Archivo;
     font-size: 16px;
-    font-style: normal;
     font-weight: 500;
     line-height: 26px;
-    border-bottom: 1px solid var(--grey);
-}
-
-.tableBody>div:nth-child(1) {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex: 1;
-}
-
-.tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
-    display: block;
-    color: var(--grey);
-    font-family: Archivo;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22px;
-}
-
-.body>div {
-    min-width: 650px;
-}
-
-.tableHeader>span:nth-child(3) {
-    padding-right: 6rem;
-}
-
-.tableHeader>span:nth-child(1) {
-    padding-left: 3rem;
-}
-
-.tableHeader>span:not(span:nth-child(4)),
-.tableBody>span:not(span:nth-child(4)) {
-    flex: 1;
-    text-align: left;
+    border-bottom: 1px solid var(--sectionBorder);
 }
 
 .tableBody {
-    color: var(--grey);
-    font-family: Archivo;
     font-size: 13px;
-    font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    border-bottom: 1px solid var(--disabled);
+    border-bottom: 1px solid var(--sectionBorder);
 }
 
 .tableBody:last-child {
-    border-bottom: 0px solid var(--disabled);
+    border-bottom: none;
 }
 
 .tableBody>span:last-child {
     color: var(--grey);
     cursor: pointer;
     text-decoration: none;
+}
+
+
+.pageButtons {
+    gap: 24px;
+    display: flex;
+    align-items: center;
+    padding-block: 1.7rem;
+    justify-content: center;
+    background: var(--white);
+    border-top: 1px solid var(--sectionBorder);
+}
+
+.pageButtons button {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    color: var(--white);
+    border: var(--border);
+    justify-content: center;
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    border: var(--border);
+    justify-content: center;
+    border: 1px solid var(--sectionBorder);
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -95,20 +105,6 @@
         font-size: 13px;
         line-height: 140%;
     }
-
-    .tableHeader>span:nth-child(3),
-    .tableBody>span:nth-child(3) {
-        display: none;
-    }
-
-    .tableBody>div:nth-child(1) {
-        gap: 1rem;
-    }
-
-    .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
-        font-size: 13px;
-        line-height: 22px;
-    }
 }
 
 @media screen and (max-width: 767px) {
@@ -118,36 +114,31 @@
 
     .tableHeader,
     .tableBody {
-        gap: 1.5rem;
-        padding: 12px 0;
-        text-align: center;
+        padding: 20px 0 5px;
+        grid-template-columns: 20px 2fr 1fr 20px;
     }
 
     .tableHeader {
-        font-size: 13px;
+        font-size: 14px;
         line-height: 140%;
+    }
+
+    .tableHeader>span:nth-child(4),
+    .tableBody>span:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .tableHeader,
+    .tableBody {
+        padding: 20px 0 5px;
+        grid-template-columns: 20px 1fr 20px;
     }
 
     .tableHeader>span:nth-child(3),
     .tableBody>span:nth-child(3) {
         display: none;
-    }
-
-    .tableBody>div:nth-child(1) {
-        gap: 1rem;
-    }
-
-    .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
-        font-size: 13px;
-        line-height: 22px;
-    }
-
-    .tableHeader>span:not(span:nth-child(1)),
-    .tableBody>span:not(div:nth-child(1)) {
-        flex: 1;
-    }
-
-    .tableHeader>span:nth-child(2) {
-        flex: 2 !important;
     }
 }

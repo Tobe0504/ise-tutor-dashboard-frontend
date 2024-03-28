@@ -2,8 +2,6 @@ import React, { createContext, Dispatch, SetStateAction, useEffect, useState } f
 import { sideNavItems } from '../Utilities/sideNavItems';
 import { studentsData, studentsDataType } from '../Utilities/students';
 import { coursesData, coursesDataType } from '../Utilities/courses';
-import EmptyTabComponent from '../Components/EmptyTabComponent/EmptyTabComponent';
-import noModules from "../Assets/Images/noModules.svg";
 
 type AppContextProviderProps = {
   children: React.ReactNode
@@ -73,25 +71,23 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const searchHandler = () => {
     if (searchValue?.length > 0) {
-      const studentCopy = studentsData.filter((data) => {
+      const filteredStudents = studentsData.filter((data) => {
         return (
           data?.studentName.toLowerCase().includes(searchValue.toLowerCase()) ||
           data?.emailAddress.toLowerCase().includes(searchValue.toLowerCase())
-        )
-      })
+        );
+      });
 
-      setStudents(studentCopy as studentsDataType)
+      if (filteredStudents.length > 0) {
+        setStudents(filteredStudents as studentsDataType);
+      } else {
+        setStudents([]);
+      }
     } else {
-      <EmptyTabComponent
-        image={noModules}
-        firstParagraph="You have no schedule at the moment."
-        secondParagraph=""
-        route="/courses"
-        buttontext="Explore classes"
-        showButton={true}
-      />
+      setStudents(studentsData as studentsDataType);
     }
-  }
+  };
+
   const [courses, setCourses] = useState<coursesDataType>(coursesData);
 
   //   Effects
@@ -101,6 +97,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   useEffect(() => {
     searchHandler()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue])
 
   const setCurrentStepAndSave = (step: number) => {

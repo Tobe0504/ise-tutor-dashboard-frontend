@@ -128,10 +128,12 @@
 
 .moreMenuContentInActive a {
   color: var(--grey);
+  display: flex;
 }
 
 .moreMenuContentActive a {
   color: var(--white);
+  display: flex;
 }
 
 .moreMenuContentActive svg path {
