@@ -116,7 +116,7 @@
 
 .otherOptions>a {
   text-decoration: none;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 10px 42px;
   border-radius: 4px;
   font-family: Archivo;
   font-size: 16px;
@@ -136,26 +136,23 @@
   transition: all .3s ease-in-out
 }
 
+.otherOptionsLinkActive {
+  color: var(--purple) !important;
+}
+
 .active {
-  background-color: var(--purple);
-  color: var(--white);
-}
-
-.active:nth-child(4) svg {
-  stroke: none;
-  fill: var(--white);
-}
-
-.active:nth-child(4) svg path {
-  fill: var(--white);
+  background-color: var(--veryLightPurple);
+  color: var(--grey);
+  stroke: var(--grey);
 }
 
 .inActive {
-  color: var(--grey);
   stroke: var(--grey);
+  color: var(--grey);
   padding: 10px;
 }
 
+.active:nth-child(4),
 .inActive:nth-child(4) {
   stroke: none;
 }
@@ -184,8 +181,8 @@
 }
 
 .moreMenuContentActive {
-  background-color: var(--purple);
-  color: var(--white);
+  background-color: var(--veryLightPurple);
+  color: var(--grey);
   border-radius: 5px;
   width: 100%;
   gap: 10px;
@@ -198,18 +195,10 @@
 }
 
 .moreMenuContentActive a {
-  color: var(--white);
-}
-
-.moreMenuContentActive svg path {
-  stroke: var(--white);
-}
-
-.moreMenuContentActive svg:first-child path {
-  fill: var(--white);
-  stroke: none;
+  color: var(--grey);
 }
 
 .logout {
   margin-top: 3rem;
+  margin-left: 8px;
 }

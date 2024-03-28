@@ -19,7 +19,7 @@
 }
 
 .helloUser>p {
-  margin: 1rem 0;
+  margin: 5px 0 10px;
   color: var(--white);
   font-family: Archivo;
   font-size: 16px;
@@ -40,8 +40,8 @@
   }
 
   .helloUser>h2 {
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .helloUser>p {
