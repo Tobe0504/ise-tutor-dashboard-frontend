@@ -1,10 +1,15 @@
 .container {
-    padding: 40px 2rem;
+    padding: 2rem 24px;
 }
 
 .quizDataTableContainer {
+    overflow: hidden;
     background: var(--white);
     border-radius: 0 0 10px 10px;
+}
+
+.body {
+    overflow: auto;
 }
 
 .quizDataTableContainer>p {
@@ -21,9 +26,9 @@
     gap: 5%;
     padding: 1rem;
     display: flex;
-    margin: 40px 0;
+    margin: 24px 0;
     flex-wrap: wrap;
-    padding: 40px 32px;
+    padding: 40px 32px 16px;
     border-radius: 10px;
     background: var(--white);
     justify-content: flex-start;
@@ -108,16 +113,13 @@
 .tableHeader,
 .tableBody {
     gap: 2rem;
-    display: flex;
+    display: grid;
     font-size: 16px;
     font-weight: 400;
-    color: var(--grey);
-    font-style: normal;
     padding: 40px 2rem;
     align-items: center;
-    font-family: Archivo;
-    white-space: nowrap;
     border-bottom: 1px solid var(--sectionBorder);
+    grid-template-columns: minmax(200px, 1fr) 80px 150px 80px 140px;
 }
 
 .tableBody {
@@ -133,23 +135,6 @@
     padding-bottom: 2rem;
 }
 
-.tableHeader>span:nth-child(2),
-.tableBody>span:nth-child(2) {
-    flex: 2;
-}
-
-.tableHeader>span:nth-child(3),
-.tableHeader>span:nth-child(4),
-.tableHeader>span:nth-child(5),
-.tableHeader>span:nth-child(6),
-
-.tableBody>span:nth-child(3),
-.tableBody>span:nth-child(4),
-.tableBody>span:nth-child(5),
-.tableBody>span:nth-child(6) {
-    flex: 1;
-}
-
 .pageButtons {
     display: flex;
     align-items: center;
@@ -159,8 +144,8 @@
 }
 
 .pageButtons button {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border: var(--border);
     display: flex;
     align-items: center;
@@ -202,9 +187,13 @@
         width: 100%;
         max-width: 100%;
     }
+
+    .completedDate img {
+        right: 2%;
+    }
 }
 
-@media (min-width: 767px) and (max-width: 1240px) {
+@media (min-width: 767px) and (max-width: 1023px) {
     .container {
         padding: 1rem;
         background: var(--white);
@@ -225,19 +214,19 @@
 
     .completedDate img {
         top: 15px;
-        right: 4%;
+        right: 5%;
     }
 
     .tableBodyContainer {
         margin-top: 1rem;
     }
 
-    .quizDataTableContainer>p,
     .tableHeader,
     .tableBody {
         font-size: 12px;
         line-height: 18px;
         padding: 1rem 0;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 150px 80px;
     }
 
     .tableHeader>span:nth-child(6),
@@ -263,7 +252,7 @@
 
     .quizHeaderDropdowns {
         padding: 0;
-        margin: 20px 0;
+        margin: 40px 0 0;
     }
 
     .quizDataTableContainer {
@@ -307,12 +296,13 @@
         margin-top: 1rem;
     }
 
-    .quizDataTableContainer>p,
     .tableHeader,
     .tableBody {
         font-size: 13px;
         line-height: 18px;
         padding: 1rem;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 80px;
+
     }
 
     .tableHeader>span:nth-child(4),
@@ -329,10 +319,5 @@
     .tableHeader>p,
     .tableBody>p {
         display: block;
-    }
-
-    .pageButtons button {
-        height: 50px;
-        width: 50px;
     }
 }
