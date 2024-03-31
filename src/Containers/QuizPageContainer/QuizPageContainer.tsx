@@ -2,38 +2,58 @@ import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWith
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import classes from './QuizPageContainer.module.css'
 import calendarIcon from '../../Assets/Images/calendar.svg'
+import { useState } from 'react'
 
 const QuizPageContainer = () => {
-    const quiz = [
+
+    // States
+    const [courseSelected, setCourseSelected] = useState('')
+
+    // Utils
+    const quizData = [
         {
             courseName: "Frontend development",
             quizName: "Quiz 2.0",
-            lastCompletionDate: "19th Oct. 2023",
+            lastCompletionDate: "13th Dec. 2023",
             noOfResults: 33,
-            lessonName: "Quiz knowldge 1.2",
+            lessonName: "Quiz knowledge 1.2",
+        },
+        {
+            courseName: "Frontend development",
+            quizName: "Quiz 2.0",
+            lastCompletionDate: "12th Nov. 2023",
+            noOfResults: 33,
+            lessonName: "Quiz knowledge 1.2",
+        },
+        {
+            courseName: "Backend development",
+            quizName: "Quiz 2.0",
+            lastCompletionDate: "10th Sept. 2023",
+            noOfResults: 33,
+            lessonName: "Quiz knowledge 1.2",
         },
         {
             courseName: "Frontend development",
             quizName: "Quiz 2.0",
             lastCompletionDate: "19th Oct. 2023",
             noOfResults: 33,
-            lessonName: "Quiz knowldge 1.2",
-        },
-        {
-            courseName: "Frontend development",
-            quizName: "Quiz 2.0",
-            lastCompletionDate: "19th Oct. 2023",
-            noOfResults: 33,
-            lessonName: "Quiz knowldge 1.2",
-        },
-        {
-            courseName: "Frontend development",
-            quizName: "Quiz 2.0",
-            lastCompletionDate: "19th Oct. 2023",
-            noOfResults: 33,
-            lessonName: "Quiz knowldge 1.2",
+            lessonName: "Quiz knowledge 1.2",
         },
     ];
+
+    const filteredQuizData = courseSelected ? quizData.filter(data => data.courseName === courseSelected) : quizData;
+
+    const coursesSet = new Set(quizData.map(data => data.courseName));
+    const courses = ['All Courses', ...Array.from(coursesSet)];
+
+
+    const handleCourseSelection = (selectedCourse: string) => {
+        if (selectedCourse === 'All Courses') {
+            setCourseSelected('');
+        } else {
+            setCourseSelected(selectedCourse);
+        }
+    }
 
     return (
         <div className={classes.container}>
@@ -41,16 +61,16 @@ const QuizPageContainer = () => {
 
             <div className={classes.quizHeaderDropdowns}>
                 <DropdownWithSearch
-                    isRequired
-                    label="Select course "
-                    title="Frontend development"
-                    options={[]}
+                    label="Select Course"
+                    title="Select a course"
+                    options={courses}
+                    selected={courseSelected}
+                    setSelected={handleCourseSelection}
                 />
                 <div className={classes.completedDate}>
                     <label htmlFor="completedDate">Completion date</label>
                     <div className={classes.selectDate}>
                         <input
-                            required
                             type="text"
                             id="completedDate"
                             placeholder="1 week ago"
@@ -61,7 +81,7 @@ const QuizPageContainer = () => {
                 </div>
             </div>
             <div className={classes.quizDataTableContainer}>
-                <p>Showing 1-4 of 4 quizzes</p>
+                <p>Showing {filteredQuizData.length} of {quizData.length} quizzes</p>
                 <div className={classes.tableHeader}>
                     <p>S/N</p>
                     <span>Course name</span>
@@ -71,7 +91,7 @@ const QuizPageContainer = () => {
                     <span>Lesson name</span>
                 </div>
                 <div className={classes.tableBodyContainer}>
-                    {quiz.map((data, i) => {
+                    {filteredQuizData.map((data, i) => {
                         return (
                             <div className={classes.tableBody} key={i}>
                                 <p>{i + 1}</p>

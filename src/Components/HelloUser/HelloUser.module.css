@@ -9,13 +9,13 @@
   background-repeat: no-repeat;
 }
 
-.helloUser>h2 {
+.helloUser>h1 {
   color: var(--white);
   font-family: Archivo;
-  font-size: 25px;
+  font-size: 39px;
   font-style: normal;
   font-weight: 500;
-  line-height: 36px;
+  line-height: 51px;
 }
 
 .helloUser>p {
@@ -39,9 +39,9 @@
     padding: 24px 16px;
   }
 
-  .helloUser>h2 {
-    font-size: 20px;
-    line-height: 30px;
+  .helloUser>h1 {
+    font-size: 31px;
+    line-height: 42px;
   }
 
   .helloUser>p {
@@ -60,9 +60,9 @@
     padding: 24px 16px;
   }
 
-  .helloUser>h2 {
-    font-size: 18px;
-    line-height: 27px;
+  .helloUser>h1 {
+    font-size: 31px;
+    line-height: 42px;
   }
 
   .helloUser>p {

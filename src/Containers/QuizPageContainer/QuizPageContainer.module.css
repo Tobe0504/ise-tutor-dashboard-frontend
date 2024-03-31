@@ -25,7 +25,6 @@
     flex-wrap: wrap;
     padding: 40px 32px;
     border-radius: 10px;
-    align-items: baseline;
     background: var(--white);
     justify-content: flex-start;
 }

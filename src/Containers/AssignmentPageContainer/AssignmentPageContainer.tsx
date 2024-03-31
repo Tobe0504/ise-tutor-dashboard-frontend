@@ -46,7 +46,7 @@ const AssignmentPageContainer = () => {
   const optionsRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const courses = ['All']
+  const courses = ['All Courses']
 
   for (let i = 0; i < students.length; i++) {
     if (!(courses as string[]).includes(students[i].course)) {
@@ -56,7 +56,7 @@ const AssignmentPageContainer = () => {
 
   const filterHandler = () => {
     const studentsCopy = students.filter((data) => {
-      if (courseSelected === 'All') {
+      if (courseSelected === 'All Courses') {
         return (
           data?.studentName.toLowerCase().includes(filterValue.toLowerCase()) ||
           data?.fileName.toLowerCase().includes(filterValue.toLowerCase())

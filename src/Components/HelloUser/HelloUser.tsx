@@ -21,7 +21,7 @@ const HelloUser = ({
       className={classes.helloUser}
       style={notIncludeBg ? { background: "#664efe" } : undefined}
     >
-      <h2>{header}</h2>
+      <h1>{header}</h1>
       {!notIncludeParagraph && (
         <p>
           {paragraph}
