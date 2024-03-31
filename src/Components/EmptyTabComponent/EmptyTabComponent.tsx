@@ -8,7 +8,7 @@ type EmptyTabComponentProps = {
   firstParagraph: string;
   secondParagraph?: string;
   route: string;
-  buttontext: string;
+  buttontext?: string;
   buttonSvg?: ReactNode;
   buttonType?: "invalid" | "delete" | "primary" | "secondary" | "black" | "white" | "null" | "tertiary" | undefined;
   showButton?: boolean;

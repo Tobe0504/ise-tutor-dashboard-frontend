@@ -19,11 +19,6 @@ const StudentData = () => {
    const [displayConfirmationModal, setDisplayConfirmationModal] =
       useState(false)
 
-   // Utils
-   const allStudentsInactive = students.filter((data) => {
-      return !data.isActive
-   })
-
    return (
       <section className={classes.container}>
          {displaySendMessageModal && (
@@ -94,9 +89,9 @@ const StudentData = () => {
          <div className={classes.header}>
             <div>
                <Checkbox
-                  isChecked={allStudentsInactive.length === 0 ? true : false}
-                  onChange={() => {
-                     activeToggleSetAll(students, setStudents)
+                  isChecked={students.length > 0 && students.every(student => student.isActive)}
+                  onChange={(isChecked) => {
+                     activeToggleSetAll(students, setStudents, isChecked);
                   }}
                />
                <span>Select</span>
