@@ -17,4 +17,5 @@
     color: var(--grey);
     font-style: normal;
     font-family: Archivo;
+    white-space: nowrap;
 }

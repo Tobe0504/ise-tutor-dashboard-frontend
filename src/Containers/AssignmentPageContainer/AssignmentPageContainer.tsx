@@ -267,8 +267,8 @@ const AssignmentPageContainer = () => {
         />
       </div>
 
-      <div className={classes.body}>
-        <div className={classes.subBody}>
+      <div className={classes.bodyContent}>
+        <div>
           <div className={classes.tableHeader}>
             <span>File name</span>
             <span>Student Name</span>
@@ -277,82 +277,76 @@ const AssignmentPageContainer = () => {
             <span>Action</span>
           </div>
 
-          <div className={classes.bodyContent}>
-            {studentsData.length > 0 ? (
-              studentsData.map((data, index) => (
-                <div key={index} className={classes.tableBody}>
-                  <span>
-                    <Link to="#0">{data.fileName}</Link>
-                  </span>
-                  <span>{data.studentName}</span>
-                  <span
-                    className={
-                      data.status === 'Pending'
-                        ? classes.statusPending
-                        : classes.statusApproved
-                    }
-                  >
-                    {data.status}
-                  </span>
-                  <span
-                    className={
-                      data.grade === 'Not graded' ? classes.notGraded : ''
-                    }
-                  >
-                    {data.grade}
-                  </span>
-                  <span
-                    onClick={() => {
-                      optionsChangeHandler(index)
-                    }}
-                  >
-                    <img src={ellipses} alt="more options" />
-                    {data.displayOptions && (
-                      <div ref={optionsRef}>
-                        <ActionsModal
-                          onClick={() => {
-                            optionsChangeHandler(index);
-                            navigate('/student/assignment/assignment-submission');
-                          }}
-                          onClick2={() => {
-                            optionsChangeHandler(index);
-                            setDisplayApproveSubmissionModal(true);
-                          }}
-                          onClick3={() => {
-                            optionsChangeHandler(index);
-                            setDisplayRejectSubmissionModal(true);
-                          }}
-                          onClick4={() => {
-                            optionsChangeHandler(index);
-                            setDisplaySendMessageModal(true);
-                          }}
-                          onClick5={() => {
-                            optionsChangeHandler(index);
-                            setDisplayAssignmentSummaryModal(true);
-                          }}
-                        />
-                      </div>
-                    )}
-                  </span>
-                </div>
-              ))
-            ) : (
-              <EmptyTabComponent
-                image={noResultFound}
-                header={`No results found`}
-                firstParagraph='Try a new search'
-                imageHeight={280}
-                route=''
-                buttonType='null'
-              />
-            )}
-          </div>
-          {studentsData.length > 0 && (
-            <p className={classes.submission}>
-              <span>{studentsData.length}</span> submissions
-            </p>
+          {studentsData.length > 0 ? (
+            studentsData.map((data, index) => (
+              <div key={index} className={classes.tableBody}>
+                <span>
+                  <Link to="#0">{data.fileName}</Link>
+                </span>
+                <span>{data.studentName}</span>
+                <span
+                  className={
+                    data.status === 'Pending'
+                      ? classes.statusPending
+                      : classes.statusApproved
+                  }
+                >
+                  {data.status}
+                </span>
+                <span
+                  className={
+                    data.grade === 'Not graded' ? classes.notGraded : ''
+                  }
+                >
+                  {data.grade}
+                </span>
+                <span onClick={() => { optionsChangeHandler(index) }}>
+                  <img src={ellipses} alt="more options" />
+                  {data.displayOptions && (
+                    <div ref={optionsRef}>
+                      <ActionsModal
+                        onClick={() => {
+                          optionsChangeHandler(index);
+                          navigate('/student/assignment/assignment-submission');
+                        }}
+                        onClick2={() => {
+                          optionsChangeHandler(index);
+                          setDisplayApproveSubmissionModal(true);
+                        }}
+                        onClick3={() => {
+                          optionsChangeHandler(index);
+                          setDisplayRejectSubmissionModal(true);
+                        }}
+                        onClick4={() => {
+                          optionsChangeHandler(index);
+                          setDisplaySendMessageModal(true);
+                        }}
+                        onClick5={() => {
+                          optionsChangeHandler(index);
+                          setDisplayAssignmentSummaryModal(true);
+                        }}
+                      />
+                    </div>
+                  )}
+                </span>
+              </div>
+            ))
+          ) : (
+            <EmptyTabComponent
+              image={noResultFound}
+              header={`No results found`}
+              firstParagraph='Try a new search'
+              imageHeight={280}
+              route=''
+              buttonType='null'
+            />
           )}
         </div>
+        {studentsData.length > 0 && (
+          <p className={classes.submission}>
+            <span>{studentsData.length}</span> submissions
+          </p>
+        )}
       </div>
     </div>
   )
