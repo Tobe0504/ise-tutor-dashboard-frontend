@@ -59,10 +59,11 @@ const OneOnOneCallSessions = ({ height, padding }: OneOnOneCallSessionsProps) =>
   return (
     <div className={classes.container} style={{ height, padding }}>
       <ul>
-        {oneOnOneSession.map((data, i) => {
+        {oneOnOneSession.map((data, index) => {
           return (
             <ScheduleCard
-              key={i}
+              key={index}
+              index={index}
               time={data.time}
               title={data.title}
               link={data.link}

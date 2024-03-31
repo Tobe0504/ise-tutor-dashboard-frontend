@@ -1,11 +1,11 @@
 import classes from './ActionsModal.module.css'
 
 type ActionsModalProps = {
-   onClick?: () => void
-   onClick2?: () => void
-   onClick3?: () => void
-   onClick4?: () => void
-   onClick5?: () => void
+   onClick: () => void
+   onClick2: () => void
+   onClick3: () => void
+   onClick4: () => void
+   onClick5: () => void
 }
 
 const ActionsModal = ({

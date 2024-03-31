@@ -67,7 +67,7 @@ const SchedulesSessionModules2 = () => {
         <div className={classes.container}>
             <h2>Schedule</h2>
             <SectionsNav2 navItems={navItems} setNavItems={setNavItems} />
-            <div>
+            <div className={classes.body}>
                 {activeCOmponent.activeComponent
                     ? activeCOmponent.activeComponent
                     : activeCOmponent.activeNullStateComponent}

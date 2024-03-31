@@ -1,9 +1,8 @@
 .container {
-    gap: 10px;
+    gap: 16px;
     width: 100%;
     height: 100%;
     display: flex;
-    width: fit-content;
     padding-block: 1.2rem;
     flex-direction: column;
     align-items: flex-start;
