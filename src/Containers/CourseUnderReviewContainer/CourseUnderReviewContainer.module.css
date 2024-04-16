@@ -1,0 +1,89 @@
+.container {
+    gap: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollContainer {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+
+.scrollContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.insight {
+    gap: 1.5rem;
+    align-items: center;
+    display: inline-flex;
+
+    overflow-x: auto;
+}
+
+.insight div {
+    margin: auto;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 366px;
+    height: 171px;
+
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 0 5px var(--sectionBorder);
+}
+
+.insight p {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.insight h2 {
+    font-size: 41px;
+    font-weight: 600;
+    line-height: 61px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+@media screen and (max-width: 1023px) {
+    .container {
+        gap: 1.5rem;
+        padding: 1rem;
+        background: var(--white);
+    }
+
+
+    .insight div {
+        width: 188px;
+        height: 123px;
+        box-shadow: none;
+        border: 1px solid var(--sectionBorder);
+    }
+
+    .insight p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .insight h2 {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 41px;
+    }
+}

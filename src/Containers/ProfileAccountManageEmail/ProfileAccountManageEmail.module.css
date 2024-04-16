@@ -1,0 +1,68 @@
+.modalContainer {
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modalContainer > h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.5rem;
+}
+
+.modalContainer > p {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.modalContainer > div:nth-child(3) {
+  margin: 1rem 0;
+}
+
+.modalContainer > p:nth-child(4),
+.modalContainer > p:nth-child(5) {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.modalContainer > p:nth-child(5) {
+  margin-bottom: 1rem;
+}
+
+.modalContainer > ol {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin-left: -20px;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.buttonSection > button {
+  max-width: 237px;
+}

@@ -1,0 +1,248 @@
+.container {
+    width: 100%;
+    display: flex;
+    padding: 32px 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h1 {
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.container .addLesson {
+    gap: 1.5rem;
+    display: flex;
+    margin-top: 2rem;
+    padding: 40px 32px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.container .body {
+    padding: 0;
+    background: transparent;
+}
+
+.addLesson button {
+    padding: 10px 30px;
+}
+
+.addLesson .inactivePrimary {
+    pointer-events: none;
+    color: var(--white);
+    background: var(--disabled);
+}
+
+.addLesson .inactiveSecondary {
+    pointer-events: none;
+    color: var(--disabled);
+    border-color: var(--disabled);
+}
+
+.addedBlock {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--veryLightPurple);
+}
+
+.addedBlockHeader {
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.addedBlockHeader>h4 {
+    flex: 1;
+    white-space: nowrap;
+
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.addedBlockHeader svg:nth-child(4) {
+    display: none;
+}
+
+.addedBlockBody {
+    height: 20vh;
+    padding: 10px;
+    margin-left: calc(24px + 24px);
+    border: 1px solid var(--veryLightPurple);
+
+}
+
+.addBlock {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+    padding: 40px 32px;
+    border-radius: 10px;
+    background: var(--scheduleRightCtaGreen);
+}
+
+.addBlock>p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.buttonContainer {
+    flex-wrap: wrap;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+}
+
+.buttonContainer button:nth-child(3) {
+    flex: 1;
+    color: var(--red);
+    background: var(--white);
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 779px) and (max-width: 1023px) {
+    .container {
+        gap: 1.2rem;
+        padding: 16px;
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 16px;
+    }
+
+    .buttonContainer {
+        justify-content: center !important;
+        border: 1px solid var(--veryLightPurple);
+    }
+
+    .addLesson button:nth-child(3) {
+        flex: unset;
+        justify-content: unset;
+    }
+
+    .addedBlock {
+        gap: 1.5rem;
+        padding: 10px;
+    }
+
+    .addedBlockHeader {
+        gap: 2rem;
+    }
+
+    .addedBlockHeader>h4 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .addedBlockHeader button {
+        display: none;
+    }
+
+    .addedBlockHeader svg:nth-child(4) {
+        display: block;
+    }
+
+    .addedBlockBody {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .container {
+        padding: 0;
+        gap: 1.2rem;
+        background: var(--white);
+    }
+
+    .container svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .container h1 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 1.5rem;
+    }
+
+    .addBlock {
+        gap: 10px;
+        padding: 40px 16px;
+    }
+
+    .addBlock>p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .addedBlock {
+        gap: 1.5rem;
+        padding: 10px;
+    }
+
+    .addedBlockHeader {
+        gap: 2rem;
+    }
+
+    .addedBlockHeader>h4 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .addedBlockHeader button {
+        display: none;
+    }
+
+    .addedBlockHeader svg:nth-child(4) {
+        display: block;
+    }
+
+    .addedBlockBody {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .buttonContainer {
+        padding: 20px 10px !important;
+        justify-content: center !important;
+        border: 1px solid var(--veryLightPurple);
+    }
+
+    .addLesson button:nth-child(3) {
+        flex: unset;
+        justify-content: unset;
+    }
+
+    .addedBlockHeader {
+        gap: 1rem;
+    }
+}

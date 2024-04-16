@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    padding: 0 2rem;
+    border-radius: 10px;
+    flex-direction: column;
+    background: var(--white);
+}
+
+.tableHeader,
+.tableBody {
+    gap: 1.5rem;
+    display: grid;
+    padding: 30px 0;
+    color: var(--grey);
+    align-items: center;
+    grid-template-columns: 20px 2fr 1fr 130px 20px;
+}
+
+.tableHeader {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    border-bottom: 1px solid var(--sectionBorder);
+}
+
+.tableBody {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    border-bottom: 1px solid var(--sectionBorder);
+}
+
+.tableBody:last-child {
+    border-bottom: none;
+}
+
+.tableBody>span:last-child {
+    color: var(--grey);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.pageButtons {
+    gap: 24px;
+    display: flex;
+    align-items: center;
+    padding-block: 1.7rem;
+    justify-content: center;
+    background: var(--white);
+    border-top: 1px solid var(--sectionBorder);
+}
+
+.pageButtons button {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    color: var(--white);
+    border: var(--border);
+    justify-content: center;
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    border: var(--border);
+    justify-content: center;
+    border: 1px solid var(--sectionBorder);
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .container {
+        padding: 16px;
+    }
+
+    .tableHeader,
+    .tableBody {
+        gap: 1.5rem;
+        padding: 12px 0;
+    }
+
+    .tableHeader {
+        font-size: 13px;
+        line-height: 140%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 16px;
+    }
+
+    .tableHeader,
+    .tableBody {
+        padding: 20px 0 5px;
+        grid-template-columns: 20px 2fr 1fr 20px;
+    }
+
+    .tableHeader {
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    .tableHeader>span:nth-child(4),
+    .tableBody>span:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .tableHeader,
+    .tableBody {
+        padding: 20px 0 5px;
+        grid-template-columns: 20px 1fr 20px;
+    }
+
+    .tableHeader>span:nth-child(3),
+    .tableBody>span:nth-child(3) {
+        display: none;
+    }
+}

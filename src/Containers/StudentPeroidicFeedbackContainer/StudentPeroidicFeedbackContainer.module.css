@@ -1,0 +1,216 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 74px 0;
+}
+
+.innerContainer {
+  width: 70%;
+}
+
+.innerContainer>h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px;
+  text-align: center;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.rateSection {
+  margin: 2rem 0;
+}
+
+.rateSection>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.rateSection>div {
+  margin: 1rem 0;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.rateSection>div>svg {
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.buttonContainer>button {
+  width: 153px;
+}
+
+.modalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modalContainer>img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.modalContainer>h4 {
+  color: var(--grey);
+  text-align: center;
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.5rem;
+}
+
+.modalContainer>p {
+  color: var(--grey3);
+  text-align: center;
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  width: 426px;
+}
+
+.modalContainer>button {
+  width: 104px;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container {
+    padding: 24px;
+  }
+
+  .innerContainer {
+    width: 100%;
+  }
+
+  .innerContainer>h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .rateSection {
+    margin: 1.5rem 0;
+  }
+
+  .rateSection>p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .rateSection>div {
+    margin: 1rem 0;
+    gap: 1rem;
+    font-size: 12px;
+    line-height: 23px;
+  }
+
+  .buttonContainer>button {
+    width: 140px;
+  }
+
+  .modalContainer>img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modalContainer>h4 {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .modalContainer>p {
+    font-size: 12px;
+    line-height: 23px;
+    width: auto;
+  }
+
+  .modalContainer>button {
+    width: 95px;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 24px;
+  }
+
+  .innerContainer {
+    width: 100%;
+  }
+
+  .innerContainer>h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .rateSection {
+    margin: 1.5rem 0;
+  }
+
+  .rateSection>p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .rateSection>div {
+    margin: 1rem 0;
+    gap: 1rem;
+    font-size: 12px;
+    line-height: 23px;
+  }
+
+  .buttonContainer>button {
+    width: 140px;
+  }
+
+  .modalContainer>img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modalContainer>h4 {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .modalContainer>p {
+    font-size: 12px;
+    line-height: 23px;
+    width: auto;
+  }
+
+  .modalContainer>button {
+    width: 95px;
+    margin-top: 1rem;
+  }
+}

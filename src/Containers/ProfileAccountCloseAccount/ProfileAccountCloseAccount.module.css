@@ -1,0 +1,116 @@
+.container > h4 {
+  color: var(--red);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 1rem;
+}
+
+.container > ul {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin-left: -20px;
+}
+
+.container > button {
+  width: 177px;
+  margin-top: 24px;
+}
+
+.modalContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modalInnerContainer,
+.modalInnerContainer2 {
+  width: 80%;
+}
+
+.modalInnerContainer2 {
+  text-align: center;
+  width: 80%;
+}
+
+.modalInnerContainer > h4,
+.modalInnerContainer2 > h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.5rem;
+}
+
+.modalInnerContainer > p,
+.modalInnerContainer2 > p {
+  color: var(--grey3);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin-bottom: 1.5rem;
+}
+
+.modalButtonSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 40px;
+}
+
+.modalButtonSection > button {
+  max-width: 177px;
+}
+
+.modalInnerContainer2 > button {
+  width: 100%;
+  margin: auto;
+  max-width: 226px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container > h4 {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 0.5rem;
+  }
+
+  .container > ul {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .container > button {
+    width: 154px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container > h4 {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 0.5rem;
+  }
+
+  .container > ul {
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .container > button {
+    width: 154px;
+  }
+}

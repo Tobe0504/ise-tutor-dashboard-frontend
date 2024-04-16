@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  margin-block: 24px;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header>div:nth-child(1)>h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.8rem;
+}
+
+.header>div:nth-child(1)>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.header>div:nth-child(2) {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--purple);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+
+.schedules {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  min-width: 800px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+}
+
+.schedules::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1240px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .header>div:nth-child(2) {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .header>div:nth-child(2) {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .schedules {
+    min-width: 100%;
+    flex-direction: column;
+  }
+}

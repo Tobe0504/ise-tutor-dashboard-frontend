@@ -1,0 +1,228 @@
+.container {
+    display: flex;
+    margin-block: 24px;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-inline: 1.5rem;
+    flex-direction: column;
+    background: var(--white);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.body p {
+    text-align: start;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--grey3);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.tableHeader,
+.tableBody {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--grey);
+    padding: 20px 0;
+}
+
+.tableHeader {
+    font-family: Archivo;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    border-bottom: 1px solid var(--grey3);
+}
+
+.tableBody>div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    display: block;
+    color: var(--grey);
+    font-family: Archivo;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.tableHeader>span,
+.tableBody>span {
+    flex: 1;
+}
+
+.tableHeader>span:nth-child(1),
+.tableBody>span:nth-child(1) {
+    flex: 2;
+}
+
+.tableBody {
+    color: var(--grey);
+    font-family: Archivo;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    border-bottom: 1px solid var(--disabled);
+}
+
+.tableBody:last-child {
+    border-bottom: 0px solid var(--disabled);
+}
+
+.pass {
+    padding-left: 1rem;
+    text-transform: capitalize;
+    color: var(--successGreen);
+}
+
+.fail {
+    padding-left: 1rem;
+    text-transform: capitalize;
+    color: var(--deleteRed);
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 1.7rem;
+}
+
+
+.pageButtons button {
+    width: 60px;
+    height: 60px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .container {
+        padding: 16px;
+        margin-inline: 0;
+    }
+
+    .tableHeader,
+    .tableBody {
+        gap: 1.5rem;
+        padding: 12px 0;
+    }
+
+    .tableHeader {
+        font-size: 13px;
+        line-height: 140%;
+    }
+
+    .tableHeader>span:last-child,
+    .tableBody>span:last-child,
+    .tableHeader>span:nth-child(3),
+    .tableBody>span:nth-child(3) {
+        display: none !important;
+    }
+
+    .tableBody>div:nth-child(1) {
+        gap: 1rem;
+    }
+
+    .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .tableBody>span:last-child {
+        color: var(--deleteRed);
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 16px;
+        margin-inline: 0;
+    }
+
+    .body p {
+        font-style: normal;
+    }
+
+    .tableHeader,
+    .tableBody {
+        gap: 1.5rem;
+        padding: 12px 0;
+        text-align: left;
+    }
+
+    .tableHeader {
+        font-size: 13px;
+        line-height: 140%;
+    }
+
+    .tableHeader>span:last-child,
+    .tableBody>span:last-child,
+    .tableHeader>span:nth-child(2),
+    .tableBody>span:nth-child(2),
+    .tableHeader>span:nth-child(3),
+    .tableBody>span:nth-child(3) {
+        display: none !important;
+    }
+
+    .tableBody>div:nth-child(1) {
+        gap: 1rem;
+    }
+
+    .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .tableBody>span:last-child {
+        color: var(--deleteRed);
+        cursor: pointer;
+    }
+
+    .pageButtons button {
+        height: 50px;
+        width: 50px;
+    }
+}

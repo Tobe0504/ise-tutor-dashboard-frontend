@@ -1,0 +1,323 @@
+.container {
+    padding: 2rem 24px;
+}
+
+.quizDataTableContainer {
+    overflow: hidden;
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+}
+
+.body {
+    overflow: auto;
+}
+
+.quizDataTableContainer>p {
+    padding: 1rem;
+    font-size: 16px;
+    text-align: start;
+    line-height: 23px;
+    font-style: italic;
+    font-weight: normal;
+    color: var(--grey3);
+}
+
+.quizHeaderDropdowns {
+    gap: 5%;
+    padding: 1rem;
+    display: flex;
+    margin: 24px 0;
+    flex-wrap: wrap;
+    padding: 40px 32px 16px;
+    border-radius: 10px;
+    background: var(--white);
+    justify-content: flex-start;
+}
+
+.quizHeaderDropdowns>div {
+    width: 100%;
+    max-width: 320px;
+}
+
+.completedDate {
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.completedDate label {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.completedDate label::after {
+    content: "*";
+    color: var(--red);
+    margin-left: 2px;
+}
+
+.completedDate input {
+    width: 100%;
+    height: 60px;
+    outline: none;
+    padding: 0 12px;
+    user-select: none;
+    position: relative;
+    border-radius: 5px;
+    font-family: Archivo;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    border: 1px solid var(--grey3);
+}
+
+.completedDate input[type=date]:before {
+    color: #414141;
+    font-family: Archivo;
+    content: attr(placeholder);
+}
+
+.completedDate input[type=date]:focus,
+.completedDate input[type=date]:valid {
+    color: #414141;
+    font-family: Archivo;
+}
+
+.completedDate input[type=date]:focus:before,
+.completedDate input[type=date]:valid:before {
+    content: "" !important;
+    font-family: Archivo;
+}
+
+.completedDate input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+
+.selectDate {
+    position: relative;
+}
+
+.completedDate img {
+    top: 20px;
+    right: 5%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.tableHeader,
+.tableBody {
+    gap: 2rem;
+    display: grid;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 40px 2rem;
+    align-items: center;
+    border-bottom: 1px solid var(--sectionBorder);
+    grid-template-columns: minmax(200px, 1fr) 80px 150px 80px 140px;
+}
+
+.tableBody {
+    padding-bottom: 1rem;
+}
+
+.tableHeader>p,
+.tableBody>p {
+    display: none;
+}
+
+.tableBody:last-child {
+    padding-bottom: 2rem;
+}
+
+.pageButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-block: 1.7rem;
+}
+
+.pageButtons button {
+    width: 48px;
+    height: 48px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--purple);
+    cursor: pointer;
+    color: var(--white);
+    background: var(--purple);
+    transition: var(--threeSecTransition);
+}
+
+.pageButtons>span {
+    width: 40px;
+    height: 40px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--sectionBorder);
+    cursor: pointer;
+    transition: var(--threeSecTransition);
+}
+
+
+.pageButtons>span:hover {
+    background: var(--purple);
+}
+
+
+.pageButtons>span>svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (min-width: 1023px) and (max-width: 1100px) {
+    .quizHeaderDropdowns>div {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .completedDate img {
+        right: 2%;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1023px) {
+    .container {
+        padding: 1rem;
+        background: var(--white);
+    }
+
+    .quizHeaderDropdowns {
+        padding: 24px 16px;
+    }
+
+    .completedDate label {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .completedDate input {
+        height: 50px;
+    }
+
+    .completedDate img {
+        top: 15px;
+        right: 5%;
+    }
+
+    .tableBodyContainer {
+        margin-top: 1rem;
+    }
+
+    .tableHeader,
+    .tableBody {
+        font-size: 12px;
+        line-height: 18px;
+        padding: 1rem 0;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 150px 80px;
+    }
+
+    .tableHeader>span:nth-child(6),
+    .tableBody>span:nth-child(6) {
+        display: none;
+    }
+
+    .tableBody>span:nth-child(5) {
+        text-align: start;
+    }
+
+    .tableHeader>p,
+    .tableBody>p {
+        display: block;
+    }
+}
+
+@media (max-width: 740px) {
+    .container {
+        padding: 1rem;
+        background: var(--white);
+    }
+
+    .quizHeaderDropdowns {
+        padding: 0;
+        margin: 40px 0 0;
+    }
+
+    .quizDataTableContainer {
+        padding: 2rem 0;
+    }
+
+    .quizHeaderDropdowns>div {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    .completedDate {
+        margin-bottom: 0;
+    }
+
+    .completedDate label {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .completedDate input {
+        height: 50px;
+    }
+
+    .completedDate img {
+        top: 15px;
+        right: 3%;
+    }
+
+    .quizDataTableContainer {
+        margin: 0;
+    }
+
+    .quizDataTableContainer>p {
+        font-style: normal;
+        padding: 1rem;
+    }
+
+    .tableBodyContainer {
+        margin-top: 1rem;
+    }
+
+    .tableHeader,
+    .tableBody {
+        font-size: 13px;
+        line-height: 18px;
+        padding: 1rem;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 80px;
+
+    }
+
+    .tableHeader>span:nth-child(4),
+    .tableBody>span:nth-child(4),
+    .tableHeader>span:nth-child(6),
+    .tableBody>span:nth-child(6) {
+        display: none;
+    }
+
+    .tableBody>span:nth-child(5) {
+        text-align: start;
+    }
+
+    .tableHeader>p,
+    .tableBody>p {
+        display: block;
+    }
+}

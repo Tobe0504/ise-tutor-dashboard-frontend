@@ -11,7 +11,7 @@ const LoginEmailTemplate = () => {
   const navigate = useNavigate();
 
   return (
-    <section className={classes.container}> 
+    <section className={classes.container}>
       <div>
         <header className={classes.header}>
           <img src={iseLogo} alt="Ise Logo" className={classes.logo} />
@@ -64,7 +64,7 @@ const LoginEmailTemplate = () => {
                     d="M17.5 8L21.5 12M21.5 12L17.5 16M21.5 12L3.5 12"
                     stroke="white"
                     strokeWidth="2"
-                    strokeLinecap="round"
+                    stroke-linecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>

@@ -1,0 +1,37 @@
+.container {
+    width: 100%;
+    max-width: 426px;
+}
+
+.container>h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.body {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1147px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .container>h2 {
+        font-size: 18px;
+        line-height: 29px;
+    }
+
+    .body {
+        gap: 1rem;
+    }
+}

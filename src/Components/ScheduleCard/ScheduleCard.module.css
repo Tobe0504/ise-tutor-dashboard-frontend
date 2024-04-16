@@ -1,0 +1,96 @@
+.list {
+    padding: 1rem;
+    border-radius: 10px;
+    background: var(--white);
+    border: 0.5px solid var(--sectionBorder);
+}
+
+.list .top {
+    gap: 0.8rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.list .top span {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.list .top>.ellipses {
+    flex: 1 1;
+    height: 5px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+    justify-content: flex-end;
+}
+
+.list h4 {
+    font-size: 18px;
+    line-height: 29px;
+    font-weight: 600;
+    padding-block: 10px;
+}
+
+.list .bottom {
+    gap: 2rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.list .bottom a {
+    text-decoration: none;
+    color: var(--purple);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.popover {
+    top: 15px;
+    z-index: 2;
+    right: 0px;
+    position: absolute;
+    border-radius: 10px;
+    background: var(--white);
+    border: 1px solid rgba(222, 222, 222, 0.729);
+    box-shadow: 0px 0px 10px rgba(27, 27, 27, 0.125);
+}
+
+@media screen and (min-width: 400px) and (max-width: 1023px) {
+    .list .bottom {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .list {
+        border: none;
+        padding: 0.8rem;
+    }
+
+    .list h4 {
+        font-size: 14px;
+        line-height: 23px;
+        padding-block: 6px;
+    }
+
+    .list .top span {
+        font-size: 12px;
+    }
+
+    .list .bottom {
+        gap: 1rem;
+    }
+
+    .list .bottom img {
+        height: 20px;
+        object-fit: cover;
+    }
+
+    .list .bottom a {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,121 @@
+.header {
+    gap: 1.5rem;
+    display: flex;
+    margin-top: 40px;
+    padding: 10px 1.5rem;
+    background: var(--white);
+    justify-content: space-between;
+    border-bottom: 1px solid var(--sectionBorder);
+}
+
+.header div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header div label {
+    margin-top: 0.75rem;
+}
+
+.header div img {
+    width: 50px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.header div span {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--purple);
+}
+
+.header div:nth-child(3) {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.header p {
+    text-align: end;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    color: var(--grey3);
+    font-style: italic;
+}
+
+.studentSeachInput {
+    margin-top: 40px;
+    padding: 1.5rem 2rem;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--white);
+}
+
+.inputSection {
+    width: 100%;
+    max-width: 646px;
+    position: relative;
+}
+
+.inputSection>input {
+    width: 100%;
+    padding: 11px 40px 11px 84px;
+    border-radius: 10px;
+    border: 1px solid var(--foundation-grey-g-50, #d8d8d8);
+    background: var(--white-body-text, #fff);
+    color: var(--foundation-grey-g-900, #2e2e2e);
+    font-family: Archivo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    outline: none;
+}
+
+.inputSection>svg {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+
+    .header {
+        padding: 1rem;
+    }
+
+    .studentSeachInput {
+        padding: 0;
+        background: transparent;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .header {
+        padding: 1rem;
+    }
+
+    .header p,
+    .header div span {
+        font-size: 12px;
+        line-height: 18px;
+        font-style: normal;
+    }
+
+    .studentSeachInput {
+        padding: 0;
+        background: transparent;
+    }
+
+    .inputSection>input {
+        font-size: 16px;
+    }
+}

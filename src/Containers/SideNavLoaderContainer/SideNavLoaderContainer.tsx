@@ -21,7 +21,6 @@ const SideNavLoaderContainer = () => {
         <div className={`${classes.navItem} ${classes.lastNavItem}`}>
             <Skeleton variant="circular" width={15} height={15} />
             <Skeleton variant="rounded" height={15} animation="wave" />
-
         </div>
     </div>
 }

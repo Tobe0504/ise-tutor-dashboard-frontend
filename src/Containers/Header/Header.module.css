@@ -1,0 +1,147 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px 0 24px;
+  height: 100%;
+}
+
+.inputSection {
+  width: 426px;
+  position: relative;
+}
+
+.inputSection>input {
+  width: 100%;
+  padding: 11px 40px 11px 84px;
+  border-radius: 10px;
+  border: 1px solid var(--foundation-grey-g-50, #d8d8d8);
+  background: var(--white-body-text, #fff);
+  color: var(--foundation-grey-g-900, #2e2e2e);
+  font-family: Archivo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 29px;
+  outline: none;
+}
+
+.inputSection>svg {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.notitication {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.notitication>div {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--red2);
+  position: absolute;
+  right: 8px;
+  top: 5px;
+  border-radius: 50%;
+}
+
+.userSection>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.userSection>img {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.logoHeader {
+  width: 35px;
+  height: 33px;
+}
+
+.logo {
+  display: none;
+}
+
+.sideNavIndicator {
+  display: none;
+  margin-left: auto;
+}
+
+.sideNav {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 20;
+  background-color: var(--white);
+  overflow: hidden;
+  width: 0;
+  transition: 0.3s;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo,
+  .sideNavIndicator {
+    display: block;
+  }
+
+  .inputSection,
+  .userSection,
+  .logoHeader {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .logo,
+  .sideNavIndicator {
+    display: block;
+  }
+
+  .logo,
+  .logoHeader {
+    width: 35px;
+    height: 33px;
+  }
+
+  .inputSection,
+  .userSection,
+  .logoHeader {
+    display: none;
+  }
+}

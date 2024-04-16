@@ -11,6 +11,7 @@ export type DropdownProps = {
   label?: string;
   isRequired?: boolean;
   errorMessage?: string;
+  image?: string;
 };
 
 const DropdownWithSearch = (props: DropdownProps) => {
@@ -71,9 +72,8 @@ const DropdownWithSearch = (props: DropdownProps) => {
       )}
 
       <div
-        className={`${classes.dropdown} ${
-          invalid ? classes.invalid : classes.valid
-        } ${isActive ? classes.active : classes.inActive}`}
+        className={`${classes.dropdown} ${invalid ? classes.invalid : classes.valid
+          } ${isActive ? classes.active : classes.inActive}`}
         ref={dropdownRef}
       >
         <div
@@ -118,7 +118,7 @@ const DropdownWithSearch = (props: DropdownProps) => {
               d="M19 9L12 16L5 9"
               stroke="#737373"
               strokeWidth="2"
-              strokeLinecap="round"
+              stroke-linecap="round"
               strokeLinejoin="round"
             />
           </svg>
@@ -126,7 +126,7 @@ const DropdownWithSearch = (props: DropdownProps) => {
         {isActive && (
           <div
             className={classes.dropdownContent}
-            // onClick={props.onClick}
+          // onClick={props.onClick}
           >
             {props.options && props.options?.length > 8 && (
               <div className={classes.inputSection}>
@@ -146,8 +146,8 @@ const DropdownWithSearch = (props: DropdownProps) => {
                   return keyPressedValue.toLowerCase() === ""
                     ? option
                     : option
-                        ?.toLowerCase()
-                        ?.includes(keyPressedValue?.toLowerCase());
+                      ?.toLowerCase()
+                      ?.includes(keyPressedValue?.toLowerCase());
                 })
                 ?.map((option, i) => {
                   return (

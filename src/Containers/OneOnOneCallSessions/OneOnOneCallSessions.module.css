@@ -1,0 +1,39 @@
+.container {
+    overflow: auto;
+}
+
+.container::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: #A79AFE;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.container ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    gap: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1023px) {
+    .container {
+        padding: 0;
+    }
+
+    .container ul {
+        gap: 1rem;
+    }
+}

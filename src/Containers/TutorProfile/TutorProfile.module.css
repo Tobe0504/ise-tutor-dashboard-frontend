@@ -1,0 +1,38 @@
+.sectionsNavSection {
+  padding: 1.5rem 2rem;
+  background: var(--white);
+}
+
+.body {
+  border-radius: 10px;
+  border: 1px solid var(--sectionBorder);
+  background: var(--white);
+  padding: 40px 2rem;
+  margin: 1.5rem;
+}
+
+@media screen and (min-width: 737px) and (max-width: 1023px) {
+  .sectionsNavSection {
+    padding: 0 1rem;
+  }
+
+  .body {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: -1rem;
+    background: var(--white);
+  }
+
+  .sectionsNavSection {
+    padding: 0 1rem;
+  }
+
+  .body {
+    margin: 0;
+    border: none;
+  }
+}

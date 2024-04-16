@@ -1,0 +1,98 @@
+.container {
+  padding: 40px 2rem;
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 50px;
+  margin-bottom: 40px;
+}
+
+.header>svg {
+  height: 35px;
+  cursor: pointer;
+}
+
+.recipient {
+  gap: 2rem;
+  display: flex;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400 !important;
+}
+
+.recipient div {
+  gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipient h4,
+.recipient p {
+  color: var(--grey3);
+  white-space: nowrap;
+}
+
+.recipient span {
+  color: var(--grey);
+  white-space: nowrap;
+}
+
+.textareaSection {
+  margin-top: 40px;
+}
+
+.footer {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: calc(40px - 1rem);
+}
+
+.footer>button:nth-child(1) {
+  background: var(--white);
+  color: var(--purple);
+  width: 130px;
+}
+
+.footer>button {
+  width: 180px;
+  border: 2px solid var(--purple);
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .recipient {
+    gap: 1.5rem;
+  }
+
+  .recipient span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}

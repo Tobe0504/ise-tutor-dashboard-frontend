@@ -1,0 +1,435 @@
+.container {
+    width: 100%;
+    display: flex;
+    padding: 32px 0;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h1 {
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.container .addLesson {
+    gap: 1.5rem;
+    display: flex;
+    margin-top: 2rem;
+    padding: 40px 32px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+}
+
+.container .body {
+    padding: 0;
+    background: transparent;
+}
+
+.sectionsNavSection {
+    padding: 40px 32px 0;
+    background: var(--white);
+    border-radius: 10px 10px 0 0;
+}
+
+.sectionsNavSection>h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.addLesson button {
+    padding: 10px 30px;
+}
+
+.addLesson button:nth-child(3) {
+    flex: 1;
+    color: var(--red);
+    background: var(--white);
+    justify-content: flex-start;
+}
+
+.addLesson .inactivePrimary {
+    pointer-events: none;
+    color: var(--white);
+    background: var(--disabled);
+}
+
+.addLesson .inactiveSecondary {
+    pointer-events: none;
+    color: var(--disabled);
+    border-color: var(--disabled);
+}
+
+.buttonContainer {
+    flex-wrap: wrap;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+}
+
+.addVideoResources,
+.bulkUpload {
+    gap: 1.5rem;
+    width: 100%;
+    display: flex;
+    padding: 0 32px 40px;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+}
+
+.bulkUpload ul {
+    margin-top: 20px;
+    list-style-type: disc;
+    padding-inline-start: 12px;
+}
+
+.bulkUpload .info,
+.bulkUpload ul li {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+    margin-bottom: 5px;
+}
+
+.bulkUpload .info {
+    padding: 8px;
+    margin-top: -1rem;
+    background: #FFEDAD;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.videoInfo {
+    padding: 8px;
+    margin-top: -5px;
+    background: #DCD7FE;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.fileUpload {
+    padding: 10px;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--veryLightPurple);
+}
+
+.transcriptHeader,
+.fileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-block: 16px;
+    border-bottom: 1px solid var(--veryLightPurple);
+}
+
+.fileHeader h3 {
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 36px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.fileUpload .file {
+    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.thumbnail,
+.fileUpload .videoUploaded {
+    gap: 24px;
+    display: flex;
+    padding: 24px 16px;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fileUpload .file>button {
+    color: var(--black);
+    height: fit-content;
+    border: 1px solid var(--black);
+}
+
+.fileUpload .file>div {
+    flex: 1;
+    width: 100%;
+    max-width: 280px;
+    min-width: 230px;
+}
+
+.thumbnail span,
+.fileUpload .file>div>p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+    margin-bottom: 1rem;
+}
+
+.fileUpload .file>div>span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.transcript {
+    padding: 40px 16px;
+    border-radius: 10px;
+    background: var(--bodyBackgroundColor);
+}
+
+.transcriptHeader {
+    border: none;
+    padding: 0;
+}
+
+.thumbnail {
+    gap: 10px;
+    padding-inline: 0;
+    align-items: flex-start;
+}
+
+.transcriptHeader>h3,
+.thumbnail>h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.thumbnail span {
+    margin-bottom: 0;
+    color: var(--grey3);
+}
+
+.thumbnail>label {
+    width: 100%;
+    display: flex;
+    padding: 10px 10px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--disabled);
+}
+
+.thumbnail>label input[type="file"] {
+    display: none;
+}
+
+.addVideoResources>div:nth-child(1) {
+    gap: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 1rem;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.addVideoResources>.continueButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.addVideoResources>.continueButton button {
+    color: var(--white);
+    background: var(--purple);
+}
+
+@media screen and (min-width: 779px) and (max-width: 1023px) {
+    .container {
+        gap: 1.2rem;
+        padding: 16px;
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 16px;
+    }
+
+    .addVideoResources,
+    .sectionsNavSection,
+    .bulkUpload {
+        padding: 10px;
+    }
+
+    .buttonContainer {
+        justify-content: center !important;
+        border: 1px solid var(--veryLightPurple);
+    }
+
+    .addLesson button:nth-child(3) {
+        flex: unset;
+        justify-content: unset;
+    }
+
+    .transcriptHeader,
+    .fileHeader {
+        padding-block: 8px;
+    }
+
+    .fileHeader h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .thumbnail,
+    .fileUpload .videoUploaded {
+        padding: 16px 0 0;
+    }
+
+    .addVideoResources>div:nth-child(1),
+    .fileUpload .file>div>p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .addVideoResources {
+        gap: 0;
+    }
+
+    .addVideoResources>div:nth-child(1) {
+        margin: 0 0 1.5rem;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .container {
+        padding: 0;
+        gap: 1.2rem;
+        background: var(--white);
+    }
+
+    .container .addLesson {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .container h1 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 1.5rem;
+    }
+
+    .addVideoResources,
+    .sectionsNavSection,
+    .bulkUpload {
+        padding: 0;
+    }
+
+    .sectionsNavSection>h2 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .bulkUpload .info,
+    .bulkUpload ul li {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .fileUpload>h3 {
+        font-size: 18px;
+        line-height: 26px;
+        padding-block: 7px;
+    }
+
+    .fileUpload .file {
+        padding: 10px;
+    }
+
+    .addVideoResources>div:nth-child(1),
+    .fileUpload .file>div>p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .transcriptHeader,
+    .fileHeader {
+        padding-block: 8px;
+    }
+
+    .fileHeader h3 {
+        font-size: 18px;
+        line-height: 27px;
+    }
+
+    .thumbnail,
+    .fileUpload .videoUploaded {
+        padding: 16px 0 0;
+    }
+
+    .addVideoResources>div:nth-child(1),
+    .fileUpload .file>div>p {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    .addVideoResources {
+        gap: 0;
+    }
+
+    .addVideoResources>div:nth-child(1) {
+        margin: 0 0 1.5rem;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .buttonContainer {
+        padding: 20px 10px !important;
+        justify-content: center !important;
+        border: 1px solid var(--veryLightPurple);
+    }
+
+    .addLesson button:nth-child(3) {
+        flex: unset;
+        justify-content: unset;
+    }
+}

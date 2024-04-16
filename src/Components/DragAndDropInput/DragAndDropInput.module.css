@@ -1,0 +1,98 @@
+.container>label:first-child {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.dropContainer {
+  gap: 1rem;
+  padding: 1rem;
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  user-select: none;
+  min-height: 150px;
+  margin-top: 0.5rem;
+  font-style: normal;
+  border-radius: 5px;
+  align-items: center;
+  color: var(--grey3);
+  font-family: Archivo;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px dashed var(--borderPurple);
+}
+
+.dropContainer>label {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropContainer input[type="file"] {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.valid {
+  border: 1px solid var(--grey);
+  color: var(--grey);
+}
+
+.invalid {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.errorMessage {
+  color: var(--red);
+  font-family: Archivo;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  animation: appear 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .dropContainer {
+    gap: 0.5rem;
+    font-size: 12px;
+    line-height: 23px;
+    border: 2px dashed var(--borderPurple);
+  }
+
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dropContainer {
+    gap: 0.5rem;
+    margin: auto;
+    font-size: 12px;
+    line-height: 23px;
+    min-height: 100px;
+    text-align: center;
+    border: 1px dashed var(--borderPurple);
+  }
+
+  .container>label:first-child {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .errorMessage {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}

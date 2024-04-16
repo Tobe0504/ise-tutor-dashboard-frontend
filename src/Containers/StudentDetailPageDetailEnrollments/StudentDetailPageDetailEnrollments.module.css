@@ -1,0 +1,251 @@
+.container {
+  display: flex;
+  margin-block: 24px;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin-inline: 1.5rem;
+  flex-direction: column;
+  background: var(--white);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.body {
+  overflow: auto;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--sectionBorder);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.header>div:nth-child(1)>h4 {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px;
+  margin-bottom: 0.8rem;
+}
+
+.header>div:nth-child(1)>p {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.tableHeader,
+.tableBody {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  color: var(--grey);
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.tableHeader {
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  border-bottom: 1px solid var(--sectionBorder);
+}
+
+.tableHeader>span {
+  flex: 1;
+}
+
+.tableBody>div:nth-child(1),
+.tableBody>div:nth-child(3) {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.user {
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+  display: block;
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.progressSection {
+  flex: 1;
+  gap: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.performanceProgressBar {
+  width: 100%;
+  max-width: 350px;
+}
+
+.progressBar {
+  background-color: var(--successGreen) !important;
+}
+
+.tableBody {
+  color: var(--grey);
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.success {
+  color: var(--successGreen);
+}
+
+.fail {
+  color: var(--deleteRed);
+}
+
+@media screen and (min-width: 767px) and (max-width: 1240px) {
+  .container {
+    padding: 24px 1.5rem;
+    margin-inline: 0;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 1.5rem;
+    padding: 12px 0;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableBody>div:nth-child(1) {
+    gap: 1rem;
+    flex: unset;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>div:nth-child(3) {
+    flex: unset !important;
+  }
+
+  .tableBody>span:last-child {
+    color: var(--deleteRed);
+    cursor: pointer;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 24px 1.5rem;
+    margin-inline: 0;
+  }
+
+  .header>div:nth-child(1)>h4 {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  .header>div:nth-child(1)>p {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .tableHeader,
+  .tableBody {
+    gap: 1.5rem;
+    padding: 15px 0;
+    flex-wrap: wrap;
+    min-width: 385px;
+  }
+
+  .tableHeader {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>span:nth-child(3) {
+    flex: unset !important;
+  }
+
+  .tableBody>div:nth-child(1) {
+    white-space: pre-wrap;
+  }
+
+  .tableBody>div:nth-child(1)>span:nth-child(2)>span:nth-child(2) {
+    font-size: 13px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+
+  .tableHeader>span:not(span:nth-child(1)),
+  .tableBody>span:not(div:nth-child(1)) {
+    flex: 1;
+  }
+
+  .tableHeader>span:nth-child(3),
+  .tableBody>div:nth-child(3) {
+    flex: unset;
+  }
+
+  .progressSection {
+    flex-direction: column;
+  }
+
+  .progressSection span {
+    text-align: end;
+    width: 100%;
+  }
+}

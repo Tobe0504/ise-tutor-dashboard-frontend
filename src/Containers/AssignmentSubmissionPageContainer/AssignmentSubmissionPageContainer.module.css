@@ -1,0 +1,134 @@
+.breadCrumbs,
+.textField {
+    padding: 24px;
+    background: var(--white);
+}
+
+.textField,
+.textField .body,
+.textField .body .content:first-child {
+    gap: 40px;
+    margin: 2rem;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textField .body,
+.textField .body .content {
+    display: flex;
+    border-radius: 10px;
+    margin: 0 !important;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textField .body .content>h4 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.textField .body .content ul {
+    list-style: disc;
+    margin-bottom: 2rem;
+}
+
+.textField .body .content>p,
+.textField .body .content ul li {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    font-style: normal;
+    color: var(--grey);
+    font-family: Archivo;
+}
+
+.textField .header {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--disabled);
+}
+
+.textField .header>h2 {
+    font-size: 31px;
+    font-weight: 500;
+    line-height: 41px;
+    font-style: normal;
+    color: var(--grey);
+    padding-bottom: 10px;
+    font-family: Archivo;
+}
+
+.footer {
+    gap: 10%;
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--disabled);
+}
+
+.footer>div {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.footer>div span {
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 25px;
+    font-style: normal;
+    color: var(--purple);
+    font-family: Archivo;
+    white-space: nowrap;
+}
+
+.textField button {
+    width: 192px;
+    display: none;
+    margin-top: 1.5rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .breadCrumbs,
+    .textField,
+    .textField .body,
+    .textField .body .content {
+        border-radius: 0;
+        gap: 20px !important;
+        margin: 0rem !important;
+        padding: 1rem !important;
+    }
+
+    .textField .body,
+    .textField .body .content {
+        padding: 0 !important;
+    }
+
+    .textField .header>h2 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .textField .body .content>h4,
+    .textField .body .content>p,
+    .textField .body .content ul li {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .footer {
+        display: none;
+    }
+
+    .textField button {
+        display: block;
+    }
+}
