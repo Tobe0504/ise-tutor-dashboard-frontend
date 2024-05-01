@@ -1,23 +1,14 @@
-.container {
-    height: 100%;
-    overflow: hidden;
-    margin-top: 40px;
-    background-color: var(--white);
-}
-
-.divider {
-    border-bottom: 1px solid var(--greyWhite);
-}
-
 .header {
     gap: 1.5rem;
     display: flex;
-    padding: 1.5rem 2rem;
+    margin-top: 40px;
+    padding: 10px 1.5rem;
+    background: var(--white);
     justify-content: space-between;
+    border-bottom: 1px solid var(--sectionBorder);
 }
 
 .header div {
-    gap: 5px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -57,58 +48,52 @@
     font-style: italic;
 }
 
-.pageButtons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    padding-block: 1.7rem;
+.studentSeachInput {
+    margin-top: 40px;
+    padding: 1.5rem 2rem;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--white);
 }
 
-
-.pageButtons button {
-    width: 60px;
-    height: 60px;
-    border: var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid var(--purple);
-    cursor: pointer;
-    color: var(--white);
-    background: var(--purple);
-    transition: var(--threeSecTransition);
+.inputSection {
+    width: 100%;
+    max-width: 646px;
+    position: relative;
 }
 
-.pageButtons>span {
-    width: 40px;
-    height: 40px;
-    border: var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 1px solid var(--sectionBorder);
-    cursor: pointer;
-    transition: var(--threeSecTransition);
+.inputSection>input {
+    width: 100%;
+    padding: 11px 40px 11px 84px;
+    border-radius: 10px;
+    border: 1px solid var(--foundation-grey-g-50, #d8d8d8);
+    background: var(--white-body-text, #fff);
+    color: var(--foundation-grey-g-900, #2e2e2e);
+    font-family: Archivo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 29px;
+    outline: none;
 }
 
-
-.pageButtons>span:hover {
-    background: var(--purple);
-}
-
-
-.pageButtons>span>svg {
-    width: 24px;
-    height: 24px;
+.inputSection>svg {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
 
     .header {
         padding: 1rem;
+    }
+
+    .studentSeachInput {
+        padding: 0;
+        background: transparent;
     }
 }
 
@@ -118,8 +103,19 @@
         padding: 1rem;
     }
 
-    .pageButtons button {
-        height: 50px;
-        width: 50px;
+    .header p,
+    .header div span {
+        font-size: 12px;
+        line-height: 18px;
+        font-style: normal;
+    }
+
+    .studentSeachInput {
+        padding: 0;
+        background: transparent;
+    }
+
+    .inputSection>input {
+        font-size: 16px;
     }
 }

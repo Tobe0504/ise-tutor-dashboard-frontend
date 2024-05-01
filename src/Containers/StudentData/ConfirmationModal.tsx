@@ -1,6 +1,6 @@
-import classes from "../PaidCourses/PaidCourses.module.css";
 import Button from "../../Components/Button/Button";
 import success from "../../Assets/Gifs/success.gif";
+import classes from "../PaidCourses/PaidCourses.module.css";
 
 type ConfirmationModalProps = {
   onClick: () => void;

@@ -86,8 +86,6 @@
 @media screen and (max-width: 1268px) {
     .subContainer {
         padding: 16px;
-        max-width: 100%;
-        min-width: 100%;
     }
 }
 

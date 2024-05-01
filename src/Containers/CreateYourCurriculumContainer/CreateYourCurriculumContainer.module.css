@@ -70,7 +70,7 @@
     margin: 1rem 0;
 }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1280px) {
     .subContainer {
         max-width: 100%;
         padding: 0;

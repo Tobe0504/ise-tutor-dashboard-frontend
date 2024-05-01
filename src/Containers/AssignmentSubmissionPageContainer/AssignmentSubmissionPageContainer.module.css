@@ -85,6 +85,7 @@
     font-style: normal;
     color: var(--purple);
     font-family: Archivo;
+    white-space: nowrap;
 }
 
 .textField button {

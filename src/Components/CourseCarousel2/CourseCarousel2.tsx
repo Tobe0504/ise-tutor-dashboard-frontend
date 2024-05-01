@@ -77,9 +77,9 @@ const CourseCarousel2 = ({ header, paragraph, data }: CoursesCarousel2Props2) =>
           return (
             <div key={i}>
               <CourseCard2
-                title={data.title}
+                title={data.courseTitle}
                 image={assignCourseImage}
-                description={data.description}
+                description={data.courseDescription}
                 status={data.status}
               />
             </div>

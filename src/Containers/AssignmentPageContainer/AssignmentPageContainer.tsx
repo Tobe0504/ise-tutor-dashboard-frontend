@@ -8,13 +8,14 @@ import ellipses from '../../Assets/Images/ellipses.svg'
 import classes from './AssignmentPageContainer.module.css'
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import SendMessageModal from './SendMessageModal/SendMessageModal'
-import PopoverModal from '../../Components/Modals/PopoverModal/PopoverModal'
 import GradeSubmissionModal from './GradeSubmissionModal/GradeSubmissionModal'
 import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import RejectSubmissionModal from './RejectSubmissionModal/RejectSubmissionModal'
 import AssignmentSummaryModal from './AssignmentSummaryModal/AssignmentSummaryModal'
 import ApproveSubmissionModal from './ApproveSubmissionModal/ApproveSubmissionModal'
 import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch'
+import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
+import noResultFound from "../../Assets/Images/noResult.svg";
 
 const AssignmentPageContainer = () => {
   // Context
@@ -25,7 +26,6 @@ const AssignmentPageContainer = () => {
   const [studentsData, setStudentData] = useState(students)
   const [filterValue, setFilterValue] = useState('')
 
-  const [displayActionsModal, setDisplayActionsModal] = useState(false)
   const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] =
     useState(false)
   const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] =
@@ -46,7 +46,7 @@ const AssignmentPageContainer = () => {
   const optionsRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const courses = ['All']
+  const courses = ['All Courses']
 
   for (let i = 0; i < students.length; i++) {
     if (!(courses as string[]).includes(students[i].course)) {
@@ -56,7 +56,7 @@ const AssignmentPageContainer = () => {
 
   const filterHandler = () => {
     const studentsCopy = students.filter((data) => {
-      if (courseSelected === 'All') {
+      if (courseSelected === 'All Courses') {
         return (
           data?.studentName.toLowerCase().includes(filterValue.toLowerCase()) ||
           data?.fileName.toLowerCase().includes(filterValue.toLowerCase())
@@ -75,14 +75,13 @@ const AssignmentPageContainer = () => {
   const optionsChangeHandler = (index: number) => {
     const studentsCopy = studentsData.map((data, i) => {
       if (i === index) {
-        return { ...data, displayOptions: true }
+        return { ...data, displayOptions: !data.displayOptions };
       }
+      return { ...data, displayOptions: false };
+    });
 
-      return { ...data, displayOptions: false }
-    })
-
-    setStudentData(studentsCopy)
-  }
+    setStudentData(studentsCopy);
+  };
 
   useEffect(() => {
     filterHandler()
@@ -121,12 +120,10 @@ const AssignmentPageContainer = () => {
           }}
           body={
             <ApproveSubmissionModal
-              title="Notice"
               onClick={() => {
                 setDisplayApproveSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayGradeSubmissionModal(true)
               }}
             />
@@ -155,7 +152,7 @@ const AssignmentPageContainer = () => {
       )}
       {displayGradeSubmissionToast && (
         <Toast
-          toastTeaxt="Grade successfully recorded!"
+          toastMessage="Grade successfully recorded!"
           onClick={() => {
             setDisplayGradeSubmissionModal(false)
             setDisplayGradeSubmissionToast(false)
@@ -173,7 +170,6 @@ const AssignmentPageContainer = () => {
                 setDisplayRejectSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(true)
               }}
             />
@@ -191,7 +187,6 @@ const AssignmentPageContainer = () => {
                 setDisplaySendMessageModal(false)
               }}
               onClick2={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(true)
               }}
             />
@@ -220,42 +215,9 @@ const AssignmentPageContainer = () => {
           body={
             <MessageSentModal
               onClick={() => {
-                setDisplayActionsModal(false)
                 setDisplayMessageSentModal(false)
                 setDisplayRejectSubmissionModal(false)
                 setDisplaySendMessageModal(false)
-              }}
-            />
-          }
-        />
-      )}
-
-      {displayActionsModal && (
-        <PopoverModal
-          onClick={() => {
-            setDisplayActionsModal(false)
-          }}
-          body={
-            <ActionsModal
-              onClick={() => {
-                setDisplayActionsModal(false)
-                navigate('/student/assignment/assignment-submission')
-              }}
-              onClick2={() => {
-                setDisplayActionsModal(false)
-                setDisplayApproveSubmissionModal(true)
-              }}
-              onClick3={() => {
-                setDisplayActionsModal(false)
-                setDisplayRejectSubmissionModal(true)
-              }}
-              onClick4={() => {
-                setDisplayActionsModal(false)
-                setDisplaySendMessageModal(true)
-              }}
-              onClick5={() => {
-                setDisplayActionsModal(false)
-                setDisplayAssignmentSummaryModal(true)
               }}
             />
           }
@@ -305,7 +267,7 @@ const AssignmentPageContainer = () => {
         />
       </div>
 
-      <div className={classes.body}>
+      <div className={classes.bodyContent}>
         <div>
           <div className={classes.tableHeader}>
             <span>File name</span>
@@ -315,8 +277,8 @@ const AssignmentPageContainer = () => {
             <span>Action</span>
           </div>
 
-          <div className={classes.bodyContent}>
-            {studentsData.map((data, index) => (
+          {studentsData.length > 0 ? (
+            studentsData.map((data, index) => (
               <div key={index} className={classes.tableBody}>
                 <span>
                   <Link to="#0">{data.fileName}</Link>
@@ -338,46 +300,53 @@ const AssignmentPageContainer = () => {
                 >
                   {data.grade}
                 </span>
-                <span
-                  onClick={() => {
-                    optionsChangeHandler(index)
-                  }}
-                >
+                <span onClick={() => { optionsChangeHandler(index) }}>
                   <img src={ellipses} alt="more options" />
                   {data.displayOptions && (
                     <div ref={optionsRef}>
                       <ActionsModal
                         onClick={() => {
-                          setDisplayActionsModal(false)
-                          navigate('/student/assignment/assignment-submission')
+                          optionsChangeHandler(index);
+                          navigate('/student/assignment/assignment-submission');
                         }}
                         onClick2={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayApproveSubmissionModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayApproveSubmissionModal(true);
                         }}
                         onClick3={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayRejectSubmissionModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayRejectSubmissionModal(true);
                         }}
                         onClick4={() => {
-                          setDisplayActionsModal(false)
-                          setDisplaySendMessageModal(true)
+                          optionsChangeHandler(index);
+                          setDisplaySendMessageModal(true);
                         }}
                         onClick5={() => {
-                          setDisplayActionsModal(false)
-                          setDisplayAssignmentSummaryModal(true)
+                          optionsChangeHandler(index);
+                          setDisplayAssignmentSummaryModal(true);
                         }}
                       />
                     </div>
                   )}
                 </span>
               </div>
-            ))}
-          </div>
+            ))
+          ) : (
+            <EmptyTabComponent
+              image={noResultFound}
+              header={`No results found`}
+              firstParagraph='Try a new search'
+              imageHeight={280}
+              route=''
+              buttonType='null'
+            />
+          )}
+        </div>
+        {studentsData.length > 0 && (
           <p className={classes.submission}>
             <span>{studentsData.length}</span> submissions
           </p>
-        </div>
+        )}
       </div>
     </div>
   )

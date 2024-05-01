@@ -1,10 +1,15 @@
 .container {
-    padding: 40px 2rem;
+    padding: 2rem 24px;
 }
 
 .quizDataTableContainer {
+    overflow: hidden;
     background: var(--white);
     border-radius: 0 0 10px 10px;
+}
+
+.body {
+    overflow: auto;
 }
 
 .quizDataTableContainer>p {
@@ -21,12 +26,12 @@
     gap: 5%;
     padding: 1rem;
     display: flex;
-    margin: 40px 0;
+    margin: 24px 0;
     flex-wrap: wrap;
+    padding: 40px 32px 16px;
     border-radius: 10px;
-    align-items: baseline;
+    background: var(--white);
     justify-content: flex-start;
-    background-color: var(--white);
 }
 
 .quizHeaderDropdowns>div {
@@ -64,6 +69,7 @@
     user-select: none;
     position: relative;
     border-radius: 5px;
+    font-family: Archivo;
     box-sizing: border-box;
     -webkit-user-select: none;
     border: 1px solid var(--grey3);
@@ -71,39 +77,49 @@
 
 .completedDate input[type=date]:before {
     color: #414141;
+    font-family: Archivo;
     content: attr(placeholder);
 }
 
 .completedDate input[type=date]:focus,
 .completedDate input[type=date]:valid {
     color: #414141;
+    font-family: Archivo;
 }
 
 .completedDate input[type=date]:focus:before,
 .completedDate input[type=date]:valid:before {
     content: "" !important;
+    font-family: Archivo;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url('../../Assets/Images/calendar.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
+.completedDate input[type="date"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+
+.selectDate {
+    position: relative;
+}
+
+.completedDate img {
+    top: 20px;
+    right: 5%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    pointer-events: none;
 }
 
 .tableHeader,
 .tableBody {
     gap: 2rem;
-    display: flex;
+    display: grid;
     font-size: 16px;
     font-weight: 400;
-    color: var(--grey);
-    font-style: normal;
     padding: 40px 2rem;
     align-items: center;
-    font-family: Archivo;
-    white-space: nowrap;
     border-bottom: 1px solid var(--sectionBorder);
+    grid-template-columns: minmax(200px, 1fr) 80px 150px 80px 140px;
 }
 
 .tableBody {
@@ -119,23 +135,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-bottom: 2rem;
 }
 
-.tableHeader>span:nth-child(2),
-.tableBody>span:nth-child(2) {
-    flex: 2;
-}
-
-.tableHeader>span:nth-child(3),
-.tableHeader>span:nth-child(4),
-.tableHeader>span:nth-child(5),
-.tableHeader>span:nth-child(6),
-
-.tableBody>span:nth-child(3),
-.tableBody>span:nth-child(4),
-.tableBody>span:nth-child(5),
-.tableBody>span:nth-child(6) {
-    flex: 1;
-}
-
 .pageButtons {
     display: flex;
     align-items: center;
@@ -145,8 +144,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .pageButtons button {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
     border: var(--border);
     display: flex;
     align-items: center;
@@ -188,15 +187,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         width: 100%;
         max-width: 100%;
     }
+
+    .completedDate img {
+        right: 2%;
+    }
 }
 
-@media (min-width: 767px) and (max-width: 1240px) {
+@media (min-width: 767px) and (max-width: 1023px) {
     .container {
         padding: 1rem;
+        background: var(--white);
     }
 
-    .quizDataTableContainer {
-        padding: 2rem 1rem;
+    .quizHeaderDropdowns {
+        padding: 24px 16px;
     }
 
     .completedDate label {
@@ -208,16 +212,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         height: 50px;
     }
 
+    .completedDate img {
+        top: 15px;
+        right: 5%;
+    }
+
     .tableBodyContainer {
         margin-top: 1rem;
     }
 
-    .quizDataTableContainer>p,
     .tableHeader,
     .tableBody {
         font-size: 12px;
         line-height: 18px;
         padding: 1rem 0;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 150px 80px;
     }
 
     .tableHeader>span:nth-child(6),
@@ -238,6 +247,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width: 740px) {
     .container {
         padding: 1rem;
+        background: var(--white);
+    }
+
+    .quizHeaderDropdowns {
+        padding: 0;
+        margin: 40px 0 0;
+    }
+
+    .quizDataTableContainer {
+        padding: 2rem 0;
     }
 
     .quizHeaderDropdowns>div {
@@ -259,6 +278,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         height: 50px;
     }
 
+    .completedDate img {
+        top: 15px;
+        right: 3%;
+    }
+
     .quizDataTableContainer {
         margin: 0;
     }
@@ -272,12 +296,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         margin-top: 1rem;
     }
 
-    .quizDataTableContainer>p,
     .tableHeader,
     .tableBody {
         font-size: 13px;
         line-height: 18px;
         padding: 1rem;
+        grid-template-columns: 15px minmax(200px, 1fr) 80px 80px;
+
     }
 
     .tableHeader>span:nth-child(4),
@@ -294,10 +319,5 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .tableHeader>p,
     .tableBody>p {
         display: block;
-    }
-
-    .pageButtons button {
-        height: 50px;
-        width: 50px;
     }
 }

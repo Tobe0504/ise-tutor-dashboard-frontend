@@ -1,33 +1,49 @@
-import classes from "./Header.module.css";
-import amirahTemi from "../../Assets/Images/amirahTemi.svg";
-import iseLogo from "../../Assets/Images/iseLogo.svg";
-import { useRef } from "react";
-import HeaderSideNav from "../HeaderSideNav/HeaderSideNav";
+import classes from './Header.module.css'
+import amirahTemi from '../../Assets/Images/amirahTemi.svg'
+import iseLogo from '../../Assets/Images/iseLogo.svg'
+import { useContext, useRef } from 'react'
+import HeaderSideNav from '../HeaderSideNav/HeaderSideNav'
+import { useNavigate } from 'react-router-dom'
+import { AuthUserContext } from '../../Context/AuthUserContext'
+import noProfileImage from '../../Assets/Images/noProfileImage.svg'
 
 type HeaderTypes = {
-  closeSideNavProp: boolean | undefined;
-};
+  closeSideNavProp: boolean | undefined
+}
 
 const Header = ({ closeSideNavProp }: HeaderTypes) => {
+  // context
+  const { getUserRequestObject } = useContext(AuthUserContext)
+
   // Refs
-  const sideNav = useRef<null | HTMLDivElement>(null);
+  const sideNav = useRef<null | HTMLDivElement>(null)
+
+  // Router
+  const navigate = useNavigate()
 
   // Utils
   const openSideNav = () => {
     if (sideNav.current) {
-      sideNav.current.style.width = "100%";
+      sideNav.current.style.width = '100%'
     }
-  };
+  }
 
   const closeSideNav = () => {
     if (sideNav.current) {
-      sideNav.current.style.width = "0%";
+      sideNav.current.style.width = '0%'
     }
-  };
+  }
 
   return (
     <section className={classes.container}>
-      <img src={iseLogo} alt="Ise" className={classes.logo} />
+      <img
+        src={iseLogo}
+        onClick={() => {
+          navigate('/dashboard ')
+        }}
+        alt="Ise"
+        className={classes.logo}
+      />
       {!closeSideNavProp && (
         <div className={classes.inputSection}>
           <input type="text" placeholder="Search" />
@@ -49,9 +65,36 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
         </div>
       )}
       {closeSideNavProp && (
-        <div>
-          <img src={iseLogo} alt="Ise" className={classes.logoHeader} />
-        </div>
+        <>
+          <div>
+            <img
+              src={iseLogo}
+              alt="Ise"
+              onClick={() => {
+                navigate('/dashboard ')
+              }}
+              className={classes.logoHeader}
+            />
+          </div>
+          <div className={classes.inputSection}>
+            <input type="text" placeholder="Search" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                stroke="#2E2E2E"
+                strokeWidth="2"
+                stroke-linecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </>
       )}
       <div className={classes.userSection}>
         <div className={classes.notitication}>
@@ -72,8 +115,13 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
           </svg>
           <div></div>
         </div>
-        <p>Amirah Oyegoke</p>
-        <img src={amirahTemi} alt="User" />
+        <p>
+          {`${getUserRequestObject?.data?.first_name} ${getUserRequestObject?.data?.last_name}`}{' '}
+        </p>
+        <img
+          src={getUserRequestObject?.data?.profile_image || noProfileImage}
+          alt="User"
+        />
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +160,7 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
         <HeaderSideNav closeSideNav={closeSideNav} />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

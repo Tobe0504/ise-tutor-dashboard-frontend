@@ -10,9 +10,12 @@ import RejectSubmissionModal from "../AssignmentPageContainer/RejectSubmissionMo
 import Toast from "../../Components/Toast/Toast";
 import GradeSubmissionModal from "../AssignmentPageContainer/GradeSubmissionModal/GradeSubmissionModal";
 import ApproveSubmissionModal from "../AssignmentPageContainer/ApproveSubmissionModal/ApproveSubmissionModal";
+import { useNavigate } from "react-router-dom";
 
 
 const AssignmentSubmissionPageContainer = () => {
+
+    const navigate = useNavigate();
 
     // State
     const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] = useState(false)
@@ -46,8 +49,8 @@ const AssignmentSubmissionPageContainer = () => {
                     }}
                     body={
                         <ApproveSubmissionModal
-                            title="Approve submission"
                             onClick={() => {
+                                navigate('/student/assignment')
                                 setDisplayApproveSubmissionModal(false)
                             }}
                             onClick2={() => {
@@ -79,8 +82,9 @@ const AssignmentSubmissionPageContainer = () => {
             )}
             {displayGradeSubmissionToast && (
                 <Toast
-                    toastTeaxt="Grade successfully recorded!"
+                    toastMessage="Grade successfully recorded!"
                     onClick={() => {
+                        navigate('/student/assignment')
                         setDisplayGradeSubmissionModal(false)
                         setDisplayGradeSubmissionToast(false)
                     }}
@@ -128,6 +132,7 @@ const AssignmentSubmissionPageContainer = () => {
                     body={
                         <MessageSentModal
                             onClick={() => {
+                                navigate('/student/assignment')
                                 setDisplayMessageSentModal(false)
                                 setDisplayRejectSubmissionModal(false)
                                 setDisplaySendMessageModal(false)

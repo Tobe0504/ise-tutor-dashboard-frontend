@@ -201,11 +201,15 @@
     .container .addLesson {
         gap: 1rem;
         padding: 16px;
+        background: var(--white);
     }
 
-    .sectionsNavSection,
-    .bulkUpload {
+    .sectionsNavSection {
         padding: 16px;
+    }
+
+    .bulkUpload {
+        padding: 0;
     }
 
     .buttonContainer {

@@ -1,11 +1,11 @@
 import React from 'react'
-import CourseDetailBreadcrumbs from '../CourseDetailBreadcrumbs/CourseDetailBreadcrumbs'
+import StudentDetailBreadcrumbs from '../StudentDetailBreadcrumbs/StudentDetailBreadcrumbs'
 import StudentDetailsModules from '../StudentDetailsModules/StudentDetailsModules'
 
 const StudentDetailsMain = () => {
     return (
         <>
-            <CourseDetailBreadcrumbs />
+            <StudentDetailBreadcrumbs />
             <StudentDetailsModules />
         </>
     )

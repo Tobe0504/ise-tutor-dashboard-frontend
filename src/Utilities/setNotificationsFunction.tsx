@@ -8,24 +8,27 @@ export const setNotiticationFunction = (
   errorMessage: string,
   severity?: string
 ) => {
-  setState((prevState: any) => {
-    if (prevState) {
-      return [
-        ...prevState,
-        {
-          title: capitalize(errorMessage as string),
-          severity: severity || 'error',
-          id: v4(),
-        },
-      ]
-    } else {
-      return [
-        {
-          title: capitalize(errorMessage as string),
-          severity: severity || 'error',
-          id: v4(),
-        },
-      ]
-    }
-  })
+  console.log(setState, errorMessage, 'Hmm')
+  if (setState) {
+    setState((prevState: any) => {
+      if (prevState) {
+        return [
+          ...prevState,
+          {
+            title: capitalize(errorMessage as string),
+            severity: severity || 'error',
+            id: v4(),
+          },
+        ]
+      } else {
+        return [
+          {
+            title: capitalize(errorMessage as string),
+            severity: severity || 'error',
+            id: v4(),
+          },
+        ]
+      }
+    })
+  }
 }

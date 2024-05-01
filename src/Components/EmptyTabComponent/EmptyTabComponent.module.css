@@ -9,7 +9,8 @@
   background: #fff;
 }
 
-.container > img {
+.container>img {
+  height: auto;
   max-width: 100%;
   object-fit: cover;
 }
@@ -21,7 +22,7 @@
   text-align: center;
 }
 
-.container > div > p {
+.container>div>p {
   color: var(--foundation-grey-g-900, #616161);
   text-align: center;
   font-family: Archivo;
@@ -32,7 +33,7 @@
   padding: 0 16px;
 }
 
-.container > button {
+.container>button {
   width: auto;
   padding: 5px 20px;
   margin-top: 10px;
@@ -44,14 +45,13 @@
     gap: 10px;
   }
 
-  .container > div > p {
+  .container>div>p {
     font-size: 14px;
     line-height: 23px;
   }
 
-  .container > img {
-    width: 154px;
-    height: 144px;
+  .container>img {
+    height: 200px;
   }
 }
 
@@ -61,13 +61,12 @@
     gap: 10px;
   }
 
-  .container > div > p {
+  .container>div>p {
     font-size: 14px;
     line-height: 23px;
   }
 
-  .container > img {
-    width: 154px;
-    height: 144px;
+  .container img {
+    max-height: 150px;
   }
 }

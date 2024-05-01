@@ -51,6 +51,11 @@ const StudentDetailPageDetailEnrollments = () => {
         </div>
         {enrollments.map((data, i) => {
           const statusClassName = getStatusClass(data.statusColor)
+          const progressBarProps =
+            data.percent < 50
+              ? { primaryColor: '#fffaeb', secondaryColor: '#ffd029' }
+              : {}
+
           return (
             <div key={Math.random()} className={classes.tableBody}>
               <div>
@@ -60,7 +65,11 @@ const StudentDetailPageDetailEnrollments = () => {
               </div>
               <div className={classes.progressSection}>
                 <div className={classes.performanceProgressBar}>
-                  <ProgressBar percentage={data.percent} color="#000" />
+                  <ProgressBar
+                    percentage={data.percent}
+                    color="#000"
+                    {...progressBarProps}
+                  />
                 </div>
               </div>
               <div className={statusClassName}>{data.status}</div>

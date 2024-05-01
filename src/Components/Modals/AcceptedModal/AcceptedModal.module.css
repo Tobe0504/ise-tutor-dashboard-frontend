@@ -88,3 +88,14 @@
     max-height: 375px;
   }
 }
+
+@media (max-width: 500px) {
+  .modal {
+    height: 100%;
+    width: 100%;
+    max-width: 90%;
+    min-width: 90%;
+    min-height: 375px;
+    max-height: 375px;
+  }
+}

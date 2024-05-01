@@ -11,7 +11,6 @@ import SelectTypeModal from './SelectTypeModal/SelectTypeModal'
 import AddVideoBlock from './AddVideoBlock/AddVideoBlock'
 import AddEmbedVideo from './AddEmbedVideo/AddEmbedVideo'
 import AddCodeExample from './AddCodeExample/AddCodeExample'
-import AddPresentation from './AddPresentation/AddPresentation'
 import AddTextAndImage from './AddTextAndImage/AddTextAndImage'
 
 
@@ -54,17 +53,6 @@ const CourseCustomize = () => {
                 />
             case "Video":
                 return <AddVideoBlock
-                    onClick={() => {
-                        setSelectedItem(null)
-                        setDisplaySelectTypeModal(true)
-                    }}
-                    onClick2={() => {
-                        setSelectedItem(null)
-                        setDisplaySelectTypeModal(false)
-                    }}
-                />
-            case "Presentation":
-                return <AddPresentation
                     onClick={() => {
                         setSelectedItem(null)
                         setDisplaySelectTypeModal(true)
@@ -193,7 +181,7 @@ const CourseCustomize = () => {
                 {(saveLessonAndContinue === 4 && showToast) && (
                     <Toast
                         onClick={() => setShowToast(false)}
-                        toastTeaxt="Lesson successfully saved!"
+                        toastMessage="Lesson successfully saved!"
                     />
                 )}
 

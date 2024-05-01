@@ -94,7 +94,13 @@ const HeaderSideNav = ({ closeSideNav }: HeaderSideNavProps) => {
               </div>
               <div className={classes.otherOptions} style={data.isActive ? { maxHeight: "1000px" } : { maxHeight: "0px" }}>
                 {data.children.map((datum: any, j: number) => {
-                  return <Link to={datum.route} key={j}>{datum.title}</Link>
+                  return <Link
+                    to={datum.route}
+                    key={j}
+                    className={location.pathname === datum.route ? `${classes.otherOptionsLinkActive}` : classes.link}
+                  >
+                    {datum.title}
+                  </Link>
                 })}
               </div>
             </div>

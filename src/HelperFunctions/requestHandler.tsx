@@ -1,4 +1,8 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
+import { Dispatch, SetStateAction } from 'react'
+import { notificationsType } from '../Context/AppContext'
+import { requestType } from '../Context/AuthUserContext'
+import { setNotiticationFunction } from '../Utilities/setNotificationsFunction'
 
 type RequestType = {
   method: string
@@ -6,6 +10,14 @@ type RequestType = {
   headers?: any
   data?: any
   isMultipart?: boolean
+  state?: requestType
+  setState?: Dispatch<SetStateAction<requestType>>
+  setNotificationsSuccess?: boolean
+  setNotificationsFailure?: boolean
+  setNotifications?: Dispatch<SetStateAction<notificationsType>>
+  successMessage?: string
+  successFunction?: () => void
+  errorFunction?: () => void
 }
 
 export default async function requestHandler({
@@ -36,92 +48,100 @@ export default async function requestHandler({
   })
 }
 
-// import axios from "axios";
+export async function requestHandler2({
+  method,
+  url,
+  headers,
+  data,
+  isMultipart,
+  setState,
+  setNotificationsFailure,
+  setNotificationsSuccess,
+  setNotifications,
+  successMessage,
+  successFunction,
+  errorFunction,
+}: // load,
+RequestType) {
+  // Context
+  const userToken = localStorage.getItem('iseTutorAccessToken')
 
-// type RequestType = {
-//   method: string;
-//   url: string;
-//   headers?: any;
-//   data?: any;
-//   isMultipart?: boolean;
-// };
+  if (setState) {
+    setState({
+      isLoading: true,
+      data: null,
+      error: null,
+    })
+  }
 
-// export default async function requestHandler({
-//   method,
-//   url,
-//   headers,
-//   data,
-//   isMultipart,
-// }: RequestType) {
-//   try {
-//     const userToken = localStorage.getItem("iseAccessToken");
+  axios({
+    method,
+    url,
+    headers: {
+      Authorization: `Bearer ${userToken}`,
+      'Content-Type': !isMultipart ? 'application/json' : 'multipart/form-data',
+      ...headers,
+    },
+    data,
+  })
+    .then((res) => {
+      // resolve(res)
+      if (setState) {
+        setState({
+          isLoading: false,
+          data: res?.data,
+          error: null,
+        })
+      }
 
-//     const response = await axios({
-//       method,
-//       url,
-//       headers: {
-//         Authorization: `Bearer ${userToken}`,
-//         "Content-Type": !isMultipart ? "application/json" : "multipart/form-data",
-//         ...headers,
-//       },
-//       data,
-//     });
+      if (successFunction) {
+        successFunction()
+      }
 
-//     return response;
-//   } catch (error) {
-//     if (error.response?.status === 401 && error.response?.data?.error === "TokenExpiredError") {
-//       try {
-//         const newAccessToken = await refreshAccessToken();
-//         if (newAccessToken) {
-//           const retryResponse = await axios({
-//             method,
-//             url,
-//             headers: {
-//               "Content-Type": !isMultipart ? "application/json" : "multipart/form-data",
-//               ...headers,
-//               Authorization: `Bearer ${newAccessToken}`,
-//             },
-//             data,
-//           });
+      if (setNotificationsSuccess) {
+        setNotiticationFunction(
+          setNotifications as Dispatch<SetStateAction<notificationsType>>,
+          successMessage || res?.data,
+          'success'
+        )
+      }
+    })
+    .catch((err) => {
+      // reject(err)
 
-//           return retryResponse;
-//         } else {
-//           // Handle the case where token refresh fails
-//           throw new Error("Token refresh failed");
-//         }
-//       } catch (refreshError) {
-//         // Handle the case where the refresh request itself fails
-//         throw refreshError;
-//       }
-//     } else {
-//       // Handle other errors (not related to token expiration or refresh)
-//       throw error;
-//     }
-//   }
-// }
+      if (setState) {
+        setState({
+          isLoading: false,
+          data: null,
+          error: err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message,
+        })
+      }
 
-// async function refreshAccessToken() {
-//   const refresh_token = localStorage.getItem("iseRefreshToken");
+      if (errorFunction) {
+        errorFunction()
+      }
 
-//   if (refresh_token) {
-//     try {
-//       const refreshResponse = await axios.post(
-//         `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/auth/refresh`,
-//         {
-//           refresh_token
-//         }
-//       );
+      if (setNotificationsFailure) {
+        setNotiticationFunction(
+          setNotifications as Dispatch<SetStateAction<notificationsType>>,
+          err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message
+        )
+      }
 
-//       const newAccessToken = refreshResponse.data?.accessToken;
+      if (err?.response?.data?.responseMessage === 'Expired Token') {
+        localStorage.removeItem('iseTutorAccessToken')
+        localStorage.removeItem('iseTutorRefreshToken')
 
-//       localStorage.setItem("iseAccessToken", newAccessToken);
-
-//       return newAccessToken;
-//     } catch (refreshError) {
-//       console.error("Error refreshing token:", refreshError);
-//       throw refreshError;
-//     }
-//   } else {
-//     throw new Error("No refresh token available");
-//   }
-// }
+        window.location.href =
+          '/sign-in?redirect=' + encodeURIComponent(window.location.pathname)
+      }
+    })
+}

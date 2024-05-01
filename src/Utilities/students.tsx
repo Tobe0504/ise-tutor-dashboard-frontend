@@ -1,6 +1,6 @@
 import amirahTemi from '../Assets/Images/amirahTemi.svg'
 
-export type studentsDatType = {
+export type studentsDataType = {
   isActive: boolean
   studentImage: string
   studentName: string
@@ -9,6 +9,7 @@ export type studentsDatType = {
   status: string
   grade: string
   enrolledDate: string
+  dateSubmitted: string
   about: string
   country: string
   schoolLevel: string
@@ -28,6 +29,7 @@ export const studentsData = [
     status: 'Pending',
     grade: 'Not graded',
     enrolledDate: '20 Aug, 2022',
+    dateSubmitted: '04-Sept-23',
     about:
       'Future entrepreneur with a passion for business and innovation. Always looking for opportunities to learn and create.',
     country: 'South Africa',
@@ -45,6 +47,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '35',
     enrolledDate: '03 Sep, 2022',
+    dateSubmitted: '04-Sept-23',
     about:
       'Art enthusiast exploring the world of digital art and design. Striving to bring creativity and imagination to life through visual storytelling.',
     country: 'Kenya',
@@ -62,6 +65,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '42',
     enrolledDate: '10 Oct, 2022',
+    dateSubmitted: '04-Sept-23',
     about:
       'Advocate for social justice and equality. Committed to making a positive impact in the community through activism and awareness.',
     country: 'Nigeria',
@@ -79,6 +83,7 @@ export const studentsData = [
     status: 'Pending',
     grade: 'Not graded',
     enrolledDate: '18 Nov, 2022',
+    dateSubmitted: '04-Sept-23',
     about:
       'Sports enthusiast with a love for soccer. Whether playing or watching, the passion for the game is always at the forefront.',
     country: 'Ghana',
@@ -96,6 +101,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '38',
     enrolledDate: '25 Dec, 2022',
+    dateSubmitted: '04-Sept-23',
     about:
       'Science and technology enthusiast. Eager to explore the frontiers of knowledge and contribute to advancements in the field.',
     country: 'South Africa',
@@ -113,6 +119,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '29',
     enrolledDate: '15 Jan, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Tech enthusiast with a focus on artificial intelligence. Constantly exploring ways to apply AI to solve real-world problems.',
     country: 'United Kingdom',
@@ -130,6 +137,7 @@ export const studentsData = [
     status: 'Pending',
     grade: 'Not graded',
     enrolledDate: '20 Feb, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Passionate about data science and analytics. Aspiring to make data-driven decisions and uncover meaningful insights.',
     country: 'United States',
@@ -147,6 +155,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '36',
     enrolledDate: '05 Mar, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Entrepreneurial spirit with a focus on startups and innovation. Dedicated to creating positive change through business ventures.',
     country: 'India',
@@ -164,6 +173,7 @@ export const studentsData = [
     status: 'Pending',
     grade: 'Not graded',
     enrolledDate: '10 Apr, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Passionate about sustainable energy and environmental conservation. Striving to make a positive impact on the planet.',
     country: 'Brazil',
@@ -181,6 +191,7 @@ export const studentsData = [
     status: 'Approved',
     grade: '42',
     enrolledDate: '25 May, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Aspiring UX/UI designer with a passion for creating user-centric and visually appealing digital experiences.',
     country: 'South Korea',
@@ -198,6 +209,7 @@ export const studentsData = [
     status: 'Pending',
     grade: 'Not graded',
     enrolledDate: '01 Jun, 2023',
+    dateSubmitted: '04-Sept-23',
     about:
       'Sports enthusiast and fitness advocate. Believes in maintaining a healthy lifestyle and inspiring others to do the same.',
     country: 'Australia',

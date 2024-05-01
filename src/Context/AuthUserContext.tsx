@@ -3,14 +3,18 @@ import {
   Dispatch,
   SetStateAction,
   useContext,
+  useEffect,
   useState,
 } from 'react'
 import axios, { AxiosResponse } from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AppContext } from './AppContext'
-import requestHandler from '../HelperFunctions/requestHandler'
+import requestHandler, {
+  requestHandler2,
+} from '../HelperFunctions/requestHandler'
 import { setNotiticationFunction } from '../Utilities/setNotificationsFunction'
 import { capitalize } from '../HelperFunctions/capitalize'
+import { completeProfileType } from '../Utilities/types'
 
 export type requestType = {
   isLoading: boolean
@@ -110,6 +114,13 @@ type AuthCOntextValuesProps = {
   emailUpdateRequestObject: requestType
   emailUpdate: { email: string }
   setEmailUpdate: Dispatch<SetStateAction<{ email: string }>>
+  getUserRequestObject: requestType
+  getUser: () => void
+  completeUserOnboard: () => void
+  completeProfile: completeProfileType
+  setCOmpleteProfile: Dispatch<SetStateAction<completeProfileType>>
+  completeUserOnboardObject: requestType
+  logout: () => void
 }
 
 type AuthCOntextProviderProps = {
@@ -135,47 +146,6 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     data: null,
     error: null,
   })
-
-  //   Router
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  // Utils
-  const redirectRoute = location.state || '/tutor-complete-profile'
-
-  const signIn = () => {
-    setSignInRequest({ isLoading: true, data: null, error: null })
-    if (userLoginInfo.email && userLoginInfo.password)
-      axios
-        .post(
-          `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/auth/login/tutor`,
-          {
-            email: userLoginInfo.email,
-            password: userLoginInfo.password,
-          }
-        )
-        .then((res) => {
-          setSignInRequest({
-            data: res.data,
-            error: null,
-            isLoading: false,
-          })
-          localStorage.setItem('iseTutorAccessToken', res.data?.accessToken)
-          localStorage.setItem('iseTutorRefreshToken', res.data?.refreshToken)
-
-          navigate(redirectRoute)
-        })
-        .catch((err) => {
-          console.log(err)
-          setSignInRequest({
-            data: null,
-            error: err.response
-              ? err.response?.data?.responseMessage
-              : err.message,
-            isLoading: false,
-          })
-        })
-  }
 
   const [contacttInfoUpdate, setContacttInfoUpdate] = useState({
     firstname: '',
@@ -258,6 +228,73 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       data: null,
     })
 
+  const [getUserRequestObject, setGetUserRequestObject] = useState<requestType>(
+    {
+      isLoading: false,
+      data: null,
+    }
+  )
+
+  const [completeProfile, setCOmpleteProfile] = useState({
+    first_name: '',
+    last_name: '',
+    headline: '',
+    profile_image: '',
+    gender: '',
+    country: '',
+    bio: '',
+    linkedIn_profile: '',
+  })
+
+  const completeProfileFormData = new FormData()
+
+  // Effects
+  useEffect(() => {
+    completeProfileFormData.append('first_name', completeProfile.first_name)
+    completeProfileFormData.append('last_name', completeProfile.last_name)
+    completeProfileFormData.append('headline', completeProfile.headline)
+    completeProfileFormData.append(
+      'profile_image',
+      completeProfile.profile_image
+    )
+    completeProfileFormData.append('gender', completeProfile.gender)
+    completeProfileFormData.append('country', completeProfile.country)
+    completeProfileFormData.append('bio', completeProfile.bio)
+    completeProfileFormData.append(
+      'linkedIn_profile',
+      completeProfile.linkedIn_profile
+    )
+  }, [completeProfile])
+
+  const [completeUserOnboardObject, setCompleteUserOnboardObject] =
+    useState<requestType>({
+      isLoading: false,
+      data: null,
+      error: null,
+    })
+
+  //   Router
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  // Utils
+  const redirectRoute = location.state || '/complete-profile'
+
+  const getUser = () => {
+    requestHandler2({
+      method: 'GET',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile`,
+      setState: setGetUserRequestObject,
+    })
+  }
+
+  const logout = () => {
+    localStorage.removeItem('iseTutorAccessToken')
+    localStorage.removeItem('iseTutorRefreshToken')
+
+    navigate('/sign-in', { state: location.pathname })
+  }
+
   const fetchCountries = () => {
     setCountriesRequestObject({
       isLoading: true,
@@ -282,6 +319,59 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
           error: err?.response?.data?.message,
         })
       })
+  }
+
+  const completeUserOnboard = () => {
+    requestHandler2({
+      method: 'POST',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/complete_profile`,
+      setState: setCompleteUserOnboardObject,
+      data: completeProfileFormData,
+      isMultipart: true,
+      setNotifications: setNotifications,
+      setNotificationsFailure: true,
+      setNotificationsSuccess: true,
+      successMessage: 'Onboarded successfully',
+      successFunction: () => {
+        navigate('/dashboard')
+      },
+    })
+  }
+
+  const signIn = () => {
+    setSignInRequest({ isLoading: true, data: null, error: null })
+    if (userLoginInfo.email && userLoginInfo.password)
+      axios
+        .post(
+          `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/auth/login/tutor`,
+          {
+            email: userLoginInfo.email,
+            password: userLoginInfo.password,
+          }
+        )
+        .then((res) => {
+          setSignInRequest({
+            data: res.data,
+            error: null,
+            isLoading: false,
+          })
+          localStorage.setItem('iseTutorAccessToken', res.data?.accessToken)
+          localStorage.setItem('iseTutorRefreshToken', res.data?.refreshToken)
+
+          getUser()
+
+          navigate(redirectRoute)
+        })
+        .catch((err) => {
+          console.log(err)
+          setSignInRequest({
+            data: null,
+            error: err.response
+              ? err.response?.data?.responseMessage
+              : err.message,
+            isLoading: false,
+          })
+        })
   }
 
   const updateContactHandler = () => {
@@ -571,6 +661,13 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
         emailUpdateRequestObject,
         emailUpdate,
         setEmailUpdate,
+        getUserRequestObject,
+        getUser,
+        completeUserOnboard,
+        completeProfile,
+        setCOmpleteProfile,
+        completeUserOnboardObject,
+        logout,
       }}
     >
       {children}

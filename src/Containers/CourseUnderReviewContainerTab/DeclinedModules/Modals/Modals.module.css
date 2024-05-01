@@ -1,0 +1,73 @@
+.container {
+    gap: 1rem;
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h4 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--grey);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.container p,
+.container span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: var(--grey3);
+    font-style: normal;
+    font-family: Archivo;
+}
+
+.container span {
+    padding: 12px;
+    border-radius: 5px;
+    color: var(--grey);
+    margin-bottom: 1.5rem;
+    background: var(--veryLightPurple);
+}
+
+.container .buttonContainer {
+    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container .buttonContainer>button {
+    width: fit-content;
+    padding: 10px 30px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container h4 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .container p,
+    .container span {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .container .buttonContainer {
+        gap: 10px;
+        justify-content: flex-start;
+    }
+
+    .container .buttonContainer>button {
+        width: 100%;
+        padding: 10px 30px;
+    }
+}

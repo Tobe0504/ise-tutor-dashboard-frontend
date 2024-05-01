@@ -70,7 +70,7 @@ const BulkUploadComponent = () => {
                         <div className={classes.file}>
                             <div>
                                 <p>First presentation.pdf</p>
-                                <ProgressBar percentage={65} color="#fff" />
+                                <ProgressBar primaryColor='#fffaeb' secondaryColor='#ffd029' percentage={65} color="#fff" />
                                 <span>Uploading({65}%)</span>
                             </div>
                             <Button
@@ -98,7 +98,7 @@ const BulkUploadComponent = () => {
             {(saveLessonAndContinue === 4 && showToast) && (
                 <Toast
                     onClick={() => setShowToast(false)}
-                    toastTeaxt="Lesson successfully saved!"
+                    toastMessage="Lesson successfully saved!"
                 />
             )}
 

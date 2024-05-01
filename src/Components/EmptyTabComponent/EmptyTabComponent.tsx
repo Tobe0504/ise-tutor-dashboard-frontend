@@ -1,13 +1,16 @@
 import classes from "./EmptyTabComponent.module.css";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { ReactNode } from "react";
 
 type EmptyTabComponentProps = {
   image: string;
   firstParagraph: string;
   secondParagraph?: string;
   route: string;
-  buttontext: string;
+  buttontext?: string;
+  buttonSvg?: ReactNode;
+  buttonType?: "invalid" | "delete" | "primary" | "secondary" | "black" | "white" | "null" | "tertiary" | undefined;
   showButton?: boolean;
   header?: string;
   imageHeight?: number;
@@ -19,16 +22,18 @@ const EmptyTabComponent = ({
   secondParagraph,
   route,
   buttontext,
+  buttonType,
+  buttonSvg,
   header,
   showButton = true,
-  imageHeight = 184,
+  imageHeight,
 }: EmptyTabComponentProps) => {
   // Router
   const navigate = useNavigate();
 
   return (
     <section className={classes.container}>
-      <img src={image} alt={firstParagraph} style={{ maxHeight: imageHeight }} />
+      <img src={image} alt={header} style={{ height: imageHeight }} />
       <div>
         <h4>{header}</h4>
         <p>{firstParagraph}</p>
@@ -36,26 +41,13 @@ const EmptyTabComponent = ({
       </div>
       {showButton &&
         <Button
+          type={buttonType}
           onClick={() => {
             navigate(route);
           }}
         >
           <span>{buttontext}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="19"
-            height="19"
-            viewBox="0 0 19 19"
-            fill="none"
-          >
-            <path
-              d="M13.25 6.5L16.25 9.5M16.25 9.5L13.25 12.5M16.25 9.5L2.75 9.5"
-              stroke="white"
-              strokeWidth="2"
-              stroke-linecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          {buttonSvg}
         </Button>
       }
     </section>

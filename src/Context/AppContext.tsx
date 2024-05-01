@@ -9,8 +9,9 @@ import React, {
 import { capitalize } from '../HelperFunctions/capitalize'
 import requestHandler from '../HelperFunctions/requestHandler'
 import { sideNavItems } from '../Utilities/sideNavItems'
-import { studentsData, studentsDatType } from '../Utilities/students'
+import { studentsData, studentsDataType } from '../Utilities/students'
 import { requestType } from './AuthUserContext'
+import { coursesDataType, coursesData } from '../Utilities/courses'
 
 type AppContextProviderProps = {
   children: React.ReactNode
@@ -36,8 +37,10 @@ type AppContextProps = {
   setDisplayShareModal: Dispatch<SetStateAction<boolean>>
   navItmesState: any[]
   setNavItemsState: Dispatch<SetStateAction<any>>
-  students: studentsDatType
-  setStudents: Dispatch<SetStateAction<studentsDatType>>
+  students: studentsDataType
+  setStudents: Dispatch<SetStateAction<studentsDataType>>
+  courses: coursesDataType
+  setCourses: Dispatch<SetStateAction<coursesDataType>>
   currentStep: number
   setCurrentStep: Dispatch<SetStateAction<number>>
   setCurrentStepAndSave: (step: number) => void
@@ -97,24 +100,32 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
   )
 
   const [currentStep, setCurrentStep] = useState<number>(1)
-  const [students, setStudents] = useState<studentsDatType>(
-    studentsData as studentsDatType
+  const [students, setStudents] = useState<studentsDataType>(
+    studentsData as studentsDataType
   )
   const [searchValue, setSearchValue] = useState<string>('')
   const [notifications, setNotifications] = useState<notificationsType>(null)
 
   const searchHandler = () => {
     if (searchValue?.length > 0) {
-      const studentCopy = studentsData.filter((data) => {
+      const filteredStudents = studentsData.filter((data) => {
         return (
           data?.studentName.toLowerCase().includes(searchValue.toLowerCase()) ||
           data?.emailAddress.toLowerCase().includes(searchValue.toLowerCase())
         )
       })
 
-      setStudents(studentCopy as studentsDatType)
+      if (filteredStudents.length > 0) {
+        setStudents(filteredStudents as studentsDataType)
+      } else {
+        setStudents([])
+      }
+    } else {
+      setStudents(studentsData as studentsDataType)
     }
   }
+
+  const [courses, setCourses] = useState<coursesDataType>(coursesData)
 
   const [contactSupport, setContactSupport] = useState({
     subject: '',
@@ -178,8 +189,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   useEffect(() => {
     searchHandler()
-
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue])
 
   const setCurrentStepAndSave = (step: number) => {
@@ -200,6 +210,8 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setNavItemsState,
         students,
         setStudents,
+        courses,
+        setCourses,
         currentStep,
         setCurrentStep,
         setCurrentStepAndSave,

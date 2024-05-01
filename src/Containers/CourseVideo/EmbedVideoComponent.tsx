@@ -98,7 +98,7 @@ const EmbedVideoComponent = () => {
             {(saveLessonAndContinue === 3 && showToast) && (
                 <Toast
                     onClick={() => setShowToast(false)}
-                    toastTeaxt="Lesson successfully saved!"
+                    toastMessage="Lesson successfully saved!"
                 />
             )}
             {(saveLessonAndContinue === 2 || saveLessonAndContinue === 3) && (

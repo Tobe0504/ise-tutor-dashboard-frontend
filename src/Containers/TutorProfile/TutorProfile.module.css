@@ -21,7 +21,12 @@
   }
 }
 
-@media screen and (max-width: 737px) {
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: -1rem;
+    background: var(--white);
+  }
+
   .sectionsNavSection {
     padding: 0 1rem;
   }

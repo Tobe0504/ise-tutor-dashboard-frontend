@@ -24,29 +24,29 @@ import CreatingCourseModulePreviewPage from './Pages/CreatingCourseModulePreview
 import SchedulePage from './Pages/SchedulePage'
 import CoursesFeedback from './Pages/CoursesFeedback'
 import SubmissionGuide from './Containers/CoursesCurriculumSetupContainer/SubmissionGuide/SubmissionGuide'
-import StudentPeroidicFeedbackContainer from './Containers/StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer'
+import CourseUnderReview from './Pages/CourseUnderReview'
+import CourseModuleFeedbackPreviewPage from './Pages/CourseModuleFeedbackPreviewPage'
+import RequireAuth from './Components/RequireAuth/RequireAuth'
 
 function App() {
   return (
     <Routes>
       <Route path="*" element={<ErrorPage />} />
       <Route path="/" element={<Navigate to="/dashboard"></Navigate>} />
-      <Route path="/dashboard" element={<Dashboard />} />
 
       <Route path="/login-email" element={<LoginEmailTemplatePage />} />
       <Route path="/sign-in" element={<LoginPage />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
-      <Route path="/profile-info/:subProfile" element={<TutorProfilePage />} />
-      <Route
-        path="/tutor-complete-profile"
-        element={<TutorCompleteProfilePage />}
-      />
       <Route
         path="/tutor-dashboard-loader"
         element={<TutorDashboardLoadingScreenPage />}
       />
 
+      <Route element={<RequireAuth />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/complete-profile" element={<TutorCompleteProfilePage />} />
+      <Route path="/profile-info/:subProfile" element={<TutorProfilePage />} />
       <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
       <Route
         path="/collaboration-hub-video-guide"
@@ -60,10 +60,6 @@ function App() {
       <Route
         path="/student/details/:studentId"
         element={<StudentDetailsPage />}
-      />
-      <Route
-        path="/student/details/:studentId/survey"
-        element={<StudentPeroidicFeedbackContainer />}
       />
       <Route path="/student/quiz" element={<QuizPage />} />
       <Route path="/student/assignment" element={<AssignmentPage />} />
@@ -87,11 +83,20 @@ function App() {
       />
       <Route path="/courses/feedback" element={<CoursesFeedback />} />
       <Route
+        path="/courses/feedback/:courseReviewId"
+        element={<CourseUnderReview />}
+      />
+      <Route
+        path="/courses/feedback/:courseReviewId/feedback-preview"
+        element={<CourseModuleFeedbackPreviewPage />}
+      />
+      <Route
         path="/courses/create-module/preview"
         element={<CreatingCourseModulePreviewPage />}
       />
 
       <Route path="/schedule" element={<SchedulePage />} />
+      <Route />
     </Routes>
   )
 }

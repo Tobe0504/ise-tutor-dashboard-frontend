@@ -19,7 +19,6 @@ const TutorProfileProfileCertifications = () => {
   //   States
   const [certificationState, setCertificationState] = useState('')
 
-  console.log(certificationsUpdate)
   return (
     <ProfileSectionContainer
       header="Certifications"

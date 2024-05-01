@@ -13,7 +13,7 @@ const ProfileProgressRightCta = () => {
         today.
       </p>
       <ProgressBar
-        percentage={49}
+        percentage={50}
         color="#fff"
         secondaryColor="#FFD029"
         primaryColor="#FFFAEB"
@@ -21,7 +21,7 @@ const ProfileProgressRightCta = () => {
       <Button
         type="tertiary"
         onClick={() => {
-          navigate('/tutor-complete-profile')
+          navigate('/complete-profile')
         }}
       >
         Complete profile

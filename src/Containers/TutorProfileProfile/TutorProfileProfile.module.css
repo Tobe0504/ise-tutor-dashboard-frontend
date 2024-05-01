@@ -4,17 +4,17 @@
   flex-direction: column;
 }
 
-.container > div:not(:first-child),
-.container > section:not(:first-child) {
+.container>div:not(:first-child),
+.container>section:not(:first-child) {
   padding: 3rem 0;
 }
 
-.container > div:not(:last-child),
-.container > section:not(:last-child) {
+.container>div:not(:last-child),
+.container>section:not(:last-child) {
   border-bottom: 1px solid var(--sectionBorder);
 }
 
-.container > div:first-child,
-.container > section:first-child {
+.container>div:first-child,
+.container>section:first-child {
   padding-bottom: 3rem;
 }

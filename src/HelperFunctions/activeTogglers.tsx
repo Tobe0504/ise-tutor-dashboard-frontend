@@ -32,21 +32,16 @@ export const activeTogglerRestAll = (
    setState(stateCopy)
 }
 
+
 export const activeToggleSetAll = (
    initState: any[],
-   setState: Dispatch<SetStateAction<any[]>>
+   setState: React.Dispatch<React.SetStateAction<any[]>>,
+   isChecked: boolean
 ) => {
-   const stateCopy = initState.map((data, i) => {
-      const activeState = initState.filter((data) => {
-         return data.isActive
-      })
+   const stateCopy = initState.map((data) => ({
+      ...data,
+      isActive: isChecked,
+   }));
 
-      if (activeState.length !== initState.length) {
-         return { ...data, isActive: true }
-      } else {
-         return { ...data, isActive: false }
-      }
-   })
-
-   setState(stateCopy)
-}
+   setState(stateCopy);
+};

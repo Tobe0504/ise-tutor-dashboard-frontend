@@ -2,7 +2,7 @@
   margin-top: 40px;
 }
 
-.profilePhoto > p {
+.profilePhoto>p {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
@@ -12,29 +12,30 @@
   margin-bottom: 1rem;
 }
 
-.profilePhoto > div {
+.profilePhoto>div {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.profilePhoto > div > img {
+.profilePhoto>div>img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.profilePhoto > div > div {
+.profilePhoto>div>div {
   display: flex;
   align-items: center;
 }
 
-.buttonUpper > input {
+.buttonUpper>input {
   display: none;
 }
 
-.buttonUpper > label, .buttonLower > button {
+.buttonUpper>label,
+.buttonLower>button {
   padding: 5px 20px;
   border-radius: 5px;
   border: 2px solid var(--purple);
@@ -47,14 +48,14 @@
   line-height: 21px;
 }
 
-.buttonUpper>label:last-child{
+.buttonUpper>label:last-child {
   border: none;
 }
 
- .buttonLower>button {
+.buttonLower>button {
   font-size: 1rem;
   padding: 0.7rem 2.5rem;
- }
+}
 
 .buttonLower>button:last-child {
   color: var(--white);
@@ -70,7 +71,7 @@
   border-top: 1px solid var(--sectionBorder);
 }
 
-.profilePhoto > div > div > button {
+.profilePhoto>div>div>button {
   width: 85px;
   height: 31px;
   object-fit: cover;
@@ -118,7 +119,7 @@
     justify-content: center;
   }
 
-  .profilePhoto > div > .buttonUpper {
+  .profilePhoto>div>.buttonUpper {
     flex-basis: 100%;
   }
 
@@ -140,7 +141,7 @@
     justify-content: center;
   }
 
-  .profilePhoto > div > .buttonUpper {
+  .profilePhoto>div>.buttonUpper {
     flex-basis: 100%;
   }
 

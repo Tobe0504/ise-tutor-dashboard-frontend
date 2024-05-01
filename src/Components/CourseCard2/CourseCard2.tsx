@@ -46,20 +46,20 @@ const CourseCard2 = ({
             <span className={statusClass}>{status}</span>
           </div>
           <p>{description}</p>
+          {showButton && <div className={classes.footer}>
+            <Button
+              type="primary"
+              onClick={() => {
+                navigate(route as string);
+              }}
+            >See course details</Button>
+            <Button
+              type="secondary"
+              onClick={() => { navigate('/courses/create-module') }}
+            >Create curriculum</Button>
+          </div>}
         </div>
       </div>
-      {showButton && <div className={classes.footer}>
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate(route as string);
-          }}
-        >See course details</Button>
-        <Button
-          type="secondary"
-          onClick={() => { navigate('/courses/create-module') }}
-        >Create curriculum</Button>
-      </div>}
     </>
   );
 };
