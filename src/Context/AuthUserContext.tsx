@@ -77,14 +77,14 @@ type AuthCOntextValuesProps = {
   updateSkillsHandler: () => void
   updateSkillsHandlerObject: requestType
   skillInfoUpdate: {
-    specialization: string
+    specialization: string[]
     years_of_experience: string
     experience_level: string
     tech_proficiency: string[]
   }
   setSkillInfoUpdate: Dispatch<
     SetStateAction<{
-      specialization: string
+      specialization: string[]
       years_of_experience: string
       experience_level: string
       tech_proficiency: string[]
@@ -166,7 +166,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   })
 
   const [skillInfoUpdate, setSkillInfoUpdate] = useState({
-    specialization: '',
+    specialization: [] as string[],
     years_of_experience: '',
     experience_level: '',
     tech_proficiency: [] as string[],
@@ -296,29 +296,12 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   }
 
   const fetchCountries = () => {
-    setCountriesRequestObject({
-      isLoading: true,
-      data: null,
-      error: null,
+    requestHandler2({
+      method: 'GET',
+      url: `https://restcountries.com/v3.1/all?fields=name,idd,flag`,
+      setState: setCountriesRequestObject,
+      setNotifications: setNotifications,
     })
-    axios
-      .get(`https://restcountries.com/v3.1/all?fields=name,idd,flag`)
-
-      .then((res) => {
-        setCountriesRequestObject({
-          isLoading: false,
-          data: res.data,
-          error: null,
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-        setCountriesRequestObject({
-          isLoading: false,
-          data: null,
-          error: err?.response?.data?.message,
-        })
-      })
   }
 
   const completeUserOnboard = () => {
@@ -375,255 +358,82 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   }
 
   const updateContactHandler = () => {
-    setUpdateContactHandlerObject({
-      isLoading: true,
-    })
-
-    requestHandler({
+    requestHandler2({
       method: 'PATCH',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/contact-info`,
+      setState: setUpdateContactHandlerObject,
       data: contactInfoUpdateFormData,
+      isMultipart: true,
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
     })
-      .then((res) => {
-        console.log(res, 'Hmm')
-
-        setUpdateContactHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        console.log(err, 'Hmm')
-        setUpdateContactHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
-  }
-
-  const updateSkillsHandler = () => {
-    setUpdateAboutHandlerObject({
-      isLoading: true,
-    })
-
-    requestHandler({
-      method: 'PATCH',
-      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/skills`,
-      data: aboutInfoUpdate,
-    })
-      .then((res) => {
-        setUpdateAboutHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        setUpdateAboutHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
   }
 
   const updateAboutInfoHandler = () => {
-    setUpdateSkillsHandlerObject({
-      isLoading: true,
-    })
-
-    requestHandler({
+    requestHandler2({
       method: 'PATCH',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/about-info`,
-      data: skillInfoUpdate,
+      setState: setUpdateAboutHandlerObject,
+      data: aboutInfoUpdate,
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
     })
-      .then((res) => {
-        setUpdateSkillsHandlerObject({
-          isLoading: false,
-        })
+  }
 
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        setUpdateSkillsHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
+  const updateSkillsHandler = () => {
+    requestHandler2({
+      method: 'PATCH',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/skills`,
+      setState: setUpdateSkillsHandlerObject,
+      data: skillInfoUpdate,
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
+    })
   }
 
   const updateCertificationHandler = () => {
-    setUpdateCertificationsHandlerObject({
-      isLoading: true,
-    })
-
-    requestHandler({
+    requestHandler2({
       method: 'PATCH',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile/certifications`,
+      setState: setUpdateCertificationsHandlerObject,
       data: certificationsUpdate,
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
     })
-      .then((res) => {
-        setUpdateCertificationsHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        setUpdateCertificationsHandlerObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
   }
 
   const updatePasswordHandler = () => {
-    setPasswordUpdateRequestObject({
-      isLoading: true,
-    })
-
-    requestHandler({
+    requestHandler2({
       method: 'POST',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/password/change`,
+      setState: setPasswordUpdateRequestObject,
       data: passwordUpdate,
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
+      successFunction: () => {
+        logout()
+      },
     })
-      .then((res) => {
-        setPasswordUpdateRequestObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        setPasswordUpdateRequestObject({
-          isLoading: false,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
   }
 
   const updateEmailHandler = () => {
-    setEmailUpdateRequestObject({
-      isLoading: true,
-      data: null,
-    })
-
-    requestHandler({
+    requestHandler2({
       method: 'POST',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/update-email`,
+      setState: setEmailUpdateRequestObject,
       data: { email: emailUpdate.email },
+      setNotifications: setNotifications,
+      setNotificationsSuccess: true,
+      setNotificationsFailure: true,
+      successFunction: () => {
+        logout()
+      },
     })
-      .then((res) => {
-        setEmailUpdateRequestObject({
-          isLoading: false,
-          data: capitalize((res as AxiosResponse).data as string),
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          capitalize((res as AxiosResponse).data as string) || '',
-          'success'
-        )
-      })
-      .catch((err) => {
-        setEmailUpdateRequestObject({
-          isLoading: false,
-          data: null,
-        })
-
-        setNotiticationFunction(
-          setNotifications,
-          err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message
-        )
-
-        if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-          navigate('/sign-in', { state: location.pathname })
-        }
-      })
   }
 
   return (

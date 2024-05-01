@@ -12,7 +12,8 @@ const TutorProfileProfileSkillsAndExperience = () => {
     useContext(AuthUserContext)
 
   // States
-  const [topSkills, setTopSkills] = useState('')
+  const [topSkills, setTopSkills] = useState<null | string[]>([])
+  const [topSkillsText, setTopSkillsText] = useState('')
   const [experienceLevel, setExperienceLevel] = useState('')
   const [yearsOfExperience, setYearsOfExperience] = useState('')
   const [techProfeciency, setTechProficiency] = useState('')
@@ -55,6 +56,31 @@ const TutorProfileProfileSkillsAndExperience = () => {
     // eslint-disable-next-line
   }, [topSkills, experienceLevel, yearsOfExperience, selectedProfeciency])
 
+  useEffect(() => {
+    if (topSkillsText && !topSkills?.includes(topSkillsText as string)) {
+      setTopSkills((prevsState: any) => {
+        if (prevsState) {
+          return [...prevsState, topSkillsText]
+        } else {
+          return [topSkillsText]
+        }
+      })
+    }
+
+    // eslint-disable-next-line
+  }, [topSkillsText])
+
+  // Utils
+  const filtertopSkills = (skill: string) => {
+    if ((topSkills as string[])?.length > 0) {
+      setTopSkills(
+        (topSkills as string[])?.filter((data: string) => {
+          return data !== skill
+        })
+      )
+    }
+  }
+
   return (
     <ProfileSectionContainer
       header="Skills and experience"
@@ -63,15 +89,51 @@ const TutorProfileProfileSkillsAndExperience = () => {
       <div className={classes.container}>
         <DropdownWithSearch
           label="Top skills"
-          options={['Low', 'Medium', 'High']}
-          isRequired
+          options={[
+            'Communication',
+            'Collaboration',
+            'Adaptability',
+            'Public speaking',
+            'Leadership',
+            'Time management',
+            'Emotional intelligence',
+            'Creativity',
+            'Problem solving',
+            'Critical thinking',
+          ]}
           title="Select"
-          selected={topSkills}
-          setSelected={setTopSkills}
+          selected={topSkillsText}
+          setSelected={setTopSkillsText}
         />
+        <div className={classes.topSkillsContainer}>
+          {(topSkills as any[])?.length > 0 &&
+            (topSkills as any[])?.map((data: any, i: number) => {
+              return (
+                <div key={i} className={classes.topSkillsChip}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    onClick={() => {
+                      filtertopSkills(data)
+                    }}
+                  >
+                    <path
+                      d="M6 18L18 6M6 6L18 18"
+                      stroke="#2E2E2E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>{data}</span>
+                </div>
+              )
+            })}
+        </div>
         <DropdownWithSearch
           label="Experience level"
-          options={['Low', 'Mid level', 'High']}
+          options={['Beginner', 'Intermediate', 'Expert']}
           isRequired
           title="Select"
           selected={experienceLevel}

@@ -55,7 +55,7 @@
   padding: 0 3vw 3vw;
   width: 100% !important;
   justify-content: flex-end;
-  max-width: 700px;
+  max-width: 100% !important;
   background-color: var(--white);
 }
 

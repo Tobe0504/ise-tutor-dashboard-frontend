@@ -7,6 +7,8 @@ import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWith
 import { AuthUserContext } from '../../Context/AuthUserContext'
 import { changeHandler } from '../../Utilities/inputChangeHandler'
 import Button from '../../Components/Button/Button'
+import { languages } from '../../Utilities/languages'
+import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
 
 const TutorProfileProfileAbout = () => {
   // Context
@@ -18,6 +20,9 @@ const TutorProfileProfileAbout = () => {
     countriesRequestObject,
     fetchCountries,
     contactInfoUpdateFormData,
+    getUserRequestObject,
+    getUser,
+    updateContactHandlerObject,
   } = useContext(AuthUserContext)
 
   // States
@@ -58,12 +63,49 @@ const TutorProfileProfileAbout = () => {
     })
   }
 
+  console.log(getUserRequestObject?.data)
+
   // Effects
   useEffect(() => {
     fetchCountries()
-
+    getUser()
     // eslint-disable-next-line
   }, [])
+
+  useEffect(() => {
+    if (getUserRequestObject.data) {
+      setContacttInfoUpdate((prevState) => {
+        return {
+          ...prevState,
+          firstname: getUserRequestObject?.data?.first_name || '',
+          lastname: getUserRequestObject?.data?.last_name || '',
+          profile_image: getUserRequestObject?.data?.profile_image || '',
+          gender: getUserRequestObject?.data?.gender || '',
+          country: getUserRequestObject?.data?.country || '',
+          preferred_language:
+            getUserRequestObject?.data?.preferred_language || '',
+          email: getUserRequestObject?.data?.email || '',
+          phone_number: getUserRequestObject?.data?.phone_number || '',
+        }
+      })
+      if (getUserRequestObject.data?.phone_number) {
+        setCountryCode(getUserRequestObject.data?.phone_number?.split(' ')[0])
+        setPhoneNumber(getUserRequestObject.data?.phone_number?.split(' ')[1])
+      }
+    }
+  }, [getUserRequestObject.data])
+
+  useEffect(() => {
+    if (countriesRequestObject?.data) {
+      const countruyCodesCopy = countriesRequestObject?.data?.map(
+        (data: any) => {
+          return `${data?.flag}${data?.idd?.root}${data?.idd?.suffixes[0]}`
+        }
+      )
+
+      setCOuntryCodeList(countruyCodesCopy)
+    }
+  }, [countriesRequestObject.data])
 
   useEffect(() => {
     if (gender) {
@@ -78,21 +120,14 @@ const TutorProfileProfileAbout = () => {
       })
     }
 
-    // eslint-disable-next-line
-  }, [gender, country])
-
-  useEffect(() => {
-    if (fullname) {
-      const first = fullname.split(' ')[0]
-      const last = fullname.split(' ')[1]
-
+    if (language) {
       setContacttInfoUpdate((prevState) => {
-        return { ...prevState, firstname: first, lastname: last }
+        return { ...prevState, preferred_language: language }
       })
     }
 
     // eslint-disable-next-line
-  }, [fullname])
+  }, [gender, country, language])
 
   useEffect(() => {
     if (countriesRequestObject?.data) {
@@ -113,7 +148,7 @@ const TutorProfileProfileAbout = () => {
       setContacttInfoUpdate((prevState) => {
         return {
           ...prevState,
-          phone: `${countryCode} ${phoneNumber}`,
+          phone_number: `${countryCode} ${phoneNumber}`,
         }
       })
     }
@@ -145,6 +180,8 @@ const TutorProfileProfileAbout = () => {
     // eslint-disable-next-line
   }, [contacttInfoUpdate])
 
+  console.log(contacttInfoUpdate, 'Hmm', updateAboutHandlerObject)
+
   return (
     <div className={classes.container}>
       <ProfileSectionContainer
@@ -154,21 +191,33 @@ const TutorProfileProfileAbout = () => {
         <div className={classes.userDetails}>
           <Input
             isRequired
-            label="Full name"
-            placeholder="Amirah Temitope"
-            value={fullname}
+            label="Firstame"
+            placeholder="Amirah "
+            value={contacttInfoUpdate?.firstname}
             onChange={(e) => {
-              setFullname(e.target.value)
+              inputChangeHandler(e, setContacttInfoUpdate)
             }}
+            name="first_name"
+          />
+
+          <Input
+            isRequired
+            label="Lastname"
+            placeholder="Temitope"
+            value={contacttInfoUpdate?.lastname}
+            onChange={(e) => {
+              inputChangeHandler(e, setContacttInfoUpdate)
+            }}
+            name="last_name"
           />
 
           <div className={classes.profilePhoto}>
             <div>
               <img
                 src={
-                  !userImage.frontendFile
-                    ? noProfileImage
-                    : (userImage?.frontendFile as string)
+                  (userImage?.frontendFile as string) ||
+                  getUserRequestObject?.data?.profile_image ||
+                  noProfileImage
                 }
                 alt="Profile"
               />
@@ -215,7 +264,6 @@ const TutorProfileProfileAbout = () => {
               setSelected={setCountryCode}
             />
             <Input
-              isRequired
               onChange={(e) => {
                 setPhoneNumber(e.target.value)
               }}
@@ -228,7 +276,7 @@ const TutorProfileProfileAbout = () => {
             options={['Male', 'Female']}
             isRequired
             title="Select"
-            selected={gender}
+            selected={gender || contacttInfoUpdate?.gender}
             setSelected={setGender}
           />
 
@@ -241,27 +289,25 @@ const TutorProfileProfileAbout = () => {
               .sort()}
             isRequired
             title="Select"
-            selected={country}
+            selected={country || contacttInfoUpdate?.country}
             setSelected={setCountry}
             isLoading={countriesRequestObject?.isLoading}
           />
 
           <DropdownWithSearch
             label="Preferred language"
-            options={['English']}
+            options={languages.map((data) => {
+              return data?.name
+            })}
             title="Select"
-            selected={language}
+            selected={language || contacttInfoUpdate?.preferred_language}
             setSelected={setLanguage}
           />
         </div>
         <div className={classes.buttonLower}>
-          <Button type="secondary" disabled>
-            Cancel
-          </Button>
           <Button
-            type="primary"
             onClick={updateContactHandler}
-            loading={updateAboutHandlerObject?.isLoading}
+            loading={updateContactHandlerObject?.isLoading}
           >
             Save changes
           </Button>

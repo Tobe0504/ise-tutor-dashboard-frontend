@@ -18,6 +18,7 @@ const ProfileAccountManageEmail = () => {
     emailUpdateRequestObject,
     emailUpdate,
     setEmailUpdate,
+    getUserRequestObject,
   } = useContext(AuthUserContext)
   // States
   const [displayInput, setDisplayInput] = useState(false)
@@ -82,7 +83,7 @@ const ProfileAccountManageEmail = () => {
           type="email"
           label="Account email"
           placeholder="oyegokeamirah@gmail.com"
-          value="test@email.com"
+          value={getUserRequestObject?.data?.email}
           readOnly
         />
 
@@ -99,12 +100,6 @@ const ProfileAccountManageEmail = () => {
 
         {displayInput && (
           <>
-            {/* <Input
-              type="password"
-              label="Enter your password"
-              placeholder="Enter your current iṣẹ́ EdTech password"
-            /> */}
-
             <Input
               type="email"
               label="Enter new account email"

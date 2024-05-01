@@ -15,6 +15,8 @@ const TutorProfileProfileAdditionalDetails = () => {
     setAboutInfoUpdate,
     updateContactHandlerObject,
     updateAboutInfoHandler,
+    getUserRequestObject,
+    updateAboutHandlerObject,
   } = useContext(AuthUserContext)
 
   // States
@@ -51,10 +53,32 @@ const TutorProfileProfileAdditionalDetails = () => {
   }
 
   // Effects
+
+  // Effect
+  useEffect(() => {
+    if (getUserRequestObject.data) {
+      setAboutInfoUpdate((prevState) => {
+        return {
+          ...prevState,
+          dob: getUserRequestObject?.data?.dob || '',
+          bio: getUserRequestObject?.data?.bio || '',
+          linkedIn_profile: getUserRequestObject?.data?.linkedIn_profile || '',
+          website_link: getUserRequestObject?.data?.website_link || '',
+        }
+      })
+
+      if (getUserRequestObject?.data?.dob) {
+        setYear(getUserRequestObject?.data?.dob?.split('-')[0])
+        setMonth(getUserRequestObject?.data?.dob?.split('-')[1])
+        setDay(getUserRequestObject?.data?.dob?.split('-')[2])
+      }
+    }
+  }, [getUserRequestObject.data])
+
   useEffect(() => {
     if (day || year || month) {
       setAboutInfoUpdate((prevState) => {
-        return { ...prevState, dob: `${month}/${day}/${year}` }
+        return { ...prevState, dob: `${month}-${day}-${year}` }
       })
     }
 
@@ -97,7 +121,6 @@ const TutorProfileProfileAdditionalDetails = () => {
         <TextArea
           label="Bio"
           placeholder="Tell us about you"
-          isRequired
           name="bio"
           onChange={(e) => {
             changeHandler(e, setAboutInfoUpdate)
@@ -109,7 +132,6 @@ const TutorProfileProfileAdditionalDetails = () => {
         <Input
           label="Linkedin profile"
           placeholder="Enter profile link"
-          isRequired
           name="linkedIn_profile"
           onChange={(e) => {
             changeHandler(e, setAboutInfoUpdate)
@@ -120,7 +142,6 @@ const TutorProfileProfileAdditionalDetails = () => {
         <Input
           label="Website link"
           placeholder="Enter website link"
-          isRequired
           name="website_link"
           onChange={(e) => {
             changeHandler(e, setAboutInfoUpdate)
@@ -131,7 +152,7 @@ const TutorProfileProfileAdditionalDetails = () => {
 
       <div className={classes.buttonSection}>
         <Button
-          loading={updateContactHandlerObject.isLoading}
+          loading={updateAboutHandlerObject.isLoading}
           onClick={updateAboutInfoHandler}
         >
           Save
