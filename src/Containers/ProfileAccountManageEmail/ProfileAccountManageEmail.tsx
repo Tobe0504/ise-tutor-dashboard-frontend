@@ -1,20 +1,39 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "../../Components/Button/Button";
-import Error from "../../Components/Error/Error";
-import Input from "../../Components/Input/Input";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import ProfileSectionContainer from "../../Components/ProfileSectionContainer/ProfileSectionContainer";
-import classes from "../ProfileAccountManageAccounts/ProfileAccountManageAccounts.module.css";
-import ChangeEmailComformedModalBody from "./ChangeEmailComformedModalBody";
-import ChangeEmailModalWarning from "./ChangeEmailModalWarning";
+import { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Button from '../../Components/Button/Button'
+import Error from '../../Components/Error/Error'
+import Input from '../../Components/Input/Input'
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
+import ProfileSectionContainer from '../../Components/ProfileSectionContainer/ProfileSectionContainer'
+import { AuthUserContext } from '../../Context/AuthUserContext'
+import { changeHandler } from '../../Utilities/inputChangeHandler'
+import classes from '../ProfileAccountManageAccounts/ProfileAccountManageAccounts.module.css'
+import ChangeEmailComformedModalBody from './ChangeEmailComformedModalBody'
+import ChangeEmailModalWarning from './ChangeEmailModalWarning'
 
 const ProfileAccountManageEmail = () => {
+  // COntext
+  const {
+    updateEmailHandler,
+    emailUpdateRequestObject,
+    emailUpdate,
+    setEmailUpdate,
+    getUserRequestObject,
+  } = useContext(AuthUserContext)
   // States
-  const [displayInput, setDisplayInput] = useState(false);
-  const [displayWarningModal, setDisplayWarningModal] = useState(false);
+  const [displayInput, setDisplayInput] = useState(false)
+  const [displayWarningModal, setDisplayWarningModal] = useState(false)
   const [displayEmailChangeConfirmModal, setDisplayEmailChangeConfirmModal] =
-    useState(false);
+    useState(false)
+  const [emailState, setEmailState] = useState({ email: '' })
+
+  // Effects
+  useEffect(() => {
+    if (emailUpdateRequestObject.data) {
+      setDisplayWarningModal(false)
+      setDisplayEmailChangeConfirmModal(true)
+    }
+  }, [emailUpdateRequestObject.data])
 
   return (
     <ProfileSectionContainer
@@ -25,17 +44,18 @@ const ProfileAccountManageEmail = () => {
         {displayWarningModal && (
           <AcceptedModal
             onClick={() => {
-              setDisplayWarningModal(false);
+              setDisplayWarningModal(false)
             }}
             body={
               <ChangeEmailModalWarning
                 onClick={() => {
-                  setDisplayWarningModal(false);
+                  setDisplayWarningModal(false)
                 }}
                 onClick2={() => {
-                  setDisplayWarningModal(false);
-                  setDisplayEmailChangeConfirmModal(true);
+                  updateEmailHandler()
                 }}
+                oldEmail="test@email.com"
+                newEmail={emailUpdate.email}
               />
             }
           />
@@ -43,12 +63,12 @@ const ProfileAccountManageEmail = () => {
         {displayEmailChangeConfirmModal && (
           <AcceptedModal
             onClick={() => {
-              setDisplayEmailChangeConfirmModal(false);
+              setDisplayEmailChangeConfirmModal(false)
             }}
             body={
               <ChangeEmailComformedModalBody
                 onClick={() => {
-                  setDisplayEmailChangeConfirmModal(false);
+                  setDisplayEmailChangeConfirmModal(false)
                 }}
               />
             }
@@ -63,13 +83,15 @@ const ProfileAccountManageEmail = () => {
           type="email"
           label="Account email"
           placeholder="oyegokeamirah@gmail.com"
+          value={getUserRequestObject?.data?.email}
+          readOnly
         />
 
         {!displayInput && (
           <Button
             type="null"
             onClick={() => {
-              setDisplayInput(true);
+              setDisplayInput(true)
             }}
           >
             Change email
@@ -79,15 +101,14 @@ const ProfileAccountManageEmail = () => {
         {displayInput && (
           <>
             <Input
-              type="password"
-              label="Enter your password"
-              placeholder="Enter your current iṣẹ́ EdTech password"
-            />
-
-            <Input
               type="email"
               label="Enter new account email"
               placeholder="name@gmail.com"
+              value={emailUpdate.email}
+              onChange={(e) => {
+                changeHandler(e, setEmailUpdate)
+              }}
+              name="email"
             />
 
             <p className={classes.infoTip}>
@@ -97,21 +118,27 @@ const ProfileAccountManageEmail = () => {
               type="email"
               label="Confirm new account email"
               placeholder="name@gmail.com"
+              value={emailState.email}
+              onChange={(e) => {
+                changeHandler(e, setEmailState)
+              }}
+              name="email"
             />
 
             <div className={classes.buttonSection}>
               <Button
                 type="secondary"
                 onClick={() => {
-                  setDisplayInput(false);
+                  setDisplayInput(false)
                 }}
               >
                 Cancel update
               </Button>
               <Button
                 onClick={() => {
-                  setDisplayWarningModal(true);
+                  setDisplayWarningModal(true)
                 }}
+                disabled={emailState.email !== emailUpdate.email}
               >
                 Continue updates
               </Button>
@@ -120,7 +147,7 @@ const ProfileAccountManageEmail = () => {
         )}
       </div>
     </ProfileSectionContainer>
-  );
-};
+  )
+}
 
-export default ProfileAccountManageEmail;
+export default ProfileAccountManageEmail

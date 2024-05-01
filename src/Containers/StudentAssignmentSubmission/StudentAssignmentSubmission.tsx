@@ -1,25 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import ellipses from "../../Assets/Images/ellipses.svg"
-import classes from "./StudentAssignmentSubmission.module.css";
-import { useContext, useEffect, useRef, useState } from "react";
-import { AppContext } from "../../Context/AppContext";
-import ActionsModal from "../AssignmentPageContainer/ActionsModal/ActionsModal";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import Toast from "../../Components/Toast/Toast";
-import ApproveSubmissionModal from "../AssignmentPageContainer/ApproveSubmissionModal/ApproveSubmissionModal";
-import AssignmentSummaryModal from "../AssignmentPageContainer/AssignmentSummaryModal/AssignmentSummaryModal";
-import GradeSubmissionModal from "../AssignmentPageContainer/GradeSubmissionModal/GradeSubmissionModal";
-import MessageSentModal from "../AssignmentPageContainer/MessageSentModal";
-import RejectSubmissionModal from "../AssignmentPageContainer/RejectSubmissionModal/RejectSubmissionModal";
-import SendMessageModal from "../StudentData/SendMessageModal";
+import { useNavigate } from 'react-router-dom'
+import ellipses from '../../Assets/Images/ellipses.svg'
+import classes from './StudentAssignmentSubmission.module.css'
+import { useContext, useEffect, useRef, useState } from 'react'
+import { AppContext } from '../../Context/AppContext'
+import ActionsModal from '../AssignmentPageContainer/ActionsModal/ActionsModal'
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
+import Toast from '../../Components/Toast/Toast'
+import ApproveSubmissionModal from '../AssignmentPageContainer/ApproveSubmissionModal/ApproveSubmissionModal'
+import AssignmentSummaryModal from '../AssignmentPageContainer/AssignmentSummaryModal/AssignmentSummaryModal'
+import GradeSubmissionModal from '../AssignmentPageContainer/GradeSubmissionModal/GradeSubmissionModal'
+import MessageSentModal from '../AssignmentPageContainer/MessageSentModal'
+import RejectSubmissionModal from '../AssignmentPageContainer/RejectSubmissionModal/RejectSubmissionModal'
+import SendMessageModal from '../StudentData/SendMessageModal'
 
 const StudentAssignmentSubmission = () => {
   // Context
   const { students } = useContext(AppContext)
 
   // States
-  const [displayActionModals, setDisplayActionModals] = useState<boolean[]>([]);
-  const [selectedStudent, setSelectedStudent] = useState<any>(null);
+  const [displayActionModals, setDisplayActionModals] = useState<boolean[]>([])
+  const [selectedStudent, setSelectedStudent] = useState<any>(null)
 
   const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] =
     useState(false)
@@ -35,35 +35,38 @@ const StudentAssignmentSubmission = () => {
   const [displayMessageSentModal, setDisplayMessageSentModal] = useState(false)
 
   // Router
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // Refs
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    setDisplayActionModals(Array(students.length).fill(false));
-  }, [students]);
+    setDisplayActionModals(Array(students.length).fill(false))
+  }, [students])
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-      setDisplayActionModals(Array(students.length).fill(false));
+    if (
+      containerRef.current &&
+      !containerRef.current.contains(event.target as Node)
+    ) {
+      setDisplayActionModals(Array(students.length).fill(false))
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   const toggleActionModal = (index: number) => {
-    setDisplayActionModals(prevState =>
+    setDisplayActionModals((prevState) =>
       prevState.map((value, idx) => (idx === index ? !value : false))
-    );
-  };
+    )
+  }
 
   return (
     <>
@@ -181,10 +184,19 @@ const StudentAssignmentSubmission = () => {
         <div className={classes.header}>
           <div>
             <h4>Student Assignment Submission</h4>
-            <p>Access assignments submitted by your students, helping you stay organized and provide timely feedback.</p>
+            <p>
+              Access assignments submitted by your students, helping you stay
+              organized and provide timely feedback.
+            </p>
           </div>
           <div>
-            <span onClick={() => { navigate('/student/assignment') }}>View all</span>
+            <span
+              onClick={() => {
+                navigate('/student/assignment')
+              }}
+            >
+              View all
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -222,8 +234,8 @@ const StudentAssignmentSubmission = () => {
                     <span>
                       <img
                         onClick={() => {
-                          setSelectedStudent(data);
-                          toggleActionModal(index);
+                          setSelectedStudent(data)
+                          toggleActionModal(index)
                         }}
                         src={ellipses}
                         alt="more options"
@@ -232,22 +244,24 @@ const StudentAssignmentSubmission = () => {
                         <div className={classes.popover}>
                           <ActionsModal
                             onClick={() => {
-                              navigate("/student/assignment/assignment-submission");
+                              navigate(
+                                '/student/assignment/assignment-submission'
+                              )
                             }}
                             onClick2={() => {
-                              toggleActionModal(index);
+                              toggleActionModal(index)
                               setDisplayApproveSubmissionModal(true)
                             }}
                             onClick3={() => {
-                              toggleActionModal(index);
+                              toggleActionModal(index)
                               setDisplayRejectSubmissionModal(true)
                             }}
                             onClick4={() => {
-                              toggleActionModal(index);
+                              toggleActionModal(index)
                               setDisplaySendMessageModal(true)
                             }}
                             onClick5={() => {
-                              toggleActionModal(index);
+                              toggleActionModal(index)
                               setDisplayAssignmentSummaryModal(true)
                             }}
                           />
@@ -255,14 +269,14 @@ const StudentAssignmentSubmission = () => {
                       )}
                     </span>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default StudentAssignmentSubmission;
+export default StudentAssignmentSubmission

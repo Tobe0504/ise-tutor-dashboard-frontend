@@ -1,5 +1,4 @@
 import { createContext } from 'react'
-import { studentsData } from '../Utilities/students'
 
 type StudentsContextValues = {}
 

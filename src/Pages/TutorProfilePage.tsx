@@ -1,6 +1,6 @@
 import React from 'react'
-import Layout from "../Components/Layout/Layout";
-import TutorProfile from '../Containers/TutorProfile/TutorProfile';
+import Layout from '../Components/Layout/Layout'
+import TutorProfile from '../Containers/TutorProfile/TutorProfile'
 
 const TutorProfilePage = () => {
   return (
