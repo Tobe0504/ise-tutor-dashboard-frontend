@@ -1,13 +1,14 @@
-import classes from "./SideNav.module.css";
-import iseLogo from "../../Assets/Images/iseLogo.svg";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { AppContext } from "../../Context/AppContext";
-import { activeToggler } from "../../HelperFunctions/activeTogglers"
+import classes from './SideNav.module.css'
+import iseLogo from '../../Assets/Images/iseLogo.svg'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AppContext } from '../../Context/AppContext'
+import { activeToggler } from '../../HelperFunctions/activeTogglers'
+import { AuthUserContext } from '../../Context/AuthUserContext'
 
 // Utils
 export const sideNavIconsHandler = (title: string) => {
-  if (title === "Dashboard") {
+  if (title === 'Dashboard') {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -37,12 +38,23 @@ export const sideNavIconsHandler = (title: string) => {
           strokeLinejoin="round"
         />
       </svg>
-    );
-  } else if (title === "Courses") {
+    )
+  } else if (title === 'Courses') {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z" fill="#2E2E2E"></path></svg>
-    );
-  } else if (title === "Profile") {
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z"
+          fill="#2E2E2E"
+        ></path>
+      </svg>
+    )
+  } else if (title === 'Profile') {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +84,8 @@ export const sideNavIconsHandler = (title: string) => {
           strokeLinejoin="round"
         />
       </svg>
-    );
-  } else if (title === "Support") {
+    )
+  } else if (title === 'Support') {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -103,15 +115,37 @@ export const sideNavIconsHandler = (title: string) => {
           strokeLinejoin="round"
         />
       </svg>
-    );
-  } else if (title === "Student") {
+    )
+  } else if (title === 'Student') {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z" fill="#2E2E2E"></path></svg>
-    );
-  } else if (title === "Schedule") {
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z"
+          fill="#2E2E2E"
+        ></path>
+      </svg>
+    )
+  } else if (title === 'Schedule') {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z" fill="#2E2E2E"></path></svg>
-    );
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M13 9V3H21V9H13ZM3 13V3H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3Z"
+          fill="#2E2E2E"
+        ></path>
+      </svg>
+    )
   } else {
     return (
       <svg
@@ -126,63 +160,109 @@ export const sideNavIconsHandler = (title: string) => {
           fill="#2E2E2E"
         />
       </svg>
-    );
+    )
   }
-};
+}
 
 const SideNav = () => {
   // Location
-  const location = useLocation();
-  const navigate = useNavigate();
+  const location = useLocation()
+  const navigate = useNavigate()
 
   // COntext
   const { navItmesState, setNavItemsState } = useContext(AppContext)
+  const { logout } = useContext(AuthUserContext)
 
   return (
     <section className={classes.container}>
       <div className={classes.logoSection}>
-        <img src={iseLogo} onClick={() => { navigate('/dashboard') }} alt="Ise " />
+        <img
+          src={iseLogo}
+          onClick={() => {
+            navigate('/dashboard')
+          }}
+          alt="Ise "
+        />
       </div>
       <div className={classes.navSection}>
         {navItmesState.map((data, i) => {
           if (data.children) {
-            return <div key={i}>
-              <div key={i}
-                className={
-                  data.keywords?.includes(location.pathname.slice(1)) ||
+            return (
+              <div key={i}>
+                <div
+                  key={i}
+                  className={
+                    data.keywords?.includes(location.pathname.slice(1)) ||
                     data.route === location.pathname ||
-                    data.route?.includes(location.pathname.split("/")[1])
-                    ? classes.moreMenuContentActive
-                    : classes.moreMenuContentInActive
-                }>
-                <Link to={data.route} className={classes.link}>
-                  {sideNavIconsHandler(data.title)}</Link>
-
-                <Link to={data.route} className={classes.link}>
-                  <span>{data.title}</span></Link>
-
-                <svg
-                  onClick={() => {
-                    activeToggler(i, navItmesState, setNavItemsState)
-                  }}
-
-                  style={data.isActive ? { transform: "rotate(-90deg)", transition: "all .3s ease-in-out" } : { transform: "rotate(0deg)", transition: "all .3s ease-in-out" }}
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M19 9L12 16L5 9" stroke="#2E2E2E" strokeWidth="2" stroke-linecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <div className={classes.otherOptions} style={data.isActive ? { maxHeight: "1000px" } : { maxHeight: "0px" }}>
-                {data.children.map((datum: any, j: number) => {
-                  return <Link
-                    to={datum.route}
-                    key={j}
-                    className={location.pathname === datum.route ? `${classes.otherOptionsLinkActive}` : classes.link}
-                  >
-                    {datum.title}
+                    data.route?.includes(location.pathname.split('/')[1])
+                      ? classes.moreMenuContentActive
+                      : classes.moreMenuContentInActive
+                  }
+                >
+                  <Link to={data.route} className={classes.link}>
+                    {sideNavIconsHandler(data.title)}
                   </Link>
-                })}
+
+                  <Link to={data.route} className={classes.link}>
+                    <span>{data.title}</span>
+                  </Link>
+
+                  <svg
+                    onClick={() => {
+                      activeToggler(i, navItmesState, setNavItemsState)
+                    }}
+                    style={
+                      data.isActive
+                        ? {
+                            transform: 'rotate(-90deg)',
+                            transition: 'all .3s ease-in-out',
+                          }
+                        : {
+                            transform: 'rotate(0deg)',
+                            transition: 'all .3s ease-in-out',
+                          }
+                    }
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M19 9L12 16L5 9"
+                      stroke="#2E2E2E"
+                      strokeWidth="2"
+                      stroke-linecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div
+                  className={classes.otherOptions}
+                  style={
+                    data.isActive
+                      ? { maxHeight: '1000px' }
+                      : { maxHeight: '0px' }
+                  }
+                >
+                  {data.children.map((datum: any, j: number) => {
+                    return (
+                      <Link
+                        to={datum.route}
+                        key={j}
+                        className={
+                          location.pathname === datum.route
+                            ? `${classes.otherOptionsLinkActive}`
+                            : classes.link
+                        }
+                      >
+                        {datum.title}
+                      </Link>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
+            )
           }
           return (
             <Link
@@ -190,8 +270,8 @@ const SideNav = () => {
               key={i}
               className={
                 data.keywords?.includes(location.pathname.slice(1)) ||
-                  data.route === location.pathname ||
-                  data.route?.includes(location.pathname.split("/")[1])
+                data.route === location.pathname ||
+                data.route?.includes(location.pathname.split('/')[1])
                   ? classes.active
                   : classes.inActive
               }
@@ -199,9 +279,9 @@ const SideNav = () => {
               {sideNavIconsHandler(data.title)}
               <span>{data.title}</span>
             </Link>
-          );
+          )
         })}
-        <div className={classes.logout}>
+        <div className={classes.logout} onClick={logout}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -221,7 +301,7 @@ const SideNav = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default SideNav;
+export default SideNav

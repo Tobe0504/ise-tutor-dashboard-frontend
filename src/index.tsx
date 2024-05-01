@@ -7,19 +7,22 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import AppContextProvider from './Context/AppContext'
 import AuthUserContextProvider from './Context/AuthUserContext'
 import StudentsContextProvider from './Context/StudentsContext '
+import Toast2 from './Components/Toast2/Toast2'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <Router>
-    <AuthUserContextProvider>
-      <AppContextProvider>
+    <AppContextProvider>
+      <AuthUserContextProvider>
         <StudentsContextProvider>
           <React.StrictMode>
-            <App />
+            <Toast2>
+              <App />
+            </Toast2>
           </React.StrictMode>
         </StudentsContextProvider>
-      </AppContextProvider>
-    </AuthUserContextProvider>
+      </AuthUserContextProvider>
+    </AppContextProvider>
   </Router>
 )
 

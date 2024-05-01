@@ -1,7 +1,17 @@
-import React, { createContext, Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { sideNavItems } from '../Utilities/sideNavItems';
-import { studentsData, studentsDataType } from '../Utilities/students';
-import { coursesData, coursesDataType } from '../Utilities/courses';
+import { AxiosResponse } from 'axios'
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react'
+import { capitalize } from '../HelperFunctions/capitalize'
+import requestHandler from '../HelperFunctions/requestHandler'
+import { sideNavItems } from '../Utilities/sideNavItems'
+import { studentsData, studentsDataType } from '../Utilities/students'
+import { requestType } from './AuthUserContext'
+import { coursesDataType, coursesData } from '../Utilities/courses'
 
 type AppContextProviderProps = {
   children: React.ReactNode
@@ -36,7 +46,33 @@ type AppContextProps = {
   setCurrentStepAndSave: (step: number) => void
   searchValue: string
   setSearchValue: Dispatch<SetStateAction<string>>
+  notifications: notificationsType
+  setNotifications: Dispatch<SetStateAction<notificationsType>>
+  contactSupportHandler: () => void
+  contactSupportHandlerObject: requestType
+  contactSupport: {
+    subject: string
+    description: string
+    image: string
+  }
+  setContactSupport: Dispatch<
+    SetStateAction<{
+      subject: string
+      description: string
+      image: string
+    }>
+  >
 }
+
+export type notificationsType =
+  | {
+      title: string
+      severity: 'success' | 'error' | 'mid'
+      description?: string
+      id: string | number
+    }[]
+  | null
+  | undefined
 
 export const AppContext = createContext({} as AppContextProps)
 
@@ -68,6 +104,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     studentsData as studentsDataType
   )
   const [searchValue, setSearchValue] = useState<string>('')
+  const [notifications, setNotifications] = useState<notificationsType>(null)
 
   const searchHandler = () => {
     if (searchValue?.length > 0) {
@@ -75,20 +112,75 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         return (
           data?.studentName.toLowerCase().includes(searchValue.toLowerCase()) ||
           data?.emailAddress.toLowerCase().includes(searchValue.toLowerCase())
-        );
-      });
+        )
+      })
 
       if (filteredStudents.length > 0) {
-        setStudents(filteredStudents as studentsDataType);
+        setStudents(filteredStudents as studentsDataType)
       } else {
-        setStudents([]);
+        setStudents([])
       }
     } else {
-      setStudents(studentsData as studentsDataType);
+      setStudents(studentsData as studentsDataType)
     }
-  };
+  }
 
-  const [courses, setCourses] = useState<coursesDataType>(coursesData);
+  const [courses, setCourses] = useState<coursesDataType>(coursesData)
+
+  const [contactSupport, setContactSupport] = useState({
+    subject: '',
+    description: '',
+    image: '',
+  })
+  const contactSupportFormData = new FormData()
+
+  useEffect(() => {
+    contactSupportFormData.append('subject', contactSupport?.subject)
+    contactSupportFormData.append('description', contactSupport?.description)
+    contactSupportFormData.append('image', contactSupport?.image)
+
+    // eslint-disable-next-line
+  }, [contactSupport])
+
+  const [contactSupportHandlerObject, setContactSupportHandlerObject] =
+    useState<requestType>({
+      isLoading: false,
+      data: null,
+      error: null,
+    })
+
+  const contactSupportHandler = () => {
+    setContactSupportHandlerObject({
+      isLoading: true,
+      data: null,
+      error: null,
+    })
+    requestHandler({
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/issue/tutors`,
+      method: 'POST',
+      data: contactSupportFormData,
+    })
+      .then((res) => {
+        console.log(res)
+        setContactSupportHandlerObject({
+          isLoading: false,
+          data: capitalize((res as AxiosResponse).data as string) || '',
+          error: null,
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+        setContactSupportHandlerObject({
+          isLoading: false,
+          data: null,
+          error: err.response?.data?.error
+            ? err.response?.data?.error?.responseMessage
+            : !err.response?.data?.error
+            ? err.response?.data?.responseMessage.toString()
+            : err.message,
+        })
+      })
+  }
 
   //   Effects
   useEffect(() => {
@@ -125,6 +217,12 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setCurrentStepAndSave,
         searchValue,
         setSearchValue,
+        notifications,
+        setNotifications,
+        contactSupportHandler,
+        contactSupport,
+        setContactSupport,
+        contactSupportHandlerObject,
       }}
     >
       {children}

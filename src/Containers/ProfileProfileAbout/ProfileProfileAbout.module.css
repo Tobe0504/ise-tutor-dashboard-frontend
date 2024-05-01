@@ -2,14 +2,14 @@
   margin-bottom: 20px;
 }
 
-.profilePhotoHeader>h4 {
+.profilePhotoHeader > h4 {
   font-weight: 400;
   font-size: 1.125rem;
   padding-bottom: 16px;
   font-family: Archivo;
 }
 
-.profilePhoto>p {
+.profilePhoto > p {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
@@ -19,31 +19,31 @@
   margin-bottom: 1rem;
 }
 
-.profilePhoto>div {
+.profilePhoto > div {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.profilePhoto>div>img {
+.profilePhoto > div > img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.profilePhoto>div>div {
+.profilePhoto > div > div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 24px;
 }
 
-.buttonUpper>input {
+.buttonUpper > input {
   display: none;
 }
 
-.buttonUpper>label {
+.buttonUpper > label {
   padding: 5px 20px;
   border-radius: 5px;
   border: 2px solid var(--purple);
@@ -57,12 +57,12 @@
   line-height: 21px;
 }
 
-.buttonUpper>label:nth-child(2) {
+.buttonUpper > label:nth-child(2) {
   color: var(--white);
   background: var(--purple);
 }
 
-.profilePhoto>div>div>button {
+.profilePhoto > div > div > button {
   width: 85px;
   height: 31px;
   object-fit: cover;
@@ -91,7 +91,7 @@
     background: var(--foundation-primary-p-10, #fbfaff);
   }
 
-  .profilePhoto>div>img {
+  .profilePhoto > div > img {
     width: 80px;
     height: 80px;
     object-fit: cover;
@@ -103,7 +103,7 @@
     justify-content: center;
   }
 
-  .profilePhoto>div>.buttonUpper {
+  .profilePhoto > div > .buttonUpper {
     flex-basis: 100%;
   }
 }
@@ -118,7 +118,7 @@
     justify-content: center;
   }
 
-  .profilePhoto>div>.buttonUpper {
+  .profilePhoto > div > .buttonUpper {
     flex-basis: 100%;
   }
 }

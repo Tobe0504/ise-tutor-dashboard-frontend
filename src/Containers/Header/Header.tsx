@@ -1,37 +1,49 @@
-import classes from "./Header.module.css";
-import amirahTemi from "../../Assets/Images/amirahTemi.svg";
-import iseLogo from "../../Assets/Images/iseLogo.svg";
-import { useRef } from "react";
-import HeaderSideNav from "../HeaderSideNav/HeaderSideNav";
-import { useNavigate } from "react-router-dom";
+import classes from './Header.module.css'
+import amirahTemi from '../../Assets/Images/amirahTemi.svg'
+import iseLogo from '../../Assets/Images/iseLogo.svg'
+import { useContext, useRef } from 'react'
+import HeaderSideNav from '../HeaderSideNav/HeaderSideNav'
+import { useNavigate } from 'react-router-dom'
+import { AuthUserContext } from '../../Context/AuthUserContext'
+import noProfileImage from '../../Assets/Images/noProfileImage.svg'
 
 type HeaderTypes = {
-  closeSideNavProp: boolean | undefined;
-};
+  closeSideNavProp: boolean | undefined
+}
 
 const Header = ({ closeSideNavProp }: HeaderTypes) => {
-  // Refs
-  const sideNav = useRef<null | HTMLDivElement>(null);
+  // context
+  const { getUserRequestObject } = useContext(AuthUserContext)
 
-  // Router 
-  const navigate = useNavigate();
+  // Refs
+  const sideNav = useRef<null | HTMLDivElement>(null)
+
+  // Router
+  const navigate = useNavigate()
 
   // Utils
   const openSideNav = () => {
     if (sideNav.current) {
-      sideNav.current.style.width = "100%";
+      sideNav.current.style.width = '100%'
     }
-  };
+  }
 
   const closeSideNav = () => {
     if (sideNav.current) {
-      sideNav.current.style.width = "0%";
+      sideNav.current.style.width = '0%'
     }
-  };
+  }
 
   return (
     <section className={classes.container}>
-      <img src={iseLogo} onClick={() => { navigate('/dashboard ') }} alt="Ise" className={classes.logo} />
+      <img
+        src={iseLogo}
+        onClick={() => {
+          navigate('/dashboard ')
+        }}
+        alt="Ise"
+        className={classes.logo}
+      />
       {!closeSideNavProp && (
         <div className={classes.inputSection}>
           <input type="text" placeholder="Search" />
@@ -55,7 +67,14 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
       {closeSideNavProp && (
         <>
           <div>
-            <img src={iseLogo} alt="Ise" onClick={() => { navigate('/dashboard ') }} className={classes.logoHeader} />
+            <img
+              src={iseLogo}
+              alt="Ise"
+              onClick={() => {
+                navigate('/dashboard ')
+              }}
+              className={classes.logoHeader}
+            />
           </div>
           <div className={classes.inputSection}>
             <input type="text" placeholder="Search" />
@@ -96,8 +115,13 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
           </svg>
           <div></div>
         </div>
-        <p>Amirah Oyegoke</p>
-        <img src={amirahTemi} alt="User" />
+        <p>
+          {`${getUserRequestObject?.data?.first_name} ${getUserRequestObject?.data?.last_name}`}{' '}
+        </p>
+        <img
+          src={getUserRequestObject?.data?.profile_image || noProfileImage}
+          alt="User"
+        />
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +160,7 @@ const Header = ({ closeSideNavProp }: HeaderTypes) => {
         <HeaderSideNav closeSideNav={closeSideNav} />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

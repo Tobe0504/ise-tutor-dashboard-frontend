@@ -1,29 +1,38 @@
-import React, { Dispatch, SetStateAction } from "react";
-import classes from "./SectionsNav.module.css";
+import React, { Dispatch, SetStateAction, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import classes from './SectionsNav.module.css'
 
 type SectionsNavTypes = {
   navItems: {
-    title: string;
-    isActive: boolean;
-  }[];
+    title: string
+    isActive: boolean
+    route?: string
+  }[]
   setNavItems: Dispatch<
     SetStateAction<
       {
-        title: string;
-        isActive: boolean;
+        title: string
+        isActive: boolean
+        route?: string
       }[]
     >
-  >;
-  style?: React.CSSProperties;
-  containerStyle?: React.CSSProperties;
-};
+  >
+  style?: React.CSSProperties
+  containerStyle?: React.CSSProperties
+  isRouting?: boolean
+}
 
 const SectionsNav = ({
   navItems,
   setNavItems,
   style,
   containerStyle,
+  isRouting,
 }: SectionsNavTypes) => {
+  // ROuter
+  const navigate = useNavigate()
+  const { subProfile } = useParams()
+
   // utils
   const activeChangeHandler = (index: number) => {
     const navCopy = [...navItems].map((datum, i) => {
@@ -31,16 +40,44 @@ const SectionsNav = ({
         return {
           ...datum,
           isActive: true,
-        };
+        }
       }
 
       return {
         ...datum,
         isActive: false,
-      };
-    });
-    setNavItems(navCopy);
-  };
+      }
+    })
+    setNavItems(navCopy)
+
+    if (isRouting) {
+      navigate(
+        `/profile/${navItems.find((data) => data.isActive)?.route as string}`
+      )
+    }
+  }
+
+  useEffect(() => {
+    if (isRouting) {
+      setNavItems(
+        navItems.map((data) => {
+          if (data?.route === subProfile) {
+            return {
+              ...data,
+              isActive: true,
+            }
+          } else {
+            return {
+              ...data,
+              isActive: false,
+            }
+          }
+        })
+      )
+    }
+
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <div className={classes.container}>
@@ -50,7 +87,7 @@ const SectionsNav = ({
             <div
               key={i}
               onClick={() => {
-                activeChangeHandler(i);
+                activeChangeHandler(i)
               }}
               className={
                 data.isActive ? `${classes.activeDiv}` : `${classes.div}`
@@ -59,11 +96,11 @@ const SectionsNav = ({
             >
               <span>{data.title}</span>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SectionsNav;
+export default SectionsNav
