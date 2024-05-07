@@ -43,60 +43,69 @@ function App() {
         element={<TutorDashboardLoadingScreenPage />}
       />
 
-      <Route element={<RequireAuth />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/complete-profile" element={<TutorCompleteProfilePage />} />
-      <Route path="/profile-info/:subProfile" element={<TutorProfilePage />} />
-      <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
-      <Route
-        path="/collaboration-hub-video-guide"
-        element={<CollaborationHubVideoGuide />}
-      />
+      <Route element={<RequireAuth />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/complete-profile"
+          element={<TutorCompleteProfilePage />}
+        />
+        <Route
+          path="/profile-info/:subProfile"
+          element={<TutorProfilePage />}
+        />
+        <Route path="/collaboration-hub" element={<CollaborationHubPage />} />
+        <Route
+          path="/collaboration-hub-video-guide"
+          element={<CollaborationHubVideoGuide />}
+        />
 
-      <Route path="/support" element={<TutorSupportPage />} />
-      <Route path="/support/contact-support" element={<ContactSupportPage />} />
+        <Route path="/support" element={<TutorSupportPage />} />
+        <Route
+          path="/support/contact-support"
+          element={<ContactSupportPage />}
+        />
 
-      <Route path="/student" element={<StudentPage />} />
-      <Route
-        path="/student/details/:studentId"
-        element={<StudentDetailsPage />}
-      />
-      <Route path="/student/quiz" element={<QuizPage />} />
-      <Route path="/student/assignment" element={<AssignmentPage />} />
-      <Route
-        path="/student/assignment/assignment-submission"
-        element={<AssignmentSubmissionPage />}
-      />
+        <Route path="/student" element={<StudentPage />} />
+        <Route
+          path="/student/details/:studentId"
+          element={<StudentDetailsPage />}
+        />
+        <Route path="/student/quiz" element={<QuizPage />} />
+        <Route path="/student/assignment" element={<AssignmentPage />} />
+        <Route
+          path="/student/assignment/assignment-submission"
+          element={<AssignmentSubmissionPage />}
+        />
 
-      <Route path="/courses" element={<CoursesPage />} />
-      <Route
-        path="/courses/courses-curriculum"
-        element={<CoursesCurriculum />}
-      />
-      <Route
-        path="/courses/courses-curriculum/submission-guide"
-        element={<SubmissionGuide />}
-      />
-      <Route
-        path="/courses/create-module"
-        element={<CreatingCourseModulePage />}
-      />
-      <Route path="/courses/feedback" element={<CoursesFeedback />} />
-      <Route
-        path="/courses/feedback/:courseReviewId"
-        element={<CourseUnderReview />}
-      />
-      <Route
-        path="/courses/feedback/:courseReviewId/feedback-preview"
-        element={<CourseModuleFeedbackPreviewPage />}
-      />
-      <Route
-        path="/courses/create-module/preview"
-        element={<CreatingCourseModulePreviewPage />}
-      />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route
+          path="/courses/courses-curriculum"
+          element={<CoursesCurriculum />}
+        />
+        <Route
+          path="/courses/courses-curriculum/submission-guide"
+          element={<SubmissionGuide />}
+        />
+        <Route
+          path="/courses/create-module"
+          element={<CreatingCourseModulePage />}
+        />
+        <Route path="/courses/feedback" element={<CoursesFeedback />} />
+        <Route
+          path="/courses/feedback/:courseReviewId"
+          element={<CourseUnderReview />}
+        />
+        <Route
+          path="/courses/feedback/:courseReviewId/feedback-preview"
+          element={<CourseModuleFeedbackPreviewPage />}
+        />
+        <Route
+          path="/courses/create-module/preview"
+          element={<CreatingCourseModulePreviewPage />}
+        />
 
-      <Route path="/schedule" element={<SchedulePage />} />
-      <Route />
+        <Route path="/schedule" element={<SchedulePage />} />
+      </Route>
     </Routes>
   )
 }

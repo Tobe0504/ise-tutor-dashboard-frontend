@@ -15,13 +15,11 @@ const TutorProfileProfileAbout = () => {
   const {
     contacttInfoUpdate,
     setContacttInfoUpdate,
-    updateAboutHandlerObject,
     updateContactHandler,
     countriesRequestObject,
     fetchCountries,
     contactInfoUpdateFormData,
     getUserRequestObject,
-    getUser,
     updateContactHandlerObject,
   } = useContext(AuthUserContext)
 
@@ -33,7 +31,7 @@ const TutorProfileProfileAbout = () => {
     file: null,
     frontendFile: null,
   })
-  const [fullname, setFullname] = useState('')
+  const [isDirty, setIsDirty] = useState(false)
   const [phoneNumber, setPhoneNumber] = useState('')
   const [countryCode, setCountryCode] = useState('')
   const [country, setCountry] = useState('')
@@ -63,12 +61,9 @@ const TutorProfileProfileAbout = () => {
     })
   }
 
-  console.log(getUserRequestObject?.data)
-
   // Effects
   useEffect(() => {
     fetchCountries()
-    getUser()
     // eslint-disable-next-line
   }, [])
 
@@ -93,6 +88,8 @@ const TutorProfileProfileAbout = () => {
         setPhoneNumber(getUserRequestObject.data?.phone_number?.split(' ')[1])
       }
     }
+
+    // eslint-disable-next-line
   }, [getUserRequestObject.data])
 
   useEffect(() => {
@@ -105,6 +102,8 @@ const TutorProfileProfileAbout = () => {
 
       setCOuntryCodeList(countruyCodesCopy)
     }
+
+    // eslint-disable-next-line
   }, [countriesRequestObject.data])
 
   useEffect(() => {
@@ -180,7 +179,27 @@ const TutorProfileProfileAbout = () => {
     // eslint-disable-next-line
   }, [contacttInfoUpdate])
 
-  console.log(contacttInfoUpdate, 'Hmm', updateAboutHandlerObject)
+  useEffect(() => {
+    if (getUserRequestObject.data) {
+      const dirty =
+        contacttInfoUpdate.firstname !==
+          getUserRequestObject?.data?.first_name ||
+        contacttInfoUpdate.lastname !== getUserRequestObject?.data?.last_name ||
+        contacttInfoUpdate.profile_image !==
+          getUserRequestObject?.data?.profile_image ||
+        contacttInfoUpdate.gender !== getUserRequestObject?.data?.gender ||
+        contacttInfoUpdate.country !== getUserRequestObject?.data?.country ||
+        contacttInfoUpdate.preferred_language !==
+          getUserRequestObject?.data?.preferred_language ||
+        contacttInfoUpdate.email !== getUserRequestObject?.data?.email ||
+        contacttInfoUpdate.phone_number !==
+          getUserRequestObject?.data?.phone_number
+
+      setIsDirty(dirty)
+    }
+
+    // eslint-disable-next-line
+  }, [getUserRequestObject.data, contacttInfoUpdate])
 
   return (
     <div className={classes.container}>
@@ -197,7 +216,7 @@ const TutorProfileProfileAbout = () => {
             onChange={(e) => {
               inputChangeHandler(e, setContacttInfoUpdate)
             }}
-            name="first_name"
+            name="firstname"
           />
 
           <Input
@@ -208,7 +227,7 @@ const TutorProfileProfileAbout = () => {
             onChange={(e) => {
               inputChangeHandler(e, setContacttInfoUpdate)
             }}
-            name="last_name"
+            name="lastname"
           />
 
           <div className={classes.profilePhoto}>
@@ -308,6 +327,7 @@ const TutorProfileProfileAbout = () => {
           <Button
             onClick={updateContactHandler}
             loading={updateContactHandlerObject?.isLoading}
+            disabled={!isDirty}
           >
             Save changes
           </Button>

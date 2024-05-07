@@ -13,14 +13,18 @@ import { coursesData } from '../../Utilities/courses'
 import GetStartedVideoContainer from '../GetStartedVideoContainer/GetStartedVideoContainer'
 import { useContext } from 'react'
 import { AppContext } from '../../Context/AppContext'
+import { AuthUserContext } from '../../Context/AuthUserContext'
 
 const DashboardMain = () => {
   const { showGetStarted } = useContext(AppContext)
+  const { getUserRequestObject } = useContext(AuthUserContext)
 
   return (
     <div className={classes.container}>
       <HelloUser
-        header="Hi Amirah, welcome"
+        header={`Hi ${
+          getUserRequestObject?.data?.first_name || 'user'
+        }, welcome`}
         paragraph="We are thrilled to have you as part of our esteemed team of educators."
         notIncludePay
         notIncludeBg
@@ -39,7 +43,8 @@ const DashboardMain = () => {
           <GetStartedVideoContainer
             title="Getting Started Guide"
             paragraph="Welcome to the ise platform! We're excited to have you on board and help you embark on your learning journey. Watch out tutorial guide to learn how to navigate our platform."
-            videoHeight="480px" />
+            videoHeight="480px"
+          />
         )}
       </div>
 

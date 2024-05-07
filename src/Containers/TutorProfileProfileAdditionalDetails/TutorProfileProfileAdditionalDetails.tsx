@@ -13,7 +13,6 @@ const TutorProfileProfileAdditionalDetails = () => {
   const {
     aboutInfoUpdate,
     setAboutInfoUpdate,
-    updateContactHandlerObject,
     updateAboutInfoHandler,
     getUserRequestObject,
     updateAboutHandlerObject,
@@ -23,6 +22,7 @@ const TutorProfileProfileAdditionalDetails = () => {
   const [day, setDay] = useState('')
   const [month, setMonth] = useState('')
   const [year, setYear] = useState('')
+  const [isDirty, setIsDirty] = useState(false)
 
   // Utils
   const date = new Date()
@@ -73,17 +73,33 @@ const TutorProfileProfileAdditionalDetails = () => {
         setDay(getUserRequestObject?.data?.dob?.split('-')[2])
       }
     }
+
+    // eslint-disable-next-line
   }, [getUserRequestObject.data])
 
   useEffect(() => {
     if (day || year || month) {
       setAboutInfoUpdate((prevState) => {
-        return { ...prevState, dob: `${month}-${day}-${year}` }
+        return { ...prevState, dob: `${year}-${month}-${day}` }
       })
     }
 
     // eslint-disable-next-line
   }, [day, month, year])
+
+  useEffect(() => {
+    if (getUserRequestObject.data) {
+      const dirty =
+        aboutInfoUpdate.dob !== getUserRequestObject?.data?.dob ||
+        aboutInfoUpdate.bio !== getUserRequestObject?.data?.bio ||
+        aboutInfoUpdate.linkedIn_profile !==
+          getUserRequestObject?.data?.linkedIn_profile ||
+        aboutInfoUpdate.website_link !==
+          getUserRequestObject?.data?.website_link
+
+      setIsDirty(dirty)
+    }
+  }, [getUserRequestObject.data, aboutInfoUpdate])
 
   return (
     <ProfileSectionContainer
@@ -154,6 +170,7 @@ const TutorProfileProfileAdditionalDetails = () => {
         <Button
           loading={updateAboutHandlerObject.isLoading}
           onClick={updateAboutInfoHandler}
+          disabled={!isDirty}
         >
           Save
         </Button>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import classes from './TutorProfileProfileCertifications.module.css'
 import ProfileSectionContainer from '../../Components/ProfileSectionContainer/ProfileSectionContainer'
 import Input from '../../Components/Input/Input'
@@ -14,10 +14,37 @@ const TutorProfileProfileCertifications = () => {
     updateCertificationsHandlerObject,
     certificationsUpdate,
     setCertificationsUpdate,
+    getUserRequestObject,
   } = useContext(AuthUserContext)
 
   //   States
   const [certificationState, setCertificationState] = useState('')
+  const [isDirty, setIsDirty] = useState(false)
+
+  // Effects
+  useEffect(() => {
+    if (getUserRequestObject?.data) {
+      setCertificationsUpdate({
+        certifications: [
+          ...JSON.parse(getUserRequestObject?.data?.certifications),
+        ],
+      })
+    }
+
+    // eslint-disable-next-line
+  }, [getUserRequestObject?.data])
+
+  useEffect(() => {
+    if (getUserRequestObject?.data) {
+      const dirty =
+        JSON.stringify(certificationsUpdate.certifications) !==
+        getUserRequestObject?.data?.certifications
+
+      setIsDirty(dirty)
+    }
+
+    // eslint-disable-next-line
+  }, [certificationsUpdate, getUserRequestObject?.data])
 
   return (
     <ProfileSectionContainer
@@ -27,15 +54,16 @@ const TutorProfileProfileCertifications = () => {
       <div className={classes.container}>
         <Input
           label="Certifications"
-          placeholder="Enter certification name"
+          placeholder="Enter certification name and hit enter to save"
           isRequired
           value={certificationState}
           onChange={(e) => {
             setCertificationState(e.target.value)
           }}
+          errorMessage="Hit enter to save a certification"
           onKeyDown={(e) => {
             if (e.key === 'Enter' && certificationState.trim().length > 0) {
-              const smallerArray = certificationsUpdate.certifications.map(
+              const smallerArray = certificationsUpdate.certifications?.map(
                 (data) => {
                   return data.toLowerCase()
                 }
@@ -53,7 +81,7 @@ const TutorProfileProfileCertifications = () => {
           }}
         />
         <div className={classes.tag}>
-          {certificationsUpdate.certifications.map((data, i) => {
+          {certificationsUpdate.certifications?.map((data, i) => {
             return (
               <React.Fragment key={i}>
                 <TagInput
@@ -78,6 +106,7 @@ const TutorProfileProfileCertifications = () => {
           <Button
             onClick={updateCertificationHandler}
             loading={updateCertificationsHandlerObject.isLoading}
+            disabled={!isDirty}
           >
             Save
           </Button>
