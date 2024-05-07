@@ -8,7 +8,6 @@ export const setNotiticationFunction = (
   errorMessage: string,
   severity?: string
 ) => {
-  console.log(setState, errorMessage, 'Hmm')
   if (setState) {
     setState((prevState: any) => {
       if (prevState) {

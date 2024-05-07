@@ -6,14 +6,10 @@ import {
   useEffect,
   useState,
 } from 'react'
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AppContext } from './AppContext'
-import requestHandler, {
-  requestHandler2,
-} from '../HelperFunctions/requestHandler'
-import { setNotiticationFunction } from '../Utilities/setNotificationsFunction'
-import { capitalize } from '../HelperFunctions/capitalize'
+import { requestHandler2 } from '../HelperFunctions/requestHandler'
 import { completeProfileType } from '../Utilities/types'
 
 export type requestType = {
@@ -264,6 +260,8 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       'linkedIn_profile',
       completeProfile.linkedIn_profile
     )
+
+    // eslint-disable-next-line
   }, [completeProfile])
 
   const [completeUserOnboardObject, setCompleteUserOnboardObject] =
@@ -280,11 +278,12 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   // Utils
   const redirectRoute = location.state || '/complete-profile'
 
-  const getUser = () => {
+  const getUser = (load?: boolean) => {
     requestHandler2({
       method: 'GET',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile`,
       setState: setGetUserRequestObject,
+      load,
     })
   }
 
@@ -317,6 +316,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       successMessage: 'Onboarded successfully',
       successFunction: () => {
         navigate('/dashboard')
+        getUser()
       },
     })
   }
@@ -367,6 +367,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       setNotifications: setNotifications,
       setNotificationsSuccess: true,
       setNotificationsFailure: true,
+      successFunction: () => {
+        getUser(false)
+      },
     })
   }
 
@@ -379,6 +382,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       setNotifications: setNotifications,
       setNotificationsSuccess: true,
       setNotificationsFailure: true,
+      successFunction: () => {
+        getUser(false)
+      },
     })
   }
 
@@ -391,6 +397,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       setNotifications: setNotifications,
       setNotificationsSuccess: true,
       setNotificationsFailure: true,
+      successFunction: () => {
+        getUser(false)
+      },
     })
   }
 
@@ -403,6 +412,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       setNotifications: setNotifications,
       setNotificationsSuccess: true,
       setNotificationsFailure: true,
+      successFunction: () => {
+        getUser(false)
+      },
     })
   }
 

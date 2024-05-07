@@ -8,8 +8,12 @@ import classes from './TutorProfileProfileSkillsAndExperience.module.css'
 
 const TutorProfileProfileSkillsAndExperience = () => {
   // Context
-  const { updateSkillsHandler, updateSkillsHandlerObject, setSkillInfoUpdate } =
-    useContext(AuthUserContext)
+  const {
+    updateSkillsHandler,
+    updateSkillsHandlerObject,
+    setSkillInfoUpdate,
+    getUserRequestObject,
+  } = useContext(AuthUserContext)
 
   // States
   const [topSkills, setTopSkills] = useState<null | string[]>([])
@@ -18,6 +22,7 @@ const TutorProfileProfileSkillsAndExperience = () => {
   const [yearsOfExperience, setYearsOfExperience] = useState('')
   const [techProfeciency, setTechProficiency] = useState('')
   const [selectedProfeciency, setSelectedProfeciency] = useState<string[]>([])
+  const [isDirty, setIsDirty] = useState(false)
 
   const filter = (i: number) => {
     const arrayCopy = selectedProfeciency.filter((data, index) => {
@@ -28,6 +33,17 @@ const TutorProfileProfileSkillsAndExperience = () => {
   }
 
   // Effects
+  useEffect(() => {
+    if (getUserRequestObject?.data) {
+      setTopSkills(JSON.parse(getUserRequestObject?.data?.specialization))
+      setExperienceLevel(getUserRequestObject?.data?.experience_level)
+      setYearsOfExperience(getUserRequestObject?.data?.years_of_experience)
+      setSelectedProfeciency(
+        JSON.parse(getUserRequestObject?.data?.tech_proficiency)
+      )
+    }
+  }, [getUserRequestObject?.data])
+
   useEffect(() => {
     if (techProfeciency) {
       if (!selectedProfeciency.includes(techProfeciency)) {
@@ -69,6 +85,29 @@ const TutorProfileProfileSkillsAndExperience = () => {
 
     // eslint-disable-next-line
   }, [topSkillsText])
+
+  useEffect(() => {
+    if (getUserRequestObject?.data) {
+      const dirty =
+        getUserRequestObject?.data?.specialization !==
+          JSON.stringify(topSkills) ||
+        getUserRequestObject?.data?.experience_level !== experienceLevel ||
+        getUserRequestObject?.data?.years_of_experience !== yearsOfExperience ||
+        getUserRequestObject?.data?.tech_proficiency !==
+          JSON.stringify(selectedProfeciency)
+      setIsDirty(!dirty)
+
+      console.log(dirty, isDirty)
+    }
+
+    // eslint-disable-next-line
+  }, [
+    getUserRequestObject?.data,
+    topSkills,
+    experienceLevel,
+    yearsOfExperience,
+    techProfeciency,
+  ])
 
   // Utils
   const filtertopSkills = (skill: string) => {
@@ -121,9 +160,9 @@ const TutorProfileProfileSkillsAndExperience = () => {
                     <path
                       d="M6 18L18 6M6 6L18 18"
                       stroke="#2E2E2E"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                   <span>{data}</span>
@@ -178,6 +217,7 @@ const TutorProfileProfileSkillsAndExperience = () => {
         <Button
           onClick={updateSkillsHandler}
           loading={updateSkillsHandlerObject.isLoading}
+          disabled={isDirty}
         >
           Save
         </Button>

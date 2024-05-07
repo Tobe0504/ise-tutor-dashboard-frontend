@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import SectionsNav4 from '../../Components/SectionsNav4/SectionsNav4'
 import TutorProfileProfile from '../TutorProfileProfile/TutorProfileProfile'
 import ProfileAccountSettings from '../ProfileAccountSettings/ProfileAccountSettings'
 import classes from './TutorProfile.module.css'
+import { AuthUserContext } from '../../Context/AuthUserContext'
+import Loader from '../../Components/Loader/Loader'
 
 const TutorProfile = () => {
+  // Context
+  const { getUser, getUserRequestObject } = useContext(AuthUserContext)
+
   // States
   const [navItems, setNavItems] = useState<any[]>([
     {
@@ -21,6 +26,13 @@ const TutorProfile = () => {
     },
   ])
 
+  // Effects
+  useEffect(() => {
+    getUser()
+
+    // eslint-disable-next-line
+  }, [])
+
   //   Utils
   const activeComponent = navItems.find((data) => data.isActive)
 
@@ -29,7 +41,13 @@ const TutorProfile = () => {
       <div className={classes.sectionsNavSection}>
         <SectionsNav4 navItems={navItems} setNavItems={setNavItems} isRouting />
       </div>
-      <div className={classes.body}>{activeComponent.activeComponent}</div>
+      <div className={classes.body}>
+        {getUserRequestObject?.isLoading ? (
+          <Loader />
+        ) : (
+          activeComponent.activeComponent
+        )}
+      </div>
     </section>
   )
 }
