@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../../Components/Button/Button'
-import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import classes from '../HelpAndSupportRightCta/HelpAndSupportRightCta.module.css'
 
 const PasswordChangeCta = () => {
