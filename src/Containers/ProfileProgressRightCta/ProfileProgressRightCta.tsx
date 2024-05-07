@@ -21,7 +21,7 @@ const ProfileProgressRightCta = () => {
       <Button
         type="tertiary"
         onClick={() => {
-          navigate('/complete-profile')
+          navigate('/profile-info/profile')
         }}
       >
         Complete profile

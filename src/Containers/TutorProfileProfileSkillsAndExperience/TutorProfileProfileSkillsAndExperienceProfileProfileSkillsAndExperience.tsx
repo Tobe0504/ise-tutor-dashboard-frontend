@@ -96,8 +96,6 @@ const TutorProfileProfileSkillsAndExperience = () => {
         getUserRequestObject?.data?.tech_proficiency !==
           JSON.stringify(selectedProfeciency)
       setIsDirty(!dirty)
-
-      console.log(dirty, isDirty)
     }
 
     // eslint-disable-next-line

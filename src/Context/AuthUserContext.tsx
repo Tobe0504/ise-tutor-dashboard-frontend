@@ -276,7 +276,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   const location = useLocation()
 
   // Utils
-  const redirectRoute = location.state || '/complete-profile'
+  let redirectRoute = location.state || '/complete-profile'
 
   const getUser = (load?: boolean) => {
     requestHandler2({
@@ -338,15 +338,26 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
             error: null,
             isLoading: false,
           })
+
+          setGetUserRequestObject((prevState) => {
+            return { ...prevState, data: res?.data?.tutor }
+          })
+
+          if (
+            !res?.data?.tutor?.headline &&
+            !res?.data?.tutor?.gender &&
+            !res?.data?.tutor?.country &&
+            !res?.data?.tutor?.linkedIn_profile
+          ) {
+            navigate('/complete-profile')
+          } else {
+            navigate(redirectRoute)
+          }
+
           localStorage.setItem('iseTutorAccessToken', res.data?.accessToken)
           localStorage.setItem('iseTutorRefreshToken', res.data?.refreshToken)
-
-          getUser()
-
-          navigate(redirectRoute)
         })
         .catch((err) => {
-          console.log(err)
           setSignInRequest({
             data: null,
             error: err.response
