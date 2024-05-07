@@ -161,7 +161,6 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
       data: contactSupportFormData,
     })
       .then((res) => {
-        console.log(res)
         setContactSupportHandlerObject({
           isLoading: false,
           data: capitalize((res as AxiosResponse).data as string) || '',
@@ -169,7 +168,6 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
         })
       })
       .catch((err) => {
-        console.log(err)
         setContactSupportHandlerObject({
           isLoading: false,
           data: null,

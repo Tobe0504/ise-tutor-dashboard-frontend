@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import { Dispatch, SetStateAction } from 'react'
 import { notificationsType } from '../Context/AppContext'
 import { requestType } from '../Context/AuthUserContext'
@@ -18,6 +18,7 @@ type RequestType = {
   successMessage?: string
   successFunction?: () => void
   errorFunction?: () => void
+  load?: boolean
 }
 
 export default async function requestHandler({
@@ -61,19 +62,18 @@ export async function requestHandler2({
   successMessage,
   successFunction,
   errorFunction,
-}: // load,
-RequestType) {
-  // Context
+  load,
+}: RequestType) {
   const userToken = localStorage.getItem('iseTutorAccessToken')
-
-  if (setState) {
-    setState({
-      isLoading: true,
-      data: null,
-      error: null,
+  if ((setState && load === true) || (setState && load === undefined)) {
+    setState((prevState) => {
+      return { ...prevState, isLoading: true }
+    })
+  } else if (setState && load === false) {
+    setState((prevState) => {
+      return { ...prevState, isLoading: false }
     })
   }
-
   axios({
     method,
     url,
@@ -85,7 +85,6 @@ RequestType) {
     data,
   })
     .then((res) => {
-      // resolve(res)
       if (setState) {
         setState({
           isLoading: false,
@@ -93,11 +92,9 @@ RequestType) {
           error: null,
         })
       }
-
       if (successFunction) {
         successFunction()
       }
-
       if (setNotificationsSuccess) {
         setNotiticationFunction(
           setNotifications as Dispatch<SetStateAction<notificationsType>>,
@@ -107,8 +104,6 @@ RequestType) {
       }
     })
     .catch((err) => {
-      // reject(err)
-
       if (setState) {
         setState({
           isLoading: false,
@@ -120,11 +115,9 @@ RequestType) {
             : err.message,
         })
       }
-
       if (errorFunction) {
         errorFunction()
       }
-
       if (setNotificationsFailure) {
         setNotiticationFunction(
           setNotifications as Dispatch<SetStateAction<notificationsType>>,
@@ -135,7 +128,6 @@ RequestType) {
             : err.message
         )
       }
-
       if (err?.response?.data?.responseMessage === 'Expired Token') {
         localStorage.removeItem('iseTutorAccessToken')
         localStorage.removeItem('iseTutorRefreshToken')
