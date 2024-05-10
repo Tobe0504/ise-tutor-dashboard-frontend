@@ -104,6 +104,7 @@ export async function requestHandler2({
       }
     })
     .catch((err) => {
+      console.log(err, 'Error')
       if (setState) {
         setState({
           isLoading: false,
@@ -128,7 +129,7 @@ export async function requestHandler2({
             : err.message
         )
       }
-      if (err?.response?.data?.responseMessage === 'Expired Token') {
+      if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
         localStorage.removeItem('iseTutorAccessToken')
         localStorage.removeItem('iseTutorRefreshToken')
 

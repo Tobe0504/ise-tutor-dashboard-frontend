@@ -15,8 +15,8 @@ const RightCtaContainer = () => {
 
   return (
     <section className={classes.container}>
-      <ProfileProgressRightCta />
       {getUserRequestObject?.data?.is_default_password && <PasswordChangeCta />}
+      <ProfileProgressRightCta />
       {showGetStarted.rightCta && <GetStartedRightCta />}
       <CollaborationHubRightCta />
       <HelpAndSupportRightCta />

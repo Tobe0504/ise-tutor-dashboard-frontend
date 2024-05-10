@@ -5,15 +5,12 @@ import classes from '../HelpAndSupportRightCta/HelpAndSupportRightCta.module.css
 const PasswordChangeCta = () => {
   const navigate = useNavigate()
   return (
-    <div className={classes.container}>
-      <h4>Change your default password</h4>
-      <p>
-        Change your default password to use your customized passwprd you can
-        remember anytime
-      </p>
+    <div className={classes.container2}>
+      <h4>Change default password</h4>
+      <p>Keep your account safe, create a new password.</p>
 
       <Button
-        type="tertiary"
+        type="black"
         onClick={() => {
           navigate('/profile-info/account-setting')
         }}

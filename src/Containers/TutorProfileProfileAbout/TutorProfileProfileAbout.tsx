@@ -210,7 +210,7 @@ const TutorProfileProfileAbout = () => {
         <div className={classes.userDetails}>
           <Input
             isRequired
-            label="Firstame"
+            label="First name"
             placeholder="Amirah "
             value={contacttInfoUpdate?.firstname}
             onChange={(e) => {
@@ -221,7 +221,7 @@ const TutorProfileProfileAbout = () => {
 
           <Input
             isRequired
-            label="Lastname"
+            label="Last name"
             placeholder="Temitope"
             value={contacttInfoUpdate?.lastname}
             onChange={(e) => {
