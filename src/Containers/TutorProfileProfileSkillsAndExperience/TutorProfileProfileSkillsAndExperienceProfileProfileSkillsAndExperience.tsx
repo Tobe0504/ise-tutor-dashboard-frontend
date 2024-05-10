@@ -25,7 +25,7 @@ const TutorProfileProfileSkillsAndExperience = () => {
   const [isDirty, setIsDirty] = useState(false)
 
   const filter = (i: number) => {
-    const arrayCopy = selectedProfeciency.filter((data, index) => {
+    const arrayCopy = selectedProfeciency?.filter((data, index) => {
       return i !== index
     })
 
@@ -35,7 +35,9 @@ const TutorProfileProfileSkillsAndExperience = () => {
   // Effects
   useEffect(() => {
     if (getUserRequestObject?.data) {
-      setTopSkills(JSON.parse(getUserRequestObject?.data?.specialization))
+      getUserRequestObject?.data?.specialization?.length > 0
+        ? setTopSkills(JSON?.parse(getUserRequestObject?.data?.specialization))
+        : setTopSkills([])
       setExperienceLevel(getUserRequestObject?.data?.experience_level)
       setYearsOfExperience(getUserRequestObject?.data?.years_of_experience)
       setSelectedProfeciency(
