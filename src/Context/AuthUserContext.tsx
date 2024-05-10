@@ -459,6 +459,11 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     })
   }
 
+  // // Effects
+  // useEffect(() => {
+  //   getUser()
+  // }, [])
+
   return (
     <AuthUserContext.Provider
       value={{

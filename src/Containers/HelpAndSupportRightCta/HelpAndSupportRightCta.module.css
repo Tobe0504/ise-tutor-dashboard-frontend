@@ -6,6 +6,23 @@
   margin-top: 20px;
 }
 
+.container2 {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--deleteRed);
+  background: var(--passwordResetRed);
+  margin-top: 20px;
+}
+
+.container2 > h4 {
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: var(--grey);
+}
+
 .container > h4 {
   color: var(--grey);
   font-family: Archivo;
@@ -25,7 +42,18 @@
   margin-top: 10px;
 }
 
-.container > button {
+.container2 > p {
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: var(--grey);
+  margin-top: 10px;
+}
+
+.container > button,
+.container2 > button {
   width: 154px;
   margin-top: 24px;
   font-size: 13px;
