@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios'
 import React, {
   createContext,
   Dispatch,
@@ -6,8 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { capitalize } from '../HelperFunctions/capitalize'
-import requestHandler from '../HelperFunctions/requestHandler'
+import { requestHandler2 } from '../HelperFunctions/requestHandler'
 import { sideNavItems } from '../Utilities/sideNavItems'
 import { studentsData, studentsDataType } from '../Utilities/students'
 import { requestType } from './AuthUserContext'
@@ -150,34 +148,16 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     })
 
   const contactSupportHandler = () => {
-    setContactSupportHandlerObject({
-      isLoading: true,
-      data: null,
-      error: null,
-    })
-    requestHandler({
+    requestHandler2({
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/issue/tutors`,
       method: 'POST',
+      setState: setContactSupportHandlerObject,
       data: contactSupportFormData,
+      isMultipart: true,
+      setNotifications: setNotifications,
+      setNotificationsFailure: true,
+      setNotificationsSuccess: true,
     })
-      .then((res) => {
-        setContactSupportHandlerObject({
-          isLoading: false,
-          data: capitalize((res as AxiosResponse).data as string) || '',
-          error: null,
-        })
-      })
-      .catch((err) => {
-        setContactSupportHandlerObject({
-          isLoading: false,
-          data: null,
-          error: err.response?.data?.error
-            ? err.response?.data?.error?.responseMessage
-            : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
-            : err.message,
-        })
-      })
   }
 
   //   Effects
