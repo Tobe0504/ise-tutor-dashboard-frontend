@@ -24,11 +24,15 @@ const TutorProfileProfileCertifications = () => {
   // Effects
   useEffect(() => {
     if (getUserRequestObject?.data) {
-      setCertificationsUpdate({
-        certifications: [
-          ...JSON.parse(getUserRequestObject?.data?.certifications),
-        ],
-      })
+      if (getUserRequestObject?.data?.certifications?.length > 0) {
+        setCertificationsUpdate({
+          certifications: [
+            ...JSON.parse(getUserRequestObject?.data?.certifications),
+          ],
+        })
+      } else {
+        setCertificationsUpdate({ certifications: [] })
+      }
     }
 
     // eslint-disable-next-line
