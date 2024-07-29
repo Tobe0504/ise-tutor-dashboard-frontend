@@ -305,7 +305,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
 
   const completeUserOnboard = () => {
     requestHandler2({
-      method: 'POST',
+      method: 'PUT',
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/complete_profile`,
       setState: setCompleteUserOnboardObject,
       data: completeProfileFormData,
