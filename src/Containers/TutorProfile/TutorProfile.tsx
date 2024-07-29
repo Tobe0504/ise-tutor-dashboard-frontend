@@ -26,13 +26,6 @@ const TutorProfile = () => {
     },
   ])
 
-  // Effects
-  useEffect(() => {
-    getUser()
-
-    // eslint-disable-next-line
-  }, [])
-
   //   Utils
   const activeComponent = navItems.find((data) => data.isActive)
 
