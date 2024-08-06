@@ -240,6 +240,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     country: '',
     bio: '',
     linkedIn_profile: '',
+    twitter_profile: '',
   })
 
   const completeProfileFormData = new FormData()
@@ -259,6 +260,11 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     completeProfileFormData.append(
       'linkedIn_profile',
       completeProfile.linkedIn_profile
+    )
+
+    completeProfileFormData.append(
+      'twitter_profile',
+      completeProfile.twitter_profile
     )
 
     // eslint-disable-next-line
@@ -305,8 +311,8 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
 
   const completeUserOnboard = () => {
     requestHandler2({
-      method: 'PUT',
-      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/complete_profile`,
+      method: 'POST',
+      url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/complete-profile`,
       setState: setCompleteUserOnboardObject,
       data: completeProfileFormData,
       isMultipart: true,

@@ -7,4 +7,5 @@ export type completeProfileType = {
   country: string
   bio: string
   linkedIn_profile: string
+  twitter_profile: string
 }

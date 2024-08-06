@@ -25,6 +25,20 @@ const ProfileProfileAdditionalDetails = () => {
         <p className={classes.infoTip}>Copy and paste your Linkedin URL</p>
       </div>
 
+      <div>
+        <Input
+          label="Twitter profile"
+          placeholder="E.g: https://www.twitter.com/in/johndoe "
+          isRequired
+          value={completeProfile.twitter_profile}
+          name="twitter_profile"
+          onChange={(e) => {
+            inputChangeHandler(e, setCOmpleteProfile)
+          }}
+        />
+        <p className={classes.infoTip}>Copy and paste your Twitter URL</p>
+      </div>
+
       <TextArea
         label="Bio"
         placeholder="Tell us more about yourself, and your achievements "

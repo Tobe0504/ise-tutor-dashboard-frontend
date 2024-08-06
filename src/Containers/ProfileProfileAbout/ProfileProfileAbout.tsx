@@ -40,9 +40,12 @@ const ProfileProfileAbout = () => {
           country: getUserRequestObject?.data?.country || '',
           bio: '',
           linkedIn_profile: getUserRequestObject?.data?.linkedIn_profile || '',
+          twitter_profile: getUserRequestObject?.data?.twitter_profile || '',
         }
       })
     }
+
+    // eslint-disable-next-line
   }, [getUserRequestObject.data])
 
   useEffect(() => {
@@ -57,6 +60,8 @@ const ProfileProfileAbout = () => {
         return { ...prevstate, country: selectedCountry }
       })
     }
+
+    // eslint-disable-next-line
   }, [selectedGeder, selectedCountry])
 
   // Utils
