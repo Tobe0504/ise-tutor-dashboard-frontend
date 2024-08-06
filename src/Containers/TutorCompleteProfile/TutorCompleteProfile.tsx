@@ -18,13 +18,14 @@ const TutorCompleteProfile = () => {
     countriesRequestObject,
   } = useContext(AuthUserContext)
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(() => {
     if (!getUserRequestObject?.data) {
       getUser()
-      fetchCountries()
     }
+
+    fetchCountries()
   }, [])
 
   return (
