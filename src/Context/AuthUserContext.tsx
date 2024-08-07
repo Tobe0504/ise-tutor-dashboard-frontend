@@ -350,9 +350,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
           })
 
           if (
-            !res?.data?.tutor?.headline &&
-            !res?.data?.tutor?.gender &&
-            !res?.data?.tutor?.country &&
+            !res?.data?.tutor?.headline ||
+            !res?.data?.tutor?.gender ||
+            !res?.data?.tutor?.country ||
             !res?.data?.tutor?.linkedIn_profile
           ) {
             navigate('/complete-profile')

@@ -38,7 +38,7 @@ const ProfileProfileAbout = () => {
           profile_image: getUserRequestObject?.data?.profile_image || '',
           gender: getUserRequestObject?.data?.gender || '',
           country: getUserRequestObject?.data?.country || '',
-          bio: '',
+          bio: getUserRequestObject?.data?.bio,
           linkedIn_profile: getUserRequestObject?.data?.linkedIn_profile || '',
           twitter_profile: getUserRequestObject?.data?.twitter_profile || '',
         }
