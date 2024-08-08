@@ -43,7 +43,7 @@ const ProfileProfileAdditionalDetails = () => {
         label="Bio"
         placeholder="Tell us more about yourself, and your achievements "
         isRequired
-        value={completeProfile.bio}
+        value={completeProfile?.bio}
         name="bio"
         onChange={(e) => {
           inputChangeHandler(e, setCOmpleteProfile)

@@ -78,16 +78,13 @@ function App() {
         />
 
         <Route path="/courses" element={<CoursesPage />} />
-        <Route
-          path="/courses/courses-curriculum"
-          element={<CoursesCurriculum />}
-        />
+        <Route path="/courses/:courseId" element={<CoursesCurriculum />} />
         <Route
           path="/courses/courses-curriculum/submission-guide"
           element={<SubmissionGuide />}
         />
         <Route
-          path="/courses/create-module"
+          path="/courses/:courseId/create-module"
           element={<CreatingCourseModulePage />}
         />
         <Route path="/courses/feedback" element={<CoursesFeedback />} />
