@@ -1,5 +1,6 @@
 .container {
   height: 100%;
+  width: 100%;
 }
 
 .container svg {
@@ -51,11 +52,14 @@
 }
 
 .body > div {
-  padding: 40px 32px 40px 32px;
+  padding: 40px 32px;
   border-radius: 10px;
   opacity: 0px;
   background-color: var(--white);
-  width: 940px;
+  min-width: 940px;
+  max-width: 95vw;
+  position: relative;
+  z-index: 3;
 }
 
 .body > div > h4 {
