@@ -186,7 +186,7 @@ type TipTapProps = {
   setState: Dispatch<SetStateAction<string>>
 }
 
-export default ({ state, setState }: TipTapProps) => {
+const TipTap = ({ state, setState }: TipTapProps) => {
   const handleEditorUpdate = ({ editor }: any) => {
     setState(editor.getHTML())
   }
@@ -205,3 +205,5 @@ export default ({ state, setState }: TipTapProps) => {
     ></EditorProvider>
   )
 }
+
+export default TipTap

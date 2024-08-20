@@ -55,7 +55,7 @@
   border-radius: 10px;
   opacity: 0px;
   background-color: var(--white);
-  min-width: 940px;
+  width: 940px;
 }
 
 .body > div > h4 {
