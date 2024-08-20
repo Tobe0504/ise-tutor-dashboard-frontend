@@ -11,8 +11,8 @@
 }
 
 .container button {
-  width: fit-content;
   padding: 10px 30px;
+  max-width: 250px;
 }
 
 .header,
@@ -37,10 +37,6 @@
   color: var(--grey);
   font-family: Archivo;
   cursor: pointer;
-}
-
-.header > div button {
-  border-color: var(--black);
 }
 
 .body {
