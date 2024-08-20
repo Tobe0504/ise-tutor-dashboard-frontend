@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.container>video {
+.container > video {
   width: 100%;
 }
 
@@ -41,10 +41,12 @@
   width: 92px;
   height: 92px;
   cursor: pointer;
+  min-width: 150px;
+  min-height: 150px;
 }
 
 @media screen and (max-width: 500px) {
-  .container>video {
+  .container > video {
     height: 206px !important;
   }
 }

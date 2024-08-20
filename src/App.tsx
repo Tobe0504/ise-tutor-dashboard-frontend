@@ -27,6 +27,16 @@ import SubmissionGuide from './Containers/CoursesCurriculumSetupContainer/Submis
 import CourseUnderReview from './Pages/CourseUnderReview'
 import CourseModuleFeedbackPreviewPage from './Pages/CourseModuleFeedbackPreviewPage'
 import RequireAuth from './Components/RequireAuth/RequireAuth'
+import CreateCurricullimPage from './Pages/CreateCurricullimPage'
+import CreatingCourseModuleWeekPageContainer from './Containers/CreatingCourseModuleWeekPageContainer/CreatingCourseModuleWeekPageContainer'
+import AddEngagingLessonContent from './Containers/AddEngagingLessonContent/AddEngagingLessonContent'
+import SelectLessonType from './Containers/SelectLessonType/SelectLessonType'
+import AddReadingContent from './Containers/AddReadingContent/AddReadingContent'
+import AddVideoContent from './Containers/AddVideoContent/AddVideoContent'
+import AddCustomized from './Containers/AddCustomized/AddCustomized'
+import AddPresentation from './Containers/AddPresentation/AddPresentation'
+import AddQuiz from './Containers/AddQuiz/AddQuiz'
+import AddModuleAssessment from './Containers/AddModuleAddessment/AddModuleAddessment'
 
 function App() {
   return (
@@ -84,9 +94,60 @@ function App() {
           element={<SubmissionGuide />}
         />
         <Route
-          path="/courses/:courseId/create-module"
+          path="/courses/:courseId/:curriculumId/create-module"
           element={<CreatingCourseModulePage />}
         />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/create-week"
+          element={<CreatingCourseModuleWeekPageContainer />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/add-engaging-content"
+          element={<AddEngagingLessonContent />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/select-lesson-type"
+          element={<SelectLessonType />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/reading"
+          element={<AddReadingContent />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/video"
+          element={<AddVideoContent />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/presentation"
+          element={<AddPresentation />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/quiz"
+          element={<AddQuiz />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/module-assessment"
+          element={<AddModuleAssessment />}
+        />
+
+        <Route
+          path="/courses/:courseId/:curriculumId/:moduleId/:weekId/customize"
+          element={<AddCustomized />}
+        />
+
+        <Route
+          path="/courses/:courseId/create-curricullum"
+          element={<CreateCurricullimPage />}
+        />
+
         <Route path="/courses/feedback" element={<CoursesFeedback />} />
         <Route
           path="/courses/feedback/:courseReviewId"

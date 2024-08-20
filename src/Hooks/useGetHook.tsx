@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const useGetHook = (url: string | null, props?: SWRConfiguration) => {
   const { data, error, isLoading, isValidating } = useSWR(url, { ...props })
 
-  // Context
+  // Router
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -22,6 +22,7 @@ const useGetHook = (url: string | null, props?: SWRConfiguration) => {
 
   if (errorMessage === 'Expired Token' || errorMessage === 'Unauthorized') {
     navigate('/sign-in', { state: location.pathname })
+    console.log(errorMessage, 'Error message')
   }
 
   return { data, error, isLoading, isValidating }

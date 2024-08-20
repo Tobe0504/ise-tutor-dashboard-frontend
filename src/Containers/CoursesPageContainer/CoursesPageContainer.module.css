@@ -69,6 +69,10 @@
   flex-direction: unset;
 }
 
+.courseSection {
+  width: 100%;
+}
+
 .secondContainer .courseSection > div {
   height: unset;
   margin: 1rem;

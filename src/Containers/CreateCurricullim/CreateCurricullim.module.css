@@ -1,0 +1,162 @@
+.container {
+  height: 100%;
+}
+
+.container svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.container button {
+  width: fit-content;
+  padding: 10px 30px;
+}
+
+.header,
+.header > div {
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  padding: 24px 48px;
+  background: var(--white);
+  border-top: 1px solid var(--veryLightPurple);
+}
+
+.header > div span {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 21px;
+  font-style: normal;
+  color: var(--grey);
+  font-family: Archivo;
+  cursor: pointer;
+}
+
+.header > div button {
+  border-color: var(--black);
+}
+
+.body {
+  display: flex;
+  padding: 40px 48px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.body > div {
+  padding: 40px 32px 40px 32px;
+  border-radius: 10px;
+  opacity: 0px;
+  background-color: var(--white);
+  min-width: 940px;
+}
+
+.body > div > h4 {
+  font-family: Archivo;
+  font-size: 31px;
+  font-weight: 500;
+  line-height: 41px;
+  text-align: left;
+  color: var(--grey);
+}
+
+.body > div > p {
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: var(--grey);
+  margin: 8px 0 24px 0;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 778px) and (max-width: 1024px) {
+  .container button {
+    padding: 10px;
+  }
+
+  .body {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .addModules p,
+  .addModules h3 {
+    text-align: center;
+  }
+
+  .divider {
+    display: none;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 778px) {
+  .container svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .container button {
+    padding: 10px;
+  }
+
+  .body {
+    gap: 2rem;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    background: var(--white);
+  }
+
+  .header,
+  .header > div {
+    gap: 10px;
+  }
+
+  .header {
+    padding: 16px;
+    border-top: none;
+    border-bottom: 1px solid var(--veryLightPurple);
+  }
+
+  .header > div span {
+    font-size: 10px;
+    line-height: 18px;
+  }
+
+  .header > div button {
+    border: none;
+    flex-direction: row-reverse;
+  }
+
+  .addModules {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .addModules h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .addModules p {
+    font-size: 14px;
+    line-height: 23px;
+    margin-top: -0.8rem;
+  }
+}

@@ -465,7 +465,7 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
     })
   }
 
-  // // Effects
+  // Effects
   // useEffect(() => {
   //   getUser()
   // }, [])

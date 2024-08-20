@@ -6,7 +6,6 @@ import CoursesPageContainer from '../CoursesPageContainer/CoursesPageContainer'
 import useTutorCourses from '../../Hooks/useTutorCourses'
 import Loader from '../../Components/Loader/Loader'
 import useEnrolledStudents from '../../Hooks/useEnrolledStudents'
-import { activeToggler } from '../../HelperFunctions/activeTogglers'
 import { useSearchParams } from 'react-router-dom'
 
 const CoursesModules = () => {
@@ -37,6 +36,10 @@ const CoursesModules = () => {
             }
           })
         )
+
+        setSearchParams((prevState) => {
+          return { ...prevState, activeCourse: data?.data[0]?.course?.id }
+        })
       } else {
         setTutorCoursesState(
           data?.data?.map((data: any, i: number) => {
@@ -63,21 +66,24 @@ const CoursesModules = () => {
 
   return (
     <div className={classes.container}>
-      <CoursesPageContainer
-        courses={tutorCoursesState}
-        enrolledStudents={enrolledStudents}
-        tooggleActiveCourse={tooggleActiveCourse}
-      />
-      <EmptyTabComponent
-        image={noModules}
-        imageHeight={300}
-        header="No assigned course "
-        firstParagraph=" We're actively working on matching you with the perfect course based on your expertise."
-        secondParagraph=" You'll receive an email notification once you’re assigned a course."
-        route="/"
-        buttontext="Create a lesson"
-        showButton={false}
-      />
+      {data?.data?.length > 0 ? (
+        <CoursesPageContainer
+          courses={tutorCoursesState}
+          enrolledStudents={enrolledStudents}
+          tooggleActiveCourse={tooggleActiveCourse}
+        />
+      ) : (
+        <EmptyTabComponent
+          image={noModules}
+          imageHeight={300}
+          header="No assigned course "
+          firstParagraph=" We're actively working on matching you with the perfect course based on your expertise."
+          secondParagraph=" You'll receive an email notification once you’re assigned a course."
+          route="/"
+          buttontext="Create a lesson"
+          showButton={false}
+        />
+      )}
     </div>
   )
 }

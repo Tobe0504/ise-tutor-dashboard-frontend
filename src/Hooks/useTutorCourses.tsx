@@ -6,4 +6,8 @@ const useTutorCourses = () => {
   return useGetHook(`${backend_url}/api/ise/v1/tutors/my-courses`)
 }
 
+export const useCourseById = (id: string) => {
+  return useGetHook(`${backend_url}/api/ise/v1/courses/${id}`)
+}
+
 export default useTutorCourses

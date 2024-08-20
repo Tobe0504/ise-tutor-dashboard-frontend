@@ -1,46 +1,46 @@
-import classes from "./VideoPlayer.module.css";
-import layerImage from "../../Assets/Images/layerImage.svg";
-import { useEffect, useState } from "react";
+import classes from './VideoPlayer.module.css'
+import layerImage from '../../Assets/Images/layerImage.svg'
+import { useEffect, useState } from 'react'
 
 type VideoPlayerProps = {
-  height: string;
-  url: string;
-  thumbnail?: string;
-};
+  height: string
+  url: string
+  thumbnail?: string
+}
 
 const VideoPlayer = ({ height, url, thumbnail }: VideoPlayerProps) => {
   // States
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [displayThumbnail, setDisplayThumbnail] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [displayThumbnail, setDisplayThumbnail] = useState(true)
 
   // Utils
-  const video = document.querySelector("video");
+  const video = document.querySelector('video')
   const playPauseHandler = () => {
     if (video && !isPlaying) {
-      video.play();
+      video.play()
     } else if (isPlaying) {
-      video?.pause();
+      video?.pause()
     }
 
     setIsPlaying((prevState) => {
-      return !prevState;
-    });
-  };
+      return !prevState
+    })
+  }
 
-  let timeout: any;
+  let timeout: any
 
   const displayThumbnailHandler = () => {
     if (!isPlaying)
       timeout = setTimeout(() => {
-        setDisplayThumbnail(true);
-      }, 5000);
-  };
+        setDisplayThumbnail(true)
+      }, 5000)
+  }
 
   useEffect(() => {
-    displayThumbnailHandler();
+    displayThumbnailHandler()
 
     // eslint-disable-next-line
-  }, [isPlaying]);
+  }, [isPlaying])
 
   return (
     <div className={classes.container}>
@@ -49,12 +49,12 @@ const VideoPlayer = ({ height, url, thumbnail }: VideoPlayerProps) => {
         style={{ height }}
         id="video"
         onPlaying={() => {
-          setIsPlaying(true);
-          clearTimeout(timeout);
-          setDisplayThumbnail(false);
+          setIsPlaying(true)
+          clearTimeout(timeout)
+          setDisplayThumbnail(false)
         }}
         onPause={() => {
-          setIsPlaying(false);
+          setIsPlaying(false)
         }}
       >
         <source src={url} type="video/mp4" />
@@ -68,12 +68,6 @@ const VideoPlayer = ({ height, url, thumbnail }: VideoPlayerProps) => {
         />
       )}
       {!isPlaying && (
-        // <img
-        //   src={videoPlayButton}
-        //   alt="Play button"
-        //   className={classes.playPause}
-        // />
-
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="160"
@@ -100,7 +94,7 @@ const VideoPlayer = ({ height, url, thumbnail }: VideoPlayerProps) => {
         </svg>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default VideoPlayer;
+export default VideoPlayer

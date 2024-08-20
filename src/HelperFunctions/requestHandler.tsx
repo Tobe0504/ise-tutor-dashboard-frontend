@@ -1,10 +1,11 @@
-import axios from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 import { Dispatch, SetStateAction } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { notificationsType } from '../Context/AppContext'
 import { requestType } from '../Context/AuthUserContext'
 import { setNotiticationFunction } from '../Utilities/setNotificationsFunction'
 
-type RequestType = {
+export type RequestType = {
   method: string
   url: string
   headers?: any
@@ -16,12 +17,13 @@ type RequestType = {
   setNotificationsFailure?: boolean
   setNotifications?: Dispatch<SetStateAction<notificationsType>>
   successMessage?: string
-  successFunction?: () => void
-  errorFunction?: () => void
+  successFunction?: (res?: AxiosResponse) => void
+  errorFunction?: (err?: AxiosError) => void
   load?: boolean
+  requestCleanup?: boolean
 }
 
-export default async function requestHandler({
+export async function requestHandler({
   method,
   url,
   headers,
@@ -30,7 +32,7 @@ export default async function requestHandler({
 }: RequestType) {
   return new Promise((resolve, reject) => {
     // Context
-    const userToken = localStorage.getItem('iseTutorAccessToken')
+    const userToken = localStorage.getItem('iseAdminAccessToken')
 
     axios({
       method,
@@ -63,6 +65,7 @@ export async function requestHandler2({
   successFunction,
   errorFunction,
   load,
+  requestCleanup,
 }: RequestType) {
   const userToken = localStorage.getItem('iseTutorAccessToken')
   if ((setState && load === true) || (setState && load === undefined)) {
@@ -74,6 +77,7 @@ export async function requestHandler2({
       return { ...prevState, isLoading: false }
     })
   }
+
   axios({
     method,
     url,
@@ -91,9 +95,19 @@ export async function requestHandler2({
           data: res?.data,
           error: null,
         })
+
+        if (requestCleanup) {
+          setTimeout(() => {
+            setState({
+              isLoading: false,
+              data: null,
+              error: null,
+            })
+          }, 5000)
+        }
       }
       if (successFunction) {
-        successFunction()
+        successFunction(res)
       }
       if (setNotificationsSuccess) {
         setNotiticationFunction(
@@ -115,7 +129,18 @@ export async function requestHandler2({
             ? err.response?.data?.responseMessage.toString()
             : err.message,
         })
+
+        if (requestCleanup) {
+          setTimeout(() => {
+            setState({
+              isLoading: false,
+              data: null,
+              error: null,
+            })
+          }, 5000)
+        }
       }
+
       if (errorFunction) {
         errorFunction()
       }
@@ -129,12 +154,14 @@ export async function requestHandler2({
             : err.message
         )
       }
-      if (err?.response?.data?.error?.responseMessage === 'Expired Token') {
-        localStorage.removeItem('iseTutorAccessToken')
-        localStorage.removeItem('iseTutorRefreshToken')
-
-        window.location.href =
-          '/sign-in?redirect=' + encodeURIComponent(window.location.pathname)
-      }
+      const errorMessage = err?.response?.data?.err
+        ? err?.response?.data?.err?.responseMessage
+        : !err?.response?.data?.err
+        ? err?.response?.data?.responseMessage.toString()
+        : err?.request
+        ? 'There was an issue making this request'
+        : err?.message
     })
+
+  return null
 }
