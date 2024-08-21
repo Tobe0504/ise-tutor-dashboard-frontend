@@ -11,6 +11,7 @@ export type DropdownProps = {
   label?: string
   isRequired?: boolean
   errorMessage?: string
+  onOpen?: () => void
 }
 
 const DropdownWithSearch = (props: DropdownProps) => {
@@ -88,6 +89,9 @@ const DropdownWithSearch = (props: DropdownProps) => {
           className={classes.dropdownButton}
           onClick={() => {
             setIsActive(!isActive)
+            if (props.onOpen) {
+              props.onOpen()
+            }
           }}
           onBlur={() => {
             if (props.isRequired && !props?.selected && !isActive) {

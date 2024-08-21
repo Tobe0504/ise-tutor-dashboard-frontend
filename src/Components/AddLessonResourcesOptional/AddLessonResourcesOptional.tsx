@@ -3,11 +3,16 @@ import DropdownWithSearch from '../DropdownWithSearch/DropdownWithSearch'
 import Input from '../Input/Input'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
-import { uploadReadingData } from '../../Utilities/types'
+import {
+  uploadPresentationData,
+  uploadReadingData,
+} from '../../Utilities/types'
 
 type AddLessonResourcesOptionalTypes = {
-  setReadingData?: Dispatch<SetStateAction<uploadReadingData>>
-  readingData?: uploadReadingData
+  setReadingData?:
+    | Dispatch<SetStateAction<uploadReadingData>>
+    | Dispatch<SetStateAction<uploadPresentationData>>
+  readingData?: uploadReadingData | uploadPresentationData
 }
 
 const AddLessonResourcesOptional = ({
@@ -42,7 +47,7 @@ const AddLessonResourcesOptional = ({
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             if (setReadingData) {
-              setReadingData((prevState) => {
+              setReadingData((prevState: any) => {
                 return {
                   ...prevState,
                   resources: [...prevState.resources, resource],

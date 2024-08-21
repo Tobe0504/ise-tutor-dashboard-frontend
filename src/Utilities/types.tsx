@@ -31,6 +31,30 @@ export type uploadReadingData = {
   resources: string[]
 }
 
+export type uploadPresentationData = {
+  title: string
+  presentation_content: File | null
+  resources: string[]
+}
+
+export type uploadQuizData = {
+  title: string
+  instruction: string
+  duration: string
+  questions: questionTypes[]
+}
+
+export type questionTypes = {
+  text: string
+  options: {
+    id: number
+    value: string
+    is_answer: boolean
+  }[]
+  point: number
+  question_type: 'single-choice' | 'multiple-choice'
+}
+
 export type assetsType = {
   frontendFile: any
   file: any | File

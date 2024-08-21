@@ -57,6 +57,39 @@ blockquote {
   padding-left: 1rem;
 }
 
+.quill {
+  border: none;
+}
+
+.ql-container.ql-snow {
+  border: 0px solid transparent !important;
+}
+
+.ql-toolbar.ql-snow {
+  border-radius: 5px;
+  padding: 0px;
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.ql-editor {
+  display: block;
+  width: 100%;
+  padding: 18px 15px;
+  font-family: Archivo;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin: 5px 0;
+  border-radius: 5px;
+  animation: appear 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #ccc;
+}
+
 :root {
   --purple: #664efe;
   --white: #fff;
