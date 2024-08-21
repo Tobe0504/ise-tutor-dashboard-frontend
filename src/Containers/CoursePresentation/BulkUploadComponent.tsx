@@ -53,6 +53,16 @@ const BulkUploadComponent = ({
     }
   }, [presentationFile.file])
 
+  useEffect(() => {
+    if (requestState?.data) {
+      setUploadPresentationData({
+        title: '',
+        presentation_content: null,
+        resources: [],
+      })
+    }
+  }, [requestState?.data])
+
   return (
     <>
       {displayDiscardModal && (

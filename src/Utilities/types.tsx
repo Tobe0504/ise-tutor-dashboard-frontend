@@ -56,6 +56,13 @@ export type questionTypes = {
   explanation: string
 }
 
+export type assessmentType = {
+  title: string
+  instruction: string
+  details: string
+  attachment: null | File
+}
+
 export type assetsType = {
   frontendFile: any
   file: any | File
