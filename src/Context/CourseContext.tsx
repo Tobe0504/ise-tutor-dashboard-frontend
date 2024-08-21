@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { capitalize } from '../HelperFunctions/capitalize'
 import { requestHandler2 } from '../HelperFunctions/requestHandler'
 import { backend_url } from '../Utilities/global'
-import { uploadVideoData } from '../Utilities/types'
+import { uploadQuizData, uploadVideoData } from '../Utilities/types'
 import { AppContext } from './AppContext'
 import { requestType } from './AuthUserContext'
 
@@ -24,7 +24,7 @@ type CourseContextValuesTypes = {
   ) => void
   createLesson: (
     weekId: string,
-    data: uploadVideoData | FormData,
+    data: uploadVideoData | FormData | uploadQuizData,
     type: string
   ) => void
 }
@@ -113,11 +113,9 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
     })
   }
 
-  const createVideoFormData = new FormData()
-
   const createLesson = (
     weekId: string,
-    data: uploadVideoData | FormData,
+    data: uploadVideoData | FormData | uploadQuizData,
     type: string
   ) => {
     requestHandler2({
@@ -130,7 +128,7 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
       setNotificationsFailure: true,
       setNotificationsSuccess: true,
       successMessage: `${capitalize(type)} added successfully`,
-      isMultipart: true,
+      isMultipart: type === 'quiz' ? false : true,
       requestCleanup: true,
     })
   }

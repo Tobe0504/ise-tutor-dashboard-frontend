@@ -53,6 +53,7 @@ export type questionTypes = {
   }[]
   point: number
   question_type: 'single-choice' | 'multiple-choice'
+  explanation: string
 }
 
 export type assetsType = {

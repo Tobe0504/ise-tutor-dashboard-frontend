@@ -3,40 +3,31 @@ import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import classes from './CourseQuiz.module.css'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Input from '../../Components/Input/Input'
-import TextArea from '../../Components/TextArea/TextArea'
-import Toast from '../../Components/Toast/Toast'
 import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { questionTypes, uploadQuizData } from '../../Utilities/types'
 import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
-import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
-
-type Answer = {
-  id: number
-}
-
-type Question = {
-  id: number
-}
+import QuillComponent from '../../Components/QuillComponent/QuillComponent'
+import { CourseContext } from '../../Context/CourseContext'
 
 const AddQuestionAndAnswerComponent = () => {
-  const navigate = useNavigate()
+  // Context
+  const { createLesson, requestState } = useContext(CourseContext)
 
   // States
   const [displayDiscardModal, setDisplayDiscardModal] = useState(false)
   const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
   const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1)
-  const [showToast, setShowToast] = useState(false)
-  const [answers, setAnswers] = useState<Answer[]>([{ id: 0 }])
   const [questions, setQuestions] = useState<questionTypes[]>([
     {
       text: '',
-      options: [{ id: 1, value: '', is_answer: false }],
+      options: [{ id: 1, value: '', is_answer: true }],
       point: 1,
       question_type: 'single-choice',
+      explanation: '',
     },
   ])
   const [duration, setDuration] = useState('')
@@ -44,61 +35,17 @@ const AddQuestionAndAnswerComponent = () => {
     'single-choice' | 'multiple-choice'
   >('single-choice')
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0)
-
   const [questionUploadData, setQuestionUploadData] = useState<uploadQuizData>({
     title: '',
     instruction: '',
     duration: '',
     questions: [],
   })
+  const [accordionIndexes, setAccordionIndexes] = useState<number[]>([])
 
-  const addAnswer = () => {
-    const newAnswer: Answer = {
-      id: answers.length + 1,
-    }
-    setAnswers([...answers, newAnswer])
-  }
-
-  const deleteAnswer = (id: number) => {
-    const isConfirmed = window.confirm(
-      'Are you sure you want to delete this answer?'
-    )
-
-    if (isConfirmed) {
-      const updatedAnswers = answers.filter((answer) => answer.id !== id)
-
-      if (updatedAnswers.length >= 1) {
-        setAnswers(updatedAnswers)
-      } else {
-        alert('At least one choice must remain.')
-      }
-    }
-  }
-
-  const addNewQuestion = () => {
-    const newQuestion = {
-      id: questions.length + 1,
-    }
-    // setQuestions([...questions, newQuestion])
-  }
-
-  const deleteQuestion = (id: number) => {
-    const isConfirmed = window.confirm(
-      'Are you sure you want to delete this Question?'
-    )
-
-    // if (isConfirmed) {
-    //   const updatedQuestions = questions.filter(
-    //     (question) => question.id !== id
-    //   )
-
-    //   if (updatedQuestions.length >= 1) {
-    //     setQuestions(updatedQuestions)
-    //   } else {
-    //     alert('At least one question must remain.')
-    //   }
-    // }
-  }
+  //  Router
+  const { weekId } = useParams()
+  const navigate = useNavigate()
 
   //   Effects
   useEffect(() => {
@@ -117,9 +64,57 @@ const AddQuestionAndAnswerComponent = () => {
         return updatedQuestions
       })
     }
-  }, [questionType])
 
-  console.log(questions, 'Questions', activeQuestionIndex)
+    if (
+      questions[activeQuestionIndex].question_type.toLowerCase() ===
+        'single-choice' &&
+      questions[activeQuestionIndex].options.length > 1
+    ) {
+      setQuestions((prevState) => {
+        const updatedQuestions = [...prevState]
+        updatedQuestions[activeQuestionIndex].options = [
+          {
+            id: 1,
+            value: questions[activeQuestionIndex].options[0].value,
+            is_answer: true,
+          },
+        ]
+        console.log(updatedQuestions, questionType)
+        return updatedQuestions
+      })
+    }
+  }, [questionType, questions[activeQuestionIndex]?.question_type])
+
+  useEffect(() => {
+    if (questions[0]?.text) {
+      setQuestionUploadData((prevState) => {
+        return { ...prevState, questions }
+      })
+    }
+  }, [questions])
+
+  useEffect(() => {
+    if (requestState.data) {
+      setQuestionUploadData({
+        title: '',
+        instruction: '',
+        duration: '',
+        questions: [],
+      })
+
+      setQuestions([
+        {
+          text: '',
+          options: [{ id: 1, value: '', is_answer: true }],
+          point: 1,
+          question_type: 'single-choice',
+          explanation: '',
+        },
+      ])
+    }
+
+    console.log(requestState?.data, 'Test')
+  }, [requestState.data])
 
   return (
     <>
@@ -153,6 +148,15 @@ const AddQuestionAndAnswerComponent = () => {
               onClick={() => {
                 setDisplayDeleteModal(false)
               }}
+              onClick2={() => {
+                setQuestionUploadData({
+                  title: '',
+                  instruction: '',
+                  duration: '',
+                  questions: [],
+                })
+                navigate(-1)
+              }}
             />
           }
         />
@@ -177,12 +181,15 @@ const AddQuestionAndAnswerComponent = () => {
               onChange={(e) => inputChangeHandler(e, setQuestionUploadData)}
               value={questionUploadData.title}
             />
-            <TextArea
-              label="Quiz instruction"
-              placeholder="Add lesson title here"
-              name="instruction"
-              onChange={(e) => inputChangeHandler(e, setQuestionUploadData)}
-              value={questionUploadData.instruction}
+
+            <QuillComponent
+              state={questionUploadData.instruction}
+              onChange={(e) => {
+                setQuestionUploadData((prevState) => {
+                  return { ...prevState, instruction: e }
+                })
+              }}
+              label="Quiz Instruction"
             />
             <DropdownWithSearch
               isRequired
@@ -242,6 +249,11 @@ const AddQuestionAndAnswerComponent = () => {
                 onClick={() => {
                   setSaveLessonAndContinue(2)
                 }}
+                disabled={
+                  !questionUploadData.title ||
+                  !questionUploadData.instruction ||
+                  !questionUploadData.duration
+                }
               >
                 <span>Save and continue</span>
                 <svg
@@ -298,6 +310,13 @@ const AddQuestionAndAnswerComponent = () => {
                       viewBox="0 0 18 18"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      onClick={() => {
+                        setQuestions((prevState) => {
+                          const updatedQuestions = [...prevState]
+                          updatedQuestions.push(question)
+                          return updatedQuestions
+                        })
+                      }}
                     >
                       <path
                         d="M5 13H3C1.89543 13 1 12.1046 1 11V3C1 1.89543 1.89543 1 3 1H11C12.1046 1 13 1.89543 13 3V5M7 17H15C16.1046 17 17 16.1046 17 15V7C17 5.89543 16.1046 5 15 5H7C5.89543 5 5 5.89543 5 7V15C5 16.1046 5.89543 17 7 17Z"
@@ -308,7 +327,18 @@ const AddQuestionAndAnswerComponent = () => {
                       />
                     </svg>
                     <svg
-                      //   onClick={() => deleteQuestion(question.id)}
+                      onClick={() => {
+                        setQuestions((prevState) => {
+                          const updatedQuestions = [...prevState]
+                          const filteredQuestions = updatedQuestions.filter(
+                            (data) => {
+                              return data.text !== question.text
+                            }
+                          )
+                          return filteredQuestions
+                        })
+                        setAccordionIndexes([])
+                      }}
                       width="18"
                       height="20"
                       viewBox="0 0 18 20"
@@ -329,6 +359,26 @@ const AddQuestionAndAnswerComponent = () => {
                       viewBox="0 0 16 9"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      onClick={() => {
+                        setAccordionIndexes((prevState) => {
+                          if (prevState.includes(index)) {
+                            return prevState.filter((id) => id !== index)
+                          } else {
+                            return [...prevState, index]
+                          }
+                        })
+                      }}
+                      style={
+                        accordionIndexes.includes(index)
+                          ? {
+                              transform: 'rotate(0deg)',
+                              transition: 'all 0.3s ease-in-out',
+                            }
+                          : {
+                              transform: 'rotate(90deg)',
+                              transition: 'all 0.3s ease-in-out',
+                            }
+                      }
                     >
                       <path
                         d="M1 8L8 0.999999L15 8"
@@ -340,85 +390,203 @@ const AddQuestionAndAnswerComponent = () => {
                     </svg>
                   </div>
                 </div>
-                <div className={classes.textEditor}>
-                  <DropdownWithSearch
-                    options={['Multi-choice', 'Single-choice']}
-                    label="Question type"
-                    title="Select option"
-                    selected={questionType}
-                    setSelected={setQuestionType}
-                    onOpen={() => {
-                      setActiveQuestionIndex(index)
-                    }}
-                  />
-                  <h4>Question</h4>
-                  <h1>
-                    <ReactQuill
-                      theme="snow"
+                <div
+                  style={
+                    accordionIndexes.includes(index)
+                      ? {
+                          maxHeight: '0px',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease-in-out',
+                        }
+                      : {
+                          maxHeight: '10000px',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease-in-out',
+                        }
+                  }
+                >
+                  <div className={classes.textEditor}>
+                    <div className={classes.dropdown}>
+                      <DropdownWithSearch
+                        options={['multiple-choice', 'single-choice']}
+                        label="Question type"
+                        title="Select option"
+                        selected={questionType}
+                        setSelected={setQuestionType}
+                        onOpen={() => {
+                          setActiveQuestionIndex(index)
+                        }}
+                      />
+                    </div>
+                    <h4>Question</h4>
+                    <h1>
+                      <QuillComponent
+                        onChange={(e: any) => {
+                          setQuestions((prevState) => {
+                            const updatedQuestions = [...prevState]
+                            updatedQuestions[index].text = e
+                            return updatedQuestions
+                          })
+                        }}
+                        state={question.text}
+                      />
+                    </h1>
+                  </div>
+                  <div className={classes.answerSection}>
+                    <span>
+                      ANSWERS: Choose single or multiple correct answers
+                    </span>
+                    <div>
+                      {question.options?.map((answer, answerIndex) => (
+                        <div className={classes.textEditor} key={answer.id}>
+                          <div className={classes.textEditorHeader}>
+                            <h4>
+                              Answer <span>{answerIndex + 1}</span>
+                            </h4>
+                            {question.options.length > 1 && (
+                              <svg
+                                width="18"
+                                height="20"
+                                viewBox="0 0 18 20"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                onClick={() => {
+                                  setQuestions((prevState) => {
+                                    const updatedQuestions = [...prevState]
+                                    const filteredOptions = updatedQuestions[
+                                      index
+                                    ].options.filter((data) => {
+                                      return data.value !== answer.value
+                                    })
+                                    updatedQuestions[index].options =
+                                      filteredOptions
+                                    return updatedQuestions
+                                  })
+                                }}
+                              >
+                                <path
+                                  d="M16 5L15.1327 17.1425C15.0579 18.1891 14.187 19 13.1378 19H4.86224C3.81296 19 2.94208 18.1891 2.86732 17.1425L2 5M7 9V15M11 9V15M12 5V2C12 1.44772 11.5523 1 11 1H7C6.44772 1 6 1.44772 6 2V5M1 5H17"
+                                  stroke="#DC362E"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            )}
+                          </div>
+                          <QuillComponent
+                            onChange={(e) => {
+                              setQuestions((prevState) => {
+                                const updatedQuestions = [...prevState]
+                                updatedQuestions[index].options[
+                                  answerIndex
+                                ].value = e
+                                return updatedQuestions
+                              })
+                            }}
+                            state={questions[index].options[answerIndex].value}
+                          />
+                          <div className={classes.checkBoxForAnswer}>
+                            <input
+                              type="checkbox"
+                              checked={
+                                questions[index].options[answerIndex].is_answer
+                              }
+                              name={`answer-${answerIndex}`}
+                              id={`answer-${answerIndex}`}
+                              onChange={(e) => {
+                                setQuestions((prevState) => {
+                                  const updatedQuestions = [...prevState]
+
+                                  const answers = updatedQuestions[
+                                    index
+                                  ].options.map((data, id) => {
+                                    if (id === answerIndex) {
+                                      return { ...data, is_answer: true }
+                                    } else {
+                                      return { ...data, is_answer: false }
+                                    }
+                                  })
+
+                                  updatedQuestions[index].options = answers
+                                  return updatedQuestions
+                                })
+                              }}
+                            />
+                            <label htmlFor={`answer-${answerIndex}`}>
+                              This is the correct answer
+                            </label>
+                          </div>
+                        </div>
+                      ))}
+                      {question.question_type.toLowerCase() ===
+                        'multiple-choice' && (
+                        <Button
+                          type="secondary"
+                          onClick={() => {
+                            setQuestions((prevState) => {
+                              const updatedQuestions = [...prevState]
+                              updatedQuestions[index].options = [
+                                ...updatedQuestions[index].options,
+                                {
+                                  id:
+                                    updatedQuestions[index].options[
+                                      updatedQuestions[index].options.length - 1
+                                    ]?.id + 1,
+                                  value: '',
+                                  is_answer: false,
+                                },
+                              ]
+                              return updatedQuestions
+                            })
+                          }}
+                        >
+                          Add answer
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                  <div className={classes.explainAnswer}>
+                    <h4>Add answer explanation</h4>
+                    <QuillComponent
                       onChange={(e) => {
-                        console.log(e)
                         setQuestions((prevState) => {
                           const updatedQuestions = [...prevState]
-                          updatedQuestions[index].text = e
+                          updatedQuestions[index].explanation = e
                           return updatedQuestions
                         })
                       }}
+                      state={question.explanation}
                     />
-                  </h1>
+                  </div>
                 </div>
-              </div>
-              <div className={classes.answerSection}>
-                <span>ANSWERS: Choose single or multiple correct answers</span>
-                <div>
-                  {answers.map((answer, index) => (
-                    <div className={classes.textEditor} key={answer.id}>
-                      <div className={classes.textEditorHeader}>
-                        <h4>
-                          Answer <span>{index + 1}</span>
-                        </h4>
-                        <svg
-                          width="18"
-                          height="20"
-                          viewBox="0 0 18 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          onClick={() => deleteAnswer(answer.id)}
-                        >
-                          <path
-                            d="M16 5L15.1327 17.1425C15.0579 18.1891 14.187 19 13.1378 19H4.86224C3.81296 19 2.94208 18.1891 2.86732 17.1425L2 5M7 9V15M11 9V15M12 5V2C12 1.44772 11.5523 1 11 1H7C6.44772 1 6 1.44772 6 2V5M1 5H17"
-                            stroke="#DC362E"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <h1>Text Editor</h1>
-                      <div className={classes.checkBoxForAnswer}>
-                        <input
-                          type="checkbox"
-                          name={`answer-${index}`}
-                          id={`answer-${index}`}
-                        />
-                        <p>This is the correct answer</p>
-                      </div>
-                    </div>
-                  ))}
-                  {questionType.toLowerCase() === 'multiple-choice' && (
-                    <Button type="secondary" onClick={addAnswer}>
-                      Add answer
-                    </Button>
-                  )}
-                </div>
-              </div>
-              <div className={classes.explainAnswer}>
-                <h4>Add answer explanation</h4>
-                <h1>Text Editor</h1>
               </div>
             </div>
           ))}
 
-          <div className={classes.addNewQuestion} onClick={addNewQuestion}>
+          <div
+            className={classes.addNewQuestion}
+            onClick={() => {
+              setQuestions((prevState) => {
+                const updatedQuestions = [...prevState]
+                updatedQuestions.push({
+                  text: '',
+                  options: [
+                    {
+                      id: 1,
+                      value: '',
+                      is_answer: false,
+                    },
+                  ],
+                  point: 1,
+                  question_type: 'single-choice',
+                  explanation: '',
+                })
+
+                return updatedQuestions
+              })
+            }}
+          >
             <svg
               width="24"
               height="24"
@@ -439,24 +607,27 @@ const AddQuestionAndAnswerComponent = () => {
         </>
       )}
 
-      {saveLessonAndContinue === 3 && showToast && (
-        <Toast
-          onClick={() => setShowToast(false)}
-          toastMessage="Lesson saved!"
-        />
-      )}
-
       {(saveLessonAndContinue === 2 || saveLessonAndContinue === 3) && (
         <div className={`${classes.addLesson} ${classes.buttonContainer}`}>
           <Button
             onClick={() => {
-              setSaveLessonAndContinue((prevValue) =>
-                prevValue < 3 ? prevValue + 1 : prevValue
-              )
-              setShowToast(true)
+              if (saveLessonAndContinue < 2) {
+                setSaveLessonAndContinue((prevState) => prevState + 1)
+              } else {
+                createLesson(
+                  weekId as string,
+                  questionUploadData as uploadQuizData,
+                  'quiz'
+                )
+              }
             }}
+            loading={requestState.isLoading}
             className={
               saveLessonAndContinue === 3 ? classes.inactivePrimary : ''
+            }
+            disabled={
+              questionUploadData.questions.length < 1 ||
+              !questionUploadData.questions[0]?.text
             }
           >
             <span>Save lesson</span>

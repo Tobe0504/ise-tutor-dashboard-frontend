@@ -5,16 +5,21 @@ import classes from './QuillComponent.module.css'
 
 type QuillComponentTypes = {
   state: string
-  setState: Dispatch<SetStateAction<string>>
+  onChange: (e: any) => void
+  label?: string
 }
 
-const QuillComponent = ({ state, setState }: QuillComponentTypes) => {
+const QuillComponent = ({ state, onChange, label }: QuillComponentTypes) => {
   return (
-    <ReactQuill
-      value={state}
-      onChange={setState}
-      className={classes.container}
-    />
+    <div className={classes.container}>
+      {label && <label>{label}</label>}
+      <ReactQuill
+        value={state}
+        onChange={onChange}
+        className={classes.container}
+        theme="snow"
+      />
+    </div>
   )
 }
 

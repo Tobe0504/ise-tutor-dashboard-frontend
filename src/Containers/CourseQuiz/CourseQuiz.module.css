@@ -26,7 +26,7 @@
   background: var(--sectionsNav);
 }
 
-.textEditor:nth-child(2) > div:nth-child(1) {
+.dropdown {
   max-width: 426px;
 }
 
@@ -76,6 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .addAssignmentDetails,
@@ -88,6 +89,10 @@
   flex-direction: column;
   justify-content: center;
   background: var(--white);
+}
+
+.addLesson {
+  overflow: hidden;
 }
 
 .addAssignmentDetails {
@@ -129,6 +134,7 @@
   pointer-events: none;
   color: var(--white);
   background: var(--disabled);
+  border: 2px solid red;
 }
 
 .addLesson .inactiveSecondary {
