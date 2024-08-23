@@ -9,6 +9,7 @@ type CourseCard2Props = {
   status: 'Published' | 'Draft' | 'Paid' | 'Pending'
   showButton?: boolean
   id?: number
+  curricullumData?: any
 }
 
 const CourseCard2 = ({
@@ -18,6 +19,7 @@ const CourseCard2 = ({
   status,
   showButton = false,
   id,
+  curricullumData,
 }: CourseCard2Props) => {
   // Router
   const navigate = useNavigate()
@@ -54,10 +56,20 @@ const CourseCard2 = ({
               <Button
                 type="secondary"
                 onClick={() => {
-                  navigate(`/courses/${String(id)}/create-module`)
+                  if (curricullumData?.course_modules?.length > 0) {
+                    navigate(
+                      `/courses/${String(id)}/${
+                        curricullumData?.id
+                      }/create-module`
+                    )
+                  } else {
+                    navigate(`/courses/${String(id)}/create-curricullum`)
+                  }
                 }}
               >
-                Create curriculum
+                {curricullumData?.course_modules?.length > 0
+                  ? 'Create modules'
+                  : 'Create curriculum'}
               </Button>
             </div>
           )}

@@ -7,21 +7,26 @@ import useTutorCourses from '../../Hooks/useTutorCourses'
 import Loader from '../../Components/Loader/Loader'
 import useEnrolledStudents from '../../Hooks/useEnrolledStudents'
 import { useSearchParams } from 'react-router-dom'
+import { useCurriculum } from '../../Hooks/useCurricullum'
 
 const CoursesModules = () => {
+  // Riuter
+  const [searchParams, setSearchParams] = useSearchParams()
+  const activeCourseId = searchParams.get('activeCourse')
+
   // Requests
   const { data, isLoading } = useTutorCourses()
   const { data: enrolledStudentsData, isLoading: enrolledStudentsIsLoading } =
     useEnrolledStudents()
+  const { isLoading: curricullumIsLoading, data: curricullum } = useCurriculum(
+    activeCourseId as string
+  )
 
   const enrolledStudents = enrolledStudentsData?.data
+  const curricullumData = curricullum?.data
 
   // States
   const [tutorCoursesState, setTutorCoursesState] = useState<any[]>([])
-
-  // Riuter
-  const [searchParams, setSearchParams] = useSearchParams()
-  const activeCourseId = searchParams.get('activeCourse')
 
   // Effects
   useEffect(() => {
@@ -60,7 +65,7 @@ const CoursesModules = () => {
     })
   }
 
-  if (isLoading || enrolledStudentsIsLoading) {
+  if (isLoading || enrolledStudentsIsLoading || curricullumIsLoading) {
     return <Loader />
   }
 
@@ -71,6 +76,7 @@ const CoursesModules = () => {
           courses={tutorCoursesState}
           enrolledStudents={enrolledStudents}
           tooggleActiveCourse={tooggleActiveCourse}
+          curricullumData={curricullumData}
         />
       ) : (
         <EmptyTabComponent

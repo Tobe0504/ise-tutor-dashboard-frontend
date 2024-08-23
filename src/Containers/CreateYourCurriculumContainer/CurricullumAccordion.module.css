@@ -1,0 +1,178 @@
+.container {
+  padding: 40px 32px;
+  background: var(--white);
+}
+
+.header > h4 {
+  font-family: Archivo;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 36px;
+  text-align: left;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 24px;
+}
+
+.moduleHeader {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--sectionBorder);
+}
+
+.moduleWrapper {
+  overflow: hidden;
+}
+
+.moduleContainer {
+  border: 1px solid var(--sectionBorder);
+  padding: 24px 16px;
+  margin-top: 2rem;
+}
+
+.moduleHeaderText {
+  display: flex;
+  align-content: center;
+  gap: 1rem;
+}
+
+.moduleHeaderText > h4 {
+  font-family: Archivo;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: left;
+  color: var(--grey);
+}
+
+.iconsAndCount {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.iconsAndCount > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.iconsAndCount > div > span {
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.moduleInformation {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.moduleInformation > h4 {
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.moduleInformation > p,
+.moduleInformation > ul {
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: var(--black);
+}
+
+.hide {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: var(--purple);
+}
+
+.week {
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.weekContent {
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+.weekHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: left;
+  color: var(--grey);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--sectionBorder);
+}
+
+.weekHeader > svg {
+  transition: all 0.3s ease-in-out;
+}
+
+.lesson {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+
+.lesson > svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.lesson > div > h5 {
+  font-family: Archivo;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: left;
+  color: var(--grey);
+  margin-bottom: 0.25rem;
+}
+
+.lesson > div > span {
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: var(--grey3);
+}
+.lesson > div > span:nth-child(3) {
+  padding: 0 0.2rem;
+}

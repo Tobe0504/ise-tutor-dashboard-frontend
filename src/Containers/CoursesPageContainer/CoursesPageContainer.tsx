@@ -15,18 +15,24 @@ import StarRating from '../../Components/StarRating/StarRating'
 import CourseCard2 from '../../Components/CourseCard2/CourseCard2'
 import InsightTab from '../../Components/InsightTab/InsightTab'
 import { capitalize } from '../../HelperFunctions/capitalize'
+import { useCurriculum } from '../../Hooks/useCurricullum'
+import { mutate } from 'swr'
+import { backend_url } from '../../Utilities/global'
 
 type CoursesPageContainerTypes = {
   courses: any[]
   enrolledStudents: any[]
   tooggleActiveCourse?: (i: number) => void
+  curricullumData: any
 }
 
 const CoursesPageContainer = ({
   courses,
   enrolledStudents,
   tooggleActiveCourse,
+  curricullumData,
 }: CoursesPageContainerTypes) => {
+  // Router
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const activeCourseId = searchParams.get('activeCourse')
@@ -83,6 +89,11 @@ const CoursesPageContainer = ({
     }
   }, [enrolledStudents])
 
+  useEffect(() => {
+    if (activeCourseId)
+      mutate(`${backend_url}/api/ise/v1/tutors/${activeCourseId}/curriculum`)
+  }, [activeCourseId])
+
   const rateAndReview = [
     {
       name: 'Amirah Oyegoke',
@@ -122,9 +133,9 @@ const CoursesPageContainer = ({
 
   const educationalAdministration = [
     {
-      title: 'Edit curriculum',
+      title: 'Edit modules',
       totalNumber: null,
-      route: `/courses/${activeCourseId}/create-module`,
+      route: `/courses/${curricullumData?.id}/${activeCourseId}/create-module`,
     },
     {
       title: 'View course details',
@@ -137,8 +148,6 @@ const CoursesPageContainer = ({
       route: '/student/assignment',
     },
   ]
-
-  console.log(courses, 'Data')
 
   return (
     <div className={classes.container}>
@@ -193,6 +202,7 @@ const CoursesPageContainer = ({
               status="Published"
               showButton={true}
               id={activeCourse?.course?.id}
+              curricullumData={curricullumData}
             />
           </div>
 

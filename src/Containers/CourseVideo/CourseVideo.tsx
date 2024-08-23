@@ -50,7 +50,7 @@ const CourseVideo = () => {
 
   return (
     <div className={classes.container}>
-      <h1>Untitled lesson</h1>
+      <h1>{uploadVideoData.title || 'Untitled lesson'}</h1>
       <div className={classes.addLesson}>
         <Input
           isRequired
@@ -64,32 +64,30 @@ const CourseVideo = () => {
           }}
         />
       </div>
-      {uploadVideoData.title && (
-        <div className={`${classes.addLesson} ${classes.body}`}>
-          <section className={classes.subContainer}>
-            <div className={classes.sectionsNavSection}>
-              <h2>Add Video</h2>
-              <SectionsNav4 navItems={navItems} setNavItems={setNavItems} />
-            </div>
-            <div>
-              {navItems[0].isActive && (
-                <VideoUploadComponent
-                  uploadVideoData={uploadVideoData}
-                  setUploadVideoData={setUploadVideoData}
-                  uploadVideoDataFormData={uploadVideoDataFormData}
-                />
-              )}
-              {navItems[1].isActive && (
-                <EmbedVideoComponent
-                  uploadVideoData={uploadVideoData}
-                  setUploadVideoData={setUploadVideoData}
-                  uploadVideoDataFormData={uploadVideoDataFormData}
-                />
-              )}
-            </div>
-          </section>
-        </div>
-      )}
+      <div className={`${classes.addLesson} ${classes.body}`}>
+        <section className={classes.subContainer}>
+          <div className={classes.sectionsNavSection}>
+            <h2>Add Video</h2>
+            <SectionsNav4 navItems={navItems} setNavItems={setNavItems} />
+          </div>
+          <div>
+            {navItems[0].isActive && (
+              <VideoUploadComponent
+                uploadVideoData={uploadVideoData}
+                setUploadVideoData={setUploadVideoData}
+                uploadVideoDataFormData={uploadVideoDataFormData}
+              />
+            )}
+            {navItems[1].isActive && (
+              <EmbedVideoComponent
+                uploadVideoData={uploadVideoData}
+                setUploadVideoData={setUploadVideoData}
+                uploadVideoDataFormData={uploadVideoDataFormData}
+              />
+            )}
+          </div>
+        </section>
+      </div>
     </div>
   )
 }

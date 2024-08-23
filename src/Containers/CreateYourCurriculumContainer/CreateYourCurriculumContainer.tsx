@@ -5,8 +5,15 @@ import classes from './CreateYourCurriculumContainer.module.css'
 import { AppContext } from '../../Context/AppContext'
 import CourseLessonsContainer from '../CourseLessonsContainer/CourseLessonsContainer'
 import { useNavigate, useParams } from 'react-router-dom'
+import CurricullumAccordion from './CurricullumAccordion'
 
-const CreateYourCurriculumContainer = () => {
+type CreateYourCurriculumContainerType = {
+  curricullum: any
+}
+
+const CreateYourCurriculumContainer = ({
+  curricullum,
+}: CreateYourCurriculumContainerType) => {
   const { showGetStarted } = useContext(AppContext)
 
   const [showCourseLessons, setShowCourseLessons] = useState(false)
@@ -38,14 +45,18 @@ const CreateYourCurriculumContainer = () => {
               />
             </svg>
           </div>
-          <h3>Create your curriculum</h3>
+          <h3>
+            {!curricullum?.course_modules
+              ? 'Create your curriculum'
+              : 'Course curriculum'}
+          </h3>
         </div>
       </div>
 
-      {/* If there are already modules */}
-      <div className={classes.subContainer}>
-        <h4>Curriculum outline</h4>
-        {!showCourseLessons && (
+      {!curricullum?.course_modules && (
+        <div className={classes.subContainer}>
+          <h4>Curriculum outline</h4>
+
           <>
             <p>
               Create an outline by structuring your content into weeks and
@@ -70,19 +81,23 @@ const CreateYourCurriculumContainer = () => {
               </svg>
             </Button>
           </>
-        )}
-        {showCourseLessons && <CourseLessonsContainer />}
-      </div>
+          {showCourseLessons && <CourseLessonsContainer />}
+        </div>
+      )}
 
-      <div className={classes.getStartedVideo}>
-        {showGetStarted.dashboard && (
-          <GetStartedVideoContainer
-            title="Quick Start Guide"
-            paragraph="Welcome to the course creation journey! This Quick Start Guide will walk you through the essential steps to kickstart your course outline. Let' s make your curriculum shine!"
-            videoHeight="280px"
-          />
-        )}
-      </div>
+      {!curricullum?.course_modules && (
+        <div className={classes.getStartedVideo}>
+          {showGetStarted.dashboard && (
+            <GetStartedVideoContainer
+              title="Quick Start Guide"
+              paragraph="Welcome to the course creation journey! This Quick Start Guide will walk you through the essential steps to kickstart your course outline. Let' s make your curriculum shine!"
+              videoHeight="280px"
+            />
+          )}
+        </div>
+      )}
+
+      {curricullum?.course_modules && <CurricullumAccordion />}
     </div>
   )
 }

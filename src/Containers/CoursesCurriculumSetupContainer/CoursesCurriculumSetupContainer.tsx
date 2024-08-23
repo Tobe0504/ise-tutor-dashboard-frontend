@@ -8,6 +8,7 @@ import Loader from '../../Components/Loader/Loader'
 import ErrorContainer from '../../Components/ErrorContainer/ErrorContainer'
 import { mutate } from 'swr'
 import { backend_url } from '../../Utilities/global'
+import { useCurriculum } from '../../Hooks/useCurricullum'
 
 const CoursesCurriculumSetupContainer = () => {
   // Router
@@ -15,9 +16,14 @@ const CoursesCurriculumSetupContainer = () => {
 
   // Requests
   const { data, isLoading, error } = useCourseById(courseId as string)
-  const courseData = data?.data
+  const { data: curricullum, isLoading: curricullumIsLoading } = useCurriculum(
+    courseId as string
+  )
 
-  if (isLoading) {
+  const courseData = data?.data
+  const curricullumData = curricullum?.data
+
+  if (isLoading || curricullumIsLoading) {
     return <Loader />
   }
 
@@ -31,7 +37,7 @@ const CoursesCurriculumSetupContainer = () => {
         {/* <CourseCurriculumFeedbackInformationBanner /> */}
 
         <div className={classes.subContainer}>
-          <CreateYourCurriculumContainer />
+          <CreateYourCurriculumContainer curricullum={curricullumData} />
           <CourseDetailsContainer courseData={courseData} />
         </div>
       </div>

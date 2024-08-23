@@ -41,7 +41,7 @@ const EmbedVideoComponent = ({
   // Router
   const { weekId } = useParams()
 
-  //   Effects
+  // Effects
   useEffect(() => {
     if (requestState.data) {
       setUploadVideoData((prevState) => {
@@ -50,6 +50,7 @@ const EmbedVideoComponent = ({
     }
   }, [requestState.data])
 
+  console.log(requestState.data, 'hmm')
   return (
     <>
       {displayDiscardModal && (
@@ -89,6 +90,7 @@ const EmbedVideoComponent = ({
           }
         />
       )}
+
       <div className={classes.addVideoResources}>
         <div>
           <p>Embed videos from Youtube or Vimeo into your curriculum.</p>

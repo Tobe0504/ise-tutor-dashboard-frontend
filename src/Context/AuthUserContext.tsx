@@ -129,6 +129,9 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   // Context
   const { setNotifications } = useContext(AppContext)
 
+  // Local
+  const userToken = localStorage.getItem('iseTutorAccessToken')
+
   // States
   const [userLoginInfo, setUserLoginInfo] = useState<{
     email: string
@@ -290,6 +293,19 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       url: `${process.env.REACT_APP_ISE_BACKEND_URL}/api/ise/v1/tutors/profile`,
       setState: setGetUserRequestObject,
       load,
+      errorFunction(error) {
+        const errorMessage = error?.response?.data?.error
+          ? error?.response?.data?.error?.responseMessage
+          : !error?.response?.data?.error
+          ? error?.response?.data?.responseMessage.toString()
+          : error?.request
+          ? 'There was an issue making this request'
+          : error?.message
+
+        if (errorMessage) {
+          logout()
+        }
+      },
     })
   }
 
@@ -469,6 +485,14 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
   // useEffect(() => {
   //   getUser()
   // }, [])
+
+  useEffect(() => {
+    if (userToken) {
+      getUser()
+    }
+
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <AuthUserContext.Provider

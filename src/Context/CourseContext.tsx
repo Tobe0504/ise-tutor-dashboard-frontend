@@ -65,6 +65,7 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
       successFunction(res) {
         navigate(`/courses/${id}/${res?.data?.id}/create-module`)
       },
+      requestCleanup: true,
     })
   }
 
@@ -110,6 +111,7 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
           `/courses/${courseId}/${curriculumId}/${moduleId}/${res?.data?.id}/add-engaging-content`
         )
       },
+      requestCleanup: true,
     })
   }
 

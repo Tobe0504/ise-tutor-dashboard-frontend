@@ -18,7 +18,7 @@ export type RequestType = {
   setNotifications?: Dispatch<SetStateAction<notificationsType>>
   successMessage?: string
   successFunction?: (res?: AxiosResponse) => void
-  errorFunction?: (err?: AxiosError) => void
+  errorFunction?: (err?: any) => void
   load?: boolean
   requestCleanup?: boolean
 }

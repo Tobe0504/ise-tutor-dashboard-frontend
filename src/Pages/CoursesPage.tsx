@@ -3,11 +3,11 @@ import Layout from '../Components/Layout/Layout'
 import CoursesModules from '../Containers/CoursesModules/CoursesModules'
 
 const CoursesPage = () => {
-    return (
-        <Layout>
-            <CoursesModules />
-        </Layout>
-    )
+  return (
+    <Layout>
+      <CoursesModules />
+    </Layout>
+  )
 }
 
 export default CoursesPage

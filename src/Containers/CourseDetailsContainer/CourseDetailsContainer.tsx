@@ -2,7 +2,7 @@ import classes from './CourseDetailsContainer.module.css'
 import frontendbyfemiadelana from '../../Assets/Images/frontendbyfemiadelana.png'
 import { useContext } from 'react'
 import { AuthUserContext } from '../../Context/AuthUserContext'
-import { capitalize } from '@mui/material'
+import { capitalize } from '../../HelperFunctions/capitalize'
 
 type CourseDetailsContainerTypes = {
   courseData: any
@@ -14,7 +14,6 @@ const CourseDetailsContainer = ({
   // Context
   const { getUserRequestObject } = useContext(AuthUserContext)
 
-  console.log(courseData, getUserRequestObject.data)
   const courseDetails = [
     {
       courseName: 'Frontend Development',

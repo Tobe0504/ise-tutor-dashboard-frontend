@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { AuthUserContext } from '../../Context/AuthUserContext'
+import Loader from '../Loader/Loader'
 
 const RequireAuth = () => {
   // Local storage
@@ -9,17 +10,13 @@ const RequireAuth = () => {
   const location = useLocation()
 
   // Context
-  const { getUser } = useContext(AuthUserContext)
-
-  useEffect(() => {
-    getUser()
-
-    // eslint-disable-next-line
-  }, [])
+  const { getUserRequestObject } = useContext(AuthUserContext)
 
   return (
     <>
-      {userToken ? (
+      {getUserRequestObject?.isLoading && userToken ? (
+        <Loader />
+      ) : !getUserRequestObject?.isLoading && userToken ? (
         <Outlet />
       ) : (
         <Navigate to="/sign-in" replace={true} state={location.pathname} />
