@@ -18,6 +18,8 @@ import { uploadVideoData } from '../../Utilities/types'
 import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
 import { CourseContext } from '../../Context/CourseContext'
 import { useParams } from 'react-router-dom'
+import { mutate } from 'swr'
+import { backend_url } from '../../Utilities/global'
 
 type EmbedVideoComponentTypes = {
   uploadVideoData: uploadVideoData
@@ -39,7 +41,7 @@ const EmbedVideoComponent = ({
   const { createLesson, requestState } = useContext(CourseContext)
 
   // Router
-  const { weekId } = useParams()
+  const { weekId, courseId } = useParams()
 
   // Effects
   useEffect(() => {
@@ -47,6 +49,10 @@ const EmbedVideoComponent = ({
       setUploadVideoData((prevState) => {
         return { ...prevState, embed_url: '', embed_description: '', title: '' }
       })
+
+      mutate(
+        `${backend_url}/api/ise/v1/tutors/${courseId as string}/curriculum`
+      )
     }
   }, [requestState.data])
 

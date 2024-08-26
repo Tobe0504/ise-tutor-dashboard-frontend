@@ -1,6 +1,5 @@
-import axios, { AxiosError, AxiosResponse } from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { Dispatch, SetStateAction } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { notificationsType } from '../Context/AppContext'
 import { requestType } from '../Context/AuthUserContext'
 import { setNotiticationFunction } from '../Utilities/setNotificationsFunction'
@@ -150,17 +149,10 @@ export async function requestHandler2({
           err.response?.data?.error
             ? err.response?.data?.error?.responseMessage
             : !err.response?.data?.error
-            ? err.response?.data?.responseMessage.toString()
+            ? err.response?.data?.responseMessage?.toString()
             : err.message
         )
       }
-      const errorMessage = err?.response?.data?.err
-        ? err?.response?.data?.err?.responseMessage
-        : !err?.response?.data?.err
-        ? err?.response?.data?.responseMessage.toString()
-        : err?.request
-        ? 'There was an issue making this request'
-        : err?.message
     })
 
   return null

@@ -294,15 +294,14 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
       setState: setGetUserRequestObject,
       load,
       errorFunction(error) {
-        const errorMessage = error?.response?.data?.error
-          ? error?.response?.data?.error?.responseMessage
-          : !error?.response?.data?.error
-          ? error?.response?.data?.responseMessage.toString()
-          : error?.request
-          ? 'There was an issue making this request'
-          : error?.message
+        const errorMessage =
+          error?.response?.data?.error?.responseMessage ||
+          error?.response?.data?.responseMessage?.toString() ||
+          error?.message ||
+          'There was an issue making this request'
 
         if (errorMessage) {
+          console.log('Hmm', errorMessage)
           logout()
         }
       },

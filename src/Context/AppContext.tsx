@@ -156,7 +156,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
       isMultipart: true,
       setNotifications: setNotifications,
       setNotificationsFailure: true,
-      setNotificationsSuccess: true,
+      requestCleanup: true,
     })
   }
 

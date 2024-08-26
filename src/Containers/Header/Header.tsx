@@ -1,5 +1,4 @@
 import classes from './Header.module.css'
-import amirahTemi from '../../Assets/Images/amirahTemi.svg'
 import iseLogo from '../../Assets/Images/iseLogo.svg'
 import { useContext, useRef } from 'react'
 import HeaderSideNav from '../HeaderSideNav/HeaderSideNav'

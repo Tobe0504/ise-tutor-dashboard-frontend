@@ -8,11 +8,9 @@ import {
 import Button from '../../Components/Button/Button'
 import DragAndDropInput from '../../Components/DragAndDropInput/DragAndDropInput'
 import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
-import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import DeleteModalBody from '../CreatingCourseModulePageContainer/DeleteModalBody'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import classes from './CourseVideo.module.css'
-import Toast from '../../Components/Toast/Toast'
 import VideoPlayer from '../../Components/VideoPlayer/VideoPlayer'
 import VideoUpload from '../../Assets/Images/CourseVideo-video-upload.png'
 import { assetsType, uploadVideoData } from '../../Utilities/types'
@@ -65,8 +63,6 @@ const VideoUploadComponent = ({
       })
     }
   }, [video.file, thumbNail.file])
-
-  console.log(uploadVideoData)
 
   return (
     <>

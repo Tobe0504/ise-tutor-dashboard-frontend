@@ -19,9 +19,9 @@ const TutorProfileProfileAdditionalDetails = () => {
   } = useContext(AuthUserContext)
 
   // States
-  const [day, setDay] = useState('')
-  const [month, setMonth] = useState('')
-  const [year, setYear] = useState('')
+  const [day, setDay] = useState('01')
+  const [month, setMonth] = useState('01')
+  const [year, setYear] = useState('1970')
   const [isDirty, setIsDirty] = useState(false)
 
   // Utils

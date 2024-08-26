@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '../../Components/Button/Button'
 import { capitalize } from '../../HelperFunctions/capitalize'
 import classes from './CurricullumAccordion.module.css'
@@ -8,129 +8,9 @@ type weekIdIndex = {
   weekId: number[]
 }
 
-const modules = [
-  {
-    title: 'Map customer persona',
-    description:
-      'Leaders expect and require innovation and invention from their teams and always find ways to simplify. They are externally aware, look for new ideas from everywhere, and are not limited by “not invented here. As AWS, AWIT, or you do new things, we accept that we may be misunderstood for long periods of time. Yet leaders like us know that sustained efforts will deliver results in the fullness of time.',
-    objective: ['Understand basics', 'Learn advanced topics'],
-    weeks: [
-      {
-        title: 'New week',
-        content: [
-          {
-            title: ' This is a test presentation',
-            type: 'presentation',
-            position: 5,
-          },
-          {
-            title: ' This is a test video',
-            type: 'video',
-            position: 3,
-          },
-
-          {
-            title: ' This is a test quiz',
-            type: 'quiz',
-            position: 3,
-          },
-          {
-            title: ' This is a test reading',
-            type: 'reading',
-            position: 3,
-          },
-        ],
-      },
-      {
-        title: 'New week',
-        content: [
-          {
-            title: ' This is a test presentation',
-            type: 'presentation',
-            position: 5,
-          },
-          {
-            title: ' This is a test video',
-            type: 'video',
-            position: 3,
-          },
-
-          {
-            title: ' This is a test quiz',
-            type: 'quiz',
-            position: 3,
-          },
-          {
-            title: ' This is a test reading',
-            type: 'reading',
-            position: 3,
-          },
-        ],
-      },
-    ],
-  },
-
-  {
-    title: 'Test module to see if we work',
-    description:
-      'Leaders expect and require innovation and invention from their teams and always find ways to simplify. They are externally aware, look for new ideas from everywhere, and are not limited by “not invented here. As AWS, AWIT, or you do new things, we accept that we may be misunderstood for long periods of time. Yet leaders like us know that sustained efforts will deliver results in the fullness of time.',
-    objective: ['Understand basics', 'Learn advanced topics'],
-    weeks: [
-      {
-        title: 'New week',
-        content: [
-          {
-            title: ' This is a test presentation',
-            type: 'presentation',
-            position: 5,
-          },
-          {
-            title: ' This is a test video',
-            type: 'video',
-            position: 3,
-          },
-
-          {
-            title: ' This is a test quiz',
-            type: 'quiz',
-            position: 3,
-          },
-          {
-            title: ' This is a test reading',
-            type: 'reading',
-            position: 3,
-          },
-        ],
-      },
-      {
-        title: 'New week',
-        content: [
-          {
-            title: ' This is a test presentation',
-            type: 'presentation',
-            position: 5,
-          },
-          {
-            title: ' This is a test video',
-            type: 'video',
-            position: 3,
-          },
-
-          {
-            title: ' This is a test quiz',
-            type: 'quiz',
-            position: 3,
-          },
-          {
-            title: ' This is a test reading',
-            type: 'reading',
-            position: 3,
-          },
-        ],
-      },
-    ],
-  },
-]
+type CurricullumAccordionTypes = {
+  curriculum: any
+}
 
 const iconHandler = (passedType: string) => {
   const type = passedType.toLowerCase()
@@ -185,11 +65,48 @@ const iconHandler = (passedType: string) => {
   }
 }
 
-const CurricullumAccordion = () => {
+const CurricullumAccordion = ({ curriculum }: CurricullumAccordionTypes) => {
   // States
   const [expandedWeekId, setExpandedWeekId] = useState<weekIdIndex[]>([])
   const [expandedModuleInfoId, setExpandModuleInfoId] = useState<number[]>([])
   const [expandedModuleId, setExpandModuleId] = useState<number[]>([])
+  const [contentInformation, setCOntentInformation] = useState({
+    reading: 0,
+    presentation: 0,
+    quiz: 0,
+    video: 0,
+  })
+
+  // Effects
+  useEffect(() => {}, [curriculum?.course_modules])
+
+  const courseInformationChecker = (modules: any) => {
+    let reading = 0
+    let presentation = 0
+    let quiz = 0
+    let video = 0
+
+    if (modules) {
+      for (let j = 0; j < modules?.course_weeks?.length; j++) {
+        for (let k = 0; k < modules?.course_weeks[j]?.content?.length; k++) {
+          if (modules?.course_weeks[j]?.content[k]?.type === 'reading') {
+            reading += 1
+          }
+          if (modules?.course_weeks[j]?.content[k]?.type === 'presentation') {
+            presentation += 1
+          }
+          if (modules?.course_weeks[j]?.content[k]?.type === 'quiz') {
+            quiz += 1
+          }
+          if (modules?.course_weeks[j]?.content[k]?.type === 'video') {
+            video += 1
+          }
+        }
+      }
+    }
+
+    return { reading, video, presentation, quiz }
+  }
 
   return (
     <div className={classes.container}>
@@ -239,7 +156,7 @@ const CurricullumAccordion = () => {
         </div>
       </div>
 
-      {modules.map((module, index) => {
+      {curriculum?.course_modules?.map((module: any, index: number) => {
         return (
           <div className={classes.moduleContainer} key={index}>
             <div
@@ -284,7 +201,7 @@ const CurricullumAccordion = () => {
                   />
                 </svg>
                 <h4>
-                  {`Module ${index + 1}`}: {module.title}{' '}
+                  {`Module ${index + 1}`}: {module?.title}{' '}
                 </h4>
               </div>
               <div
@@ -309,7 +226,7 @@ const CurricullumAccordion = () => {
                       fill="black"
                     />
                   </svg>
-                  <span>5 videos</span>
+                  <span>{courseInformationChecker(module)?.video} videos</span>
                 </div>
                 <div>
                   <svg
@@ -326,7 +243,29 @@ const CurricullumAccordion = () => {
                     />
                   </svg>
 
-                  <span>11 readings</span>
+                  <span>
+                    {courseInformationChecker(module)?.reading} readings
+                  </span>
+                </div>
+                <div>
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="16" cy="16" r="15.5" stroke="black" />
+                    <path
+                      d="M13 21.1932V10.8086L21.1538 16.0009L13 21.1932ZM14 19.3509L19.2885 16.0009L14 12.6509V19.3509Z"
+                      fill="black"
+                    />
+                  </svg>
+
+                  <span>
+                    {courseInformationChecker(module)?.presentation}{' '}
+                    presentations
+                  </span>
                 </div>
                 <div>
                   <svg
@@ -342,7 +281,7 @@ const CurricullumAccordion = () => {
                       fill="black"
                     />
                   </svg>
-                  <span>2 quizzes</span>
+                  <span>{courseInformationChecker(module)?.quiz} quizzes</span>
                 </div>
               </div>
             </div>
@@ -363,12 +302,15 @@ const CurricullumAccordion = () => {
                 }
               >
                 <h4>Module description</h4>
-                <p>{module.description}</p>
+                <p>{module?.description}</p>
 
                 <h4>Module Objectives</h4>
                 <ul>
-                  {module.objective.map(
-                    (moduleDescription, moduleDescriptionIndex) => {
+                  {module?.objective?.map(
+                    (
+                      moduleDescription: string,
+                      moduleDescriptionIndex: number
+                    ) => {
                       return (
                         <li key={moduleDescriptionIndex}>
                           {moduleDescription}
@@ -419,26 +361,12 @@ const CurricullumAccordion = () => {
               </div>
 
               <div className={classes.moduleWeeks}>
-                {module.weeks.map((week, weekIndex) => {
+                {module?.course_weeks?.map((week: any, weekIndex: number) => {
                   return (
                     <div className={classes.week} key={weekIndex}>
                       <div
                         className={classes.weekHeader}
                         onClick={() => {
-                          //   if (expandedWeekId.includes(weekIndex)) {
-                          //     setExpandedWeekId((prevState) => {
-                          //       const filteredWeekIndexes = prevState.filter(
-                          //         (id) => id !== weekIndex
-                          //       )
-                          //       return filteredWeekIndexes
-                          //     })
-                          //   } else {
-                          //     setExpandedWeekId((prevState) => {
-                          //       return [...prevState, weekIndex]
-                          //     })
-                          //   }
-
-                          // if(week)
                           setExpandedWeekId((prevState) => {
                             const updatedExpandedWeekId: weekIdIndex[] = [
                               ...prevState,
@@ -498,7 +426,7 @@ const CurricullumAccordion = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                        <span>{week.title}</span>
+                        <span>{week?.title}</span>
                       </div>
                       <div
                         className={classes.weekContent}
@@ -509,22 +437,23 @@ const CurricullumAccordion = () => {
                         }
                       >
                         {/* Week lesson collapses */}
-                        {week.content.map((weekContent, weekContentIndex) => {
-                          return (
-                            <div
-                              className={classes.lesson}
-                              key={weekContentIndex}
-                            >
-                              {iconHandler(weekContent.type)}
-                              <div>
-                                <h5>{weekContent.title}</h5>
-                                <span>{capitalize(weekContent?.type)}</span>
-                                <span>.</span>
-                                <span>2 minutes</span>
+                        {week?.content.map(
+                          (weekContent: any, weekContentIndex: number) => {
+                            return (
+                              <div
+                                className={classes.lesson}
+                                key={weekContentIndex}
+                              >
+                                {iconHandler(weekContent?.type)}
+                                <div>
+                                  <h5>{weekContent?.title}</h5>
+                                  <span>{capitalize(weekContent?.type)}</span>
+                                  <span>.</span>
+                                </div>
                               </div>
-                            </div>
-                          )
-                        })}
+                            )
+                          }
+                        )}
                       </div>
                     </div>
                   )

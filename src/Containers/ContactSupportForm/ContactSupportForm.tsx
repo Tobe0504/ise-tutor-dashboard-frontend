@@ -33,6 +33,23 @@ const ContactSupportForm = () => {
     // eslint-disable-next-line
   }, [file])
 
+  useEffect(() => {
+    if (contactSupportHandlerObject?.data) {
+      setRequestSent(true)
+
+      setContactSupport({
+        subject: '',
+        description: '',
+        image: '',
+      })
+      setFile(null)
+    } else {
+      setRequestSent(false)
+    }
+
+    // eslint-disable-next-line
+  }, [contactSupportHandlerObject?.data])
+
   return (
     <div className={classes.container}>
       {requestSent && (

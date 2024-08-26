@@ -48,9 +48,13 @@ const TutorProfileProfileSkillsAndExperience = () => {
 
   useEffect(() => {
     if (techProfeciency) {
-      if (!selectedProfeciency.includes(techProfeciency)) {
+      if (!selectedProfeciency?.includes(techProfeciency)) {
         setSelectedProfeciency((prevState: string[]) => {
-          return [...prevState, techProfeciency]
+          if (prevState?.length > 0) {
+            return [...prevState, techProfeciency]
+          } else {
+            return [techProfeciency]
+          }
         })
       }
     }
@@ -198,7 +202,7 @@ const TutorProfileProfileSkillsAndExperience = () => {
         />
 
         <div className={classes.tag}>
-          {selectedProfeciency.map((data, i) => {
+          {selectedProfeciency?.map((data, i) => {
             return (
               <React.Fragment key={i}>
                 <TagInput

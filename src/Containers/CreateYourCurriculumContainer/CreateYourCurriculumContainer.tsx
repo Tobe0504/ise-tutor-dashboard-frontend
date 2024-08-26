@@ -97,7 +97,9 @@ const CreateYourCurriculumContainer = ({
         </div>
       )}
 
-      {curricullum?.course_modules && <CurricullumAccordion />}
+      {curricullum?.course_modules && (
+        <CurricullumAccordion curriculum={curricullum} />
+      )}
     </div>
   )
 }
