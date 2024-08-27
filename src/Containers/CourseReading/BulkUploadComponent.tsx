@@ -53,6 +53,17 @@ const BulkUploadComponent = ({
     // eslint-disable-next-line
   }, [bulkUpload.file])
 
+  useEffect(() => {
+    if (requestState?.data) {
+      setReadingData({
+        title: '',
+        reading_contents: '',
+        file: null,
+        resources: [],
+      })
+    }
+  }, [requestState?.data])
+
   return (
     <>
       {displayDiscardModal && (

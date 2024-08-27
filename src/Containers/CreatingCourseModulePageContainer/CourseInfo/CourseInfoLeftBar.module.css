@@ -1,168 +1,187 @@
 .course {
-    gap: 1.5rem;
-    width: 100%;
-    display: flex;
-    padding: 40px 24px;
-    border-radius: 10px;
-    flex-direction: column;
-    background: var(--white);
+  gap: 1.5rem;
+  width: 100%;
+  display: flex;
+  padding: 40px 24px;
+  border-radius: 10px;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.course svg {
+  transition: all 0.3s ease-in-out;
+}
+
+.contentContainer {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 .course {
-    top: 10px;
-    max-width: 452px;
-    position: sticky;
-    min-height: 80vh;
-    overflow-y: auto;
-    padding: 24px 16px;
-    border: 1px solid var(--sectionBorder);
+  top: 10px;
+  max-width: 452px;
+  position: sticky;
+  min-height: 80vh;
+  overflow-y: auto;
+  padding: 24px 16px;
+  border: 1px solid var(--sectionBorder);
+  max-height: 100%;
 }
 
 .course h3 {
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 36px;
-    font-style: normal;
-    color: var(--grey);
-    font-family: Archivo;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 36px;
+  font-style: normal;
+  color: var(--grey);
+  font-family: Archivo;
 }
-
-.course div:last-child {
-    flex: 1;
-    display: flex;
-    padding-top: 1rem;
-    align-items: flex-end;
-    justify-content: center;
-}
-
 
 .week {
-    gap: 1rem;
-    display: flex;
-    font-size: 13px;
-    cursor: pointer;
-    font-weight: 400;
-    line-height: 20px;
-    font-style: normal;
-    color: var(--grey);
-    font-family: Archivo;
-    margin-bottom: 0.5rem;
-    align-items: flex-start;
-    justify-content: flex-end;
-    flex-direction: row-reverse;
+  gap: 1rem;
+  display: flex;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
+  color: var(--grey);
+  font-family: Archivo;
+  margin-bottom: 0.5rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 5px;
+  margin: 0 1rem 1rem 1.5rem;
+  border: 1px solid var(--veryLightPurple);
+}
 
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 0 1rem 0 1.5rem;
-    border: 1px solid var(--veryLightPurple);
+.contentContainer {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.moduleWeekContainer {
+  margin-bottom: 1rem;
 }
 
 .courseFile {
-    gap: 5px;
-    display: flex;
-    flex-direction: column;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.courseFile>:nth-child(1) {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 25px;
-    color: var(--grey);
-    font-style: normal;
-    font-family: Archivo;
+.courseFile > p:nth-child(1) {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--grey);
+  font-style: normal;
+  font-family: Archivo;
+  padding-top: 0rem;
+  width: 100%;
 }
 
-.courseFile>:nth-child(2) {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 20px;
-    font-style: normal;
-    color: var(--grey3);
-    font-family: Archivo;
-
-    gap: 4px;
-    display: flex;
-    align-items: center;
+.courseFile > div:nth-child(2) {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  font-style: normal;
+  color: var(--grey3);
+  font-family: Archivo;
+  gap: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 4px;
+  width: 100%;
 }
-
 
 .moduleTitle {
-    gap: 1rem;
-    display: flex;
-    margin: 3rem 1rem 0;
-    align-items: center;
-    padding-bottom: 1rem;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--veryLightPurple);
+  gap: 1rem;
+  display: flex;
+  margin: 3rem 1rem 0;
+  align-items: center;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--veryLightPurple);
 }
 
 .moduleWeek {
-    border-bottom: none;
-    margin: 0 1rem 0 1.5rem;
+  border-bottom: none;
+  margin: 0 1rem 0 1.5rem;
 }
 
 .moduleTitle h4 {
-    flex: 1;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
-    color: var(--grey);
-    font-style: normal;
-    font-family: Archivo;
+  flex: 1;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: var(--grey);
+  font-style: normal;
+  font-family: Archivo;
 }
 
 .moduleWeek h4 {
-    font-size: 18px;
-    line-height: 28px;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .moduleButtons {
-    gap: 1.5rem;
-    display: flex;
-    align-items: center;
+  gap: 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .moduleButtons button:nth-child(1) {
-    border: none;
+  border: none;
+}
+
+.modulesButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 778px) {
-    .course {
-        border: none;
-        max-width: 100%;
-        min-height: 80vh;
-        overflow-y: auto;
-        position: relative;
+  .course {
+    border: none;
+    max-width: 100%;
+    min-height: 80vh;
+    overflow-y: auto;
+    position: relative;
 
-        gap: 1rem;
-        padding: 1rem;
-    }
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-    .course h3 {
-        font-size: 18px;
-        line-height: 27px;
-    }
+  .course h3 {
+    font-size: 18px;
+    line-height: 27px;
+  }
 
-    .moduleTitle {
-        margin: 2rem 0 0;
-    }
+  .moduleTitle {
+    margin: 2rem 0 0;
+  }
 
-    .moduleWeek {
-        margin: 0;
-    }
+  .moduleWeek {
+    margin: 0;
+  }
 
-    .week {
-        margin: 0;
-        padding: 10px;
-    }
+  .week {
+    margin: 0;
+    padding: 10px;
+  }
 
-    .moduleTitle h4 {
-        font-size: 16px;
-        line-height: 25px;
-    }
+  .moduleTitle h4 {
+    font-size: 16px;
+    line-height: 25px;
+  }
 
-    .moduleWeek h4 {
-        font-size: 14px;
-        line-height: 23px;
-    }
+  .moduleWeek h4 {
+    font-size: 14px;
+    line-height: 23px;
+  }
 }

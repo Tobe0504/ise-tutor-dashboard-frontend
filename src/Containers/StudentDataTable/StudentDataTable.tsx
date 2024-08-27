@@ -8,12 +8,16 @@ import noResultFound from '../../Assets/Images/noResult.svg'
 import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
 import { studentRequestDataType, studentsType } from '../../Utilities/types'
 import moment from 'moment'
+import { mutate } from 'swr'
+import { backend_url } from '../../Utilities/global'
+import { LinearProgress } from '@mui/material'
 
 type StudentDataTableTypes = {
   students: studentRequestDataType
   setStudents?: Dispatch<SetStateAction<studentRequestDataType>>
   pageNumber: number
   setPageNumber: Dispatch<SetStateAction<number>>
+  isValidating: boolean
 }
 
 const StudentDataTable = ({
@@ -21,13 +25,25 @@ const StudentDataTable = ({
   setStudents,
   pageNumber,
   setPageNumber,
+  isValidating,
 }: StudentDataTableTypes) => {
   const navigate = useNavigate()
   const { searchValue } = useContext(AppContext)
 
+  const listedStudents = students?.data?.filter((data) => {
+    return (
+      data?.email?.toLowerCase()?.includes(searchValue?.toLowerCase()) ||
+      data?.full_name?.toLowerCase()?.includes(searchValue?.toLowerCase())
+    )
+  })
+
   return (
     <>
       <section className={classes.container}>
+        {isValidating && (
+          <LinearProgress style={{ color: '#664efe' }} color="inherit" />
+        )}
+
         <div className={classes.tableHeader}>
           <span></span>
           <span>Student name</span>
@@ -35,8 +51,8 @@ const StudentDataTable = ({
           <span>Enrollment date</span>
           <span></span>
         </div>
-        {students?.data?.length > 0 ? (
-          students?.data?.map((data: studentsType, i) => {
+        {listedStudents?.length > 0 ? (
+          listedStudents?.map((data: studentsType, i) => {
             return (
               <div key={Math.random()} className={classes.tableBody}>
                 <Checkbox
@@ -67,7 +83,7 @@ const StudentDataTable = ({
 
                 <span
                   onClick={() => {
-                    navigate(`/student/details/${String(data?.studentId)}`)
+                    navigate(`/student/${String(data?.studentId)}`)
                   }}
                 >
                   View
@@ -82,6 +98,11 @@ const StudentDataTable = ({
             firstParagraph="Try a new search"
             imageHeight={280}
             route=""
+            onClick={() => {
+              mutate(
+                `${backend_url}/api/ise/v1/tutors/enrolled-students?page=${pageNumber}`
+              )
+            }}
             buttontext="Retry search"
             buttonType="null"
             buttonSvg={

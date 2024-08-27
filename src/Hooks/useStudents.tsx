@@ -7,3 +7,9 @@ export const useStudents = (pageNumber: string) => {
     { revalidateOnFocus: false }
   )
 }
+
+export const useStudentsById = (id: string) => {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/enrolled-student/${id}`, {
+    revalidateOnFocus: false,
+  })
+}

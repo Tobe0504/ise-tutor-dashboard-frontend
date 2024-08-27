@@ -1,20 +1,30 @@
-import classes from "./EmptyTabComponent.module.css";
-import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
-import { ReactNode } from "react";
+import classes from './EmptyTabComponent.module.css'
+import Button from '../Button/Button'
+import { useNavigate } from 'react-router-dom'
+import { ReactNode } from 'react'
 
 type EmptyTabComponentProps = {
-  image: string;
-  firstParagraph: string;
-  secondParagraph?: string;
-  route: string;
-  buttontext?: string;
-  buttonSvg?: ReactNode;
-  buttonType?: "invalid" | "delete" | "primary" | "secondary" | "black" | "white" | "null" | "tertiary" | undefined;
-  showButton?: boolean;
-  header?: string;
-  imageHeight?: number;
-};
+  image: string
+  firstParagraph: string
+  secondParagraph?: string
+  route: string
+  buttontext?: string
+  buttonSvg?: ReactNode
+  buttonType?:
+    | 'invalid'
+    | 'delete'
+    | 'primary'
+    | 'secondary'
+    | 'black'
+    | 'white'
+    | 'null'
+    | 'tertiary'
+    | undefined
+  showButton?: boolean
+  header?: string
+  imageHeight?: number
+  onClick?: () => void
+}
 
 const EmptyTabComponent = ({
   image,
@@ -27,9 +37,10 @@ const EmptyTabComponent = ({
   header,
   showButton = true,
   imageHeight,
+  onClick,
 }: EmptyTabComponentProps) => {
   // Router
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <section className={classes.container}>
@@ -39,19 +50,23 @@ const EmptyTabComponent = ({
         <p>{firstParagraph}</p>
         <p>{secondParagraph}</p>
       </div>
-      {showButton &&
+      {showButton && (
         <Button
           type={buttonType}
           onClick={() => {
-            navigate(route);
+            navigate(route)
+
+            if (onClick) {
+              onClick()
+            }
           }}
         >
           <span>{buttontext}</span>
           {buttonSvg}
         </Button>
-      }
+      )}
     </section>
-  );
-};
+  )
+}
 
-export default EmptyTabComponent;
+export default EmptyTabComponent

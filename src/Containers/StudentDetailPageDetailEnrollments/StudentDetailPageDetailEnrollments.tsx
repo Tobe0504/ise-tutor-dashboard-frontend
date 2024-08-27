@@ -1,8 +1,15 @@
 import { useState } from 'react'
 import classes from './StudentDetailPageDetailEnrollments.module.css'
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
+import { capitalize } from '../../HelperFunctions/capitalize'
 
-const StudentDetailPageDetailEnrollments = () => {
+type StudentDetailPageDetailEnrollmentsType = {
+  student: any
+}
+
+const StudentDetailPageDetailEnrollments = ({
+  student,
+}: StudentDetailPageDetailEnrollmentsType) => {
   // Utils
   const [enrollments] = useState([
     {
@@ -49,10 +56,12 @@ const StudentDetailPageDetailEnrollments = () => {
           <span>Progress</span>
           <span>Status</span>
         </div>
-        {enrollments.map((data, i) => {
-          const statusClassName = getStatusClass(data.statusColor)
+        {student?.enrollments?.map((data: any, i: number) => {
+          const statusClassName = getStatusClass(
+            data.course_progress > 40 ? 'success' : 'fail'
+          )
           const progressBarProps =
-            data.percent < 50
+            data.course_progress < 50
               ? { primaryColor: '#fffaeb', secondaryColor: '#ffd029' }
               : {}
 
@@ -66,13 +75,13 @@ const StudentDetailPageDetailEnrollments = () => {
               <div className={classes.progressSection}>
                 <div className={classes.performanceProgressBar}>
                   <ProgressBar
-                    percentage={data.percent}
+                    percentage={data?.course_progress}
                     color="#000"
                     {...progressBarProps}
                   />
                 </div>
               </div>
-              <div className={statusClassName}>{data.status}</div>
+              <div className={statusClassName}>{capitalize(data?.status)}</div>
             </div>
           )
         })}

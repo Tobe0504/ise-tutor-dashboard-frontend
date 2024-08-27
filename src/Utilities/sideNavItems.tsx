@@ -28,10 +28,7 @@ export const sideNavItems: sideNavItemsType = [
     keywords: ['courses', 'courses/'],
     otherOptions: null,
     isVisible: true,
-    children: [
-      { title: 'Courses curriculum', route: '/courses/courses-curriculum' },
-      { title: 'Feedback', route: '/courses/feedback' },
-    ],
+    children: [{ title: 'Feedback', route: '/courses/feedback' }],
   },
 
   {

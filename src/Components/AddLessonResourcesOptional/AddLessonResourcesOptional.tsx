@@ -42,6 +42,7 @@ const AddLessonResourcesOptional = ({
         label="Resource URL"
         errorMessage="Incorrect link. Check and try again"
         placeholder="Enter the URL of the external resource"
+        tip='Hit "Enter" to save a resource'
         value={resource}
         onChange={(e) => inputChangeHandler(e, setResource, true)}
         onKeyDown={(e) => {

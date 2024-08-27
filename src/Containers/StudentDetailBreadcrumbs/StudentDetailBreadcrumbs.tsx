@@ -1,40 +1,38 @@
-import React, { useContext } from "react";
-import Breadcrumbs from "../../Components/Breadcrumbs/Breadcrumbs";
-import breadcrumbsBack from "../../Assets/Images/breadcrumbsBack.svg";
-import classes from "./StudentDetailBreadcrumbs.module.css";
-import { AppContext } from "../../Context/AppContext";
-import { useParams } from "react-router-dom";
+import React, { useContext } from 'react'
+import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs'
+import breadcrumbsBack from '../../Assets/Images/breadcrumbsBack.svg'
+import classes from './StudentDetailBreadcrumbs.module.css'
+import { AppContext } from '../../Context/AppContext'
+import { useParams } from 'react-router-dom'
 
-const StudentDetailBreadcrumbs = () => {
+type StudentDetailBreadcrumbsTypes = {
+  student: any
+}
+
+const StudentDetailBreadcrumbs = ({
+  student,
+}: StudentDetailBreadcrumbsTypes) => {
   // Context
-  const { students } = useContext(AppContext)
-
-  // Router
-  const { studentId } = useParams()
-
-  const activeStudent = students.find((data) => {
-    return data.studentName.replace(' ', '-').toLowerCase() === studentId
-  })
 
   const breadCrumbs = {
     image: breadcrumbsBack,
     array: [
       {
-        title: "Back to students",
-        route: "/student",
+        title: 'Back to students',
+        route: '/student',
       },
       {
-        title: `${activeStudent?.studentName}`,
-        route: `/student/details/${activeStudent?.studentName.replace(' ', '-').toLowerCase()}`,
+        title: `${student?.full_name}`,
+        route: `/student/${student?.id}`,
       },
     ],
-  };
+  }
 
   return (
     <div className={classes.container}>
       <Breadcrumbs {...breadCrumbs} />
     </div>
-  );
-};
+  )
+}
 
-export default StudentDetailBreadcrumbs;
+export default StudentDetailBreadcrumbs

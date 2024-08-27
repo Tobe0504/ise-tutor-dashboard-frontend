@@ -76,10 +76,7 @@ function App() {
         />
 
         <Route path="/student" element={<StudentPage />} />
-        <Route
-          path="/student/details/:studentId"
-          element={<StudentDetailsPage />}
-        />
+        <Route path="/student/:studentId" element={<StudentDetailsPage />} />
         <Route path="/student/quiz" element={<QuizPage />} />
         <Route path="/student/assignment" element={<AssignmentPage />} />
         <Route

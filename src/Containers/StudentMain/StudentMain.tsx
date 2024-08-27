@@ -12,7 +12,7 @@ const StudentMain = () => {
   const [students, setStudents] = useState<studentRequestDataType | null>(null)
 
   // Requests
-  const { isLoading, data } = useStudents(String(pageNumber))
+  const { isLoading, data, isValidating } = useStudents(String(pageNumber))
 
   // Utils
 
@@ -32,8 +32,6 @@ const StudentMain = () => {
     return <Loader />
   }
 
-  console.log(students, pageNumber)
-
   return (
     <div className={classes.container}>
       <div className={classes.body}>
@@ -45,6 +43,7 @@ const StudentMain = () => {
             }
             pageNumber={pageNumber}
             setPageNumber={setPageNumber}
+            isValidating={isValidating}
           />
         ) : (
           <StudentMainEmtptyTab />

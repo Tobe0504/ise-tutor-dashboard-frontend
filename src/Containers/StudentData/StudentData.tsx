@@ -6,7 +6,6 @@ import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
 import ConfirmationModal from './ConfirmationModal'
 import SendMessageModal from './SendMessageModal'
 import { AppContext } from '../../Context/AppContext'
-import { activeToggleSetAll } from '../../HelperFunctions/activeTogglers'
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import StudentDataTable from '../StudentDataTable/StudentDataTable'
 import { studentRequestDataType, studentsType } from '../../Utilities/types'
@@ -16,6 +15,7 @@ type StudentDataType = {
   setStudents?: Dispatch<SetStateAction<studentRequestDataType>>
   pageNumber: number
   setPageNumber: Dispatch<SetStateAction<number>>
+  isValidating: boolean
 }
 
 const StudentData = ({
@@ -23,6 +23,7 @@ const StudentData = ({
   setStudents,
   pageNumber,
   setPageNumber,
+  isValidating,
 }: StudentDataType) => {
   // Context
   const { searchValue, setSearchValue } = useContext(AppContext)
@@ -140,7 +141,9 @@ const StudentData = ({
           <span>Email</span>
         </div>
         <div>
-          <p>1-5 of 5 students</p>
+          <p>
+            1-{students?.data?.length} of {students?.total} students
+          </p>
         </div>
       </div>
 
@@ -151,6 +154,7 @@ const StudentData = ({
         }
         pageNumber={pageNumber}
         setPageNumber={setPageNumber}
+        isValidating={isValidating}
       />
     </section>
   )
