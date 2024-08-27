@@ -67,3 +67,22 @@ export type assetsType = {
   frontendFile: any
   file: any | File
 }
+
+export type studentRequestDataType = {
+  from: number
+  last_page: number
+  next_page_url: null | string
+  per_page: number
+  prev_page_url: null | string
+  to: number
+  total: number
+  data: studentsType[]
+}
+
+export type studentsType = {
+  email: string
+  enrollment_date: string
+  full_name: string
+  studentId: number
+  isActive?: boolean
+}
