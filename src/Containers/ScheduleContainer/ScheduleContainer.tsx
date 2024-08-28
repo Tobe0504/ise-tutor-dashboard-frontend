@@ -1,30 +1,21 @@
-import React from 'react'
-import classes from './OneOnOneCallSessions.module.css'
+import classes from './ScheduleContainer.module.css'
 import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
 
-type OneOnOneCallSessionsProps = {
+type LiveClassSessionsProps = {
   height?: string
   padding?: string
 }
 
-const OneOnOneCallSessions = ({
-  height,
-  padding,
-}: OneOnOneCallSessionsProps) => {
-  const oneOnOneSession = [
+const ScheduleContainer = ({ height, padding }: LiveClassSessionsProps) => {
+  const liveSession = [
     {
       time: '10:00am - 11:00am',
-      title: '1-on-1 session with Kenneth',
+      title: 'LIVE sessions with students',
       link: '',
     },
     {
       time: '10:00am - 11:00am',
-      title: '1-on-1 session with Kenneth',
-      link: '',
-    },
-    {
-      time: '10:00am - 11:00am',
-      title: '1-on-1 session with Kenneth',
+      title: 'LIVE sessions with students',
       link: '',
     },
   ]
@@ -32,7 +23,7 @@ const OneOnOneCallSessions = ({
   return (
     <div className={classes.container} style={{ height, padding }}>
       <ul>
-        {oneOnOneSession.map((data, index) => {
+        {liveSession.map((data, index) => {
           return (
             <ScheduleCard
               key={index}
@@ -48,4 +39,4 @@ const OneOnOneCallSessions = ({
   )
 }
 
-export default OneOnOneCallSessions
+export default ScheduleContainer

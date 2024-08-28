@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  margin: 24px;
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.container > div {
+  flex-basis: 100%;
+  padding: 24px;
+}

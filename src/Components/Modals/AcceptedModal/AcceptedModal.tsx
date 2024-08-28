@@ -1,21 +1,21 @@
-import React from "react";
-import classes from "./AcceptedModal.module.css";
-import ReactDom from "react-dom";
+import React from 'react'
+import classes from './AcceptedModal.module.css'
+import ReactDom from 'react-dom'
 
 const BackDrop = (props: any) => {
-  return <div className={classes.backdrop} onClick={props.onClick} />;
-};
+  return <div className={classes.backdrop} onClick={props.onClick} />
+}
 
 const ModalOverlay = (props: any) => {
   return (
     <div className={classes.modal} style={props.style}>
       <div>{props.body}</div>
     </div>
-  );
-};
+  )
+}
 
-const backdropContainer = document.getElementById("backdrop");
-const modalOverlay = document.getElementById("modal-overlay");
+const backdropContainer = document.getElementById('backdrop')
+const modalOverlay = document.getElementById('modal-overlay')
 
 const AcceptedModal = (props: any) => {
   return (
@@ -34,7 +34,7 @@ const AcceptedModal = (props: any) => {
         modalOverlay || document.body
       )}
     </div>
-  );
-};
+  )
+}
 
-export default AcceptedModal;
+export default AcceptedModal

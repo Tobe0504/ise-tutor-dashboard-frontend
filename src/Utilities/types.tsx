@@ -86,3 +86,12 @@ export type studentsType = {
   studentId: number
   isActive?: boolean
 }
+
+export type availabilityType = {
+  day: string
+  isActive: boolean
+  availableTimes: {
+    startingTime: string
+    endingTime: string
+  }[]
+}[]

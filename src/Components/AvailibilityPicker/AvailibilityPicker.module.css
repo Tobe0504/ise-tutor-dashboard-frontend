@@ -1,0 +1,60 @@
+.availableDay {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.availableDay > h4 {
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  color: var(--grey);
+  width: 90px;
+}
+
+.availableSection {
+  min-width: 300px;
+}
+
+.availableSection > p {
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: var(--grey3);
+}
+
+.days {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.24rem;
+}
+
+.days:not(.days:last-child) {
+  margin-bottom: 1rem;
+}
+
+.days > div {
+  width: 120px;
+  height: 36px;
+  margin: 0;
+}
+
+.days > div > span > input {
+  height: 36px;
+  margin: 0;
+}
+
+.days > svg {
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.availableDay > svg {
+  margin-left: 1rem;
+  flex-shrink: 0;
+}

@@ -11,13 +11,13 @@ export const activeToggler = (
       if (i === index) {
         return { ...data, isActive: !data.isActive }
       } else {
-        return { ...data }
+        return { ...data, isActive: false }
       }
     } else {
       if (data.id === id) {
         return { ...data, isActive: !data.isActive }
       } else {
-        return { ...data }
+        return { ...data, isActive: false }
       }
     }
   })

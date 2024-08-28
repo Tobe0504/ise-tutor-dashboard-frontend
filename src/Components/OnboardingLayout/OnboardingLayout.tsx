@@ -1,9 +1,9 @@
-import classes from "./OnboardingLayout.module.css";
+import classes from './OnboardingLayout.module.css'
 
 type OnboardingLayoutTypes = {
-  image: string;
-  children: React.ReactNode;
-};
+  image: string
+  children: React.ReactNode
+}
 
 const OnboardingLayout = ({ image, children }: OnboardingLayoutTypes) => {
   return (
@@ -13,7 +13,7 @@ const OnboardingLayout = ({ image, children }: OnboardingLayoutTypes) => {
         <img src={image} alt="Login" />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default OnboardingLayout;
+export default OnboardingLayout
