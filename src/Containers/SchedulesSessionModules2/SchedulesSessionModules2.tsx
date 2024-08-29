@@ -22,9 +22,6 @@ const SchedulesSessionModules2 = () => {
     },
   ])
 
-  const activeCOmponent = navItems.find((data) => {
-    return data.isActive
-  })
   return (
     <div className={classes.container}>
       <h2>Schedule</h2>

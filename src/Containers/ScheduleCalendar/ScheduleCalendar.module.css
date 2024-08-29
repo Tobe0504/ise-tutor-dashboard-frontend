@@ -44,3 +44,10 @@
 .buttonContainer > button {
   min-width: 198px;
 }
+
+.body {
+  border-radius: 20px;
+  border: 1px solid #eeebfe;
+  background: var(--white);
+  padding: 28px;
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { availabilityType } from '../../Utilities/types'
+import { availabilityType, dayTestTypes } from '../../Utilities/types'
 import classes from './CalendarComponent.module.css'
 
 type CalendarComponentType = {
@@ -47,12 +47,11 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
     'November',
     'December',
   ]
-  const daysTest = []
+  const daysTest: dayTestTypes[] = []
 
   const days = []
   for (let i = 0; i < firstDayOfMonth; i++) {
     days.push(<div key={`empty-${i}`} className={classes.emptyDay} />)
-    console.log(weekDays[i % 7])
   }
 
   for (let i = 1; i <= daysInMonth; i++) {
@@ -71,7 +70,7 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
         isActive: false,
         dayNumber: null,
         date: null,
-        schedules: null,
+        schedules: 0,
       })
     } else {
       daysTest.push({
@@ -81,22 +80,10 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
         date: `${String(i + 1 - firstDayOfMonth).padStart(2, '0')}-${String(
           currentDate.getMonth() + 1
         ).padStart(2, '0')}-${String(currentDate.getFullYear())}`,
+        schedules: 0,
       })
     }
   }
-
-  const newDaysOfWeek = daysTest.map((data) => {
-    const newDays = tasks?.map((task) => {
-      if (task.day.toLowerCase() === data.dayOfWeek.toLowerCase()) {
-        return { ...data, schedules: task.availableTimes?.length }
-      } else {
-        return { ...data, schedules: 0 }
-      }
-    })
-    return newDays
-  })
-
-  // console.log(daysTest)
 
   const prevMonth = () => {
     setCurrentDate(
@@ -110,7 +97,18 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
     )
   }
 
-  console.log(newDaysOfWeek, 'new days')
+  for (let i = 0; i < (tasks as availabilityType)?.length; i++) {
+    for (let j = 0; j < daysTest.length; j++) {
+      if (
+        (tasks as availabilityType)[i]?.day.toLowerCase() ===
+        daysTest[j]?.dayOfWeek.toLowerCase()
+      ) {
+        daysTest[j].schedules = (tasks as availabilityType)[
+          i
+        ]?.availableTimes?.length
+      }
+    }
+  }
 
   return (
     <div className={classes.calender}>
@@ -170,7 +168,7 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
             return (
               <div key={i} className={classes.day} onClick={() => {}}>
                 <span>{data.dayNumber}</span>
-                <p>3</p>
+                {data.schedules > 0 && <p>{data.schedules}</p>}
               </div>
             )
           }

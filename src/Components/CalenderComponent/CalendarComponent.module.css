@@ -2,7 +2,6 @@
   max-width: 400px;
   margin: 0 auto;
   font-family: Archivo, sans-serif;
-  border: 2px solid red;
 }
 
 .calendarHeader {
@@ -43,7 +42,7 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0px;
-  border: 2px solid green;
+  border: 1px solid var(--greyWhite);
 }
 
 .dayHeader,

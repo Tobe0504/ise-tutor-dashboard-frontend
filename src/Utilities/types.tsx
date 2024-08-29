@@ -95,3 +95,11 @@ export type availabilityType = {
     endingTime: string
   }[]
 }[]
+
+export type dayTestTypes = {
+  dayOfWeek: string
+  isActive: boolean
+  dayNumber: null | number
+  date: string | null
+  schedules: number
+}

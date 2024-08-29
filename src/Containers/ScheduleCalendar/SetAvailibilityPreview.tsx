@@ -14,9 +14,7 @@ const SetAvailibilityPreview = ({
   onClick,
 }: SetAvailibilityPreviewType) => {
   //   Router
-  const [, setSearchParams] = useSearchParams()
-
-  console.log(availability, 'Hmm')
+  const [searchParams, setSearchParams] = useSearchParams()
 
   return (
     <div className={classes.container}>
@@ -43,8 +41,8 @@ const SetAvailibilityPreview = ({
         </Button>
         <Button
           onClick={() => {
-            setSearchParams((prevState) => {
-              return { ...prevState, step: '3' }
+            setSearchParams((prevState: any) => {
+              return { ...prevState, step: '4' }
             })
           }}
         >

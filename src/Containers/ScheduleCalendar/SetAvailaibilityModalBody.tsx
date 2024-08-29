@@ -6,6 +6,7 @@ import classes from './SetAvailaibilityModalBody.module.css'
 import SetAvailaibilityScheduleSettings from './SetAvailaibilityScheduleSettings'
 import SetAvailibilityPreview from './SetAvailibilityPreview'
 import { availabilityType } from '../../Utilities/types'
+import SuccessModalBody from '../../Components/SuccessModal/SuccessModalBody'
 
 type SetAvailaibilityModalBodyType = {
   onClick: () => void
@@ -72,7 +73,7 @@ const SetAvailaibilityModalBody = ({
   }, [])
   return (
     <div className={classes.container}>
-      <StepLayout steps={[1, 2, 3]}>
+      <StepLayout steps={[1, 2, 3]} notShowHeader={step === '4'}>
         {step === '1' && <SetAvailaibilitySettingUp onClick={onClick} />}
         {step === '2' && (
           <SetAvailaibilityScheduleSettings
@@ -86,6 +87,14 @@ const SetAvailaibilityModalBody = ({
           <SetAvailibilityPreview
             availability={availability?.filter((data) => data?.isActive)}
             onClick={onClick}
+          />
+        )}
+
+        {step === '4' && (
+          <SuccessModalBody
+            onClick={onClick}
+            header="Availability schedule published"
+            caption="Students can now book sessions during your available times."
           />
         )}
       </StepLayout>

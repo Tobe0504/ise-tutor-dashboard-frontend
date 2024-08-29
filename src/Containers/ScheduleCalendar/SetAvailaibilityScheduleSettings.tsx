@@ -76,8 +76,6 @@ const SetAvailaibilityScheduleSettings = ({
 
         return alteredState
       })
-    } else {
-      setAvailability(defaultAvailability)
     }
   }, [formatOptions])
 

@@ -1,24 +1,27 @@
 .container {
-    gap: 2rem;
-    padding: 2rem;
-    display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  display: flex;
+  align-items: stretch;
 }
 
-.container>div:nth-child(2) {
-    height: fit-content;
-    position: sticky;
-    top: 30px;
+.container > div:nth-child(2) {
+  width: 60%;
+}
+
+.container > div:nth-child(1) {
+  width: 40%;
 }
 
 @media screen and (max-width: 1147px) {
-    .container {
-        gap: 3rem;
-        padding: 2rem 1rem;
-        flex-direction: column-reverse;
-    }
+  .container {
+    gap: 3rem;
+    padding: 2rem 1rem;
+    flex-direction: column-reverse;
+  }
 
-    .container>div:nth-child(2) {
-        position: static;
-        top: 0;
-    }
+  .container > div:nth-child(2) {
+    position: static;
+    top: 0;
+  }
 }

@@ -4,9 +4,10 @@ import classes from './Checkbox.module.css'
 type CheckboxProps = {
   isChecked: boolean
   onChange: (isChecked: boolean) => void
+  disabled?: boolean
 }
 
-const Checkbox = ({ isChecked, onChange }: CheckboxProps) => {
+const Checkbox = ({ isChecked, onChange, disabled }: CheckboxProps) => {
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.checked)
   }
@@ -18,6 +19,7 @@ const Checkbox = ({ isChecked, onChange }: CheckboxProps) => {
         checked={isChecked}
         onChange={handleCheckboxChange}
         className={classes.checkboxInput}
+        disabled={disabled}
       />
       <div className={classes.checkmark}></div>
     </label>

@@ -1,5 +1,4 @@
 import classes from './ScheduleCalendar.module.css'
-import calendarBoard from '../../Assets/Images/ScheduleCalendar.png'
 import calender from '../../Assets/Images/calendar.svg'
 import Button from '../../Components/Button/Button'
 import { useState } from 'react'
@@ -8,6 +7,7 @@ import CreateAMeeting from './CreateAMeeting'
 import SuccessModalBody from '../../Components/SuccessModal/SuccessModalBody'
 import SetAvailaibilityModalBody from './SetAvailaibilityModalBody'
 import { useSearchParams } from 'react-router-dom'
+import CalendarComponent from '../../Components/CalenderComponent/CalenderComponent'
 
 const ScheduleCalendar = () => {
   // States
@@ -127,7 +127,7 @@ const ScheduleCalendar = () => {
           </div>
         </div>
         <div className={classes.body}>
-          <img src={calendarBoard} alt="" />
+          <CalendarComponent />
         </div>
       </div>
     </>

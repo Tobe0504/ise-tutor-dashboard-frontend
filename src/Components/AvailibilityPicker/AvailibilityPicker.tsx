@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import { availabilityType } from '../../Utilities/types'
 import Checkbox from '../Checkbox/Checkbox'
 import Input from '../Input/Input'
@@ -27,6 +27,7 @@ const AvailibilityPicker = ({
                   return updatedState
                 })
               }}
+              disabled={!availability.availableTimes.length}
             />
             <h4>{availability.day}</h4>
             <div className={classes.availableSection}>
