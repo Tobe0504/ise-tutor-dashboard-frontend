@@ -1,0 +1,104 @@
+.calendar {
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: Archivo, sans-serif;
+  border: 2px solid red;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.calendarHeader > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendarHeader > div > h2 {
+  font-family: Archivo;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: left;
+  color: var(--grey);
+  padding: 11px 18px;
+}
+
+.calendarHeader > div > h2:nth-child(1) {
+  background-color: var(--calenderYearBg);
+  border-radius: 10px 0 0 10px;
+}
+
+.calendarHeader > div > h2:nth-child(2) {
+  background-color: var(--progressBarYellow);
+  border-radius: 0 10px 10px 0;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0px;
+  border: 2px solid green;
+}
+
+.dayHeader,
+.day,
+.emptyDay {
+  text-align: center;
+  padding: 10px;
+}
+
+.dayHeader {
+  background-color: var(--veryVeryLightPurple);
+  padding: 12px 0;
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--grey);
+}
+
+.day {
+  height: 90px;
+  border: 1px solid var(--greyWhite);
+}
+
+.day > span:nth-child(1) {
+  display: block;
+  text-align: right;
+  font-family: Archivo;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: right;
+  color: var(--grey);
+  width: 100%;
+}
+
+.day > p {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 0.5rem;
+  background-color: var(--progressBarIndicatorYellow);
+  font-family: Archivo;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: right;
+  color: var(--grey);
+}
+
+.emptyDay {
+  visibility: hidden;
+  border: 2px solid red;
+}

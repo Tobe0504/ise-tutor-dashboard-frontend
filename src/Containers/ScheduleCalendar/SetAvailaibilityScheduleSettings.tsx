@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import AvailibilityPicker from '../../Components/AvailibilityPicker/AvailibilityPicker'
 import Button from '../../Components/Button/Button'
@@ -8,54 +8,18 @@ import classes from './SetAvailaibilityScheduleSettings.module.css'
 
 type SetAvailaibilityScheduleSettingsType = {
   onClick: () => void
+  defaultAvailability: availabilityType
+  availability: availabilityType
+  setAvailability: Dispatch<SetStateAction<availabilityType>>
 }
-
-const defaultAvailability = [
-  {
-    day: 'SUN',
-    isActive: false,
-    availableTimes: [],
-  },
-  {
-    day: 'MON',
-    isActive: false,
-    availableTimes: [],
-  },
-  {
-    day: 'TUE',
-    isActive: false,
-    availableTimes: [],
-  },
-
-  {
-    day: 'WED',
-    isActive: false,
-    availableTimes: [],
-  },
-
-  {
-    day: 'THU',
-    isActive: false,
-    availableTimes: [],
-  },
-  {
-    day: 'FRI',
-    isActive: false,
-    availableTimes: [],
-  },
-  {
-    day: 'SAT',
-    isActive: false,
-    availableTimes: [],
-  },
-]
 
 const SetAvailaibilityScheduleSettings = ({
   onClick,
+  defaultAvailability,
+  availability,
+  setAvailability,
 }: SetAvailaibilityScheduleSettingsType) => {
   // States
-  const [availability, setAvailability] =
-    useState<availabilityType>(defaultAvailability)
 
   const [formatOptions, setFormatOptions] = useState([
     {
@@ -69,7 +33,7 @@ const SetAvailaibilityScheduleSettings = ({
   ])
 
   //   Router
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [, setSearchParams] = useSearchParams()
 
   //   Effects
   useEffect(() => {
