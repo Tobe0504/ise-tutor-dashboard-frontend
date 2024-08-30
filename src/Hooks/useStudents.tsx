@@ -31,3 +31,9 @@ export const useStudentQuiz = (id: string) => {
     revalidateOnFocus: false,
   })
 }
+
+export const useStudentAssignments = () => {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/student_assignments`, {
+    revalidateOnFocus: false,
+  })
+}

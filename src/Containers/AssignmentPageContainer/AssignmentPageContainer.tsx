@@ -15,11 +15,23 @@ import AssignmentSummaryModal from './AssignmentSummaryModal/AssignmentSummaryMo
 import ApproveSubmissionModal from './ApproveSubmissionModal/ApproveSubmissionModal'
 import DropdownWithSearch from '../../Components/DropdownWithSearch/DropdownWithSearch'
 import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
-import noResultFound from "../../Assets/Images/noResult.svg";
+import noResultFound from '../../Assets/Images/noResult.svg'
+import { useStudentAssignments } from '../../Hooks/useStudents'
+import Loader from '../../Components/Loader/Loader'
+import { capitalize } from '../../HelperFunctions/capitalize'
+import { feedbackDataType } from '../../Utilities/types'
+import { CourseContext } from '../../Context/CourseContext'
+import { mutate } from 'swr'
+import { backend_url } from '../../Utilities/global'
 
 const AssignmentPageContainer = () => {
   // Context
   const { students } = useContext(AppContext)
+  const { sendAssignmentFeedback, requestState } = useContext(CourseContext)
+
+  // Requests
+  const { isLoading, data } = useStudentAssignments()
+  const assignments = data?.data
 
   // States
   const [courseSelected, setCourseSelected] = useState('')
@@ -38,6 +50,13 @@ const AssignmentPageContainer = () => {
   const [displayAssignmentSummaryModal, setDisplayAssignmentSummaryModal] =
     useState(false)
   const [displayMessageSentModal, setDisplayMessageSentModal] = useState(false)
+  const [activeOption, setActiveOption] = useState<null | number>(null)
+  const [activeIndex, setActiveIndex] = useState<null | number>(null)
+
+  const [feedbackData, setFeedbackData] = useState<feedbackDataType>({
+    grade: '',
+    feedback: '',
+  })
 
   // Router
   const navigate = useNavigate()
@@ -75,13 +94,13 @@ const AssignmentPageContainer = () => {
   const optionsChangeHandler = (index: number) => {
     const studentsCopy = studentsData.map((data, i) => {
       if (i === index) {
-        return { ...data, displayOptions: !data.displayOptions };
+        return { ...data, displayOptions: !data.displayOptions }
       }
-      return { ...data, displayOptions: false };
-    });
+      return { ...data, displayOptions: false }
+    })
 
-    setStudentData(studentsCopy);
-  };
+    setStudentData(studentsCopy)
+  }
 
   useEffect(() => {
     filterHandler()
@@ -92,15 +111,7 @@ const AssignmentPageContainer = () => {
   useEffect(() => {
     const removeOptions = (e: any) => {
       if (optionsRef && !optionsRef.current?.contains(e.target)) {
-        const studentsCopy = studentsData.map((data) => {
-          return { ...data, displayOptions: false }
-        })
-        setStudentData(studentsCopy)
-      } else {
-        const studentsCopy = studentsData.map((data) => {
-          return { ...data }
-        })
-        setStudentData(studentsCopy)
+        setActiveOption(null)
       }
     }
 
@@ -110,6 +121,27 @@ const AssignmentPageContainer = () => {
       document.removeEventListener('mousedown', removeOptions)
     }
   }, [studentsData])
+
+  useEffect(() => {
+    if (requestState?.data) {
+      setDisplayApproveSubmissionModal(false)
+      setDisplayGradeSubmissionModal(false)
+      setDisplayGradeSubmissionToast(false)
+      setDisplayRejectSubmissionModal(false)
+      setDisplaySendMessageModal(false)
+      setDisplayAssignmentSummaryModal(false)
+      setDisplayMessageSentModal(true)
+
+      mutate(`${backend_url}/api/ise/v1/tutors/student_assignments`)
+    }
+  }, [requestState?.data])
+
+  const filteredAssignments = assignments?.filter((data: any) => {
+    return (
+      data?.uploaded_file?.toLowerCase().includes(filterValue?.toLowerCase()) ||
+      data?.full_name?.toLowerCase().includes(filterValue?.toLowerCase())
+    )
+  })
 
   return (
     <div className={classes.container} ref={containerRef}>
@@ -124,6 +156,7 @@ const AssignmentPageContainer = () => {
                 setDisplayApproveSubmissionModal(false)
               }}
               onClick2={() => {
+                setDisplayApproveSubmissionModal(false)
                 setDisplayGradeSubmissionModal(true)
               }}
             />
@@ -142,23 +175,19 @@ const AssignmentPageContainer = () => {
                 setDisplayGradeSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayApproveSubmissionModal(false)
-                setDisplayGradeSubmissionModal(false)
-                setDisplayGradeSubmissionToast(true)
+                sendAssignmentFeedback(
+                  String(activeIndex),
+                  feedbackData,
+                  'approved'
+                )
               }}
+              feedbackData={feedbackData}
+              setFeedbackData={setFeedbackData}
             />
           }
         />
       )}
-      {displayGradeSubmissionToast && (
-        <Toast
-          toastMessage="Grade successfully recorded!"
-          onClick={() => {
-            setDisplayGradeSubmissionModal(false)
-            setDisplayGradeSubmissionToast(false)
-          }}
-        />
-      )}
+
       {displayRejectSubmissionModal && (
         <AcceptedModal
           onClick={() => {
@@ -170,8 +199,15 @@ const AssignmentPageContainer = () => {
                 setDisplayRejectSubmissionModal(false)
               }}
               onClick2={() => {
-                setDisplayMessageSentModal(true)
+                // setDisplayMessageSentModal(true)
+                sendAssignmentFeedback(
+                  String(activeIndex),
+                  feedbackData,
+                  'rejected'
+                )
               }}
+              feedbackData={feedbackData}
+              setFeedbackData={setFeedbackData}
             />
           }
         />
@@ -231,123 +267,142 @@ const AssignmentPageContainer = () => {
         notIncludeBg
       />
 
-      <div className={classes.studentSeachInput}>
-        <div className={classes.inputSection}>
-          <input
-            type="text"
-            placeholder="Search by file name, student name"
-            value={filterValue}
-            onChange={(e) => {
-              setFilterValue(e.target.value)
-            }}
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-              stroke="#2E2E2E"
-              strokeWidth="2"
-              stroke-linecap="round"
-              strokeLinejoin="round"
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <div className={classes.studentSeachInput}>
+            <div className={classes.inputSection}>
+              <input
+                type="text"
+                placeholder="Search by file name, student name"
+                value={filterValue}
+                onChange={(e) => {
+                  setFilterValue(e.target.value)
+                }}
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+                  stroke="#2E2E2E"
+                  strokeWidth="2"
+                  stroke-linecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+
+            <DropdownWithSearch
+              label=""
+              title="Selet a course"
+              options={courses}
+              selected={courseSelected}
+              setSelected={setCourseSelected}
             />
-          </svg>
-        </div>
-
-        <DropdownWithSearch
-          label=""
-          title="Selet a course"
-          options={courses}
-          selected={courseSelected}
-          setSelected={setCourseSelected}
-        />
-      </div>
-
-      <div className={classes.bodyContent}>
-        <div>
-          <div className={classes.tableHeader}>
-            <span>File name</span>
-            <span>Student Name</span>
-            <span>Status</span>
-            <span>Grade</span>
-            <span>Action</span>
           </div>
 
-          {studentsData.length > 0 ? (
-            studentsData.map((data, index) => (
-              <div key={index} className={classes.tableBody}>
-                <span>
-                  <Link to="#0">{data.fileName}</Link>
-                </span>
-                <span>{data.studentName}</span>
-                <span
-                  className={
-                    data.status === 'Pending'
-                      ? classes.statusPending
-                      : classes.statusApproved
-                  }
-                >
-                  {data.status}
-                </span>
-                <span
-                  className={
-                    data.grade === 'Not graded' ? classes.notGraded : ''
-                  }
-                >
-                  {data.grade}
-                </span>
-                <span onClick={() => { optionsChangeHandler(index) }}>
-                  <img src={ellipses} alt="more options" />
-                  {data.displayOptions && (
-                    <div ref={optionsRef}>
-                      <ActionsModal
+          <div className={classes.bodyContent}>
+            <div>
+              <div className={classes.tableHeader}>
+                <span>File name</span>
+                <span>Student Name</span>
+                <span>Status</span>
+                <span>Grade</span>
+                <span>Action</span>
+              </div>
+
+              {filteredAssignments?.length > 0 ? (
+                filteredAssignments?.map((data: any, index: number) => (
+                  <div key={index} className={classes.tableBody}>
+                    <span>
+                      <Link to="#0">{data?.uploaded_file}</Link>
+                    </span>
+                    <span>{data.full_name}</span>
+                    <span
+                      className={
+                        data?.status === 'pending'
+                          ? classes.statusPending
+                          : classes.statusApproved
+                      }
+                    >
+                      {capitalize(data?.status)}
+                    </span>
+                    <span
+                      className={
+                        data?.grade === 'not graded' ? classes.notGraded : ''
+                      }
+                    >
+                      {capitalize(data?.grade)}
+                    </span>
+                    <span
+                      onClick={() => {
+                        optionsChangeHandler(index)
+                      }}
+                    >
+                      <img
+                        src={ellipses}
+                        alt="more options"
                         onClick={() => {
-                          optionsChangeHandler(index);
-                          navigate('/student/assignment/assignment-submission');
-                        }}
-                        onClick2={() => {
-                          optionsChangeHandler(index);
-                          setDisplayApproveSubmissionModal(true);
-                        }}
-                        onClick3={() => {
-                          optionsChangeHandler(index);
-                          setDisplayRejectSubmissionModal(true);
-                        }}
-                        onClick4={() => {
-                          optionsChangeHandler(index);
-                          setDisplaySendMessageModal(true);
-                        }}
-                        onClick5={() => {
-                          optionsChangeHandler(index);
-                          setDisplayAssignmentSummaryModal(true);
+                          setActiveOption(index)
+                          setActiveIndex(data?.assignmentId)
                         }}
                       />
-                    </div>
-                  )}
-                </span>
-              </div>
-            ))
-          ) : (
-            <EmptyTabComponent
-              image={noResultFound}
-              header={`No results found`}
-              firstParagraph='Try a new search'
-              imageHeight={280}
-              route=''
-              buttonType='null'
-            />
-          )}
-        </div>
-        {studentsData.length > 0 && (
-          <p className={classes.submission}>
-            <span>{studentsData.length}</span> submissions
-          </p>
-        )}
-      </div>
+                      {activeOption === index && (
+                        <div ref={optionsRef}>
+                          <ActionsModal
+                            onClick={() => {
+                              optionsChangeHandler(index)
+                              navigate(
+                                '/student/assignment/assignment-submission'
+                              )
+                            }}
+                            onClick2={() => {
+                              optionsChangeHandler(index)
+                              setDisplayApproveSubmissionModal(true)
+                            }}
+                            onClick3={() => {
+                              optionsChangeHandler(index)
+                              setDisplayRejectSubmissionModal(true)
+                            }}
+                            onClick4={() => {
+                              optionsChangeHandler(index)
+                              setDisplaySendMessageModal(true)
+                            }}
+                            onClick5={() => {
+                              optionsChangeHandler(index)
+                              setDisplayAssignmentSummaryModal(true)
+                            }}
+                          />
+                        </div>
+                      )}
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <EmptyTabComponent
+                  image={noResultFound}
+                  header={`No results found`}
+                  firstParagraph="Try a new search"
+                  imageHeight={280}
+                  route=""
+                  buttonType="null"
+                />
+              )}
+            </div>
+            {assignments?.length > 0 && (
+              <p className={classes.submission}>
+                <span>{assignments?.length}</span> submissions
+              </p>
+            )}
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -4,7 +4,11 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { capitalize } from '../HelperFunctions/capitalize'
 import { requestHandler2 } from '../HelperFunctions/requestHandler'
 import { backend_url } from '../Utilities/global'
-import { uploadQuizData, uploadVideoData } from '../Utilities/types'
+import {
+  feedbackDataType,
+  uploadQuizData,
+  uploadVideoData,
+} from '../Utilities/types'
 import { AppContext } from './AppContext'
 import { requestType } from './AuthUserContext'
 
@@ -26,6 +30,11 @@ type CourseContextValuesTypes = {
     weekId: string,
     data: uploadVideoData | FormData | uploadQuizData,
     type: string
+  ) => void
+  sendAssignmentFeedback: (
+    id: string,
+    data: any,
+    status: 'rejected' | 'approved'
   ) => void
 }
 
@@ -135,6 +144,25 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
     })
   }
 
+  const sendAssignmentFeedback = (
+    id: string,
+    data: feedbackDataType,
+    status: 'rejected' | 'approved'
+  ) => {
+    requestHandler2({
+      url: `${backend_url}/api/ise/v1/tutors/student_assignments/grade/${id}`,
+      method: 'POST',
+      data: { ...data, status, grade: data.grade || 'pending' },
+      state: requestState,
+      setState: setRequestState,
+      setNotifications,
+      setNotificationsFailure: true,
+      setNotificationsSuccess: true,
+      successMessage: `Feedback sent successfully`,
+      requestCleanup: true,
+    })
+  }
+
   return (
     <CourseContext.Provider
       value={{
@@ -143,6 +171,7 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
         createModule,
         createWeek,
         createLesson,
+        sendAssignmentFeedback,
       }}
     >
       {children}

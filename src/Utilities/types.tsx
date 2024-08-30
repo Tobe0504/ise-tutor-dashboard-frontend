@@ -110,3 +110,8 @@ export type createMeetingDataType = {
   endTime: string
   sessionSubject: string
 }
+
+export type feedbackDataType = {
+  grade: string
+  feedback: string
+}
