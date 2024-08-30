@@ -1,4 +1,3 @@
-import React from 'react'
 import { backend_url } from '../Utilities/global'
 import useGetHook from './useGetHook'
 

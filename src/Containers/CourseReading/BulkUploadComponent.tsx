@@ -62,6 +62,8 @@ const BulkUploadComponent = ({
         resources: [],
       })
     }
+
+    // eslint-disable-next-line
   }, [requestState?.data])
 
   return (

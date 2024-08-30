@@ -87,6 +87,8 @@ const SetAvailaibilityModalBody = ({
         return { ...prevState, step: 1 }
       })
     }
+
+    // eslint-disable-next-line
   }, [])
 
   // Effects
@@ -96,6 +98,8 @@ const SetAvailaibilityModalBody = ({
         return { ...prevState, step: '4' }
       })
     }
+
+    // eslint-disable-next-line
   }, [requestState?.data])
 
   return (

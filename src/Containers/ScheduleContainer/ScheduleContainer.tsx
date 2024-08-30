@@ -1,6 +1,5 @@
 import classes from './ScheduleContainer.module.css'
 import ScheduleCard from '../../Components/ScheduleCard/ScheduleCard'
-import EmptyPreviewContainer from '../CreatingCourseModulePreviewContainer/EmptyPreviewContainer/EmptyPreviewContainer'
 import noOvervue from '../../Assets/Images/noOvervue.svg'
 import EmptyTabComponent from '../../Components/EmptyTabComponent/EmptyTabComponent'
 
@@ -15,19 +14,6 @@ const ScheduleContainer = ({
   padding,
   schedule,
 }: LiveClassSessionsProps) => {
-  const liveSession = [
-    {
-      time: '10:00am - 11:00am',
-      title: 'LIVE sessions with students',
-      link: '',
-    },
-    {
-      time: '10:00am - 11:00am',
-      title: 'LIVE sessions with students',
-      link: '',
-    },
-  ]
-
   return (
     <div className={classes.container} style={{ height, padding }}>
       <ul>

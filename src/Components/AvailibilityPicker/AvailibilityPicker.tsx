@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { availabilityType } from '../../Utilities/types'
 import Checkbox from '../Checkbox/Checkbox'
 import Input from '../Input/Input'

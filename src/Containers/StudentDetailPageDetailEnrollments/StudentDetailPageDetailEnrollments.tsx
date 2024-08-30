@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import classes from './StudentDetailPageDetailEnrollments.module.css'
 import ProgressBar from '../../Components/ProgressBar/ProgressBar'
 import { capitalize } from '../../HelperFunctions/capitalize'
@@ -11,20 +10,6 @@ const StudentDetailPageDetailEnrollments = ({
   student,
 }: StudentDetailPageDetailEnrollmentsType) => {
   // Utils
-  const [enrollments] = useState([
-    {
-      name: 'Customer Success Management',
-      percent: 75,
-      status: 'Enrolled',
-      statusColor: 'success',
-    },
-    {
-      name: 'Talent Acquisition',
-      percent: 15,
-      status: 'Withdrawn',
-      statusColor: 'fail',
-    },
-  ])
 
   const getStatusClass = (statusColor: string) => {
     switch (statusColor) {

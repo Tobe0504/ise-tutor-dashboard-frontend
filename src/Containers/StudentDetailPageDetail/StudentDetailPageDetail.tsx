@@ -1,4 +1,3 @@
-import React from 'react'
 import StudentDetailPageDetailStudentProfileAndBadges from '../StudentDetailPageDetailStudentProfileAndBadges/StudentDetailPageDetailStudentProfileAndBadges'
 import StudentDetailPageDetailEnrollments from '../StudentDetailPageDetailEnrollments/StudentDetailPageDetailEnrollments'
 

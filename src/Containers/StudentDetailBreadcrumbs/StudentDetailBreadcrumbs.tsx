@@ -1,9 +1,6 @@
-import React, { useContext } from 'react'
 import Breadcrumbs from '../../Components/Breadcrumbs/Breadcrumbs'
 import breadcrumbsBack from '../../Assets/Images/breadcrumbsBack.svg'
 import classes from './StudentDetailBreadcrumbs.module.css'
-import { AppContext } from '../../Context/AppContext'
-import { useParams } from 'react-router-dom'
 
 type StudentDetailBreadcrumbsTypes = {
   student: any

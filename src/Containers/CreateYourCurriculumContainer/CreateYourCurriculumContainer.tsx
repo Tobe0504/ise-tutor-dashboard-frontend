@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import Button from '../../Components/Button/Button'
 import GetStartedVideoContainer from '../GetStartedVideoContainer/GetStartedVideoContainer'
 import classes from './CreateYourCurriculumContainer.module.css'
@@ -15,8 +15,6 @@ const CreateYourCurriculumContainer = ({
   curricullum,
 }: CreateYourCurriculumContainerType) => {
   const { showGetStarted } = useContext(AppContext)
-
-  const [showCourseLessons, setShowCourseLessons] = useState(false)
 
   //   Router
   const { courseId } = useParams()
@@ -81,7 +79,7 @@ const CreateYourCurriculumContainer = ({
               </svg>
             </Button>
           </>
-          {showCourseLessons && <CourseLessonsContainer />}
+          {<CourseLessonsContainer />}
         </div>
       )}
 

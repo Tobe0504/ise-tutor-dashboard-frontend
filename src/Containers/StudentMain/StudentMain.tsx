@@ -26,6 +26,8 @@ const StudentMain = () => {
         }),
       })
     }
+
+    // eslint-disable-next-line
   }, [data?.data?.data])
 
   if (isLoading) {

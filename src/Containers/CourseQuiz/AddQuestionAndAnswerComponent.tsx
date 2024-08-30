@@ -54,6 +54,8 @@ const AddQuestionAndAnswerComponent = () => {
         return { ...prevState, duration }
       })
     }
+
+    // eslint-disable-next-line
   }, [duration])
 
   useEffect(() => {
@@ -82,6 +84,8 @@ const AddQuestionAndAnswerComponent = () => {
         return updatedQuestions
       })
     }
+
+    // eslint-disable-next-line
   }, [questionType, questions[activeQuestionIndex]?.question_type])
 
   useEffect(() => {
@@ -90,6 +94,8 @@ const AddQuestionAndAnswerComponent = () => {
         return { ...prevState, questions }
       })
     }
+
+    // eslint-disable-next-line
   }, [questions])
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Button from '../../Components/Button/Button'
 import { capitalize } from '../../HelperFunctions/capitalize'
 import classes from './CurricullumAccordion.module.css'
@@ -70,15 +70,6 @@ const CurricullumAccordion = ({ curriculum }: CurricullumAccordionTypes) => {
   const [expandedWeekId, setExpandedWeekId] = useState<weekIdIndex[]>([])
   const [expandedModuleInfoId, setExpandModuleInfoId] = useState<number[]>([])
   const [expandedModuleId, setExpandModuleId] = useState<number[]>([])
-  const [contentInformation, setCOntentInformation] = useState({
-    reading: 0,
-    presentation: 0,
-    quiz: 0,
-    video: 0,
-  })
-
-  // Effects
-  useEffect(() => {}, [curriculum?.course_modules])
 
   const courseInformationChecker = (modules: any) => {
     let reading = 0

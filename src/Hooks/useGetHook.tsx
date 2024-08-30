@@ -31,6 +31,8 @@ const useGetHook = (url: string | null, props?: SWRConfiguration) => {
     if (errorMessage === 'Expired Token' || errorMessage === 'Unauthorized') {
       navigate('/sign-in', { state: location.pathname })
     }
+
+    // eslint-disable-next-line
   }, [error, errorMessage])
 
   return { data, error, isLoading, isValidating }

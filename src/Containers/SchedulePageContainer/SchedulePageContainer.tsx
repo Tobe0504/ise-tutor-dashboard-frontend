@@ -19,7 +19,7 @@ const SchedulePageContainer = () => {
   const schedule = data?.data
   const tutorAvailability = availabilityData?.data
 
-  if (isLoading) {
+  if (isLoading || tutorAvailabilityIsLoading) {
     return <Loader />
   }
 

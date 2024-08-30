@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import AvailibilityPicker from '../../Components/AvailibilityPicker/AvailibilityPicker'
 import Button from '../../Components/Button/Button'
@@ -70,6 +70,8 @@ const SetAvailaibilityScheduleSettings = ({
         return alteredState
       })
     }
+
+    // eslint-disable-next-line
   }, [formatOptions])
 
   return (

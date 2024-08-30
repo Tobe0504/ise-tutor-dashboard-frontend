@@ -13,7 +13,6 @@ import classes from './CourseVideo.module.css'
 import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalBody'
 import VideoPlayer from '../../Components/VideoPlayer/VideoPlayer'
 import VideoUpload from '../../Assets/Images/CourseVideo-video-upload.png'
-import Toast from '../../Components/Toast/Toast'
 import { uploadVideoData } from '../../Utilities/types'
 import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
 import { CourseContext } from '../../Context/CourseContext'
@@ -54,6 +53,8 @@ const EmbedVideoComponent = ({
         `${backend_url}/api/ise/v1/tutors/${courseId as string}/curriculum`
       )
     }
+
+    // eslint-disable-next-line
   }, [requestState.data])
 
   return (

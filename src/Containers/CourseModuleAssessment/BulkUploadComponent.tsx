@@ -6,8 +6,6 @@ import DiscardModalBody from '../CreatingCourseModulePageContainer/DiscardModalB
 import classes from './CourseModuleAssessment.module.css'
 import { useContext, useEffect, useState } from 'react'
 import Input from '../../Components/Input/Input'
-import TextArea from '../../Components/TextArea/TextArea'
-import Toast from '../../Components/Toast/Toast'
 import { useNavigate, useParams } from 'react-router-dom'
 import { assessmentType, assetsType } from '../../Utilities/types'
 import { inputChangeHandler } from '../../HelperFunctions/inputChangeHandler'
@@ -48,6 +46,8 @@ const BulkUploadComponent = () => {
         return { ...prevState, attachment: file.file }
       })
     }
+
+    // eslint-disable-next-line
   }, [file.file])
 
   useEffect(() => {
@@ -61,6 +61,8 @@ const BulkUploadComponent = () => {
       'attachment',
       uploadAssessmentData.attachment as File
     )
+
+    // eslint-disable-next-line
   }, [uploadAssessmentData])
 
   useEffect(() => {

@@ -8,7 +8,7 @@ import SendMessageModal from './SendMessageModal'
 import { AppContext } from '../../Context/AppContext'
 import HelloUser from '../../Components/HelloUser/HelloUser'
 import StudentDataTable from '../StudentDataTable/StudentDataTable'
-import { studentRequestDataType, studentsType } from '../../Utilities/types'
+import { studentRequestDataType } from '../../Utilities/types'
 
 type StudentDataType = {
   students: studentRequestDataType

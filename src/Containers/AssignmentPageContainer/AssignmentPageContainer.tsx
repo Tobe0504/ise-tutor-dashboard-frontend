@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import MessageSentModal from './MessageSentModal'
-import Toast from '../../Components/Toast/Toast'
 import { AppContext } from '../../Context/AppContext'
 import ActionsModal from './ActionsModal/ActionsModal'
 import ellipses from '../../Assets/Images/ellipses.svg'
@@ -41,8 +40,6 @@ const AssignmentPageContainer = () => {
   const [displayApproveSubmissionModal, setDisplayApproveSubmissionModal] =
     useState(false)
   const [displayGradeSubmissionModal, setDisplayGradeSubmissionModal] =
-    useState(false)
-  const [displayGradeSubmissionToast, setDisplayGradeSubmissionToast] =
     useState(false)
   const [displayRejectSubmissionModal, setDisplayRejectSubmissionModal] =
     useState(false)
@@ -126,7 +123,6 @@ const AssignmentPageContainer = () => {
     if (requestState?.data) {
       setDisplayApproveSubmissionModal(false)
       setDisplayGradeSubmissionModal(false)
-      setDisplayGradeSubmissionToast(false)
       setDisplayRejectSubmissionModal(false)
       setDisplaySendMessageModal(false)
       setDisplayAssignmentSummaryModal(false)

@@ -8,19 +8,6 @@ type StudentDetailFeedBackDataTableType = {
   studentFeedback: any
 }
 
-const feedback = [
-  {
-    title: 'Periodic survey feedback 1',
-    dateCreated: '19th Oct. 2023',
-    dateCompleted: '11 Nov, 2023',
-  },
-  {
-    title: 'Periodic survey feedback 1',
-    dateCreated: '19th Oct. 2023',
-    dateCompleted: '11 Nov, 2023',
-  },
-]
-
 const StudentDetailFeedBackDataTable = ({
   studentFeedback,
 }: StudentDetailFeedBackDataTableType) => {

@@ -17,29 +17,6 @@ const ScheduleYourAvailability = ({
 
   useEffect(() => {
     if (tutorAvailability) {
-      const testAvailability: availabilityType = []
-
-      // for (let i = 0; i < availability?.length; i++) {
-      //   for (let j = 0; j < tutorAvailability.length; j++) {
-      //     if (
-      //       availability[i].day?.toLowerCase() ===
-      //       tutorAvailability[j]?.day?.toLowerCase()
-      //     ) {
-      //       testAvailability.push({
-      //         availableTimes: tutorAvailability[j]?.availableSlots,
-      //         day: tutorAvailability[j]?.day,
-      //         isActive: true,
-      //       })
-      //     } else {
-      //       testAvailability.push({
-      //         availableTimes: [],
-      //         day: tutorAvailability[j]?.day,
-      //         isActive: false,
-      //       })
-      //     }
-      //   }
-      // }
-
       const newAvail: availabilityType = availability.map((avail: any) => {
         const matchingTestAvail: any = tutorAvailability.find(
           (testAvail: any) => {
@@ -67,6 +44,8 @@ const ScheduleYourAvailability = ({
 
       setAvailability(newAvail)
     }
+
+    // eslint-disable-next-line
   }, [tutorAvailability])
 
   return (

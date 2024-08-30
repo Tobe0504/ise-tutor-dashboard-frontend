@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import moment from 'moment'
+import { useEffect, useState } from 'react'
 import { availabilityType, dayTestTypes } from '../../Utilities/types'
 import classes from './CalendarComponent.module.css'
 
@@ -8,7 +9,10 @@ type CalendarComponentType = {
 
 const CalendarComponent = ({ tasks }: CalendarComponentType) => {
   const [currentDate, setCurrentDate] = useState(new Date())
-  const [selectedDate, setSelectedDate] = useState(new Date())
+
+  const todaysDate = new Date()
+
+  const formatterCurrentDate = moment(todaysDate).format('DD-MM-yyyy')
 
   const getDaysInMonth = (date: Date) => {
     const year = date.getFullYear()
@@ -30,6 +34,8 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
   //   Effects
   useEffect(() => {
     setDaysInMonth(getDaysInMonth(currentDate))
+
+    // eslint-disable-next-line
   }, [firstDayOfMonth])
 
   const weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
@@ -166,7 +172,15 @@ const CalendarComponent = ({ tasks }: CalendarComponentType) => {
             return <div key={`empty-${i}`} className={classes.emptyDay} />
           } else {
             return (
-              <div key={i} className={classes.day} onClick={() => {}}>
+              <div
+                key={i}
+                className={`${classes.day} ${
+                  formatterCurrentDate === data?.date
+                    ? classes.active
+                    : classes.inActive
+                }`}
+                onClick={() => {}}
+              >
                 <span>{data.dayNumber}</span>
                 {data.schedules > 0 && <p>{data.schedules}</p>}
               </div>

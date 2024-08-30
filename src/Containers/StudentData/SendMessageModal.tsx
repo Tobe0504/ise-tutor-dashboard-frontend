@@ -1,9 +1,7 @@
-import { useContext } from 'react'
 import Button from '../../Components/Button/Button'
 import Input from '../../Components/Input/Input'
 import TextArea from '../../Components/TextArea/TextArea'
 import classes from './SendMessageModal.module.css'
-import { AppContext } from '../../Context/AppContext'
 import { studentsType } from '../../Utilities/types'
 
 type SendMessageModalProps = {
@@ -17,9 +15,6 @@ const SendMessageModal = ({
   onClick2,
   activeStudents,
 }: SendMessageModalProps) => {
-  const { students } = useContext(AppContext)
-  // const activeStudents = students.filter((student) => student.isActive);
-
   return (
     <div className={classes.container}>
       <div className={classes.header}>

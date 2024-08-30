@@ -9,7 +9,7 @@ import AuthUserContextProvider from './Context/AuthUserContext'
 import StudentsContextProvider from './Context/StudentsContext '
 import Toast2 from './Components/Toast2/Toast2'
 import UseSWRConfigProvider from './Configs/UseSWRConfig'
-import CourseContextProvider, { CourseContext } from './Context/CourseContext'
+import CourseContextProvider from './Context/CourseContext'
 import ScheduleContextProvider from './Context/ScheduleContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)

@@ -1,6 +1,5 @@
-import { stringify } from 'ajv'
-import { createContext, useContext, useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { capitalize } from '../HelperFunctions/capitalize'
 import { requestHandler2 } from '../HelperFunctions/requestHandler'
 import { backend_url } from '../Utilities/global'
@@ -57,7 +56,6 @@ const CourseContextProvider = ({ children }: CourseContextProviderTypes) => {
 
   // Router
   const navigate = useNavigate()
-  const [searchParams, setSearchParams] = useSearchParams()
 
   // Requests
   const createCurricullim = (id: string, data: { title: string }) => {

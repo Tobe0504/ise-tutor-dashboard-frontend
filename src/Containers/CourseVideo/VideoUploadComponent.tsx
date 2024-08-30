@@ -25,7 +25,6 @@ type VideoUploadComponentTypes = {
 }
 
 const VideoUploadComponent = ({
-  uploadVideoData,
   setUploadVideoData,
   uploadVideoDataFormData,
 }: VideoUploadComponentTypes) => {
@@ -33,7 +32,6 @@ const VideoUploadComponent = ({
   const [displayDiscardModal, setDisplayDiscardModal] = useState(false)
   const [displayDeleteModal, setDisplayDeleteModal] = useState(false)
   const [saveLessonAndContinue, setSaveLessonAndContinue] = useState(1)
-  const [showToast, setShowToast] = useState(false)
   const [video, setVideo] = useState<assetsType>({
     file: null,
     frontendFile: '',
@@ -62,6 +60,8 @@ const VideoUploadComponent = ({
         return { ...prevState, thumbnail: thumbNail.file }
       })
     }
+
+    // eslint-disable-next-line
   }, [video.file, thumbNail.file])
 
   return (
@@ -271,7 +271,6 @@ const VideoUploadComponent = ({
               setSaveLessonAndContinue((prevValue) =>
                 prevValue < 7 ? prevValue + 1 : prevValue
               )
-              setShowToast(true)
             }
           }}
           loading={requestState.isLoading}
