@@ -29,25 +29,25 @@
   line-height: 20px;
 }
 
-.tableBody>span>button {
+.tableBody > span > button {
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: 21px;
 }
 
-.tableHeader>span:nth-child(1),
-.tableBody>span:nth-child(1) {
+.tableHeader > span:nth-child(1),
+.tableBody > span:nth-child(1) {
   flex: 2;
 }
 
-.tableHeader>span:not(:nth-child(1)),
-.tableBody>span:not(:nth-child(1)) {
+.tableHeader > span:not(:nth-child(1)),
+.tableBody > span:not(:nth-child(1)) {
   flex: 1;
 }
 
-.tableBody>span:nth-child(1),
-.tableBody>span:nth-child(4) {
+.tableBody > span:nth-child(1),
+.tableBody > span:nth-child(4) {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -61,11 +61,11 @@
   border-bottom: 1px solid var(--sectionBorder);
 }
 
-.tableBody>span:nth-child(4)>span:nth-child(2) {
+.tableBody > span:nth-child(4) > span:nth-child(2) {
   flex: 1;
 }
 
-.tableBody>span:nth-child(1)>span:nth-child(2) {
+.tableBody > span:nth-child(1) > span:nth-child(2) {
   padding: 4px 8px;
   border-radius: 50px;
   background: var(--paidIndicatorGreen);
@@ -84,6 +84,9 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 876px;
+  height: 600px;
+  padding: 32px;
 }
 
 .modalInner {
@@ -98,7 +101,7 @@
   margin-bottom: 24px;
 }
 
-.modalHeader>h4 {
+.modalHeader > h4 {
   font-family: Archivo;
   font-size: 25px;
   font-style: normal;
@@ -106,7 +109,7 @@
   line-height: 36px;
 }
 
-.modalInner>h4 {
+.modalInner > h4 {
   color: var(--grey);
   font-family: Archivo;
   font-size: 18px;
@@ -116,11 +119,11 @@
   margin-bottom: 1rem;
 }
 
-.modalInner>h4>span {
+.modalInner > h4 > span {
   font-weight: 500;
 }
 
-.modalInner>p {
+.modalInner > p {
   color: var(--grey3);
   font-family: Archivo;
   font-size: 13px;
@@ -129,13 +132,13 @@
   line-height: 20px;
 }
 
-.modalInner>button {
+.modalInner > button {
   margin: 1.5rem 0;
   width: fit-content;
   padding: 10px 30px;
 }
 
-.modalInner>p:last-child {
+.modalInner > p:last-child {
   color: var(--grey);
   font-family: Archivo;
   font-size: 16px;
@@ -144,7 +147,7 @@
   line-height: 25px;
 }
 
-.modalInner>p:last-child>span {
+.modalInner > p:last-child > span {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -164,7 +167,7 @@
   flex-direction: column;
 }
 
-.modalInner2>h4 {
+.modalInner2 > h4 {
   color: var(--grey);
   text-align: center;
   font-family: Archivo;
@@ -173,7 +176,7 @@
   font-weight: 500;
 }
 
-.modalInner2>p {
+.modalInner2 > p {
   color: var(--grey3);
   text-align: center;
   font-family: Archivo;
@@ -183,7 +186,7 @@
   line-height: 25px;
 }
 
-.modalInner2>button {
+.modalInner2 > button {
   margin-top: 24px;
 }
 
@@ -194,7 +197,7 @@
   gap: 24px;
 }
 
-.buttonSection>button {
+.buttonSection > button {
   width: fit-content;
   padding: 10px 30px;
 }
@@ -209,11 +212,11 @@
   margin-top: 2rem;
 }
 
-.refundPolicy>a {
+.refundPolicy > a {
   color: var(--purple);
 }
 
-.modalInner2>button {
+.modalInner2 > button {
   width: fit-content;
   padding: 10px 30px;
 }
@@ -238,7 +241,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .modalInner2>img {
+  .modalInner2 > img {
     width: 100px;
     height: 100px;
     object-fit: cover;

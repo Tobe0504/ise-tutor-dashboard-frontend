@@ -15,13 +15,19 @@ export const useStudentsById = (id: string) => {
 }
 
 export const useStudentGrades = (id: string) => {
-  return useGetHook(`${backend_url}api/ise/v1/tutors/student_grades/${id}`, {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/student_grades/${id}`, {
     revalidateOnFocus: false,
   })
 }
 
 export const useStudentFeedback = (id: string) => {
   return useGetHook(`${backend_url}/api/ise/v1/tutors/student_survey/${id}`, {
+    revalidateOnFocus: false,
+  })
+}
+
+export const useStudentQuiz = (id: string) => {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/student_quizzes/${id}`, {
     revalidateOnFocus: false,
   })
 }

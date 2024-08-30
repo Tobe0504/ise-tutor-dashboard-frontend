@@ -10,12 +10,14 @@ type StudentDetailsModulesTypes = {
   student: any
   studentGrade: any
   studentFeedback: any
+  studentQuiz: any
 }
 
 const StudentDetailsModules = ({
   student,
   studentGrade,
   studentFeedback,
+  studentQuiz,
 }: StudentDetailsModulesTypes) => {
   // States
   const [navItems, setNavItems] = useState<any[]>([
@@ -46,7 +48,9 @@ const StudentDetailsModules = ({
       </div>
       <div className={classes.body}>{activeComponent.activeComponent}</div>
       {navItems[0].isActive && <StudentDetailPageDetail student={student} />}
-      {navItems[1].isActive && <StudentDetailQuizDataTable />}
+      {navItems[1].isActive && (
+        <StudentDetailQuizDataTable studentQuiz={studentQuiz} />
+      )}
       {navItems[2].isActive && (
         <StudentDetailGradeDataTable studentGrade={studentGrade} />
       )}

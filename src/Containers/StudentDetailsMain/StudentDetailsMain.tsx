@@ -4,6 +4,7 @@ import Loader from '../../Components/Loader/Loader'
 import {
   useStudentFeedback,
   useStudentGrades,
+  useStudentQuiz,
   useStudentsById,
 } from '../../Hooks/useStudents'
 import StudentDetailBreadcrumbs from '../StudentDetailBreadcrumbs/StudentDetailBreadcrumbs'
@@ -19,14 +20,19 @@ const StudentDetailsMain = () => {
     useStudentGrades(studentId as string)
   const { isLoading: isLoadingStudentFeedback, data: studentFeedbackData } =
     useStudentFeedback(studentId as string)
+  const { isLoading: isLoadingStudentQuiz, data: studentQuizData } =
+    useStudentQuiz(studentId as string)
 
   const student = data?.data
   const studentGrade = studentGradeData?.data
   const studentFeedback = studentFeedbackData?.data
+  const studentQuiz = studentQuizData?.data
 
   if (
-    // isLoading || isLoadingStudentGrade ||
-    isLoadingStudentFeedback
+    isLoading ||
+    isLoadingStudentGrade ||
+    isLoadingStudentFeedback ||
+    isLoadingStudentQuiz
   ) {
     return <Loader />
   }
@@ -38,6 +44,7 @@ const StudentDetailsMain = () => {
         student={student}
         studentGrade={studentGrade}
         studentFeedback={studentFeedback}
+        studentQuiz={studentQuiz}
       />
     </>
   )

@@ -26,7 +26,9 @@ const StudentDetailFeedBackDataTable = ({
 }: StudentDetailFeedBackDataTableType) => {
   const [displayModal, setDisplayModal] = useState(false)
 
-  console.log(studentFeedback, 'Feedback')
+  if (!studentFeedback) {
+    return <p className={classes.noGrades}>No feedback available</p>
+  }
 
   return (
     <div className={classes.container}>
@@ -64,7 +66,7 @@ const StudentDetailFeedBackDataTable = ({
           <span onClick={() => setDisplayModal(true)}>View</span>
         </div>
       </div>
-      <div className={classes.pageButtons}>
+      {/* <div className={classes.pageButtons}>
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +98,7 @@ const StudentDetailFeedBackDataTable = ({
             />
           </svg>
         </span>
-      </div>
+      </div> */}
     </div>
   )
 }

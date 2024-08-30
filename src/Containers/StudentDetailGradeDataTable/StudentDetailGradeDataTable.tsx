@@ -1,3 +1,4 @@
+import { capitalize } from '../../HelperFunctions/capitalize'
 import classes from './StudentDetailGradeDataTable.module.css'
 
 type StudentDetailGradeDataTableType = {
@@ -7,83 +8,6 @@ type StudentDetailGradeDataTableType = {
 const StudentDetailGradeDataTable = ({
   studentGrade,
 }: StudentDetailGradeDataTableType) => {
-  // Utils
-  const grade = [
-    {
-      title: 'Quiz 1- Test knowldge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 100,
-      studentGradeStatus: 'pass',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 1- Test knowldge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 100,
-      studentGradeStatus: 'pass',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 2.0- Test knowldge',
-      type: 'Assessment',
-      passingGrade: 80,
-      studentGrade: 20,
-      studentGradeStatus: 'fail',
-      weightGrade: 2,
-    },
-    {
-      title:
-        'Assignment 2.0- Test knowledge and Assignment 2.0- Test knowledge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 20,
-      studentGradeStatus: 'fail',
-      weightGrade: 1,
-    },
-    {
-      title: 'Quiz 1- Test knowldge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 100,
-      studentGradeStatus: 'pass',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 1- Test knowldge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 100,
-      studentGradeStatus: 'pass',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 2.0- Test knowldge',
-      type: 'Assessment',
-      passingGrade: 80,
-      studentGrade: 20,
-      studentGradeStatus: 'fail',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 1- Test knowldge',
-      type: 'Quiz',
-      passingGrade: 80,
-      studentGrade: 100,
-      studentGradeStatus: 'pass',
-      weightGrade: 2,
-    },
-    {
-      title: 'Quiz 2.0- Test knowldge',
-      type: 'Assessment',
-      passingGrade: 80,
-      studentGrade: 20,
-      studentGradeStatus: 'fail',
-      weightGrade: 2,
-    },
-  ]
-
   const getStatusClass = (studentGradeStatus: string) => {
     switch (studentGradeStatus) {
       case 'pass':
@@ -96,12 +20,13 @@ const StudentDetailGradeDataTable = ({
     }
   }
 
-  console.log(studentGrade, 'Grade')
-
   return (
     <section className={classes.container}>
       <div className={classes.body}>
-        <p>1-10 of 10 results</p>
+        <p>
+          1-{studentGrade?.grades?.length} of {studentGrade?.grades?.length}{' '}
+          results
+        </p>
         <div>
           <div className={classes.tableHeader}>
             <span>Item</span>
@@ -112,26 +37,37 @@ const StudentDetailGradeDataTable = ({
           </div>
 
           <div className={classes.bodyContent}>
-            {grade.map((data, i) => {
-              const statusClassName = getStatusClass(data.studentGradeStatus)
-              return (
-                <div key={Math.random()} className={classes.tableBody}>
-                  <span>{data.title}</span>
-                  <span>{data.type}</span>
-                  <span>{data.passingGrade}%</span>
-                  <span>
-                    <span>{data.studentGrade}%</span>
-                    <span className={statusClassName}>
-                      {data.studentGradeStatus}
+            {studentGrade?.grades?.length > 0 ? (
+              studentGrade?.grades?.map((data: any, i: number) => {
+                const statusClassName = getStatusClass(
+                  data?.student_grade > data?.passing_grade ? 'pass' : 'fail'
+                )
+                return (
+                  <div key={i} className={classes.tableBody}>
+                    <span>{data?.title}</span>
+                    <span>{capitalize(data?.type)}</span>
+                    <span>{data.passing_grade}%</span>
+                    <span>
+                      <span>
+                        {data?.student_grade}
+                        {data?.student_grade !== 'not graded' && '%'}
+                      </span>
+                      <span className={statusClassName}>
+                        {data?.student_grade > data?.passing_grade
+                          ? 'Pass'
+                          : 'Fail'}
+                      </span>
                     </span>
-                  </span>
-                  <span>{data.weightGrade}</span>
-                </div>
-              )
-            })}
+                    <span>{'Unavailable'}</span>
+                  </div>
+                )
+              })
+            ) : (
+              <p className={classes.noGrades}>No grades available</p>
+            )}
           </div>
         </div>
-        <div className={classes.pageButtons}>
+        {/* <div className={classes.pageButtons}>
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +99,7 @@ const StudentDetailGradeDataTable = ({
               />
             </svg>
           </span>
-        </div>
+        </div> */}
       </div>
     </section>
   )

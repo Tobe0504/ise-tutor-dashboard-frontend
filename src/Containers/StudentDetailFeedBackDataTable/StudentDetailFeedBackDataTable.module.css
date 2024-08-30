@@ -4,7 +4,7 @@
   margin: 2rem 1.5rem;
 }
 
-.container>p {
+.container > p {
   text-align: start;
   font-size: 16px;
   line-height: 23px;
@@ -35,25 +35,25 @@
   padding-bottom: 4rem;
 }
 
-.tableHeader>span:nth-child(1),
-.tableBody>span:nth-child(1) {
+.tableHeader > span:nth-child(1),
+.tableBody > span:nth-child(1) {
   flex: 2;
 }
 
-.tableHeader>span:nth-child(2),
-.tableHeader>span:nth-child(3),
-.tableHeader>span:nth-child(4),
-.tableBody>span:nth-child(2),
-.tableBody>span:nth-child(3),
-.tableBody>span:nth-child(4) {
+.tableHeader > span:nth-child(2),
+.tableHeader > span:nth-child(3),
+.tableHeader > span:nth-child(4),
+.tableBody > span:nth-child(2),
+.tableBody > span:nth-child(3),
+.tableBody > span:nth-child(4) {
   flex: 1;
 }
 
-.tableHeader>span:nth-child(4) {
+.tableHeader > span:nth-child(4) {
   visibility: hidden;
 }
 
-.tableBody>span:nth-child(4) {
+.tableBody > span:nth-child(4) {
   cursor: pointer;
   font-weight: 500;
 }
@@ -81,7 +81,7 @@
   transition: var(--threeSecTransition);
 }
 
-.pageButtons>span {
+.pageButtons > span {
   width: 40px;
   height: 40px;
   border: var(--border);
@@ -94,15 +94,19 @@
   transition: var(--threeSecTransition);
 }
 
-
-.pageButtons>span:hover {
+.pageButtons > span:hover {
   background: var(--purple);
 }
 
-
-.pageButtons>span>svg {
+.pageButtons > span > svg {
   width: 24px;
   height: 24px;
+}
+
+.noGrades {
+  text-align: center;
+  padding: 24px;
+  width: 100%;
 }
 
 @media (min-width: 767px) and (max-width: 1023px) {
@@ -125,8 +129,8 @@
     padding-bottom: 2rem;
   }
 
-  .tableHeader>span:nth-child(3),
-  .tableBody>span:nth-child(3) {
+  .tableHeader > span:nth-child(3),
+  .tableBody > span:nth-child(3) {
     display: none;
   }
 }
@@ -136,7 +140,7 @@
     margin: 0;
   }
 
-  .container>p {
+  .container > p {
     font-style: normal;
     padding: 1rem;
   }
@@ -144,7 +148,7 @@
   .tableBodyContainer {
     margin-top: 1rem;
   }
-  
+
   .tableHeader,
   .tableBody {
     font-size: 10px;
@@ -157,13 +161,13 @@
     padding-bottom: 2rem;
   }
 
-  .tableHeader>span:nth-child(3),
-  .tableBody>span:nth-child(3) {
+  .tableHeader > span:nth-child(3),
+  .tableBody > span:nth-child(3) {
     display: none;
   }
 
-  .tableHeader>span:nth-child(4),
-  .tableBody>span:nth-child(4) {
+  .tableHeader > span:nth-child(4),
+  .tableBody > span:nth-child(4) {
     flex: unset;
   }
 

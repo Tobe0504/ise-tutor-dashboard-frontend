@@ -15,8 +15,8 @@ import ScheduleContextProvider from './Context/ScheduleContext'
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <Router>
-    <UseSWRConfigProvider>
-      <AppContextProvider>
+    <AppContextProvider>
+      <UseSWRConfigProvider>
         <AuthUserContextProvider>
           <StudentsContextProvider>
             <CourseContextProvider>
@@ -30,8 +30,8 @@ root.render(
             </CourseContextProvider>
           </StudentsContextProvider>
         </AuthUserContextProvider>
-      </AppContextProvider>
-    </UseSWRConfigProvider>
+      </UseSWRConfigProvider>
+    </AppContextProvider>
   </Router>
 )
 
