@@ -301,7 +301,6 @@ const AuthUserContextProvider = ({ children }: AuthCOntextProviderProps) => {
           'There was an issue making this request'
 
         if (errorMessage) {
-          console.log('Hmm', errorMessage)
           logout()
         }
       },

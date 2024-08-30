@@ -89,10 +89,10 @@ export type studentsType = {
 
 export type availabilityType = {
   day: string
-  isActive: boolean
+  isActive?: boolean
   availableTimes: {
-    startingTime: string
-    endingTime: string
+    startTime: string
+    endTime: string
   }[]
 }[]
 
@@ -102,4 +102,11 @@ export type dayTestTypes = {
   dayNumber: null | number
   date: string | null
   schedules: number
+}
+
+export type createMeetingDataType = {
+  date: string
+  startTime: string
+  endTime: string
+  sessionSubject: string
 }

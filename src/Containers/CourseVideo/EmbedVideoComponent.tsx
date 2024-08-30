@@ -56,7 +56,6 @@ const EmbedVideoComponent = ({
     }
   }, [requestState.data])
 
-  console.log(requestState.data, 'hmm')
   return (
     <>
       {displayDiscardModal && (

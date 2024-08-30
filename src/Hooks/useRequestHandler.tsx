@@ -77,7 +77,6 @@ const useRequestHandler = ({
       }
     })
     .catch((err) => {
-      console.log(err, 'Error')
       if (setState) {
         setState({
           isLoading: false,

@@ -38,8 +38,6 @@ const CourseInfoLeftBar = ({
     }
   }, [curriculum, moduleId])
 
-  console.log(activeModule, 'curriculum', moduleId)
-
   return (
     <div className={classes.course}>
       <h3>{courseData?.name}</h3>

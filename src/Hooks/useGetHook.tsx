@@ -22,7 +22,6 @@ const useGetHook = (url: string | null, props?: SWRConfiguration) => {
 
   if (errorMessage === 'Expired Token' || errorMessage === 'Unauthorized') {
     navigate('/sign-in', { state: location.pathname })
-    console.log(errorMessage, 'Error message')
   }
 
   return { data, error, isLoading, isValidating }

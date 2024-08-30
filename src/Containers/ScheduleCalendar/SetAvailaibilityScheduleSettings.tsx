@@ -8,29 +8,22 @@ import classes from './SetAvailaibilityScheduleSettings.module.css'
 
 type SetAvailaibilityScheduleSettingsType = {
   onClick: () => void
-  defaultAvailability: availabilityType
   availability: availabilityType
   setAvailability: Dispatch<SetStateAction<availabilityType>>
+  formatOptions: { title: string; isActive: boolean }[]
+  setFormatOptions: Dispatch<
+    SetStateAction<{ title: string; isActive: boolean }[]>
+  >
 }
 
 const SetAvailaibilityScheduleSettings = ({
   onClick,
-  defaultAvailability,
   availability,
   setAvailability,
+  formatOptions,
+  setFormatOptions,
 }: SetAvailaibilityScheduleSettingsType) => {
   // States
-
-  const [formatOptions, setFormatOptions] = useState([
-    {
-      title: 'Use weekly working hours',
-      isActive: false,
-    },
-    {
-      title: 'Use custom hours',
-      isActive: true,
-    },
-  ])
 
   //   Router
   const [, setSearchParams] = useSearchParams()
@@ -40,7 +33,7 @@ const SetAvailaibilityScheduleSettings = ({
     const activeFormatter = formatOptions.find((data) => data.isActive)
 
     if (activeFormatter?.title === 'Use weekly working hours') {
-      setAvailability((prevState) => {
+      setAvailability((prevState: availabilityType) => {
         const updatedState = [...prevState]
         const alteredState = updatedState?.map((data, i) => {
           if (data.day.toLowerCase() === 'sat') {
@@ -52,12 +45,12 @@ const SetAvailaibilityScheduleSettings = ({
               isActive: true,
               availableTimes: [
                 {
-                  startingTime: '07:00',
-                  endingTime: '14:00',
+                  startTime: '07:00',
+                  endTime: '14:00',
                 },
                 {
-                  startingTime: '15:00',
-                  endingTime: '20:00',
+                  startTime: '15:00',
+                  endTime: '20:00',
                 },
               ],
             }
@@ -67,8 +60,8 @@ const SetAvailaibilityScheduleSettings = ({
             isActive: true,
             availableTimes: [
               {
-                startingTime: '09:00',
-                endingTime: '17:00',
+                startTime: '09:00',
+                endTime: '17:00',
               },
             ],
           }
@@ -112,6 +105,7 @@ const SetAvailaibilityScheduleSettings = ({
         <AvailibilityPicker
           availability={availability}
           setAvailability={setAvailability}
+          isEditable
         />
       </div>
 

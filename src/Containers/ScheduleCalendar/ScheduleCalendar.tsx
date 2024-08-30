@@ -28,21 +28,27 @@ const ScheduleCalendar = () => {
           onClick={() => {
             setDisplayNewMeetingModal(false)
           }}
-          body={<CreateAMeeting />}
+          body={
+            <CreateAMeeting
+              onClick={() => {
+                setDisplayNewMeetingModal(false)
+              }}
+            />
+          }
         />
       )}
 
       {displayNewMeetingCreateSuccessModal && (
         <AcceptedModal
           onClick={() => {
-            setDisplayNewMeetingModal(false)
+            setDisplayNewMeetingCreateSuccessModal(false)
           }}
           body={
             <SuccessModalBody
               header="Meeting created successfully!"
               caption="Your meeting link has been generated, and your students will receive a notification shortly."
               onClick={() => {
-                setDisplayNewMeetingModal(false)
+                setDisplayNewMeetingCreateSuccessModal(false)
               }}
             />
           }

@@ -79,7 +79,6 @@ const AddQuestionAndAnswerComponent = () => {
             is_answer: true,
           },
         ]
-        console.log(updatedQuestions, questionType)
         return updatedQuestions
       })
     }
@@ -112,8 +111,6 @@ const AddQuestionAndAnswerComponent = () => {
         },
       ])
     }
-
-    console.log(requestState?.data, 'Test')
   }, [requestState.data])
 
   return (

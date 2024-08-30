@@ -2,11 +2,17 @@
 import ScheduleYourAvailability from '../ScheduleYourAvailability/ScheduleYourAvailability'
 import classes from './ScheduleSessionDetails.module.css'
 
-const ScheduleSessionDetails = () => {
+type ScheduleSessionDetailsType = {
+  tutorAvailability: any
+}
+
+const ScheduleSessionDetails = ({
+  tutorAvailability,
+}: ScheduleSessionDetailsType) => {
   return (
     <section className={classes.container}>
       {/* <ScheduleSessionDetailsContainer /> */}
-      <ScheduleYourAvailability />
+      <ScheduleYourAvailability tutorAvailability={tutorAvailability} />
     </section>
   )
 }

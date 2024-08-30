@@ -19,8 +19,6 @@ const AddNewWeekModule = () => {
   // Router
   const { courseId, curriculumId, moduleId } = useParams()
 
-  console.log(courseId, curriculumId, moduleId)
-
   return (
     <div className={classes.addModules}>
       <h3>Add new week to this module</h3>

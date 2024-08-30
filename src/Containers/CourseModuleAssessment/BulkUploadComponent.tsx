@@ -75,8 +75,6 @@ const BulkUploadComponent = () => {
     }
   }, [requestState?.data])
 
-  console.log(uploadAssessmentData, 'Upload')
-
   return (
     <>
       {displayDiscardModal && (

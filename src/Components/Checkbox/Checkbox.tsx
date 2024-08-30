@@ -3,13 +3,15 @@ import classes from './Checkbox.module.css'
 
 type CheckboxProps = {
   isChecked: boolean
-  onChange: (isChecked: boolean) => void
+  onChange?: (isChecked: boolean) => void
   disabled?: boolean
 }
 
 const Checkbox = ({ isChecked, onChange, disabled }: CheckboxProps) => {
   const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.checked)
+    if (onChange) {
+      onChange(event.target.checked)
+    }
   }
 
   return (

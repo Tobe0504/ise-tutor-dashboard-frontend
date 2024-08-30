@@ -19,7 +19,6 @@ const AddLessonResourcesOptional = ({
   setReadingData,
   readingData,
 }: AddLessonResourcesOptionalTypes) => {
-  console.log(readingData, 'Hmm')
   // States
   const [resource, setResource] = useState('')
   const [resourceType, setResourceType] = useState('')

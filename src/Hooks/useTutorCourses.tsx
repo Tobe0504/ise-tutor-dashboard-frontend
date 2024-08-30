@@ -7,7 +7,15 @@ const useTutorCourses = () => {
 }
 
 export const useCourseById = (id: string) => {
-  return useGetHook(`${backend_url}/api/ise/v1/courses/${id}`)
+  return useGetHook(`${backend_url}/api/ise/v1/courses/${id}`, {
+    revalidateOnFocus: false,
+  })
+}
+
+export const useTutorCohort = () => {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/my-courses`, {
+    revalidateOnFocus: false,
+  })
 }
 
 export default useTutorCourses
