@@ -8,9 +8,15 @@ import StudentDetailFeedBackDataTable from '../StudentDetailFeedBackDataTable/St
 
 type StudentDetailsModulesTypes = {
   student: any
+  studentGrade: any
+  studentFeedback: any
 }
 
-const StudentDetailsModules = ({ student }: StudentDetailsModulesTypes) => {
+const StudentDetailsModules = ({
+  student,
+  studentGrade,
+  studentFeedback,
+}: StudentDetailsModulesTypes) => {
   // States
   const [navItems, setNavItems] = useState<any[]>([
     {
@@ -41,8 +47,12 @@ const StudentDetailsModules = ({ student }: StudentDetailsModulesTypes) => {
       <div className={classes.body}>{activeComponent.activeComponent}</div>
       {navItems[0].isActive && <StudentDetailPageDetail student={student} />}
       {navItems[1].isActive && <StudentDetailQuizDataTable />}
-      {navItems[2].isActive && <StudentDetailGradeDataTable />}
-      {navItems[3].isActive && <StudentDetailFeedBackDataTable />}
+      {navItems[2].isActive && (
+        <StudentDetailGradeDataTable studentGrade={studentGrade} />
+      )}
+      {navItems[3].isActive && (
+        <StudentDetailFeedBackDataTable studentFeedback={studentFeedback} />
+      )}
     </section>
   )
 }

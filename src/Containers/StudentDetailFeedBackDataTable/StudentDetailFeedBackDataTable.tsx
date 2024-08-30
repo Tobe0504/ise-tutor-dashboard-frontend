@@ -1,44 +1,51 @@
-import classes from "./StudentDetailFeedBackDataTable.module.css";
-import { useState } from "react";
-import AcceptedModal from "../../Components/Modals/AcceptedModal/AcceptedModal";
-import StudentPeroidicFeedbackContainer from "../StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer";
+import classes from './StudentDetailFeedBackDataTable.module.css'
+import { useState } from 'react'
+import AcceptedModal from '../../Components/Modals/AcceptedModal/AcceptedModal'
+import StudentPeroidicFeedbackContainer from '../StudentPeroidicFeedbackContainer/StudentPeroidicFeedbackContainer'
+import moment from 'moment'
+
+type StudentDetailFeedBackDataTableType = {
+  studentFeedback: any
+}
 
 const feedback = [
   {
-    title: "Periodic survey feedback 1",
-    dateCreated: "19th Oct. 2023",
-    dateCompleted: "11 Nov, 2023",
+    title: 'Periodic survey feedback 1',
+    dateCreated: '19th Oct. 2023',
+    dateCompleted: '11 Nov, 2023',
   },
   {
-    title: "Periodic survey feedback 1",
-    dateCreated: "19th Oct. 2023",
-    dateCompleted: "11 Nov, 2023",
+    title: 'Periodic survey feedback 1',
+    dateCreated: '19th Oct. 2023',
+    dateCompleted: '11 Nov, 2023',
   },
-];
+]
 
+const StudentDetailFeedBackDataTable = ({
+  studentFeedback,
+}: StudentDetailFeedBackDataTableType) => {
+  const [displayModal, setDisplayModal] = useState(false)
 
-
-const StudentDetailFeedBackDataTable = () => {
-
-  const [displayModal, setDisplayModal] = useState(false);
+  console.log(studentFeedback, 'Feedback')
 
   return (
     <div className={classes.container}>
       {displayModal && (
         <AcceptedModal
           onClick={() => {
-            setDisplayModal(false);
+            setDisplayModal(false)
           }}
           body={
             <StudentPeroidicFeedbackContainer
               onClick={() => {
-                setDisplayModal(false);
+                setDisplayModal(false)
               }}
+              studentFeedback={studentFeedback}
             />
           }
         />
       )}
-      <p>1-10 of 10 results</p>
+      {/* <p>1-10 of 10 results</p> */}
       <div className={classes.tableHeader}>
         <span>Title</span>
         <span>File type</span>
@@ -46,19 +53,16 @@ const StudentDetailFeedBackDataTable = () => {
         <span>Action</span>
       </div>
       <div className={classes.tableBodyContainer}>
-        {feedback.map((data, i) => {
-          return (
-            <div className={classes.tableBody} key={i}>
-              <span>
-                {data.title} {i + 1}
-              </span>
-              <span>{data.dateCreated}</span>
-              <span>{data.dateCompleted}</span>
-              <span
-                onClick={() => setDisplayModal(true)}>View</span>
-            </div>
-          );
-        })}
+        <div className={classes.tableBody}>
+          <span>{studentFeedback?.survey_title}</span>
+          <span>
+            {moment(studentFeedback?.dateCreated)?.format('DD MMMM, YYYY')}
+          </span>
+          <span>
+            {moment(studentFeedback?.completion_date)?.format('DD MMMM, YYYY')}
+          </span>
+          <span onClick={() => setDisplayModal(true)}>View</span>
+        </div>
       </div>
       <div className={classes.pageButtons}>
         <span>
@@ -94,7 +98,7 @@ const StudentDetailFeedBackDataTable = () => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentDetailFeedBackDataTable;
+export default StudentDetailFeedBackDataTable

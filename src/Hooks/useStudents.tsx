@@ -13,3 +13,15 @@ export const useStudentsById = (id: string) => {
     revalidateOnFocus: false,
   })
 }
+
+export const useStudentGrades = (id: string) => {
+  return useGetHook(`${backend_url}api/ise/v1/tutors/student_grades/${id}`, {
+    revalidateOnFocus: false,
+  })
+}
+
+export const useStudentFeedback = (id: string) => {
+  return useGetHook(`${backend_url}/api/ise/v1/tutors/student_survey/${id}`, {
+    revalidateOnFocus: false,
+  })
+}
